@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -16,9 +17,12 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
     "types": ["node", "jest"]
     
   }
+
+  
 }
 
 

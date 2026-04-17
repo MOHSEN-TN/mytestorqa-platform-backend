@@ -1,14 +1,15 @@
 import {
   Body,
   Controller,
-  Post,
   Get,
+  Post,
   Req,
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { Response, Request } from 'express';
+import { Request, Response } from 'express';
 import { IsEmail, IsString, MinLength } from 'class-validator';
+
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 
@@ -21,9 +22,17 @@ class LoginDto {
   password: string;
 }
 
+type AuthenticatedRequest = Request & {
+  user: {
+    userId: string;
+    email: string;
+    role: string;
+  };
+};
+
 @Controller('auth')
 export class AuthController {
-  constructor(private auth: AuthService) {}
+  constructor(private readonly auth: AuthService) {}
 
   @Post('login')
   async login(
@@ -34,9 +43,10 @@ export class AuthController {
 
     res.cookie('accessToken', result.accessToken, {
       httpOnly: true,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
       path: '/',
+      maxAge: 24 * 60 * 60 * 1000,
     });
 
     return {
@@ -49,7 +59,7 @@ export class AuthController {
   logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('accessToken', {
       httpOnly: true,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
       path: '/',
     });
@@ -59,7 +69,7 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Get('me')
-  getProfile(@Req() req: Request & { user: unknown }) {
+  getProfile(@Req() req: AuthenticatedRequest) {
     return req.user;
   }
 }

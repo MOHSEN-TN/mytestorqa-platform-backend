@@ -1,14 +1,15 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
 import { RoleType } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
+
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private users: UsersService,
-    private jwt: JwtService,
+    private readonly users: UsersService,
+    private readonly jwt: JwtService,
   ) {}
 
   async login(email: string, password: string) {
@@ -46,8 +47,13 @@ export class AuthService {
     const count = await this.users.count();
     if (count > 0) return;
 
-    const email = process.env.ADMIN_EMAIL!;
-    const password = process.env.ADMIN_PASSWORD!;
+    const email = process.env.ADMIN_EMAIL;
+    const password = process.env.ADMIN_PASSWORD;
+
+    if (!email || !password) {
+      throw new Error('ADMIN_EMAIL or ADMIN_PASSWORD is not defined');
+    }
+
     const hashed = await bcrypt.hash(password, 10);
 
     await this.users.create({
