@@ -56,4 +56,12 @@ export class ProjectsController {
   deleteProject(@Param('id') id: string) {
     return this.projectsService.deleteProject(id);
   }
+
+  @Post(':projectId/duplicate')
+  duplicateProject(
+    @Req() req: AuthenticatedRequest,
+    @Param('projectId') projectId: string,
+  ) {
+    return this.projectsService.duplicate(projectId, req.user.userId);
+  }
 }

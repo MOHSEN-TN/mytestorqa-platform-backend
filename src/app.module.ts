@@ -7,7 +7,9 @@ import { AuthModule } from './auth/auth.module';
 import { ProjectsModule } from './projects/projects.module';
 import { TestcasesModule } from './testcases/testcases.module';
 import { TestsuitesModule } from './testsuites/testsuites.module';
-import { RunsModule } from './runs/runs.module';
+import { CampaignsModule } from './campaigns/campaigns.module';
+import { IterationsModule } from './iterations/iterations.module';
+
 @Module({
   imports: [
     PrismaModule,
@@ -16,7 +18,8 @@ import { RunsModule } from './runs/runs.module';
     ProjectsModule,
     TestcasesModule,
     TestsuitesModule,
-    RunsModule,
+    CampaignsModule,
+    IterationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

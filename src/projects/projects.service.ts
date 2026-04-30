@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
@@ -115,6 +115,108 @@ export class ProjectsService {
   ) {
     return this.prisma.projectMember.create({
       data: { projectId, userId, role },
+    });
+  }
+
+  async duplicate(projectId: string, userId: string) {
+    const existing = await this.prisma.project.findFirst({
+      where: {
+        id: projectId,
+        members: {
+          some: {
+            userId,
+          },
+        },
+      },
+      include: {
+        testSuites: {
+          include: {
+            testCases: {
+              include: {
+                steps: {
+                  orderBy: { stepOrder: 'asc' },
+                },
+              },
+              orderBy: { createdAt: 'asc' },
+            },
+          },
+          orderBy: { createdAt: 'asc' },
+        },
+      },
+    });
+
+    if (!existing) {
+      throw new NotFoundException('Project not found');
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      const newProject = await tx.project.create({
+        data: {
+          name: `${existing.name}-copie`,
+          members: {
+            create: {
+              userId,
+              role: 'OWNER',
+            },
+          },
+        },
+      });
+
+      for (const suite of existing.testSuites) {
+        const newSuite = await tx.testSuite.create({
+          data: {
+            projectId: newProject.id,
+            name: `${suite.name}-copie`,
+            description: suite.description,
+          },
+        });
+
+        for (const testCase of suite.testCases) {
+          await tx.testCase.create({
+            data: {
+              suiteId: newSuite.id,
+              title: `${testCase.title}-copie`,
+              description: testCase.description,
+              expected: testCase.expected,
+              status: testCase.status,
+              priority: testCase.priority,
+              steps: testCase.steps.length
+                ? {
+                    create: testCase.steps.map((step, index) => ({
+                      stepOrder: index + 1,
+                      action: step.action,
+                      expected: step.expected,
+                    })),
+                  }
+                : undefined,
+            },
+          });
+        }
+      }
+
+      return tx.project.findUnique({
+        where: { id: newProject.id },
+        select: {
+          id: true,
+          name: true,
+          createdAt: true,
+          members: {
+            select: {
+              id: true,
+              role: true,
+              createdAt: true,
+              user: {
+                select: {
+                  id: true,
+                  email: true,
+                  role: true,
+                  createdAt: true,
+                },
+              },
+            },
+          },
+        },
+      });
     });
   }
 }

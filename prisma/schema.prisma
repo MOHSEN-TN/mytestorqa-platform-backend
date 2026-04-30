@@ -19,6 +19,47 @@ enum ProjectRole {
   TESTER
 }
 
+enum TestCaseStatus {
+  DRAFT
+  READY
+  DEPRECATED
+}
+
+enum TestPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum ExecutionStatus {
+  TODO
+  SUCCESS
+  FAILED
+  BLOCKED
+  SKIPPED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      RoleType @default(TESTER)
+  createdAt DateTime @default(now())
+
+  memberships ProjectMember[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  name      String @unique
+  createdAt DateTime @default(now())
+
+  members    ProjectMember[]
+  testSuites TestSuite[]
+  campaigns  TestCampaign[]
+}
+
 model ProjectMember {
   id        String      @id @default(uuid())
   userId    String
@@ -34,46 +75,24 @@ model ProjectMember {
   @@index([projectId])
 }
 
-model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  role      RoleType @default(TESTER)
-  createdAt DateTime @default(now())
+model TestSuite {
+  id          String   @id @default(uuid())
+  projectId   String
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  memberships ProjectMember[]
-}
+  project         Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  testCases       TestCase[]
+  iterationSuites IterationSuite[]
 
-model Project {
-  id        String   @id @default(uuid())
-  name      String
-  createdAt DateTime @default(now())
-
-  members    ProjectMember[]
-  testCases  TestCase[]
-  testSuites TestSuite[]
-}
-
-// =========================
-// Test Cases
-// =========================
-
-enum TestCaseStatus {
-  DRAFT
-  READY
-  DEPRECATED
-}
-
-enum TestPriority {
-  LOW
-  MEDIUM
-  HIGH
-  CRITICAL
+  @@index([projectId])
 }
 
 model TestCase {
   id          String         @id @default(uuid())
-  projectId   String
+  suiteId     String
   title       String
   description String?
   expected    String?
@@ -82,13 +101,11 @@ model TestCase {
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
 
-  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  suite          TestSuite       @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+  steps          TestStep[]
+  iterationItems IterationItem[]
 
-  steps      TestStep[]
-  suiteItems SuiteItem[]
-  runItems   RunItem[]
-
-  @@index([projectId])
+  @@index([suiteId])
 }
 
 model TestStep {
@@ -102,80 +119,68 @@ model TestStep {
 
   testCase TestCase @relation(fields: [testCaseId], references: [id], onDelete: Cascade)
 
-  @@index([testCaseId])
   @@unique([testCaseId, stepOrder])
+  @@index([testCaseId])
 }
 
-// =========================
-// Test Suites
-// =========================
+model TestCampaign {
+  id          String   @id @default(uuid())
+  projectId   String
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-model TestSuite {
-  id        String   @id @default(uuid())
-  projectId String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  items   SuiteItem[]
-  runs    TestRun[]
+  project    Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  iterations TestIteration[]
 
   @@index([projectId])
 }
 
-model SuiteItem {
-  id         String   @id @default(uuid())
-  suiteId    String
-  testCaseId String
-  order      Int
-  createdAt  DateTime @default(now())
+model TestIteration {
+  id          String   @id @default(uuid())
+  campaignId  String
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  suite    TestSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
-  testCase TestCase  @relation(fields: [testCaseId], references: [id], onDelete: Cascade)
+  campaign TestCampaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  suites   IterationSuite[]
+  items    IterationItem[]
 
-  @@unique([suiteId, testCaseId])
-  @@unique([suiteId, order])
-  @@index([suiteId])
-  @@index([testCaseId])
+  @@index([campaignId])
 }
 
-// =========================
-// Test Runs
-// =========================
+model IterationSuite {
+  id          String   @id @default(uuid())
+  iterationId String
+  suiteId     String
+  createdAt   DateTime @default(now())
 
-enum RunStatus {
-  TODO
-  PASSED
-  FAILED
-  BLOCKED
-  SKIPPED
-}
+  iteration TestIteration @relation(fields: [iterationId], references: [id], onDelete: Cascade)
+  suite     TestSuite     @relation(fields: [suiteId], references: [id], onDelete: Cascade)
 
-model TestRun {
-  id        String   @id @default(uuid())
-  suiteId   String
-  name      String
-  createdAt DateTime @default(now())
-
-  suite TestSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
-  items RunItem[]
-
+  @@unique([iterationId, suiteId])
+  @@index([iterationId])
   @@index([suiteId])
 }
 
-model RunItem {
-  id         String    @id @default(uuid())
-  runId      String
-  testCaseId String
-  status     RunStatus @default(TODO)
-  comment    String?
-  duration   Int?
+model IterationItem {
+  id          String          @id @default(uuid())
+  iterationId String
+  testCaseId  String
+  status      ExecutionStatus @default(TODO)
+  comment     String?
+  duration    Int?
+  executedAt  DateTime?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
 
-  run      TestRun  @relation(fields: [runId], references: [id], onDelete: Cascade)
-  testCase TestCase @relation(fields: [testCaseId], references: [id], onDelete: Restrict)
+  iteration TestIteration @relation(fields: [iterationId], references: [id], onDelete: Cascade)
+  testCase  TestCase      @relation(fields: [testCaseId], references: [id], onDelete: Restrict)
 
-  @@unique([runId, testCaseId])
-  @@index([runId])
+  @@unique([iterationId, testCaseId])
+  @@index([iterationId])
   @@index([testCaseId])
 }

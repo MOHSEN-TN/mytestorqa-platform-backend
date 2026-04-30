@@ -5,9 +5,16 @@ import { PrismaService } from '../prisma/prisma.service';
 export class TestsuitesService {
   constructor(private prisma: PrismaService) {}
 
-  create(projectId: string, name: string) {
+  create(
+    projectId: string,
+    data: { name: string; description?: string },
+  ) {
     return this.prisma.testSuite.create({
-      data: { projectId, name },
+      data: {
+        projectId,
+        name: data.name,
+        description: data.description,
+      },
     });
   }
 
@@ -22,33 +29,122 @@ export class TestsuitesService {
     const suite = await this.prisma.testSuite.findUnique({
       where: { id: suiteId },
       include: {
-        items: {
-          orderBy: { order: 'asc' },
-          include: { testCase: true },
+        testCases: {
+          include: {
+            steps: {
+              orderBy: { stepOrder: 'asc' },
+            },
+          },
+          orderBy: { createdAt: 'desc' },
         },
       },
     });
-    if (!suite) throw new NotFoundException('Suite not found');
+
+    if (!suite) {
+      throw new NotFoundException('Suite not found');
+    }
+
     return suite;
   }
 
-  async addItem(suiteId: string, testCaseId: string) {
-    // 1) trouver le dernier ordre actuel
-    const last = await this.prisma.suiteItem.findFirst({
-      where: { suiteId },
-      orderBy: { order: 'desc' },
-      select: { order: true },
+  async update(
+    suiteId: string,
+    data: { name?: string; description?: string },
+  ) {
+    const existing = await this.prisma.testSuite.findUnique({
+      where: { id: suiteId },
     });
 
-    const nextOrder = (last?.order ?? 0) + 1;
+    if (!existing) {
+      throw new NotFoundException('Suite not found');
+    }
 
-    // 2) créer le lien suite <-> testcase
-    return this.prisma.suiteItem.create({
+    return this.prisma.testSuite.update({
+      where: { id: suiteId },
       data: {
-        suiteId,
-        testCaseId,
-        order: nextOrder,
+        name: data.name,
+        description: data.description,
       },
+    });
+  }
+
+  async remove(suiteId: string) {
+    const existing = await this.prisma.testSuite.findUnique({
+      where: { id: suiteId },
+    });
+
+    if (!existing) {
+      throw new NotFoundException('Suite not found');
+    }
+
+    return this.prisma.testSuite.delete({
+      where: { id: suiteId },
+    });
+  }
+
+  async duplicate(suiteId: string) {
+    const existing = await this.prisma.testSuite.findUnique({
+      where: { id: suiteId },
+      include: {
+        testCases: {
+          include: {
+            steps: {
+              orderBy: { stepOrder: 'asc' },
+            },
+          },
+          orderBy: { createdAt: 'asc' },
+        },
+      },
+    });
+
+    if (!existing) {
+      throw new NotFoundException('Suite not found');
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      const newSuite = await tx.testSuite.create({
+        data: {
+          projectId: existing.projectId,
+          name: `${existing.name}-copie`,
+          description: existing.description,
+        },
+      });
+
+      for (const testCase of existing.testCases) {
+        await tx.testCase.create({
+          data: {
+            suiteId: newSuite.id,
+            title: `${testCase.title}-copie`,
+            description: testCase.description,
+            expected: testCase.expected,
+            status: testCase.status,
+            priority: testCase.priority,
+            steps: testCase.steps.length
+              ? {
+                  create: testCase.steps.map((step, index) => ({
+                    stepOrder: index + 1,
+                    action: step.action,
+                    expected: step.expected,
+                  })),
+                }
+              : undefined,
+          },
+        });
+      }
+
+      return tx.testSuite.findUnique({
+        where: { id: newSuite.id },
+        include: {
+          testCases: {
+            include: {
+              steps: {
+                orderBy: { stepOrder: 'asc' },
+              },
+            },
+            orderBy: { createdAt: 'desc' },
+          },
+        },
+      });
     });
   }
 }

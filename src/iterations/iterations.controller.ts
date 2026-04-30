@@ -1,0 +1,76 @@
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { IterationsService } from './iterations.service';
+import {
+  CreateIterationDto,
+  UpdateIterationDto,
+} from './dto/create-iteration.dto';
+
+@ApiTags('Iterations')
+@UseGuards(JwtAuthGuard)
+@Controller()
+export class IterationsController {
+  constructor(private iterations: IterationsService) {}
+
+  @Post('campaigns/:campaignId/iterations')
+  create(
+    @Param('campaignId') campaignId: string,
+    @Body() body: CreateIterationDto,
+  ) {
+    return this.iterations.create(campaignId, body);
+  }
+
+  @Get('campaigns/:campaignId/iterations')
+  findAll(@Param('campaignId') campaignId: string) {
+    return this.iterations.findAll(campaignId);
+  }
+
+  @Get('iterations/:iterationId')
+  findOne(@Param('iterationId') iterationId: string) {
+    return this.iterations.findOne(iterationId);
+  }
+
+  @Patch('iterations/:iterationId')
+  update(
+    @Param('iterationId') iterationId: string,
+    @Body() body: UpdateIterationDto,
+  ) {
+    return this.iterations.update(iterationId, body);
+  }
+
+  @Delete('iterations/:iterationId')
+  remove(@Param('iterationId') iterationId: string) {
+    return this.iterations.remove(iterationId);
+  }
+
+  @Post('iterations/:iterationId/suites')
+  addSuites(
+    @Param('iterationId') iterationId: string,
+    @Body('suiteIds') suiteIds: string[],
+  ) {
+    return this.iterations.addSuites(iterationId, suiteIds);
+  }
+
+  @Delete('iterations/:iterationId/suites/:suiteId')
+  removeSuite(
+    @Param('iterationId') iterationId: string,
+    @Param('suiteId') suiteId: string,
+  ) {
+    return this.iterations.removeSuite(iterationId, suiteId);
+  }
+
+  @Post('iterations/:iterationId/run')
+  run(@Param('iterationId') iterationId: string) {
+    return this.iterations.generateItems(iterationId);
+  }
+}

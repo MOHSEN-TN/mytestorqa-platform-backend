@@ -9,16 +9,16 @@ import {
 export class TestcasesService {
   constructor(private prisma: PrismaService) {}
 
-  create(projectId: string, data: CreateTestCaseDto) {
+  create(suiteId: string, data: CreateTestCaseDto) {
     return this.prisma.testCase.create({
       data: {
-        projectId,
+        suiteId,
         title: data.title,
         description: data.description,
         expected: data.expected,
         status: data.status ?? 'DRAFT',
         priority: data.priority ?? 'MEDIUM',
-        steps: data.steps
+        steps: data.steps?.length
           ? {
               create: data.steps.map((step, index) => ({
                 stepOrder: index + 1,
@@ -36,9 +36,9 @@ export class TestcasesService {
     });
   }
 
-  findAll(projectId: string) {
+  findAll(suiteId: string) {
     return this.prisma.testCase.findMany({
-      where: { projectId },
+      where: { suiteId },
       include: {
         steps: {
           orderBy: { stepOrder: 'asc' },
@@ -48,9 +48,12 @@ export class TestcasesService {
     });
   }
 
-  async findOne(id: string) {
-    const tc = await this.prisma.testCase.findUnique({
-      where: { id },
+  async findOne(suiteId: string, testCaseId: string) {
+    const tc = await this.prisma.testCase.findFirst({
+      where: {
+        id: testCaseId,
+        suiteId,
+      },
       include: {
         steps: {
           orderBy: { stepOrder: 'asc' },
@@ -66,14 +69,14 @@ export class TestcasesService {
   }
 
   async update(
-    projectId: string,
+    suiteId: string,
     testCaseId: string,
     data: UpdateTestCaseDto,
   ) {
     const existing = await this.prisma.testCase.findFirst({
       where: {
         id: testCaseId,
-        projectId,
+        suiteId,
       },
     });
 
@@ -108,11 +111,11 @@ export class TestcasesService {
     });
   }
 
-  async remove(projectId: string, testCaseId: string) {
+  async remove(suiteId: string, testCaseId: string) {
     const existing = await this.prisma.testCase.findFirst({
       where: {
         id: testCaseId,
-        projectId,
+        suiteId,
       },
     });
 
@@ -122,6 +125,49 @@ export class TestcasesService {
 
     return this.prisma.testCase.delete({
       where: { id: testCaseId },
+    });
+  }
+
+  async duplicate(suiteId: string, testCaseId: string) {
+    const existing = await this.prisma.testCase.findFirst({
+      where: {
+        id: testCaseId,
+        suiteId,
+      },
+      include: {
+        steps: {
+          orderBy: { stepOrder: 'asc' },
+        },
+      },
+    });
+
+    if (!existing) {
+      throw new NotFoundException('TestCase not found');
+    }
+
+    return this.prisma.testCase.create({
+      data: {
+        suiteId: existing.suiteId,
+        title: `${existing.title}-copie`,
+        description: existing.description,
+        expected: existing.expected,
+        status: existing.status,
+        priority: existing.priority,
+        steps: existing.steps.length
+          ? {
+              create: existing.steps.map((step, index) => ({
+                stepOrder: index + 1,
+                action: step.action,
+                expected: step.expected,
+              })),
+            }
+          : undefined,
+      },
+      include: {
+        steps: {
+          orderBy: { stepOrder: 'asc' },
+        },
+      },
     });
   }
 }

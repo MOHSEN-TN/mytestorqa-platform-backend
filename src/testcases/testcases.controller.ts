@@ -13,42 +13,53 @@ import { TestcasesService } from './testcases.service';
 import { CreateTestCaseDto, UpdateTestCaseDto } from './dto/testcase.dto';
 
 @UseGuards(JwtAuthGuard)
-@Controller('projects/:projectId/testcases')
+@Controller('suites/:suiteId/testcases')
 export class TestcasesController {
   constructor(private readonly testcasesService: TestcasesService) {}
 
   @Post()
   create(
-    @Param('projectId') projectId: string,
+    @Param('suiteId') suiteId: string,
     @Body() data: CreateTestCaseDto,
   ) {
-    return this.testcasesService.create(projectId, data);
+    return this.testcasesService.create(suiteId, data);
   }
 
   @Get()
-  findAll(@Param('projectId') projectId: string) {
-    return this.testcasesService.findAll(projectId);
+  findAll(@Param('suiteId') suiteId: string) {
+    return this.testcasesService.findAll(suiteId);
   }
 
   @Get(':testCaseId')
-  findOne(@Param('testCaseId') testCaseId: string) {
-    return this.testcasesService.findOne(testCaseId);
+  findOne(
+    @Param('suiteId') suiteId: string,
+    @Param('testCaseId') testCaseId: string,
+  ) {
+    return this.testcasesService.findOne(suiteId, testCaseId);
   }
 
   @Patch(':testCaseId')
   update(
-    @Param('projectId') projectId: string,
+    @Param('suiteId') suiteId: string,
     @Param('testCaseId') testCaseId: string,
     @Body() data: UpdateTestCaseDto,
   ) {
-    return this.testcasesService.update(projectId, testCaseId, data);
+    return this.testcasesService.update(suiteId, testCaseId, data);
   }
 
   @Delete(':testCaseId')
   remove(
-    @Param('projectId') projectId: string,
+    @Param('suiteId') suiteId: string,
     @Param('testCaseId') testCaseId: string,
   ) {
-    return this.testcasesService.remove(projectId, testCaseId);
+    return this.testcasesService.remove(suiteId, testCaseId);
+  }
+
+  @Post(':testCaseId/duplicate')
+  duplicate(
+    @Param('suiteId') suiteId: string,
+    @Param('testCaseId') testCaseId: string,
+  ) {
+    return this.testcasesService.duplicate(suiteId, testCaseId);
   }
 }
