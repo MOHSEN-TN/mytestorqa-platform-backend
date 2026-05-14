@@ -22,6 +22,13 @@ export enum TestPriorityDto {
   CRITICAL = 'CRITICAL',
 }
 
+export enum Status {
+  ALL= 'ALL',
+  DRAFT = 'DRAFT',
+  READY = 'READY',
+  DEPRECATED = 'DEPRECATED',
+}
+
 export class TestStepDto {
   @ApiProperty({ example: 'Open login page' })
   @IsString()
@@ -79,3 +86,16 @@ export class CreateTestCaseDto {
 }
 
 export class UpdateTestCaseDto extends PartialType(CreateTestCaseDto) {}
+
+
+export class GetAllTestCasesBySuitesDTO {
+  @ApiPropertyOptional({ example: 'ALL' })
+  @IsOptional()
+  @IsString()
+  status?: string;
+
+  @ApiPropertyOptional({ example: 'LOW' })
+  @IsOptional()
+  @IsString()
+  priority?: string;
+}

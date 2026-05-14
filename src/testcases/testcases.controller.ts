@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Body,
   Controller,
@@ -10,13 +11,14 @@ import {
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { TestcasesService } from './testcases.service';
-import { CreateTestCaseDto, UpdateTestCaseDto } from './dto/testcase.dto';
+import { CreateTestCaseDto, GetAllTestCasesBySuitesDTO, UpdateTestCaseDto } from './dto/testcase.dto';
 
 @UseGuards(JwtAuthGuard)
 @Controller('suites/:suiteId/testcases')
 export class TestcasesController {
   constructor(private readonly testcasesService: TestcasesService) {}
 
+  
   @Post()
   create(
     @Param('suiteId') suiteId: string,
@@ -24,11 +26,12 @@ export class TestcasesController {
   ) {
     return this.testcasesService.create(suiteId, data);
   }
-
-  @Get()
-  findAll(@Param('suiteId') suiteId: string) {
-    return this.testcasesService.findAll(suiteId);
+  @Post("/by-pagination")
+  findAll(@Param('suiteId') suiteId: string, @Body() data: GetAllTestCasesBySuitesDTO) : Promise<any[]> {
+    
+    return this.testcasesService.findAll(suiteId, data);
   }
+
 
   @Get(':testCaseId')
   findOne(

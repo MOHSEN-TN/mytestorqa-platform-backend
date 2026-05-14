@@ -1,9 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import {
   CreateTestCaseDto,
+  GetAllTestCasesBySuitesDTO,
   UpdateTestCaseDto,
 } from './dto/testcase.dto';
+import { TestCaseStatus } from '@prisma/client';
 
 @Injectable()
 export class TestcasesService {
@@ -36,13 +41,19 @@ export class TestcasesService {
     });
   }
 
-  findAll(suiteId: string) {
+  async findAll(suiteId: string, data: GetAllTestCasesBySuitesDTO): Promise<any[]> {
     return this.prisma.testCase.findMany({
-      where: { suiteId },
+      where: {
+        suiteId,
+        ...(data.status && data.status !== 'ALL'
+          ? { status: data.status as TestCaseStatus }
+          : {}),
+        ...(data.priority && data.priority !== 'ALL'
+          ? { priority: data.priority as any }
+          : {}),
+      },
       include: {
-        steps: {
-          orderBy: { stepOrder: 'asc' },
-        },
+        steps: { orderBy: { stepOrder: 'asc' } },
       },
       orderBy: { createdAt: 'desc' },
     });
