@@ -98,4 +98,9 @@ export class GetAllTestCasesBySuitesDTO {
   @IsOptional()
   @IsString()
   priority?: string;
+  
+  @ApiPropertyOptional({ example: 'Test Case Name' })
+  @IsOptional()
+  @IsString()
+  search?: string;
 }

@@ -42,16 +42,27 @@ export class TestcasesService {
   }
 
   async findAll(suiteId: string, data: GetAllTestCasesBySuitesDTO): Promise<any[]> {
+    const where: any = {
+      suiteId,
+    };
+    
+    if (data.status && data.status !== 'ALL') {
+      where.status = data.status as TestCaseStatus;
+    }
+    
+    if (data.priority && data.priority !== 'ALL') {
+      where.priority = data.priority;
+    }
+    
+    if (data.search && data.search.trim()) {
+      where.OR = [
+        { title: { contains: data.search, mode: 'insensitive' } },
+        { description: { contains: data.search, mode: 'insensitive' } },
+      ];
+    }
+    
     return this.prisma.testCase.findMany({
-      where: {
-        suiteId,
-        ...(data.status && data.status !== 'ALL'
-          ? { status: data.status as TestCaseStatus }
-          : {}),
-        ...(data.priority && data.priority !== 'ALL'
-          ? { priority: data.priority as any }
-          : {}),
-      },
+      where,
       include: {
         steps: { orderBy: { stepOrder: 'asc' } },
       },
