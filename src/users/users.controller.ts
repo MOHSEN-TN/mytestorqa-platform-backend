@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { Body, Controller, Get, Patch, Req, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Roles } from '../auth/roles.decorator';
@@ -21,8 +24,9 @@ export class UsersController {
     @Req() req: any,
     @Body() body: { oldPassword: string; newPassword: string },
   ) {
+    
     return this.usersService.changePassword(
-      req.user.userId,
+      req.user.email,
       body.oldPassword,
       body.newPassword,
     );

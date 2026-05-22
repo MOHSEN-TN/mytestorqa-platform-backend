@@ -26,12 +26,14 @@ export class UsersService {
   }
 
   async changePassword(
-    userId: string,
+    email: string,
     oldPassword: string,
     newPassword: string,
   ) {
+    console.log("hello ", email);
+    
     const user = await this.prisma.user.findUnique({
-      where: { id: userId },
+      where: { email: email },
     });
 
     if (!user) {
@@ -45,9 +47,10 @@ export class UsersService {
     }
 
     const hashed = await bcrypt.hash(newPassword, 10);
-
+    console.log(hashed);
+    
     await this.prisma.user.update({
-      where: { id: userId },
+      where: { id: user.id },
       data: { password: hashed },
     });
 
