@@ -26,12 +26,14 @@ export class TestcasesController {
   ) {
     return this.testcasesService.create(suiteId, data);
   }
+
   @Post("/by-pagination")
-  findAll(@Param('suiteId') suiteId: string, @Body() data: GetAllTestCasesBySuitesDTO) : Promise<any[]> {
-    
+  findAll(
+    @Param('suiteId') suiteId: string,
+    @Body() data: GetAllTestCasesBySuitesDTO,
+  ): Promise<{ items: any[]; total: number; page: number; totalPages: number }> {
     return this.testcasesService.findAll(suiteId, data);
   }
-
 
   @Get(':testCaseId')
   findOne(

@@ -2,8 +2,10 @@ import { PartialType } from '@nestjs/mapped-types';
 import {
   IsArray,
   IsEnum,
+  IsInt,
   IsOptional,
   IsString,
+  Min,
   ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -103,4 +105,19 @@ export class GetAllTestCasesBySuitesDTO {
   @IsOptional()
   @IsString()
   search?: string;
+
+
+  @ApiPropertyOptional({ example: 1 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  page?: number;
+
+  @ApiPropertyOptional({ example: 10 })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  limit?: number;
 }

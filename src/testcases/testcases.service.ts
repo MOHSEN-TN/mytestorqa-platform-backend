@@ -41,33 +41,46 @@ export class TestcasesService {
     });
   }
 
-  async findAll(suiteId: string, data: GetAllTestCasesBySuitesDTO): Promise<any[]> {
-    const where: any = {
-      suiteId,
-    };
-    
+
+  async findAll(suiteId: string, data: GetAllTestCasesBySuitesDTO): Promise<{ items: any[]; total: number; page: number; totalPages: number }> {
+    const where: any = { suiteId };
+
     if (data.status && data.status !== 'ALL') {
       where.status = data.status as TestCaseStatus;
     }
-    
+
     if (data.priority && data.priority !== 'ALL') {
       where.priority = data.priority;
     }
-    
+
     if (data.search && data.search.trim()) {
       where.OR = [
         { title: { contains: data.search, mode: 'insensitive' } },
         { description: { contains: data.search, mode: 'insensitive' } },
       ];
     }
-    
-    return this.prisma.testCase.findMany({
-      where,
-      include: {
-        steps: { orderBy: { stepOrder: 'asc' } },
-      },
-      orderBy: { createdAt: 'desc' },
-    });
+
+    const page = data.page ?? 1;
+    const limit = data.limit ?? 10;
+    const skip = (page - 1) * limit;
+
+    const [items, total] = await this.prisma.$transaction([
+      this.prisma.testCase.findMany({
+        where,
+        include: { steps: { orderBy: { stepOrder: 'asc' } } },
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+      }),
+      this.prisma.testCase.count({ where }),
+    ]);
+
+    return {
+      items,
+      total,
+      page,
+      totalPages: Math.max(1, Math.ceil(total / limit)),
+    };
   }
 
   async findOne(suiteId: string, testCaseId: string) {
