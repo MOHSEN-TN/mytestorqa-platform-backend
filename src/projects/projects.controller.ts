@@ -38,9 +38,14 @@ export class ProjectsController {
   @Get()
   listProjects(
     @Req() req: AuthenticatedRequest,
-    @Query('name') name?: string
+    @Query('name') name?: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ) {
-    return this.projectsService.listProjects(req.user.userId, name);
+    return this.projectsService.listProjects(req.user.userId, name, {
+      page: page ? parseInt(page, 10) : 1,
+      limit: limit ? parseInt(limit, 10) : 10,
+    });
   }
 
   @Post()

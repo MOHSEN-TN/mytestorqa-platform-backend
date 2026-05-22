@@ -5,40 +5,53 @@ import { PrismaService } from '../prisma/prisma.service';
 export class ProjectsService {
   constructor(private prisma: PrismaService) {}
 
-  async listProjects(userId: string, name?: string) {
-    return this.prisma.project.findMany({
-      where: {
-        members: {
-          some: { userId },
-        },
-        ...(name && {
-          name: {
-            contains: name,
-            mode: 'insensitive',   // case-insensitive
-          },
-        }),
-      },
-      select: {
-        id: true,
-        name: true,
-        createdAt: true,
-        members: {
-          select: {
-            id: true,
-            role: true,
-            createdAt: true,
-            user: {
-              select: {
-                id: true,
-                email: true,
-                role: true,
-                createdAt: true,
+  async listProjects(
+    userId: string,
+    name?: string,
+    pagination: { page: number; limit: number } = { page: 1, limit: 10 },
+  ) {
+    const { page, limit } = pagination;
+    const skip = (page - 1) * limit;
+
+    const where = {
+      members: { some: { userId } },
+      ...(name && { name: { contains: name, mode: 'insensitive' as const } }),
+    };
+
+    const [data, total] = await Promise.all([
+      this.prisma.project.findMany({
+        where,
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'desc' },
+        select: {
+          id: true,
+          name: true,
+          createdAt: true,
+          members: {
+            select: {
+              id: true,
+              role: true,
+              createdAt: true,
+              user: {
+                select: { id: true, email: true, role: true, createdAt: true },
               },
             },
           },
         },
+      }),
+      this.prisma.project.count({ where }),
+    ]);
+
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
       },
-    });
+    };
   }
 
   async createProject(userId: string, name: string) {
