@@ -17,6 +17,7 @@ export class UsersController {
   listUsers() {
     return { ok: true, message: 'Only ADMIN can access this route' };
   }
+  
 
   @UseGuards(JwtAuthGuard)
   @Patch('password')

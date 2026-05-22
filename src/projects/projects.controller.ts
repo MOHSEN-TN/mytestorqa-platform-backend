@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -35,8 +36,11 @@ export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
   @Get()
-  listProjects(@Req() req: AuthenticatedRequest) {
-    return this.projectsService.listProjects(req.user.userId);
+  listProjects(
+    @Req() req: AuthenticatedRequest,
+    @Query('name') name?: string
+  ) {
+    return this.projectsService.listProjects(req.user.userId, name);
   }
 
   @Post()

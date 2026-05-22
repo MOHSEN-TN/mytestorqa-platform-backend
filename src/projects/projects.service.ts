@@ -5,14 +5,18 @@ import { PrismaService } from '../prisma/prisma.service';
 export class ProjectsService {
   constructor(private prisma: PrismaService) {}
 
-  async listProjects(userId: string) {
+  async listProjects(userId: string, name?: string) {
     return this.prisma.project.findMany({
       where: {
         members: {
-          some: {
-            userId,
-          },
+          some: { userId },
         },
+        ...(name && {
+          name: {
+            contains: name,
+            mode: 'insensitive',   // case-insensitive
+          },
+        }),
       },
       select: {
         id: true,
