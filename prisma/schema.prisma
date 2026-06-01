@@ -46,7 +46,8 @@ model User {
   password  String
   role      RoleType @default(TESTER)
   createdAt DateTime @default(now())
-
+  otpCode   String?
+  otpExpiry DateTime?
   memberships ProjectMember[]
 }
 
