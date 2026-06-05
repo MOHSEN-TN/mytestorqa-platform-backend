@@ -3,6 +3,8 @@ import {
   BadRequestException,
   Injectable,
   UnauthorizedException,
+  NotFoundException,
+  ConflictException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RoleType } from '@prisma/client';
@@ -18,6 +20,190 @@ export class UsersService {
 
   count() {
     return this.prisma.user.count();
+  }
+
+  async findAll(params: { page: number; limit: number; search?: string }) {
+    const { page, limit, search } = params;
+    const skip = (page - 1) * limit;
+
+    const where = search
+      ? {
+          OR: [
+            { email: { contains: search, mode: 'insensitive' as const } },
+            { firstName: { contains: search, mode: 'insensitive' as const } },
+            { lastName: { contains: search, mode: 'insensitive' as const } },
+          ],
+        }
+      : {};
+
+    const [users, total] = await Promise.all([
+      this.prisma.user.findMany({
+        where,
+        skip,
+        take: limit,
+        select: {
+          id: true,
+          email: true,
+          firstName: true,
+          lastName: true,
+          role: true,
+          createdAt: true,
+        },
+        orderBy: { createdAt: 'desc' },
+      }),
+      this.prisma.user.count({ where }),
+    ]);
+
+    return {
+      data: users,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
+  }
+
+  async findOne(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('Utilisateur non trouvé');
+    }
+
+    return { data: user };
+  }
+
+  async createUser(data: { 
+    email: string; 
+    firstName: string; 
+    lastName: string; 
+    role: string;
+  }) {
+    // Check if user exists
+    const existingUser = await this.prisma.user.findUnique({
+      where: { email: data.email },
+    });
+
+    if (existingUser) {
+      throw new ConflictException('Un utilisateur avec cet email existe déjà');
+    }
+
+    // Generate temporary password
+    const tempPassword = this.generateSecurePassword(12);
+    const hashedPassword = await bcrypt.hash(tempPassword, 10);
+
+    const user = await this.prisma.user.create({
+      data: {
+        email: data.email,
+        password: hashedPassword,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        role: data.role as RoleType,
+      },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+
+    // Send email with temporary password
+    await this.mailService.sendNewPassword(data.email, tempPassword);
+
+    return {
+      data: user,
+      message: 'Utilisateur créé avec succès',
+    };
+  }
+
+  async updateUser(id: string, data: { firstName?: string; lastName?: string; role?: string }) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!existingUser) {
+      throw new NotFoundException('Utilisateur non trouvé');
+    }
+
+    const updatedUser = await this.prisma.user.update({
+      where: { id },
+      data: {
+        ...(data.firstName && { firstName: data.firstName }),
+        ...(data.lastName && { lastName: data.lastName }),
+        ...(data.role && { role: data.role as RoleType }),
+      },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+
+    return {
+      data: updatedUser,
+      message: 'Utilisateur mis à jour avec succès',
+    };
+  }
+
+  async deleteUser(id: string) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!existingUser) {
+      throw new NotFoundException('Utilisateur non trouvé');
+    }
+
+    await this.prisma.user.delete({
+      where: { id },
+    });
+
+    return {
+      message: 'Utilisateur supprimé avec succès',
+    };
+  }
+
+  async resetUserPassword(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      throw new NotFoundException('Utilisateur non trouvé');
+    }
+
+    const newPassword = this.generateSecurePassword(12);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    await this.prisma.user.update({
+      where: { id },
+      data: { password: hashedPassword },
+    });
+
+    // Send email with new password
+    await this.mailService.sendNewPassword(user.email, newPassword);
+
+    return {
+      message: 'Mot de passe réinitialisé avec succès',
+    };
   }
 
   findByEmail(email: string) {
@@ -60,14 +246,12 @@ export class UsersService {
   async sendForgotPasswordOtp(email: string) {
     const user = await this.prisma.user.findUnique({ where: { email } });
 
-    // On retourne toujours un succès pour ne pas divulguer les emails existants
     if (!user) {
       return { message: 'Si cet email existe, un code vous a été envoyé.' };
     }
 
-    // Générer un code OTP à 6 chiffres
     const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const otpExpiry = new Date(Date.now() + 10 * 60 * 1000); // +10 minutes
+    const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
     await this.prisma.user.update({
       where: { id: user.id },
@@ -87,7 +271,6 @@ export class UsersService {
       throw new BadRequestException('Code invalide ou expiré.');
     }
 
-    // Vérifier expiration
     if (new Date() > user.otpExpiry) {
       await this.prisma.user.update({
         where: { id: user.id },
@@ -96,26 +279,22 @@ export class UsersService {
       throw new BadRequestException('Code expiré. Veuillez recommencer.');
     }
 
-    // Vérifier le code
     if (user.otpCode !== otpCode) {
       throw new BadRequestException('Code incorrect.');
     }
 
-    // Générer un mot de passe aléatoire sécurisé (12 caractères)
     const newPassword = this.generateSecurePassword(12);
-
-    // Hasher et sauvegarder
     const hashed = await bcrypt.hash(newPassword, 10);
+    
     await this.prisma.user.update({
       where: { id: user.id },
       data: {
         password: hashed,
-        otpCode: null,   // Invalider l'OTP
+        otpCode: null,
         otpExpiry: null,
       },
     });
 
-    // Envoyer le nouveau mot de passe par email
     await this.mailService.sendNewPassword(email, newPassword);
 
     return { message: 'Mot de passe réinitialisé. Vérifiez votre email.' };

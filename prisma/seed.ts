@@ -1,45 +1,48 @@
+// prisma/seed.ts
 import { PrismaClient, RoleType } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = 'aissaouimohsen@gmail.com';
-  const password = '12345678';
+  const defaultUsers = [
+    {
+      email: 'admin@testflow.com',
+      password: await bcrypt.hash('Admin123!', 10),
+      role: RoleType.ADMIN,
+      firstName: 'Super',
+      lastName: 'Admin',
+    },
+    {
+      email: 'qalead@testflow.com',
+      password: await bcrypt.hash('QALead123!', 10),
+      role: RoleType.QA_LEAD,
+      firstName: 'QA',
+      lastName: 'Lead',
+    },
+    {
+      email: 'tester@testflow.com',
+      password: await bcrypt.hash('Tester123!', 10),
+      role: RoleType.TESTER,
+      firstName: 'Test',
+      lastName: 'User',
+    },
+  ];
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const existing = await prisma.user.findUnique({
-    where: { email },
-  });
-
-  if (existing) {
-    await prisma.user.update({
-      where: { email },
-      data: {
-        password: hashedPassword,
-        role: RoleType.ADMIN,
-      },
+  for (const user of defaultUsers) {
+    await prisma.user.upsert({
+      where: { email: user.email },
+      update: {},
+      create: user,
     });
-
-    console.log('Admin password updated successfully');
-    return;
   }
 
-  await prisma.user.create({
-    data: {
-      email,
-      password: hashedPassword,
-      role: RoleType.ADMIN,
-    },
-  });
-
-  console.log('Admin user created successfully');
+  console.log('✅ Utilisateurs par défaut créés');
 }
 
 main()
   .catch((e) => {
-    console.error(e);
+    console.error('❌ Erreur de seed:', e);
     process.exit(1);
   })
   .finally(async () => {
