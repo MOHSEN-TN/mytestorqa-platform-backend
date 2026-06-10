@@ -38,9 +38,7 @@ export class UsersController {
       page: page ? parseInt(page) : 1,
       limit: limit ? parseInt(limit) : 10,
       search: searchTerm,
-    });
-    console.log("reeeees ", res);
-    
+    });    
     return res;
   }
 
