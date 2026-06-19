@@ -1,0 +1,86 @@
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
+import type { Request } from 'express';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import {
+  AIExplorationService,
+  CreateAIExplorationDto,
+  UpdateAIExplorationDto,
+} from './ai-exploration.service';
+
+type AuthenticatedRequest = Request & {
+  user: {
+    userId: string;
+    email: string;
+    role: string;
+  };
+};
+
+@Controller('ai-exploration')
+@UseGuards(JwtAuthGuard)
+export class AIExplorationController {
+  constructor(private readonly aiExplorationService: AIExplorationService) {}
+
+  @Get()
+  findAll(
+    @Req() req: AuthenticatedRequest,
+    @Query('projectId') projectId?: string,
+  ) {
+    if (projectId) {
+      return this.aiExplorationService.findByProject(projectId);
+    }
+
+    return this.aiExplorationService.findAllByUser(req.user.userId);
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.aiExplorationService.findOne(id);
+  }
+
+  @Post()
+  create(
+    @Req() req: AuthenticatedRequest,
+    @Body() dto: CreateAIExplorationDto,
+  ) {
+    return this.aiExplorationService.create({
+      ...dto,
+      createdById: req.user.userId,
+    });
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() dto: UpdateAIExplorationDto) {
+    return this.aiExplorationService.update(id, dto);
+  }
+
+  @Post(':id/generate')
+  generate(@Param('id') id: string) {
+    return this.aiExplorationService.generate(id);
+  }
+
+  @Post(':id/validate')
+  validate(@Param('id') id: string) {
+    return this.aiExplorationService.validate(id);
+  }
+
+  @Post(':id/archive')
+  archive(@Param('id') id: string) {
+    return this.aiExplorationService.archive(id);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.aiExplorationService.remove(id);
+  }
+}

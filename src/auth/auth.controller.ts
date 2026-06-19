@@ -47,6 +47,7 @@ export class AuthController {
       sameSite: 'lax',
       path: '/',
       maxAge: 24 * 60 * 60 * 1000,
+      //maxAge: 15 * 1000,
     });
 
     return {

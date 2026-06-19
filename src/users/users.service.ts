@@ -5,6 +5,7 @@ import {
   UnauthorizedException,
   NotFoundException,
   ConflictException,
+  Logger,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { RoleType } from '@prisma/client';
@@ -13,6 +14,8 @@ import { MailService } from '../mail/mail.service';
 
 @Injectable()
 export class UsersService {
+  private readonly logger = new Logger(UsersService.name);
+
   constructor(
     private prisma: PrismaService,
     private mailService: MailService,
@@ -85,13 +88,12 @@ export class UsersService {
     return { data: user };
   }
 
-  async createUser(data: { 
-    email: string; 
-    firstName: string; 
-    lastName: string; 
+  async createUser(data: {
+    email: string;
+    firstName: string;
+    lastName: string;
     role: string;
   }) {
-    // Check if user exists
     const existingUser = await this.prisma.user.findUnique({
       where: { email: data.email },
     });
@@ -100,7 +102,6 @@ export class UsersService {
       throw new ConflictException('Un utilisateur avec cet email existe déjà');
     }
 
-    // Generate temporary password
     const tempPassword = this.generateSecurePassword(12);
     const hashedPassword = await bcrypt.hash(tempPassword, 10);
 
@@ -122,16 +123,26 @@ export class UsersService {
       },
     });
 
-    // Send email with temporary password
-    await this.mailService.sendNewPassword(data.email, tempPassword);
+    try {
+      await this.mailService.sendNewPassword(data.email, tempPassword);
+    } catch (error) {
+      this.logger.error(
+        `Email non envoyé à ${data.email}, mais utilisateur créé.`,
+        error,
+      );
+    }
 
     return {
       data: user,
       message: 'Utilisateur créé avec succès',
+      temporaryPassword: tempPassword,
     };
   }
 
-  async updateUser(id: string, data: { firstName?: string; lastName?: string; role?: string }) {
+  async updateUser(
+    id: string,
+    data: { firstName?: string; lastName?: string; role?: string },
+  ) {
     const existingUser = await this.prisma.user.findUnique({
       where: { id },
     });
@@ -198,11 +209,18 @@ export class UsersService {
       data: { password: hashedPassword },
     });
 
-    // Send email with new password
-    await this.mailService.sendNewPassword(user.email, newPassword);
+    try {
+      await this.mailService.sendNewPassword(user.email, newPassword);
+    } catch (error) {
+      this.logger.error(
+        `Email de réinitialisation non envoyé à ${user.email}.`,
+        error,
+      );
+    }
 
     return {
       message: 'Mot de passe réinitialisé avec succès',
+      newPassword,
     };
   }
 
@@ -220,12 +238,7 @@ export class UsersService {
     });
   }
 
-  // ─── Changer mot de passe (connecté) ─────────────────────────────────────
-  async changePassword(
-    email: string,
-    oldPassword: string,
-    newPassword: string,
-  ) {
+  async changePassword(email: string, oldPassword: string, newPassword: string) {
     const user = await this.prisma.user.findUnique({ where: { email } });
 
     if (!user) throw new UnauthorizedException('User not found');
@@ -234,6 +247,7 @@ export class UsersService {
     if (!ok) throw new UnauthorizedException('Wrong password');
 
     const hashed = await bcrypt.hash(newPassword, 10);
+
     await this.prisma.user.update({
       where: { id: user.id },
       data: { password: hashed },
@@ -242,7 +256,6 @@ export class UsersService {
     return { message: 'Password updated successfully' };
   }
 
-  // ─── Step 1 : Envoyer OTP par email ──────────────────────────────────────
   async sendForgotPasswordOtp(email: string) {
     const user = await this.prisma.user.findUnique({ where: { email } });
 
@@ -258,12 +271,18 @@ export class UsersService {
       data: { otpCode, otpExpiry },
     });
 
-    await this.mailService.sendOtp(email, otpCode);
+    try {
+      await this.mailService.sendOtp(email, otpCode);
+    } catch (error) {
+      this.logger.error(`OTP non envoyé à ${email}.`, error);
+    }
 
-    return { message: 'Si cet email existe, un code vous a été envoyé.' };
+    return {
+      message: 'Si cet email existe, un code vous a été envoyé.',
+      otpCode,
+    };
   }
 
-  // ─── Step 2 : Vérifier OTP → générer nouveau mot de passe ────────────────
   async verifyOtpAndResetPassword(email: string, otpCode: string) {
     const user = await this.prisma.user.findUnique({ where: { email } });
 
@@ -276,6 +295,7 @@ export class UsersService {
         where: { id: user.id },
         data: { otpCode: null, otpExpiry: null },
       });
+
       throw new BadRequestException('Code expiré. Veuillez recommencer.');
     }
 
@@ -285,7 +305,7 @@ export class UsersService {
 
     const newPassword = this.generateSecurePassword(12);
     const hashed = await bcrypt.hash(newPassword, 10);
-    
+
     await this.prisma.user.update({
       where: { id: user.id },
       data: {
@@ -295,19 +315,27 @@ export class UsersService {
       },
     });
 
-    await this.mailService.sendNewPassword(email, newPassword);
+    try {
+      await this.mailService.sendNewPassword(email, newPassword);
+    } catch (error) {
+      this.logger.error(`Nouveau mot de passe non envoyé à ${email}.`, error);
+    }
 
-    return { message: 'Mot de passe réinitialisé. Vérifiez votre email.' };
+    return {
+      message: 'Mot de passe réinitialisé.',
+      newPassword,
+    };
   }
 
-  // ─── Utilitaire : générer un mot de passe sécurisé ───────────────────────
   private generateSecurePassword(length: number): string {
     const chars =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!';
     let password = '';
+
     for (let i = 0; i < length; i++) {
       password += chars.charAt(Math.floor(Math.random() * chars.length));
     }
+
     return password;
   }
 }

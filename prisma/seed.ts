@@ -14,6 +14,13 @@ async function main() {
       lastName: 'Admin',
     },
     {
+      email: 'aissaouimohsen@gmail.com',
+      password: await bcrypt.hash('Admin12345!', 10),
+      role: RoleType.ADMIN,
+      firstName: 'Mohsen',
+      lastName: 'Aissaoui',
+    },
+    {
       email: 'qalead@testflow.com',
       password: await bcrypt.hash('QALead123!', 10),
       role: RoleType.QA_LEAD,
@@ -32,12 +39,17 @@ async function main() {
   for (const user of defaultUsers) {
     await prisma.user.upsert({
       where: { email: user.email },
-      update: {},
+      update: {
+        password: user.password,
+        role: user.role,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
       create: user,
     });
   }
 
-  console.log('✅ Utilisateurs par défaut créés');
+  console.log('✅ Utilisateurs par défaut créés / mis à jour');
 }
 
 main()
