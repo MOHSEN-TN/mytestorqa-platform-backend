@@ -77,3 +77,7 @@ uploads/
 # Docker volumes
 docker-data/
 *.tar
+# Playwright / automation artifacts
+/uploads
+playwright-report/
+test-results/
