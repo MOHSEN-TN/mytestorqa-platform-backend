@@ -1,21 +1,26 @@
 // src/users/users.service.ts
 import {
   BadRequestException,
-  Injectable,
-  UnauthorizedException,
-  NotFoundException,
   ConflictException,
+  Injectable,
+  Logger,
+  NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
 import { RoleType } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import { createHash, randomBytes } from 'crypto';
 import { MailService } from '../mail/mail.service';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
+  private readonly logger = new Logger(UsersService.name);
+  private readonly resetTokenDurationMs = 15 * 60 * 1000;
+
   constructor(
-    private prisma: PrismaService,
-    private mailService: MailService,
+    private readonly prisma: PrismaService,
+    private readonly mailService: MailService,
   ) {}
 
   count() {
@@ -23,15 +28,31 @@ export class UsersService {
   }
 
   async findAll(params: { page: number; limit: number; search?: string }) {
-    const { page, limit, search } = params;
+    const page = Math.max(1, params.page || 1);
+    const limit = Math.min(100, Math.max(1, params.limit || 10));
     const skip = (page - 1) * limit;
 
-    const where = search
+    const where = params.search
       ? {
           OR: [
-            { email: { contains: search, mode: 'insensitive' as const } },
-            { firstName: { contains: search, mode: 'insensitive' as const } },
-            { lastName: { contains: search, mode: 'insensitive' as const } },
+            {
+              email: {
+                contains: params.search,
+                mode: 'insensitive' as const,
+              },
+            },
+            {
+              firstName: {
+                contains: params.search,
+                mode: 'insensitive' as const,
+              },
+            },
+            {
+              lastName: {
+                contains: params.search,
+                mode: 'insensitive' as const,
+              },
+            },
           ],
         }
       : {};
@@ -85,31 +106,34 @@ export class UsersService {
     return { data: user };
   }
 
-  async createUser(data: { 
-    email: string; 
-    firstName: string; 
-    lastName: string; 
+  async createUser(data: {
+    email: string;
+    firstName: string;
+    lastName: string;
     role: string;
+    locale?: string;
   }) {
-    // Check if user exists
+    const email = data.email.trim().toLowerCase();
+
     const existingUser = await this.prisma.user.findUnique({
-      where: { email: data.email },
+      where: { email },
     });
 
     if (existingUser) {
       throw new ConflictException('Un utilisateur avec cet email existe déjà');
     }
 
-    // Generate temporary password
-    const tempPassword = this.generateSecurePassword(12);
-    const hashedPassword = await bcrypt.hash(tempPassword, 10);
+    // Le mot de passe initial n'est jamais communiqué. L'utilisateur le choisit
+    // depuis le lien sécurisé reçu par email.
+    const unusablePassword = randomBytes(48).toString('hex');
+    const hashedPassword = await bcrypt.hash(unusablePassword, 12);
 
     const user = await this.prisma.user.create({
       data: {
-        email: data.email,
+        email,
         password: hashedPassword,
-        firstName: data.firstName,
-        lastName: data.lastName,
+        firstName: data.firstName.trim(),
+        lastName: data.lastName.trim(),
         role: data.role as RoleType,
       },
       select: {
@@ -122,30 +146,73 @@ export class UsersService {
       },
     });
 
-    // Send email with temporary password
-    await this.mailService.sendNewPassword(data.email, tempPassword);
+    let activationEmailSent = true;
+
+    try {
+      await this.sendPasswordResetLink(user, data.locale, true);
+    } catch (error) {
+      activationEmailSent = false;
+      this.logger.error(
+        `Compte créé mais email d'activation non envoyé à ${email}.`,
+        error instanceof Error ? error.stack : undefined,
+      );
+    }
 
     return {
       data: user,
-      message: 'Utilisateur créé avec succès',
+      message: activationEmailSent
+        ? "Utilisateur créé. Un lien lui a été envoyé afin qu'il choisisse son mot de passe."
+        : "Utilisateur créé, mais l'email n'a pas pu être envoyé. Utilisez le bouton de réinitialisation pour réessayer.",
     };
   }
 
-  async updateUser(id: string, data: { firstName?: string; lastName?: string; role?: string }) {
-    const existingUser = await this.prisma.user.findUnique({
-      where: { id },
-    });
+  async updateUser(
+    id: string,
+    data: {
+      email?: string;
+      firstName?: string;
+      lastName?: string;
+      role?: string;
+    },
+  ) {
+    const existingUser = await this.prisma.user.findUnique({ where: { id } });
 
     if (!existingUser) {
       throw new NotFoundException('Utilisateur non trouvé');
     }
 
+    let normalizedEmail: string | undefined;
+
+    if (data.email !== undefined) {
+      normalizedEmail = data.email.trim().toLowerCase();
+
+      if (!normalizedEmail) {
+        throw new BadRequestException("L'email est requis");
+      }
+
+      const userWithSameEmail = await this.prisma.user.findUnique({
+        where: { email: normalizedEmail },
+        select: { id: true },
+      });
+
+      if (userWithSameEmail && userWithSameEmail.id !== id) {
+        throw new ConflictException(
+          'Un utilisateur avec cet email existe déjà',
+        );
+      }
+    }
+
     const updatedUser = await this.prisma.user.update({
       where: { id },
       data: {
-        ...(data.firstName && { firstName: data.firstName }),
-        ...(data.lastName && { lastName: data.lastName }),
-        ...(data.role && { role: data.role as RoleType }),
+        ...(normalizedEmail !== undefined && { email: normalizedEmail }),
+        ...(data.firstName !== undefined && {
+          firstName: data.firstName.trim(),
+        }),
+        ...(data.lastName !== undefined && {
+          lastName: data.lastName.trim(),
+        }),
+        ...(data.role !== undefined && { role: data.role as RoleType }),
       },
       select: {
         id: true,
@@ -164,150 +231,239 @@ export class UsersService {
   }
 
   async deleteUser(id: string) {
-    const existingUser = await this.prisma.user.findUnique({
-      where: { id },
-    });
+    const existingUser = await this.prisma.user.findUnique({ where: { id } });
 
     if (!existingUser) {
       throw new NotFoundException('Utilisateur non trouvé');
     }
 
-    await this.prisma.user.delete({
-      where: { id },
-    });
+    await this.prisma.user.delete({ where: { id } });
 
-    return {
-      message: 'Utilisateur supprimé avec succès',
-    };
+    return { message: 'Utilisateur supprimé avec succès' };
   }
 
-  async resetUserPassword(id: string) {
+  async requestPasswordResetByUserId(id: string, locale?: string) {
     const user = await this.prisma.user.findUnique({
       where: { id },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+      },
     });
 
     if (!user) {
       throw new NotFoundException('Utilisateur non trouvé');
     }
 
-    const newPassword = this.generateSecurePassword(12);
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-    await this.prisma.user.update({
-      where: { id },
-      data: { password: hashedPassword },
-    });
-
-    // Send email with new password
-    await this.mailService.sendNewPassword(user.email, newPassword);
+    await this.sendPasswordResetLink(user, locale, false);
 
     return {
-      message: 'Mot de passe réinitialisé avec succès',
+      message: `Un lien de réinitialisation a été envoyé à ${user.email}.`,
+    };
+  }
+
+  async requestPasswordResetByEmail(email: string, locale?: string) {
+    const normalizedEmail = email.trim().toLowerCase();
+    const user = await this.prisma.user.findUnique({
+      where: { email: normalizedEmail },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+      },
+    });
+
+    if (user) {
+      try {
+        await this.sendPasswordResetLink(user, locale, false);
+      } catch (error) {
+        this.logger.error(
+          `Email de réinitialisation non envoyé à ${normalizedEmail}.`,
+          error instanceof Error ? error.stack : undefined,
+        );
+      }
+    }
+
+    // Ne pas révéler si l'adresse existe.
+    return {
+      message:
+        'Si cet email existe, un lien de réinitialisation a été envoyé.',
+    };
+  }
+
+  async confirmPasswordReset(data: {
+    token: string;
+    newPassword: string;
+    confirmPassword: string;
+  }) {
+    if (!data.token?.trim()) {
+      throw new BadRequestException('Token manquant.');
+    }
+
+    if (data.newPassword !== data.confirmPassword) {
+      throw new BadRequestException(
+        'La confirmation du mot de passe ne correspond pas.',
+      );
+    }
+
+    this.validatePassword(data.newPassword);
+
+    const tokenHash = this.hashToken(data.token.trim());
+    const resetToken = await this.prisma.passwordResetToken.findUnique({
+      where: { tokenHash },
+      select: {
+        id: true,
+        userId: true,
+        expiresAt: true,
+        usedAt: true,
+      },
+    });
+
+    if (
+      !resetToken ||
+      resetToken.usedAt ||
+      resetToken.expiresAt.getTime() <= Date.now()
+    ) {
+      throw new BadRequestException('Lien invalide ou expiré.');
+    }
+
+    const hashedPassword = await bcrypt.hash(data.newPassword, 12);
+    const now = new Date();
+
+    await this.prisma.$transaction([
+      this.prisma.user.update({
+        where: { id: resetToken.userId },
+        data: {
+          password: hashedPassword,
+          otpCode: null,
+          otpExpiry: null,
+        },
+      }),
+      this.prisma.passwordResetToken.update({
+        where: { id: resetToken.id },
+        data: { usedAt: now },
+      }),
+      this.prisma.passwordResetToken.deleteMany({
+        where: {
+          userId: resetToken.userId,
+          id: { not: resetToken.id },
+        },
+      }),
+    ]);
+
+    return {
+      message: 'Votre mot de passe a été défini avec succès.',
     };
   }
 
   findByEmail(email: string) {
-    return this.prisma.user.findUnique({ where: { email } });
+    return this.prisma.user.findUnique({
+      where: { email: email.trim().toLowerCase() },
+    });
   }
 
   create(data: { email: string; password: string; role?: RoleType }) {
     return this.prisma.user.create({
       data: {
-        email: data.email,
+        email: data.email.trim().toLowerCase(),
         password: data.password,
         role: data.role ?? RoleType.TESTER,
       },
     });
   }
 
-  // ─── Changer mot de passe (connecté) ─────────────────────────────────────
-  async changePassword(
-    email: string,
-    oldPassword: string,
-    newPassword: string,
-  ) {
-    const user = await this.prisma.user.findUnique({ where: { email } });
+  async changePassword(email: string, oldPassword: string, newPassword: string) {
+    this.validatePassword(newPassword);
 
-    if (!user) throw new UnauthorizedException('User not found');
-
-    const ok = await bcrypt.compare(oldPassword, user.password);
-    if (!ok) throw new UnauthorizedException('Wrong password');
-
-    const hashed = await bcrypt.hash(newPassword, 10);
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: { password: hashed },
+    const user = await this.prisma.user.findUnique({
+      where: { email: email.trim().toLowerCase() },
     });
-
-    return { message: 'Password updated successfully' };
-  }
-
-  // ─── Step 1 : Envoyer OTP par email ──────────────────────────────────────
-  async sendForgotPasswordOtp(email: string) {
-    const user = await this.prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      return { message: 'Si cet email existe, un code vous a été envoyé.' };
+      throw new UnauthorizedException('Utilisateur non trouvé');
     }
 
-    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
+    const validOldPassword = await bcrypt.compare(oldPassword, user.password);
+
+    if (!validOldPassword) {
+      throw new UnauthorizedException('Ancien mot de passe incorrect');
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 12);
 
     await this.prisma.user.update({
       where: { id: user.id },
-      data: { otpCode, otpExpiry },
+      data: { password: hashedPassword },
     });
 
-    await this.mailService.sendOtp(email, otpCode);
+    await this.prisma.passwordResetToken.deleteMany({
+      where: { userId: user.id },
+    });
 
-    return { message: 'Si cet email existe, un code vous a été envoyé.' };
+    return { message: 'Mot de passe mis à jour avec succès' };
   }
 
-  // ─── Step 2 : Vérifier OTP → générer nouveau mot de passe ────────────────
-  async verifyOtpAndResetPassword(email: string, otpCode: string) {
-    const user = await this.prisma.user.findUnique({ where: { email } });
+  private async sendPasswordResetLink(
+    user: { id: string; email: string; firstName: string | null },
+    locale?: string,
+    accountActivation = false,
+  ) {
+    const rawToken = randomBytes(32).toString('hex');
+    const tokenHash = this.hashToken(rawToken);
+    const expiresAt = new Date(Date.now() + this.resetTokenDurationMs);
 
-    if (!user || !user.otpCode || !user.otpExpiry) {
-      throw new BadRequestException('Code invalide ou expiré.');
-    }
+    await this.prisma.$transaction([
+      this.prisma.passwordResetToken.deleteMany({
+        where: { userId: user.id },
+      }),
+      this.prisma.passwordResetToken.create({
+        data: {
+          userId: user.id,
+          tokenHash,
+          expiresAt,
+        },
+      }),
+    ]);
 
-    if (new Date() > user.otpExpiry) {
-      await this.prisma.user.update({
-        where: { id: user.id },
-        data: { otpCode: null, otpExpiry: null },
+    const safeLocale = locale === 'en' ? 'en' : 'fr';
+    const frontendUrl = (
+      process.env.FRONTEND_URL ?? 'http://localhost:3000'
+    ).replace(/\/$/, '');
+    const resetUrl = `${frontendUrl}/${safeLocale}/reset-password?token=${encodeURIComponent(rawToken)}`;
+
+    try {
+      await this.mailService.sendPasswordResetLink({
+        to: user.email,
+        resetUrl,
+        firstName: user.firstName,
+        expiresInMinutes: 15,
+        accountActivation,
       });
-      throw new BadRequestException('Code expiré. Veuillez recommencer.');
+    } catch (error) {
+      await this.prisma.passwordResetToken.deleteMany({
+        where: { tokenHash },
+      });
+      throw error;
     }
-
-    if (user.otpCode !== otpCode) {
-      throw new BadRequestException('Code incorrect.');
-    }
-
-    const newPassword = this.generateSecurePassword(12);
-    const hashed = await bcrypt.hash(newPassword, 10);
-    
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: {
-        password: hashed,
-        otpCode: null,
-        otpExpiry: null,
-      },
-    });
-
-    await this.mailService.sendNewPassword(email, newPassword);
-
-    return { message: 'Mot de passe réinitialisé. Vérifiez votre email.' };
   }
 
-  // ─── Utilitaire : générer un mot de passe sécurisé ───────────────────────
-  private generateSecurePassword(length: number): string {
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!';
-    let password = '';
-    for (let i = 0; i < length; i++) {
-      password += chars.charAt(Math.floor(Math.random() * chars.length));
+  private hashToken(token: string): string {
+    return createHash('sha256').update(token).digest('hex');
+  }
+
+  private validatePassword(password: string) {
+    const valid =
+      password.length >= 8 &&
+      /[a-z]/.test(password) &&
+      /[A-Z]/.test(password) &&
+      /\d/.test(password) &&
+      /[^A-Za-z0-9]/.test(password);
+
+    if (!valid) {
+      throw new BadRequestException(
+        'Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.',
+      );
     }
-    return password;
   }
 }

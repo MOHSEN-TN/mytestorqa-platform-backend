@@ -1,21 +1,44 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class TestsuitesService {
   constructor(private prisma: PrismaService) {}
 
-  create(
+  private handlePrismaDuplicateError(error: unknown, message: string): never {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === 'P2002'
+    ) {
+      throw new ConflictException(message);
+    }
+
+    throw error;
+  }
+
+  async create(
     projectId: string,
     data: { name: string; description?: string },
   ) {
-    return this.prisma.testSuite.create({
-      data: {
-        projectId,
-        name: data.name,
-        description: data.description,
-      },
-    });
+    try {
+      return await this.prisma.testSuite.create({
+        data: {
+          projectId,
+          name: data.name,
+          description: data.description,
+        },
+      });
+    } catch (error) {
+      this.handlePrismaDuplicateError(
+        error,
+        'Une suite avec ce nom existe déjà dans ce projet.',
+      );
+    }
   }
 
   findAll(projectId: string) {
@@ -59,13 +82,20 @@ export class TestsuitesService {
       throw new NotFoundException('Suite not found');
     }
 
-    return this.prisma.testSuite.update({
-      where: { id: suiteId },
-      data: {
-        name: data.name,
-        description: data.description,
-      },
-    });
+    try {
+      return await this.prisma.testSuite.update({
+        where: { id: suiteId },
+        data: {
+          name: data.name,
+          description: data.description,
+        },
+      });
+    } catch (error) {
+      this.handlePrismaDuplicateError(
+        error,
+        'Une suite avec ce nom existe déjà dans ce projet.',
+      );
+    }
   }
 
   async remove(suiteId: string) {
@@ -101,50 +131,66 @@ export class TestsuitesService {
       throw new NotFoundException('Suite not found');
     }
 
-    return this.prisma.$transaction(async (tx) => {
-      const newSuite = await tx.testSuite.create({
-        data: {
-          projectId: existing.projectId,
-          name: `${existing.name}-copie`,
-          description: existing.description,
-        },
-      });
+    const copiedSuiteName = `${existing.name}-copie`;
 
-      for (const testCase of existing.testCases) {
-        await tx.testCase.create({
+    try {
+      return await this.prisma.$transaction(async (tx) => {
+        const newSuite = await tx.testSuite.create({
           data: {
-            suiteId: newSuite.id,
-            title: `${testCase.title}-copie`,
-            description: testCase.description,
-            expected: testCase.expected,
-            status: testCase.status,
-            priority: testCase.priority,
-            steps: testCase.steps.length
-              ? {
-                  create: testCase.steps.map((step, index) => ({
-                    stepOrder: index + 1,
-                    action: step.action,
-                    expected: step.expected,
-                  })),
-                }
-              : undefined,
+            projectId: existing.projectId,
+            name: copiedSuiteName,
+            description: existing.description,
           },
         });
-      }
 
-      return tx.testSuite.findUnique({
-        where: { id: newSuite.id },
-        include: {
-          testCases: {
-            include: {
-              steps: {
-                orderBy: { stepOrder: 'asc' },
-              },
+        for (const testCase of existing.testCases) {
+          await tx.testCase.create({
+            data: {
+              suiteId: newSuite.id,
+              title: testCase.title,
+              description: testCase.description,
+              expected: testCase.expected,
+              status: testCase.status,
+              priority: testCase.priority,
+
+              sourceType: testCase.sourceType,
+              generationMode: testCase.generationMode,
+              automationFramework: testCase.automationFramework,
+              automationCode: testCase.automationCode,
+              aiSuggestionId: testCase.aiSuggestionId,
+
+              steps: testCase.steps.length
+                ? {
+                    create: testCase.steps.map((step, index) => ({
+                      stepOrder: index + 1,
+                      action: step.action,
+                      expected: step.expected,
+                    })),
+                  }
+                : undefined,
             },
-            orderBy: { createdAt: 'desc' },
+          });
+        }
+
+        return tx.testSuite.findUnique({
+          where: { id: newSuite.id },
+          include: {
+            testCases: {
+              include: {
+                steps: {
+                  orderBy: { stepOrder: 'asc' },
+                },
+              },
+              orderBy: { createdAt: 'desc' },
+            },
           },
-        },
+        });
       });
-    });
+    } catch (error) {
+      this.handlePrismaDuplicateError(
+        error,
+        'Impossible de dupliquer cette suite : une suite avec ce nom existe déjà dans ce projet.',
+      );
+    }
   }
 }

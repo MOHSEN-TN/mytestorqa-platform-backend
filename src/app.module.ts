@@ -9,7 +9,11 @@ import { TestcasesModule } from './testcases/testcases.module';
 import { TestsuitesModule } from './testsuites/testsuites.module';
 import { CampaignsModule } from './campaigns/campaigns.module';
 import { IterationsModule } from './iterations/iterations.module';
-
+import { BugsModule } from './bugs/bugs.module';
+import { ReportsModule } from './reports/reports.module';
+import { AIExplorationModule } from './AiExploration/ai-exploration.module';
+import { AutomationModule } from './automation/automation.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 @Module({
   imports: [
     PrismaModule,
@@ -20,6 +24,11 @@ import { IterationsModule } from './iterations/iterations.module';
     TestsuitesModule,
     CampaignsModule,
     IterationsModule,
+    BugsModule,
+    ReportsModule,
+    AIExplorationModule,
+    AutomationModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

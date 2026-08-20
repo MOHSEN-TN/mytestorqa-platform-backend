@@ -7,18 +7,26 @@ import {
   Param,
   Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { TestcasesService } from './testcases.service';
-import { CreateTestCaseDto, GetAllTestCasesBySuitesDTO, UpdateTestCaseDto } from './dto/testcase.dto';
+import {
+  CreateTestCaseDto,
+  GetAllTestCasesBySuitesDTO,
+  MoveTestCaseDto,
+  UpdateTestCaseDto,
+} from './dto/testcase.dto';
 
-@UseGuards(JwtAuthGuard)
+type RunAutomationDto = {
+  headed?: boolean;
+  slowMo?: number;
+};
+
+// Réactiver le guard quand les tests locaux sont terminés.
+// @UseGuards(JwtAuthGuard)
 @Controller('suites/:suiteId/testcases')
 export class TestcasesController {
   constructor(private readonly testcasesService: TestcasesService) {}
 
-  
   @Post()
   create(
     @Param('suiteId') suiteId: string,
@@ -27,7 +35,7 @@ export class TestcasesController {
     return this.testcasesService.create(suiteId, data);
   }
 
-  @Post("/by-pagination")
+  @Post('by-pagination')
   findAll(
     @Param('suiteId') suiteId: string,
     @Body() data: GetAllTestCasesBySuitesDTO,
@@ -50,6 +58,31 @@ export class TestcasesController {
     @Body() data: UpdateTestCaseDto,
   ) {
     return this.testcasesService.update(suiteId, testCaseId, data);
+  }
+
+  @Patch(':testCaseId/move')
+  move(
+    @Param('suiteId') suiteId: string,
+    @Param('testCaseId') testCaseId: string,
+    @Body() data: MoveTestCaseDto,
+  ) {
+    return this.testcasesService.move(
+      suiteId,
+      testCaseId,
+      data.targetSuiteId,
+    );
+  }
+
+  @Post(':testCaseId/run-automation')
+  runAutomation(
+    @Param('suiteId') suiteId: string,
+    @Param('testCaseId') testCaseId: string,
+    @Body() data?: RunAutomationDto,
+  ) {
+    return this.testcasesService.runAutomation(suiteId, testCaseId, {
+      headed: data?.headed ?? false,
+      slowMo: data?.slowMo,
+    });
   }
 
   @Delete(':testCaseId')

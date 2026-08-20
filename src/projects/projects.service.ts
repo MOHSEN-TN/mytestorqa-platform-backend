@@ -5,17 +5,44 @@ import { PrismaService } from '../prisma/prisma.service';
 export class ProjectsService {
   constructor(private prisma: PrismaService) {}
 
+  private readonly projectSelect = {
+    id: true,
+    name: true,
+    description: true,
+    baseUrl: true,
+    createdAt: true,
+    updatedAt: true,
+    members: {
+      select: {
+        id: true,
+        role: true,
+        createdAt: true,
+        user: {
+          select: {
+            id: true,
+            email: true,
+            role: true,
+            createdAt: true,
+          },
+        },
+      },
+    },
+  } as const;
+
   async listProjects(
     userId: string,
     name?: string,
     pagination: { page: number; limit: number } = { page: 1, limit: 10 },
   ) {
-    const { page, limit } = pagination;
+    const page = Math.max(1, pagination.page || 1);
+    const limit = Math.max(1, Math.min(100, pagination.limit || 10));
     const skip = (page - 1) * limit;
 
     const where = {
       members: { some: { userId } },
-      ...(name && { name: { contains: name, mode: 'insensitive' as const } }),
+      ...(name?.trim() && {
+        name: { contains: name.trim(), mode: 'insensitive' as const },
+      }),
     };
 
     const [data, total] = await Promise.all([
@@ -24,21 +51,7 @@ export class ProjectsService {
         skip,
         take: limit,
         orderBy: { createdAt: 'desc' },
-        select: {
-          id: true,
-          name: true,
-          createdAt: true,
-          members: {
-            select: {
-              id: true,
-              role: true,
-              createdAt: true,
-              user: {
-                select: { id: true, email: true, role: true, createdAt: true },
-              },
-            },
-          },
-        },
+        select: this.projectSelect,
       }),
       this.prisma.project.count({ where }),
     ]);
@@ -54,10 +67,17 @@ export class ProjectsService {
     };
   }
 
-  async createProject(userId: string, name: string) {
+  async createProject(
+    userId: string,
+    name: string,
+    description?: string | null,
+    baseUrl?: string | null,
+  ) {
     return this.prisma.project.create({
       data: {
-        name,
+        name: name.trim(),
+        description: description?.trim() || null,
+        baseUrl: baseUrl?.trim() || null,
         members: {
           create: {
             userId,
@@ -65,53 +85,30 @@ export class ProjectsService {
           },
         },
       },
-      select: {
-        id: true,
-        name: true,
-        createdAt: true,
-        members: {
-          select: {
-            id: true,
-            role: true,
-            createdAt: true,
-            user: {
-              select: {
-                id: true,
-                email: true,
-                role: true,
-                createdAt: true,
-              },
-            },
-          },
-        },
-      },
+      select: this.projectSelect,
     });
   }
 
-  async updateProject(id: string, name: string) {
+  async updateProject(
+    id: string,
+    data: {
+      name?: string;
+      description?: string | null;
+      baseUrl?: string | null;
+    },
+  ) {
     return this.prisma.project.update({
       where: { id },
-      data: { name },
-      select: {
-        id: true,
-        name: true,
-        createdAt: true,
-        members: {
-          select: {
-            id: true,
-            role: true,
-            createdAt: true,
-            user: {
-              select: {
-                id: true,
-                email: true,
-                role: true,
-                createdAt: true,
-              },
-            },
-          },
-        },
+      data: {
+        ...(data.name !== undefined && { name: data.name.trim() }),
+        ...(data.description !== undefined && {
+          description: data.description?.trim() || null,
+        }),
+        ...(data.baseUrl !== undefined && {
+          baseUrl: data.baseUrl?.trim() || null,
+        }),
       },
+      select: this.projectSelect,
     });
   }
 
@@ -139,20 +136,14 @@ export class ProjectsService {
     const existing = await this.prisma.project.findFirst({
       where: {
         id: projectId,
-        members: {
-          some: {
-            userId,
-          },
-        },
+        members: { some: { userId } },
       },
       include: {
         testSuites: {
           include: {
             testCases: {
               include: {
-                steps: {
-                  orderBy: { stepOrder: 'asc' },
-                },
+                steps: { orderBy: { stepOrder: 'asc' } },
               },
               orderBy: { createdAt: 'asc' },
             },
@@ -170,6 +161,8 @@ export class ProjectsService {
       const newProject = await tx.project.create({
         data: {
           name: `${existing.name}-copie`,
+          description: existing.description,
+          baseUrl: existing.baseUrl,
           members: {
             create: {
               userId,
@@ -213,26 +206,7 @@ export class ProjectsService {
 
       return tx.project.findUnique({
         where: { id: newProject.id },
-        select: {
-          id: true,
-          name: true,
-          createdAt: true,
-          members: {
-            select: {
-              id: true,
-              role: true,
-              createdAt: true,
-              user: {
-                select: {
-                  id: true,
-                  email: true,
-                  role: true,
-                  createdAt: true,
-                },
-              },
-            },
-          },
-        },
+        select: this.projectSelect,
       });
     });
   }

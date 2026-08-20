@@ -7,6 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * ENUMS
+ */
+/**
+ * =========================================================================
+ */
+
 enum RoleType {
   ADMIN
   QA_LEAD
@@ -34,42 +44,211 @@ enum TestPriority {
 
 enum ExecutionStatus {
   TODO
+  RUNNING
   SUCCESS
   FAILED
   BLOCKED
   SKIPPED
 }
 
-model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  role      RoleType @default(TESTER)
-  firstName String?
-  lastName  String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  otpCode   String?
-  otpExpiry DateTime?
-  memberships ProjectMember[]
+enum ExecutionType {
+  MANUAL
+  AUTOMATED
 }
 
-model Project {
-  id        String   @id @default(uuid())
-  name      String @unique
+enum IterationExecutionStatus {
+  DRAFT
+  RUNNING
+  AWAITING_MANUAL
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum BugStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+  REOPENED
+}
+
+enum BugSeverity {
+  MINOR
+  MAJOR
+  CRITICAL
+  BLOCKER
+}
+
+enum BugPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum ReportType {
+  EXECUTION_SUMMARY
+  COVERAGE
+  TRENDS
+  BUG_REPORT
+  PERFORMANCE
+}
+
+enum ReportFormat {
+  HTML
+  PDF
+  EXCEL
+}
+
+enum ReportStatus {
+  GENERATED
+  SCHEDULED
+  GENERATING
+  FAILED
+}
+
+/**
+ * ======================= IA / AI EXPLORATION ENUMS =======================
+ */
+
+enum AIExplorationStatus {
+  DRAFT
+  PROCESSING
+  GENERATED
+  VALIDATED
+  ARCHIVED
+  FAILED
+}
+
+enum AISuggestionPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum AISuggestionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CONVERTED
+}
+
+enum AIChatRole {
+  SYSTEM
+  USER
+  ASSISTANT
+}
+
+/**
+ * ======================= IA / AUTOMATION METADATA ENUMS ==================
+ */
+
+enum TestCaseSourceType {
+  MANUAL
+  AI_GENERATED
+}
+
+enum AIGenerationMode {
+  RULE_BASED
+  OLLAMA_LOCAL
+  CLOUD_AI
+}
+
+enum AutomationFramework {
+  PLAYWRIGHT
+  SELENIUM
+  CYPRESS
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * USER
+ */
+/**
+ * =========================================================================
+ */
+
+model User {
+  id       String   @id @default(uuid())
+  email    String   @unique
+  password String
+  role     RoleType @default(TESTER)
+
+  firstName String?
+  lastName  String?
+
+  otpCode   String?
+  otpExpiry DateTime?
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  memberships ProjectMember[]
+
+  reportedBugs Bug[] @relation("BugReporter")
+  assignedBugs Bug[] @relation("BugAssignee")
+
+  reports Report[]
+
+  aiExplorations      AIExploration[]
+  aiChatSessions      AIChatSession[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * PROJECT
+ */
+/**
+ * =========================================================================
+ */
+
+model Project {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  description String?
+  baseUrl     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   members    ProjectMember[]
   testSuites TestSuite[]
   campaigns  TestCampaign[]
+  bugs       Bug[]
+  reports    Report[]
+
+  aiExplorations   AIExploration[]
+  aiChatSessions   AIChatSession[]
+  lighthouseAudit LighthouseAudit?
+
+  @@index([name])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * PROJECT MEMBERS
+ */
+/**
+ * =========================================================================
+ */
+
 model ProjectMember {
-  id        String      @id @default(uuid())
+  id        String @id @default(uuid())
   userId    String
   projectId String
-  role      ProjectRole @default(TESTER)
-  createdAt DateTime    @default(now())
+
+  role ProjectRole @default(TESTER)
+
+  createdAt DateTime @default(now())
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
@@ -79,112 +258,616 @@ model ProjectMember {
   @@index([projectId])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * TEST SUITES
+ */
+/**
+ * =========================================================================
+ */
+
 model TestSuite {
-  id          String   @id @default(uuid())
+  id          String  @id @default(uuid())
   projectId   String
   name        String
   description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
-  project         Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
   testCases       TestCase[]
   iterationSuites IterationSuite[]
 
+  @@unique([projectId, name])
   @@index([projectId])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * TEST CASES
+ */
+/**
+ * =========================================================================
+ */
+
 model TestCase {
-  id          String         @id @default(uuid())
+  id          String  @id @default(uuid())
   suiteId     String
   title       String
   description String?
   expected    String?
-  status      TestCaseStatus @default(DRAFT)
-  priority    TestPriority   @default(MEDIUM)
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
 
-  suite          TestSuite       @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+  status   TestCaseStatus @default(DRAFT)
+  priority TestPriority   @default(MEDIUM)
+
+  /**
+   * Source / IA / Automation metadata
+   */
+  sourceType          TestCaseSourceType   @default(MANUAL)
+  generationMode      AIGenerationMode?
+  automationFramework AutomationFramework?
+  automationCode      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  suite TestSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+
   steps          TestStep[]
   iterationItems IterationItem[]
+  bugs           Bug[]
 
+  aiSuggestionId String?
+  aiSuggestion   AITestSuggestion? @relation(fields: [aiSuggestionId], references: [id], onDelete: SetNull)
+
+  @@unique([suiteId, title])
   @@index([suiteId])
+  @@index([aiSuggestionId])
+  @@index([sourceType])
+  @@index([generationMode])
+  @@index([automationFramework])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * TEST STEP
+ */
+/**
+ * =========================================================================
+ */
+
 model TestStep {
-  id         String   @id @default(uuid())
+  id         String @id @default(uuid())
   testCaseId String
-  stepOrder  Int
-  action     String
-  expected   String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+
+  stepOrder Int
+  action    String
+  expected  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   testCase TestCase @relation(fields: [testCaseId], references: [id], onDelete: Cascade)
+
+  iterationStepResults IterationItemStep[]
 
   @@unique([testCaseId, stepOrder])
   @@index([testCaseId])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * TEST CAMPAIGN
+ */
+/**
+ * =========================================================================
+ */
+
 model TestCampaign {
-  id          String   @id @default(uuid())
+  id          String  @id @default(uuid())
   projectId   String
   name        String
   description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
-  project    Project         @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
   iterations TestIteration[]
 
   @@index([projectId])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * TEST ITERATION
+ */
+/**
+ * =========================================================================
+ */
+
 model TestIteration {
-  id          String   @id @default(uuid())
+  id          String  @id @default(uuid())
   campaignId  String
   name        String
   description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
-  campaign TestCampaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
-  suites   IterationSuite[]
-  items    IterationItem[]
+  status     IterationExecutionStatus @default(DRAFT)
+  startedAt  DateTime?
+  finishedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  campaign TestCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  suites IterationSuite[]
+  items  IterationItem[]
 
   @@index([campaignId])
+  @@index([status])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * ITERATION SUITE
+ */
+/**
+ * =========================================================================
+ */
+
 model IterationSuite {
-  id          String   @id @default(uuid())
+  id          String @id @default(uuid())
   iterationId String
   suiteId     String
-  createdAt   DateTime @default(now())
+
+  createdAt DateTime @default(now())
 
   iteration TestIteration @relation(fields: [iterationId], references: [id], onDelete: Cascade)
-  suite     TestSuite     @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+
+  suite TestSuite @relation(fields: [suiteId], references: [id], onDelete: Cascade)
 
   @@unique([iterationId, suiteId])
   @@index([iterationId])
   @@index([suiteId])
 }
 
+/**
+ * =========================================================================
+ */
+/**
+ * ITERATION ITEM
+ */
+/**
+ * =========================================================================
+ */
+
 model IterationItem {
-  id          String          @id @default(uuid())
+  id          String @id @default(uuid())
   iterationId String
   testCaseId  String
-  status      ExecutionStatus @default(TODO)
-  comment     String?
-  duration    Int?
-  executedAt  DateTime?
-  createdAt   DateTime        @default(now())
-  updatedAt   DateTime        @updatedAt
+
+  executionType ExecutionType   @default(MANUAL)
+  status        ExecutionStatus @default(TODO)
+
+  comment  String?
+  duration Int?
+
+  startedAt  DateTime?
+  finishedAt DateTime?
+  executedAt DateTime?
+
+  /**
+   * Playwright execution metadata
+   */
+  automationRunId String?
+  browser         String?
+  executionMode   String?
+
+  error          String?
+  failureDetails Json?
+  automationLogs Json?
+
+  screenshotUrl      String?
+  traceUrl           String?
+  artifactsZipUrl    String?
+  executionReportUrl String?
+
+  /**
+   * Snapshot of the exact automated test version used during this run.
+   */
+  automationFrameworkSnapshot AutomationFramework?
+  automationCodeSnapshot      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
   iteration TestIteration @relation(fields: [iterationId], references: [id], onDelete: Cascade)
-  testCase  TestCase      @relation(fields: [testCaseId], references: [id], onDelete: Restrict)
+
+  testCase TestCase @relation(fields: [testCaseId], references: [id], onDelete: Restrict)
+
+  stepResults IterationItemStep[]
+  bugs        Bug[]
 
   @@unique([iterationId, testCaseId])
   @@index([iterationId])
   @@index([testCaseId])
+  @@index([status])
+  @@index([executionType])
+  @@index([automationRunId])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * ITERATION ITEM STEP
+ */
+/**
+ * =========================================================================
+ */
+
+model IterationItemStep {
+  id              String @id @default(uuid())
+  iterationItemId String
+  testStepId      String
+
+  status ExecutionStatus @default(TODO)
+
+  comment    String?
+  executedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  iterationItem IterationItem @relation(fields: [iterationItemId], references: [id], onDelete: Cascade)
+
+  testStep TestStep @relation(fields: [testStepId], references: [id], onDelete: Cascade)
+
+  @@unique([iterationItemId, testStepId])
+  @@index([iterationItemId])
+  @@index([testStepId])
+  @@index([status])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * BUG
+ */
+/**
+ * =========================================================================
+ */
+
+model Bug {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  steps       String?
+
+  status   BugStatus   @default(NEW)
+  severity BugSeverity @default(MAJOR)
+  priority BugPriority @default(MEDIUM)
+
+  projectId   String?
+  testCaseId  String?
+  executionId String?
+
+  reporterId String
+  assigneeId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  testCase TestCase? @relation(fields: [testCaseId], references: [id], onDelete: SetNull)
+
+  execution IterationItem? @relation(fields: [executionId], references: [id], onDelete: SetNull)
+
+  reporter User @relation("BugReporter", fields: [reporterId], references: [id], onDelete: Cascade)
+
+  assignee User? @relation("BugAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+
+  @@index([projectId])
+  @@index([testCaseId])
+  @@index([executionId])
+  @@index([reporterId])
+  @@index([assigneeId])
+  @@index([status])
+  @@index([severity])
+  @@index([priority])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * REPORTS
+ */
+/**
+ * =========================================================================
+ */
+
+model Report {
+  id     String       @id @default(uuid())
+  name   String
+  type   ReportType
+  format ReportFormat
+
+  status ReportStatus @default(GENERATED)
+
+  period  String?
+  size    String?
+  fileUrl String?
+
+  includeCharts  Boolean @default(true)
+  includeDetails Boolean @default(true)
+  includeLogs    Boolean @default(false)
+
+  projectId   String?
+  createdById String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  createdBy User @relation(fields: [createdById], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([createdById])
+  @@index([type])
+  @@index([format])
+  @@index([status])
+  @@index([createdAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * AI EXPLORATION
+ */
+/**
+ * =========================================================================
+ */
+
+model AIExploration {
+  id          String @id @default(uuid())
+  projectId   String
+  createdById String
+
+  title   String
+  prompt  String
+  context String?
+
+  /**
+   * Generation strategy
+   */
+  generationMode AIGenerationMode @default(RULE_BASED)
+
+  /**
+   * Ollama / SMART-QA generation metadata
+   */
+  aiModel               String?
+  explorationSnapshot   Json?
+  lastError             String?
+  generationDurationMs  Int?
+  promptTokens          Int?
+  completionTokens      Int?
+  ollamaTotalDurationMs Int?
+  lastGeneratedAt       DateTime?
+  fallbackUsed          Boolean   @default(false)
+
+  /**
+   * Fields for AI Agent exploration
+   */
+  targetUrl String?
+  depth     Int     @default(2)
+
+  authenticationRequired Boolean @default(false)
+  username               String?
+  password               String?
+
+  generatePlaywright    Boolean @default(true)
+  generateGherkin       Boolean @default(true)
+  generateNegativeTests Boolean @default(false)
+
+  status AIExplorationStatus @default(DRAFT)
+
+  generatedCount Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdBy User @relation(fields: [createdById], references: [id], onDelete: Cascade)
+
+  suggestions  AITestSuggestion[]
+  chatSessions AIChatSession[]
+
+  @@index([projectId])
+  @@index([createdById])
+  @@index([status])
+  @@index([generationMode])
+  @@index([targetUrl])
+  @@index([createdAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * AI TEST SUGGESTIONS
+ */
+/**
+ * =========================================================================
+ */
+
+model AITestSuggestion {
+  id            String @id @default(uuid())
+  explorationId String
+
+  title          String
+  description    String?
+  expectedResult String?
+
+  /**
+   * Structured output generated by SMART-QA / Ollama
+   */
+  steps         Json?
+  gherkin       String?
+  sourcePageUrl String?
+  aiConfidence  Float?
+
+  priority AISuggestionPriority @default(MEDIUM)
+
+  status AISuggestionStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  exploration AIExploration @relation(fields: [explorationId], references: [id], onDelete: Cascade)
+
+  convertedTestCases TestCase[]
+
+  @@index([explorationId])
+  @@index([priority])
+  @@index([status])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * SMART-QA CHAT SESSIONS
+ */
+/**
+ * =========================================================================
+ */
+
+model AIChatSession {
+  id            String  @id @default(uuid())
+  userId        String
+  projectId     String?
+  explorationId String?
+
+  title String @default("Nouvelle conversation SMART-QA")
+  model String @default("qwen3.5:9b")
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  lastMessageAt DateTime @default(now())
+
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project     Project?       @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  exploration AIExploration? @relation(fields: [explorationId], references: [id], onDelete: SetNull)
+
+  messages AIChatMessage[]
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([explorationId])
+  @@index([lastMessageAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * SMART-QA CHAT MESSAGES
+ */
+/**
+ * =========================================================================
+ */
+
+model AIChatMessage {
+  id        String     @id @default(uuid())
+  sessionId String
+  role      AIChatRole
+  content   String
+  metadata  Json?
+
+  createdAt DateTime @default(now())
+
+  session AIChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([role])
+  @@index([createdAt])
+}
+
+
+/**
+ * =========================================================================
+ */
+/**
+ * LIGHTHOUSE QUALITY AUDITS
+ */
+/**
+ * =========================================================================
+ */
+
+model LighthouseAudit {
+  id        String @id @default(uuid())
+  projectId String @unique
+
+  requestedUrl String
+  finalUrl     String?
+
+  qualityScore Int?
+
+  performance   Int?
+  accessibility Int?
+  bestPractices Int?
+  seo           Int?
+
+  lighthouseVersion String?
+  durationMs        Int?
+  auditedAt         DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([auditedAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * =========================================================================
+ * PASSWORD RESET TOKENS
+ * =========================================================================
+ */
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
 }
