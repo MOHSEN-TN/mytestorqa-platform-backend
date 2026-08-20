@@ -56,3 +56,24 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 /generated/prisma
+# Uploads / user generated files
+/uploads
+uploads/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backups
+*.bak
+*.backup
+*.zip
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker volumes
+docker-data/
+*.tar
