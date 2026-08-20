@@ -1,0 +1,53 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82
+Status: FAILED
+Started at: 2026-08-14T00:53:57.081Z
+Finished at: 2026-08-14T00:54:18.872Z
+Duration: 21791 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Allow all' })
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82.spec.ts:6:1 › test 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Allow all' })
+
+        at D:\MOHSEN\PFE\v38-app pret\v12-08-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82\05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82.spec.ts:8:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\05331ea4-2ef5-41de-ba41-fa-87708-4b0f-90d2-7c922ca46f82-test\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\05331ea4-2ef5-41de-ba41-fa-87708-4b0f-90d2-7c922ca46f82-test\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\05331ea4-2ef5-41de-ba41-fa-87708-4b0f-90d2-7c922ca46f82-test\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\05331ea4-2ef5-41de-ba41-fa-87708-4b0f-90d2-7c922ca46f82-test\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82.spec.ts:6:1 › test 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

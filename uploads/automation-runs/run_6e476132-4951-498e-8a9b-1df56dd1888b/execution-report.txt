@@ -1,0 +1,71 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_6e476132-4951-498e-8a9b-1df56dd1888b
+Status: FAILED
+Started at: 2026-08-08T16:33:21.713Z
+Finished at: 2026-08-08T16:33:47.960Z
+Duration: 26247 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: expect(locator).toBeVisible() failed
+
+Locator:  locator('body')
+Expected: visible
+Received: hidden
+Timeout:  10000ms
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('body')
+    22 × locator resolved to <body dir="ltr" rounded-container="">…</body>
+       - unexpected value "hidden"
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 43977754-e12c-40da-9adb-4ec53fb3dfd6-run_6e476132-4951-498e-8a9b-1df56dd1888b.spec.ts:6:1 › Exécution d'une recherche via le champ de recherche 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('body')
+    Expected: visible
+    Received: hidden
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for locator('body')
+        22 × locator resolved to <body dir="ltr" rounded-container="">…</body>
+           - unexpected value "hidden"
+
+        at D:\MOHSEN\PFE\v35-jemini -ok02\v08-08-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_6e476132-4951-498e-8a9b-1df56dd1888b\43977754-e12c-40da-9adb-4ec53fb3dfd6-run_6e476132-4951-498e-8a9b-1df56dd1888b.spec.ts:10:40
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\43977754-e12c-40da-9adb-4e-47a6d-e-via-le-champ-de-recherche\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\43977754-e12c-40da-9adb-4e-47a6d-e-via-le-champ-de-recherche\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\43977754-e12c-40da-9adb-4e-47a6d-e-via-le-champ-de-recherche\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\43977754-e12c-40da-9adb-4e-47a6d-e-via-le-champ-de-recherche\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    43977754-e12c-40da-9adb-4ec53fb3dfd6-run_6e476132-4951-498e-8a9b-1df56dd1888b.spec.ts:6:1 › Exécution d'une recherche via le champ de recherche 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

@@ -1,0 +1,56 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_49d13779-a681-4a77-8032-01a224ac5de9
+Status: FAILED
+Started at: 2026-07-13T01:01:32.476Z
+Finished at: 2026-07-13T01:01:51.607Z
+Duration: 19131 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 0
+Received length: 1
+Received array:  ["Failed to load resource: the server responded with a status of 404 ()"]
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) bf5ca731-9292-4fda-af25-b799a0c2b12b-run_49d13779-a681-4a77-8032-01a224ac5de9.spec.ts:6:1 › Vérifier le champ "Prénom *" 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received array:  ["Failed to load resource: the server responded with a status of 404 ()"]
+        at D:\MOHSEN\PFE\v29-record auto ok -resultat playwright court - rafinee\v13-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_49d13779-a681-4a77-8032-01a224ac5de9\bf5ca731-9292-4fda-af25-b799a0c2b12b-run_49d13779-a681-4a77-8032-01a224ac5de9.spec.ts:37:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\bf5ca731-9292-4fda-af25-b7-19a93-9-Vérifier-le-champ-Prénom-\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\bf5ca731-9292-4fda-af25-b7-19a93-9-Vérifier-le-champ-Prénom-\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\bf5ca731-9292-4fda-af25-b7-19a93-9-Vérifier-le-champ-Prénom-\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\bf5ca731-9292-4fda-af25-b7-19a93-9-Vérifier-le-champ-Prénom-\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    bf5ca731-9292-4fda-af25-b799a0c2b12b-run_49d13779-a681-4a77-8032-01a224ac5de9.spec.ts:6:1 › Vérifier le champ "Prénom *" 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

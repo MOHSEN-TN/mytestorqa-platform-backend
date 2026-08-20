@@ -1,0 +1,347 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 04d2e45f-be6c-4a17-9281-618c89eb9be6-run_530673f6-e770-4087-9d5f-5c988cbcd733.spec.ts >> Contrôle des liens d'information Cloudflare sur la page de défi de sécurité
+- Location: 04d2e45f-be6c-4a17-9281-618c89eb9be6-run_530673f6-e770-4087-9d5f-5c988cbcd733.spec.ts:6:1
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+
+```
+
+```yaml
+- banner:
+  - link "Skip to Main Content":
+    - /url: "#main-content"
+    - text: Skip to main
+  - button "Open Global Navigation"
+  - button "Select language and country":
+    - paragraph: EN
+  - navigation "Section Navigation":
+    - link "Wolters Kluwer Homepage":
+      - /url: /en
+      - img "Wolters Kluwer Homepage"
+    - link "Enablon":
+      - /url: /en/solutions/enablon
+    - button "Enablon Open Menu"
+    - list
+    - link "Contact us":
+      - /url: /en/solutions/enablon/contact-us
+  - img "Aerial view of a rural mountain landscape with a curvy road"
+  - paragraph: A Leader in EHS & PSM Software
+  - heading "Enablon" [level=1]
+  - text: Empowering your organization to be responsible, productive and safe, through the power of innovative technology
+  - button "Toggle Card"
+  - paragraph: Report
+  - 'heading "Verdantix Green Quadrant: Process Safety Management Software 2026" [level=2]'
+  - text: Wolters Kluwer Enablon named a Leader in PSM software in the latest Verdantix Green Quadrant, with the strongest showing in product capabilities and leading scores in many key categories.
+  - link "Download the Report ":
+    - /url: https://www.wolterskluwer.com/en/expert-insights/verdantix-green-quadrant-psm-software-report-2026
+  - button "Toggle Card"
+  - paragraph: Report
+  - 'heading "The Safety Shift: EHS Readiness in 2026" [level=2]'
+  - text: Discover how EHS leaders are managing workforce changes with the use of artificial intelligence and digital tools to build resilient, human-centered safety cultures.
+  - link "Download the Report ":
+    - /url: https://www.wolterskluwer.com/en/expert-insights/the-safety-shift-of-ehs-readiness-in-2026
+  - button "Toggle Card"
+  - paragraph: Blog
+  - heading "Process Hazard Analysis is ready for a radical upgrade" [level=2]
+  - text: This is part 5 of our five-part ‘Risk to Resilience’ blog series that explores key practices in process safety management (PSM), and how organizations can address key challenges, improve PSM performance, and build safer working environments.
+  - link "Read this Article ":
+    - /url: https://www.wolterskluwer.com/en/expert-insights/process-hazard-analysis-is-ready-for-a-radical-upgrade
+- main:
+  - heading "We enable demanding businesses to create a better world. With the Enablon Integrated Risk Management software platform, you can manage risk, drive sustainability and boost productivity across your entire value chain - from EHSQ to Operational Risk and ESG." [level=2]
+  - tablist:
+    - tab "Integrated solutions" [selected]
+    - tab "Control of Work"
+    - tab "Process Safety Management"
+    - tab "Health & Safety"
+    - tab "Environmental Management"
+    - tab "ESG Excellence"
+  - tabpanel "Integrated solutions":
+    - img "mobile-connected-desktops-secondary-multicolor"
+    - heading "Enablon Integrated Solutions" [level=2]
+    - paragraph: Enablon is a leading integrated risk-management platform that creates a safer, more responsible, and sustainable world using the power of innovative technology.
+    - separator
+    - link "Request a Demo ":
+      - /url: https://www.wolterskluwer.com/en/know/reimage-ehs-risk-and-sustainability-performance
+    - heading "Accelerate user adoption and efficiency with AI-driven Enablon EHS Companion" [level=3]
+    - text: Streamline your daily tasks, accelerate onboarding, and improve usability across the EHS platform with EHS Companion.
+    - 'link "Read the Brochure: Accelerate user adoption and efficiency with AI-driven Enablon EHS Companion"':
+      - /url: https://assets.contenthub.wolterskluwer.com/api/public/content/3263023-enablon-overview---brochure-pdf-b86a3d3e0f?v=f4b532c2
+      - text: Read the Brochure
+    - text: 
+    - heading "Enablon Open Insights" [level=3]
+    - text: Gain a clear view of your organization’s EHS, ESG, and sustainability performance. Seamlessly integrate with real-time data sources including ERPs with Enablon Open Insights.
+    - 'link "Watch the Video: Enablon Open Insights"':
+      - /url: https://www.wolterskluwer.com/en/solutions/enablon/enablon-open-insights?compositeLink=%7BB5608405-6C6D-4D35-AF43-5B60FECAE354%7Dhttps://www.wolterskluwer.com/en/solutions/enablon/enablon-open-insights?compositeLink=%7BB5608405-6C6D-4D35-AF43-5B60FECAE354%7D
+      - text: Watch the Video
+    - text: 
+    - heading "Verdantix Green Quadrant EHS Software 2025" [level=3]
+    - text: Enablon is recognized by Verdantix for having the strongest market momentum among all leading vendors, including top scores for risk management, compliance and configurability.
+    - 'link "Download the Report: Verdantix Green Quadrant EHS Software 2025"':
+      - /url: https://www.wolterskluwer.com/en/expert-insights/verdantix-green-quadrant-ehs-software-2025?utm_source=blog&utm_campaign=2025-Q1-01-DR-WORLD-EHS-EHS_Verdantix_GQ
+      - text: Download the Report
+    - text: 
+    - heading "Unlock Big Efficiency Gains With an Integrated EHS and Operational Risk Management Solution" [level=3]
+    - text: Discover how a leading science-based agricultural technology firm streamlined and standardized its EHS and Operational Risk Management processes across 100+ countries.
+    - 'link "Read the Case Study: Unlock Big Efficiency Gains With an Integrated EHS and Operational Risk Management Solution"':
+      - /url: https://www.wolterskluwer.com/en/expert-insights/unlock-big-efficiency-gains-with-an-integrated-ehs-and-operational-risk-management-solution
+      - text: Read the Case Study
+    - text: 
+  - heading "Here are some of our key insights" [level=2]:
+    - paragraph: Here are some of our key insights
+  - link "View all expert insights ":
+    - /url: https://www.wolterskluwer.com/en/expert-insights/search-results?f:contenttype=Insight%20Article%20Page%7CInsight%20Gated%20Article%20Page&f:solutionsuite=Enablon
+  - button "Toggle Card"
+  - 'img "Closing the Gaps in Process Safety Management: South-East Asia Edition"'
+  - text: Compliance ESG August 11, 2026
+  - 'heading "Closing the Gaps in Process Safety Management: South-East Asia Edition" [level=3]'
+  - button "Toggle Card"
+  - img "How PBF Energy transformed environmental data management with Enablon"
+  - text: Compliance ESG August 11, 2026
+  - heading "How PBF Energy transformed environmental data management with Enablon" [level=3]
+  - button "Toggle Card"
+  - img "How EHS digitalization improves safety performance in the pharmaceutical industry"
+  - text: Compliance ESG August 10, 2026
+  - heading "How EHS digitalization improves safety performance in the pharmaceutical industry" [level=3]
+  - heading "Safety leaders are ‘owning the future’ when decisions matter most" [level=3]
+  - text: Wolters Kluwer Enablon’s Sustainable Performance Forum highlights how AI, integrated risk, and human accountability are reshaping modern safety leadership
+  - link "Learn More":
+    - /url: https://www.wolterskluwer.com/en/news/safety-leaders-are-owning-the-future-when-decisions-matter-most
+    - text: Enablon Sustainable Performance Forum
+  - text: Learn More
+  - link "See More Enablon News":
+    - /url: https://www.wolterskluwer.com/en/news?f:contenttype=Journal%20News%20Page%7CNews%20Page%7CPress%20Release%20Page&f:solutionsuite=%7BC8ECF688-97B6-4179-AF57-F90661144EE5%7D
+    - text: Newsroom Enablon
+  - text: See More Enablon News
+  - img "Aerial view Oil refinery. Industrial view at oil refinery plant form industry zone with sunrise and cloudy sky."
+  - heading "Enablon Events and Webinars" [level=2]
+  - list:
+    - listitem:
+      - text: Event Compliance ESG November 03, 2026
+      - heading "Engage NA 2026" [level=3]
+      - text: Be part of Engage NA and take the next step toward shaping a world that is safer, smarter, and more sustainable. Spots are limited, save your space!
+      - 'link "Learn More: Engage NA 2026"':
+        - /url: /en/events/engage-montreal-2026
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG September 28, 2026
+      - heading "Engage EMEA 2026" [level=3]
+      - text: September 28-29, 2026 | Get ready to own the future with an experience designed for operations, risk, EHS, and ESG leaders.
+      - 'link "Learn More: Engage EMEA 2026"':
+        - /url: /en/events/engage-emea-2026
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG September 17, 2026
+      - heading "Safety, Risk, and Performance Summit" [level=3]
+      - text: Sept 17, 2026 | An executive forum for oil & gas organizations focused on integrated process safety, environmental stewardship, operational risk, and digital innovation.
+      - 'link "Learn More: Safety, Risk, and Performance Summit"':
+        - /url: /en/events/nam-houston-psm-summit
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG September 15, 2026
+      - heading "NSC Safety Congress & Expo 2026" [level=3]
+      - text: "Sept 15-17, 2026 | Join Wolters Kluwer Enablon at the 2026 NSC Safety Congress & Expo. Visit us at Booth #541 to explore how Enablon's solutions help organizations."
+      - 'link "Learn More: NSC Safety Congress & Expo 2026"':
+        - /url: /en/events/nsc-safety-congress-expo-2026
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG August 19, 2026
+      - 'heading "The Safety Shift: How AI, Data, and Emerging Risks Are Redefining EHS" [level=3]'
+      - text: Join us and the NSC as we unpack the report's key findings. You'll gain practical insights on responsible AI adoption, how to build a stronger data foundation, and preparing your safety program for the future.
+      - 'link "Learn More: The Safety Shift: How AI, Data, and Emerging Risks Are Redefining EHS"':
+        - /url: /en/events/how-ai-data-and-emerging-risks-are-redefining-ehs
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG August 06, 2026
+      - heading "Advancing Process Safety with Integrated PSM Software" [level=3]
+      - text: Join us for a webinar with independent research firm Verdantix as we discuss key findings from its newly-released Green Quadrant for Process Safety Management Software report.
+      - 'link "Learn More: Advancing Process Safety with Integrated PSM Software"':
+        - /url: /en/events/advancing-process-safety-with-integrated-psm-software
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG July 08, 2026
+      - heading "Why Visit Enablon at Advancing Data Center EHS Operations?" [level=3]
+      - text: July 8-10, 2026 | Join us at Advancing Data Center EHS Operations to learn how digital technologies proactively manage risk, standardize processes, and support safer, sustainable growth.
+      - 'link "Learn More: Why Visit Enablon at Advancing Data Center EHS Operations?"':
+        - /url: /en/events/advancing-data-center-ehs-operations
+        - text: Learn More
+      - text: 
+    - listitem:
+      - text: Event Compliance ESG June 24, 2026
+      - heading "Future Oil & Gas 2026" [level=3]
+      - text: June 24-25, 2026 | Enablon is proud to participate as a Gold Sponsor of Future Oil & Gas 2026, taking place on 24–25 June 2026 in Aberdeen.
+      - 'link "Learn More: Future Oil & Gas 2026"':
+        - /url: /en/events/future-oil-gas-2026
+        - text: Learn More
+      - text: 
+  - img "Woman working in office"
+  - heading "Ready to begin your Enablon journey?" [level=4]:
+    - paragraph: Ready to begin your Enablon journey?
+  - paragraph: Speak with one of our experts to learn how you can empower your organization.
+  - link "Contact Us - Product Promo - Contact Us Section":
+    - /url: https://www.wolterskluwer.com/en/solutions/enablon/contact-us
+    - text: Contact Us 
+  - heading "Ask our experts and learn more about the following:" [level=4]:
+    - paragraph: "Ask our experts and learn more about the following:"
+  - text: 
+  - link "Enablon Vision Platform - Product Promo - Contact Us Section":
+    - /url: https://www.wolterskluwer.com/en/solutions/enablon/vision-platform
+    - text: Enablon Vision Platform
+  - text: 
+  - link "Enablon Open Insights - Product Promo - Contact Us Section":
+    - /url: https://www.wolterskluwer.com/en/solutions/enablon/enablon-open-insights
+    - text: Enablon Open Insights
+  - text: 
+  - link "Request a Demo - Product Promo - Contact Us Section":
+    - /url: https://www.wolterskluwer.com/en/know/reimage-ehs-risk-and-sustainability-performance
+    - text: Request a Demo
+- contentinfo "Footer Navigation":
+  - heading "Footer Navigation" [level=5]
+  - navigation "Breadcrumb":
+    - list:
+      - listitem:
+        - link "Home":
+          - /url: /en
+      - listitem:
+        - link "Solutions":
+          - /url: /en/solutions
+      - listitem: Enablon
+  - list:
+    - listitem:
+      - link "About Wolters Kluwer":
+        - /url: /en/about-us
+    - listitem:
+      - link "Strategy":
+        - /url: /en/about-us/strategy
+    - listitem:
+      - link "Organization":
+        - /url: /en/about-us/organization
+    - listitem:
+      - link "Management":
+        - /url: /en/about-us/management
+    - listitem:
+      - link "News & Press Releases":
+        - /url: /en/news
+    - listitem:
+      - link "Events":
+        - /url: /en/events
+  - list:
+    - listitem:
+      - link "Solutions Directory":
+        - /url: /en/solutions
+    - listitem:
+      - link "Health":
+        - /url: /en/health
+    - listitem:
+      - link "Tax & Accounting":
+        - /url: /en/tax-and-accounting
+    - listitem:
+      - link "Corporate Performance & ESG":
+        - /url: /en/esg
+    - listitem:
+      - link "Financial & Corporate Compliance":
+        - /url: /en/compliance
+    - listitem:
+      - link "Legal & Regulatory":
+        - /url: /en/legal
+  - list:
+    - listitem:
+      - link "Expert Insights":
+        - /url: /en/expert-insights
+    - listitem:
+      - link "Careers":
+        - /url: https://careers.wolterskluwer.com/en
+    - listitem:
+      - link "Investors":
+        - /url: /en/investors
+    - listitem:
+      - link "Site Owner":
+        - /url: /en/site-owner
+  - heading "Enablon Solutions" [level=3]
+  - list:
+    - listitem:
+      - link "Environmental Management":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/environmental-management-software
+    - listitem:
+      - link "Health & Safety":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/health-safety-software
+    - listitem:
+      - link "Control of Work":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/control-of-work-software
+    - listitem:
+      - link "Process Safety Management":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/process-safety-software
+    - listitem:
+      - link "ESG Excellence":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/esg
+    - listitem:
+      - link "Product Stewardship":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/product-stewardship-software
+    - listitem:
+      - link "Quality Management":
+        - /url: https://www.wolterskluwer.com/en/solutions/enablon/quality-software
+  - heading "Follow Wolters Kluwer" [level=6]
+  - list:
+    - listitem:
+      - link "Facebook":
+        - /url: https://www.facebook.com/wolterskluwer
+    - listitem:
+      - link "Twitter":
+        - /url: https://twitter.com/Wolters_Kluwer
+    - listitem:
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/company/wolters-kluwer/
+    - listitem:
+      - link "YouTube":
+        - /url: https://www.youtube.com/user/WoltersKluwerComms
+  - link "Wolters Kluwer Logo":
+    - /url: /en
+    - img "Wolters Kluwer Logo"
+  - paragraph: When you have to be right
+  - list:
+    - listitem:
+      - link "Terms of Use":
+        - /url: /en/terms-of-use
+    - listitem:
+      - link "Privacy & Cookies":
+        - /url: /en/privacy-cookies
+    - listitem:
+      - text: Manage Cookie Preferences
+      - img "DAM files available"
+  - paragraph: © 2026 Wolters Kluwer N.V. and/or its subsidiaries. All rights reserved.
+- status
+- region "Cookie banner":
+  - dialog "Your Privacy":
+    - heading "Your Privacy" [level=2]
+    - text: To give you the best possible experience we use cookies and similar technologies. We use data collected through these technologies for various purposes, including to enhance website functionality, remember your preferences, show the most relevant content, and show the most useful ads. You can select your preferences by clicking the link. For more information, please review our
+    - link "More information about your privacy, opens in a new tab":
+      - /url: https://www.wolterskluwer.com/en/privacy-cookies
+      - text: Privacy & Cookie Notice
+    - button "Manage Cookie Preferences, Opens the preference center dialog": Manage Cookie Preferences
+    - button "Reject Non-Essential Cookies"
+    - button "Accept All Cookies"
+```

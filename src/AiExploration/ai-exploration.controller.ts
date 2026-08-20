@@ -17,6 +17,10 @@ import {
   CreateAIExplorationDto,
   UpdateAIExplorationDto,
 } from './ai-exploration.service';
+import {
+  AISuggestionConverterService,
+  ConvertAISuggestionDto,
+} from './converter/ai-suggestion-converter.service';
 
 type AuthenticatedRequest = Request & {
   user: {
@@ -29,7 +33,10 @@ type AuthenticatedRequest = Request & {
 @Controller('ai-exploration')
 @UseGuards(JwtAuthGuard)
 export class AIExplorationController {
-  constructor(private readonly aiExplorationService: AIExplorationService) {}
+  constructor(
+    private readonly aiExplorationService: AIExplorationService,
+    private readonly aiSuggestionConverterService: AISuggestionConverterService,
+  ) {}
 
   @Get()
   findAll(
@@ -49,10 +56,7 @@ export class AIExplorationController {
   }
 
   @Post()
-  create(
-    @Req() req: AuthenticatedRequest,
-    @Body() dto: CreateAIExplorationDto,
-  ) {
+  create(@Req() req: AuthenticatedRequest, @Body() dto: CreateAIExplorationDto) {
     return this.aiExplorationService.create({
       ...dto,
       createdById: req.user.userId,
@@ -77,6 +81,17 @@ export class AIExplorationController {
   @Post(':id/archive')
   archive(@Param('id') id: string) {
     return this.aiExplorationService.archive(id);
+  }
+
+  @Post('suggestions/:id/convert')
+  convertSuggestion(
+    @Param('id') id: string,
+    @Body() dto: ConvertAISuggestionDto,
+  ) {
+    return this.aiSuggestionConverterService.convertSuggestionToTestCase(
+      id,
+      dto,
+    );
   }
 
   @Delete(':id')

@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_d9e09ad8-854e-4190-b2dd-81b975233761",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_d9e09ad8-854e-4190-b2dd-81b975233761/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_d9e09ad8-854e-4190-b2dd-81b975233761",
+        "testIgnore": [],
+        "testMatch": [
+          "84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts",
+      "file": "84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier le champ \"Sujet\"",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8953,
+                  "error": {
+                    "message": "Error: locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\nCall log:\n\u001b[2m  - waiting for getByLabel(/Sujet/i).or(getByPlaceholder(/Sujet/i)).or(locator('input[name*=\"sujet\" i], textarea[name*=\"sujet\" i], input[id*=\"sujet\" i], textarea[id*=\"sujet\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"subject\" class=\"form-control\">…</select>\u001b[22m\n\u001b[2m    - fill(\"Demande de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n",
+                    "stack": "Error: locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\nCall log:\n\u001b[2m  - waiting for getByLabel(/Sujet/i).or(getByPlaceholder(/Sujet/i)).or(locator('input[name*=\"sujet\" i], textarea[name*=\"sujet\" i], input[id*=\"sujet\" i], textarea[id*=\"sujet\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"subject\" class=\"form-control\">…</select>\u001b[22m\n\u001b[2m    - fill(\"Demande de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts:18:23"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\nCall log:\n\u001b[2m  - waiting for getByLabel(/Sujet/i).or(getByPlaceholder(/Sujet/i)).or(locator('input[name*=\"sujet\" i], textarea[name*=\"sujet\" i], input[id*=\"sujet\" i], textarea[id*=\"sujet\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"subject\" class=\"form-control\">…</select>\u001b[22m\n\u001b[2m    - fill(\"Demande de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts:18:23"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-13T02:42:34.791Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\test-results\\84bf2c3d-e813-47e1-a2bd-88-a3620-61-Vérifier-le-champ-Sujet-\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\test-results\\84bf2c3d-e813-47e1-a2bd-88-a3620-61-Vérifier-le-champ-Sujet-\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_d9e09ad8-854e-4190-b2dd-81b975233761\\test-results\\84bf2c3d-e813-47e1-a2bd-88-a3620-61-Vérifier-le-champ-Sujet-\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9c39681afe0033d3dc74-232cedaf4f1728da1b04",
+          "file": "84bf2c3d-e813-47e1-a2bd-8810575a0286-run_d9e09ad8-854e-4190-b2dd-81b975233761.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-13T02:42:33.963Z",
+    "duration": 10421.189,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

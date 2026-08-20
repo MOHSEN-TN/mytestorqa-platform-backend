@@ -1,0 +1,735 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_c0a1a1ca-1993-4548-b2ba-28a9637a256e.spec.ts >> test
+- Location: 4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_c0a1a1ca-1993-4548-b2ba-28a9637a256e.spec.ts:6:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Contactez-nous' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "skip-to-main-content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "to-frontpage" [ref=e6] [cursor=pointer]:
+          - /url: https://www.sofrecom.com/
+          - img "sofrecom-logo" [ref=e7]
+        - generic [ref=e8]:
+          - link "S’inscrire à la newsletter" [ref=e9] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/newsletter.html
+          - generic [ref=e11]:
+            - textbox "Recherche" [ref=e12]
+            - img
+          - button "En Français" [ref=e14] [cursor=pointer]:
+            - text: En Français
+            - img [ref=e16]
+      - navigation "main-nav" [ref=e18]:
+        - generic [ref=e19]:
+          - list [ref=e20]:
+            - listitem [ref=e21]:
+              - button "Qui sommes nous" [ref=e22] [cursor=pointer]
+            - listitem [ref=e23]:
+              - button "Nos Marchés" [ref=e24] [cursor=pointer]
+            - listitem [ref=e25]:
+              - button "Nos solutions" [ref=e26] [cursor=pointer]
+            - listitem [ref=e27]:
+              - button "Cas clients" [ref=e28] [cursor=pointer]
+            - listitem [ref=e29]:
+              - button "News & Insights" [ref=e30] [cursor=pointer]
+          - list [ref=e31]:
+            - listitem [ref=e32]:
+              - button "Jobboard" [ref=e33] [cursor=pointer]
+            - listitem [ref=e34]:
+              - button "Contact" [ref=e35] [cursor=pointer]
+      - navigation "breadbrumb" [ref=e36]:
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Accueil" [ref=e40] [cursor=pointer]:
+              - /url: https://www.sofrecom.com/francais.html
+            - text: ">"
+          - listitem [ref=e41]:
+            - generic [ref=e42]: Nos Marchés
+    - main [ref=e43]:
+      - generic [ref=e46]:
+        - heading "Bâtir un avenir numérique souverain et résilient" [level=1] [ref=e47]
+        - paragraph [ref=e48]: De la vision stratégique à l'exécution opérationnelle, nous bâtissons des écosystèmes numériques performants, de confiance et centrés sur l'humain. Ensemble, nous transformons vos infrastructures essentielles en catalyseurs d’une croissance inclusive, d’excellence opérationnelle et d’un impact durable
+      - generic [ref=e51]:
+        - heading "OPERATEUR TELECOM" [level=2] [ref=e53]
+        - generic [ref=e56]:
+          - paragraph [ref=e57]:
+            - text: Les opérateurs télécoms font face à une décennie de
+            - strong [ref=e58]: mutations profondes
+            - text: . Le déploiement de la 5G, l'essor de l'Intelligence Artificielle (IA), l'impératif de la Cybersécurité et l'engagement pour un numérique responsable et durable (RSE) redéfinissent
+            - strong [ref=e59]: la chaîne de valeur
+            - text: . Sofrecom, vous offre
+            - strong [ref=e60]: une expertise unique
+            - text: ", de la définition de stratégie à l'implémentation opérationnelle, pour transformer ces défis en opportunités de croissance."
+          - paragraph [ref=e61]:
+            - link "Pour découvrir notre accompagnement" [ref=e62] [cursor=pointer]:
+              - /url: https://www.sofrecom.com/nos-marches/operateurs-telecom.html
+              - generic [ref=e63]: Pour découvrir notre accompagnement
+          - paragraph [ref=e64]
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - group "1 / 24" [ref=e70]:
+            - article [ref=e71]:
+              - link "En savoir plus" [ref=e72] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/cloud-prive-et-containerisation-sofrecom-accompagne-un-ministere-dans-la-migration-de-4-500-applications.html
+                - paragraph [ref=e74]: Modernisation des infrastructures publiques avec le cloud...
+          - group "2 / 24" [ref=e75]:
+            - article [ref=e76]:
+              - link "En savoir plus" [ref=e77] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/lia-dans-lexperience-client-un-horizon-a-construire.html
+                - img "Les perspectives d’innovation dans l’utilisation de l’IA pour l’expérience client" [ref=e79]
+                - generic [ref=e80]:
+                  - paragraph [ref=e81]: "L'IA dans l'expérience client : un horizon à construire"
+                  - paragraph [ref=e82]: Alors que l’intelligence artificielle s’impose comme un levier...
+          - group "3 / 24" [ref=e83]:
+            - article [ref=e84]:
+              - link "En savoir plus" [ref=e85] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/automatisation-et-industrialisation-de-la-gestion-des-os-pour-un-operateur-telecom.html
+                - img "automatisation et l'industrialisation de la gestion des OS pour opérateurs télécom" [ref=e87]
+                - generic [ref=e88]:
+                  - paragraph [ref=e89]: Automatisation de la gestion des OS et optimisation des...
+                  - paragraph [ref=e90]: La gestion efficace et sécurisée des systèmes d'exploitation est...
+          - group [ref=e91]:
+            - article [ref=e92]:
+              - link [ref=e93] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/cybersecurite-des-operateurs-comment-batir-une-strategie-de-resilience-face-aux-menaces-critiques.html
+                - img [ref=e95]
+                - generic [ref=e96]:
+                  - paragraph [ref=e97]: "Cybersécurité des opérateurs : comment bâtir une stratégie..."
+                  - paragraph [ref=e98]: Pour les directions techniques et les RSSI des opérateurs de...
+          - group [ref=e99]:
+            - article [ref=e100]:
+              - link [ref=e101] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/deploiement-fibre-en-afrique-de-louest-les-4-erreurs-qui-coutent-des-millions.html
+                - generic [ref=e102]:
+                  - paragraph [ref=e103]: "Déploiement fibre en Afrique de l'Ouest : les 4 erreurs qui..."
+                  - paragraph [ref=e104]: L'Afrique de l'Ouest connaît une accélération sans précédent de ses...
+          - group [ref=e105]:
+            - article [ref=e106]:
+              - link [ref=e107] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/vers-lexcellence-operationnelle-comment-sofrecom-industrialise-le-run-iao-pour-les-operateurs-telecom.html
+                - generic [ref=e108]:
+                  - paragraph [ref=e109]: "Vers l'excellence opérationnelle : comment Sofrecom..."
+                  - paragraph [ref=e110]: Dans un marché télécom ultra-compétitif, l’optimisation des activités...
+          - group [ref=e111]:
+            - article [ref=e112]:
+              - link [ref=e113] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/plateformisation-des-api-telco-accelerer-linnovation-et-la-monetisation-du-reseau.html
+                - img [ref=e115]
+                - generic [ref=e116]:
+                  - paragraph [ref=e117]: "Plateformisation des API Telco : accélérer l'innovation et..."
+                  - paragraph [ref=e118]: Dans un écosystème télécom en pleine mutation, l'ouverture des...
+          - group [ref=e119]:
+            - article [ref=e120]:
+              - link [ref=e121] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/pourquoi-la-fermeture-du-reseau-cuivre-s-est-averee-incontournable-pour-orange.html
+                - img [ref=e123]
+                - generic [ref=e124]:
+                  - paragraph [ref=e125]: Pourquoi la fermeture du réseau cuivre s’est avérée...
+                  - paragraph [ref=e126]: "Orange abandonne le cuivre pour la fibre : gains de performance,..."
+          - group [ref=e127]:
+            - article [ref=e128]:
+              - link [ref=e129] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/data-ia-optimiser-la-performance-et-la-resilience-des-reseaux-telecoms.html
+                - generic [ref=e130]:
+                  - paragraph [ref=e131]: Data & IA pour optimiser la performance et la résilience...
+                  - paragraph [ref=e132]: Dans un écosystème où la connectivité est le moteur de l'économie...
+          - group [ref=e133]:
+            - article [ref=e134]:
+              - link [ref=e135] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/depose-du-reseau-cuivre-reussir-son-rfp-pour-une-transition-securisee.html
+                - generic [ref=e136]:
+                  - paragraph [ref=e137]: "Dépose du Réseau Cuivre : Réussir son RFP pour une..."
+                  - paragraph [ref=e138]: À l’heure du déploiement massif de la fibre, la dépose du réseau...
+          - group [ref=e139]:
+            - article [ref=e140]:
+              - link [ref=e141] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/optimisation-de-lempreinte-carbone-un-projet-strategique.html
+                - generic [ref=e142]:
+                  - paragraph [ref=e143]: "Optimisation de l’empreinte carbone : un projet stratégique"
+                  - paragraph [ref=e144]: Pour les opérateurs télécoms, la maîtrise de l'empreinte...
+          - group [ref=e145]:
+            - article [ref=e146]:
+              - link [ref=e147] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/optimisation-reseau-lte-piloter-la-performance-et-lexperience-utilisateur.html
+                - generic [ref=e148]:
+                  - paragraph [ref=e149]: "Optimisation réseau LTE : améliorez performance et..."
+                  - paragraph [ref=e150]: Dans un monde hyperconnecté, la performance d'un réseau privé LTE...
+          - group [ref=e151]:
+            - article [ref=e152]:
+              - link [ref=e153] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/optimisation-de-lexperience-client-operateur-a-lechelle-internationale.html
+                - img [ref=e155]
+                - generic [ref=e156]:
+                  - paragraph [ref=e157]: Optimisation de l’expérience client opérateur à l’échelle...
+                  - paragraph [ref=e158]: Dans un environnement concurrentiel où la différenciation par la...
+          - group [ref=e159]:
+            - article [ref=e160]:
+              - link [ref=e161] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/optimisation-rpm-garantir-lexcellence-radio-de-votre-reseau-prive-mobile.html
+                - generic [ref=e162]:
+                  - paragraph [ref=e163]: "Optimisation RPM : garantir l'Excellence radio de votre..."
+                  - paragraph [ref=e164]: Dans les secteurs industriels ou tertiaires, un Réseau Privé Mobile...
+          - group [ref=e165]:
+            - article [ref=e166]:
+              - link [ref=e167] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/accelerer-la-croissance-mondiale-via-le-project-management.html
+                - generic [ref=e168]:
+                  - paragraph [ref=e169]: Accélérer la croissance mondiale via le Project Management
+                  - paragraph [ref=e170]: Aujourd’hui, la capacité à adapter rapidement l’offre de produits et...
+          - group [ref=e171]:
+            - article [ref=e172]:
+              - link [ref=e173] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/de-la-recherche-ia-a-la-marque-ia-une-revolution-digitale-en-marche.html
+                - img [ref=e175]
+                - generic [ref=e176]:
+                  - paragraph [ref=e177]: "De la recherche IA à la marque IA : une révolution digitale..."
+                  - paragraph [ref=e178]: Le Net Promoter Score (NPS) constitue un indicateur clé pour le...
+          - group [ref=e179]:
+            - article [ref=e180]:
+              - link [ref=e181] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/mesurer-et-piloter-la-satisfaction-client-avec-lia-agentique.html
+                - img [ref=e183]
+                - generic [ref=e184]:
+                  - paragraph [ref=e185]: Mesurer et piloter la satisfaction client avec l'IA...
+                  - paragraph [ref=e186]: Le Net Promoter Score (NPS) constitue un indicateur clé pour le...
+          - group [ref=e187]:
+            - article [ref=e188]:
+              - link [ref=e189] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/deploiement-d-un-agent-ia-pour-la-gestion-des-reseaux-5g-prives.html
+                - generic [ref=e190]:
+                  - paragraph [ref=e191]: Déploiement d’un Agent IA pour la Gestion des Réseaux 5G...
+                  - paragraph [ref=e192]: Dans un contexte où la transformation numérique s’accélère,...
+          - group [ref=e193]:
+            - article [ref=e194]:
+              - link [ref=e195] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/strategie-retail-2025-transformer-les-boutiques-physiques.html
+                - img [ref=e197]
+                - generic [ref=e198]:
+                  - paragraph [ref=e199]: "Stratégie Retail 2025 : Transformer les Boutiques Physiques"
+                  - paragraph [ref=e200]: Dans un paysage économique en pleine mutation, la boutique physique...
+          - group [ref=e201]:
+            - article [ref=e202]:
+              - link [ref=e203] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/automatisation-telecom-atteindre-lexcellence-operationnelle-a-lhorizon-2030.html
+                - img [ref=e205]
+                - generic [ref=e206]:
+                  - paragraph [ref=e207]: "Automatisation télécom : atteindre l'excellence..."
+                  - paragraph [ref=e208]: Évaluez votre maturité technologique avec Sofrecom. De l'audit TMF à...
+          - group [ref=e209]:
+            - article [ref=e210]:
+              - link [ref=e211] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/automatisation-et-jumeau-numerique-reinventer-lexploitation-des-reseaux-mobiles.html
+                - img [ref=e213]
+                - generic [ref=e214]:
+                  - paragraph [ref=e215]: "Automatisation et jumeau numérique : réinventer..."
+                  - paragraph [ref=e216]: Accélérez votre transformation Telco Cloud avec Sofrecom. Optimisez...
+          - group [ref=e217]:
+            - article [ref=e218]:
+              - link [ref=e219] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/soprano-lia-au-service-de-la-performance-des-reseaux.html
+                - generic [ref=e220]:
+                  - paragraph [ref=e221]: "SOPRANO : L’IA au service de la performance des réseaux"
+                  - paragraph [ref=e222]: Poussée par une demande de connectivité croissante, le secteur des...
+          - group [ref=e223]:
+            - article [ref=e224]:
+              - link [ref=e225] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/personnalisation-client-lia-pour-une-experience-sur-mesure.html
+                - img [ref=e227]
+                - generic [ref=e228]:
+                  - paragraph [ref=e229]: "Personnalisation client : l'IA pour une expérience sur..."
+                  - paragraph [ref=e230]: La transformation de l’expérience client par la personnalisation...
+          - group [ref=e231]:
+            - article [ref=e232]:
+              - link [ref=e233] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/lexperience-client-senrichit-de-multiples-dimensions-liees-a-l-ia.html
+                - generic [ref=e234]:
+                  - paragraph [ref=e235]: L'expérience client s'enrichit de multiples dimensions...
+                  - paragraph [ref=e236]: L’intelligence artificielle révolutionne la stratégie marketing et...
+        - generic [ref=e237]:
+          - button "Previous slide" [disabled] [ref=e238]:
+            - img [ref=e239]
+            - generic [ref=e241]: Avant
+          - button "Next slide" [ref=e242] [cursor=pointer]:
+            - img [ref=e243]
+            - generic [ref=e245]: Suivant
+      - generic [ref=e247]:
+        - heading "GOUVERNEMENT & AGENCE DU NUMERIQUE" [level=2] [ref=e249]
+        - generic [ref=e251]:
+          - generic [ref=e253]:
+            - img "Accélérez la modernisation publique avec souveraineté, résilience, data, IA responsable et numérique durable pour renforcer la confiance citoyenne."
+          - generic [ref=e254]:
+            - paragraph [ref=e255]:
+              - text: La transformation numérique des gouvernements exige aujourd'hui
+              - strong [ref=e256]: que modernisation rime avec Souveraineté, Résilience et Confiance
+              - text: . L'urgence n'est plus seulement d'aller vite, mais de bâtir sur des fondations inébranlables.
+            - paragraph [ref=e257]:
+              - text: Nous identifions
+              - strong [ref=e258]: 5 blocs pour installer les fondations d’une Souveraineté Performante et durable
+              - text: et accompagnons les autorités publiques à définir et mettre en place des
+              - strong [ref=e259]: stratégies nationales inclusives et durables.
+            - paragraph [ref=e260]:
+              - link "Pour découvrir notre accompagnement" [ref=e261] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/nos-marches/gouvernements.html
+                - generic [ref=e262]: Pour découvrir notre accompagnement
+            - paragraph [ref=e263]
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - group "1 / 24" [ref=e267]:
+            - article [ref=e268]:
+              - link "En savoir plus" [ref=e269] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/souverainete-numerique-strategie-proteger-donnees-sensibles.html
+                - 'img "Adoptez une stratégie souveraine : sécurisez vos données critiques et renforcez votre résilience face aux enjeux géopolitiques et réglementaires." [ref=e271]'
+                - generic [ref=e272]:
+                  - paragraph [ref=e273]: "Souveraineté numérique : stratégie pour protéger les..."
+                  - paragraph [ref=e274]: Dans un environnement économique mondial marqué par des tensions...
+          - group "2 / 24" [ref=e275]:
+            - article [ref=e276]:
+              - link "En savoir plus" [ref=e277] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/l-encadrement-juridique-de-l-identite-numerique.html
+                - generic [ref=e279]:
+                  - paragraph [ref=e280]: L’encadrement juridique de l’identité numérique
+                  - paragraph [ref=e281]: Les stratégies de dématérialisation des démarches administratives et...
+          - group "3 / 24" [ref=e282]:
+            - article [ref=e283]:
+              - link "En savoir plus" [ref=e284] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/construire-des-systemes-nationaux-d-identification-digitale-pour-un-avenir-durable.html
+                - generic [ref=e286]:
+                  - paragraph [ref=e287]: Construire des Systèmes Nationaux d’Identification Digitale...
+                  - paragraph [ref=e288]: Les organisations politiques internationales, continentales et...
+          - group [ref=e289]:
+            - article [ref=e290]:
+              - link [ref=e291] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/le-numerique-responsable-au-service-des-collectivites-locales.html
+                - generic [ref=e293]:
+                  - paragraph [ref=e294]: Le numérique responsable au service des collectivités...
+                  - paragraph [ref=e295]: La législation française engage les collectivités territoriales à...
+          - group [ref=e296]:
+            - article [ref=e297]:
+              - link [ref=e298] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/les-enjeux-de-la-souverainete-numerique.html
+                - generic [ref=e300]:
+                  - paragraph [ref=e301]: Les enjeux de la souveraineté numérique
+                  - paragraph [ref=e302]: Parce qu’elle a fait émerger, hors de l’UE, des géants privés devenus...
+          - group [ref=e303]:
+            - article [ref=e304]:
+              - link [ref=e305] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitaliser-les-paiements-pour-renforcer-la-qualite-des-services-publics.html
+                - generic [ref=e307]:
+                  - paragraph [ref=e308]: Digitaliser les paiements pour renforcer la qualité des...
+                  - paragraph [ref=e309]: Dans les pays émergents la digitalisation des flux financiers entre...
+          - group [ref=e310]:
+            - article [ref=e311]:
+              - link [ref=e312] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/strategies-e-sante-dans-le-monde.html
+                - generic [ref=e314]:
+                  - paragraph [ref=e315]: Stratégies e-santé dans le monde
+                  - paragraph [ref=e316]: La e-santé améliore les soins, optimise les systèmes de santé et...
+          - group [ref=e317]:
+            - article [ref=e318]:
+              - link [ref=e319] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-sur-le-mobile-money-en-zone-rurale-au-niger.html
+                - generic [ref=e321]:
+                  - paragraph [ref=e322]: Étude sur le mobile money en zone rurale au Niger
+                  - paragraph [ref=e323]: Le mobile money, bien que prometteur, a rencontré des obstacles...
+          - group [ref=e324]:
+            - article [ref=e325]:
+              - link [ref=e326] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/objectifs-de-developpement-durable-avancees-et-defis.html
+                - generic [ref=e328]:
+                  - paragraph [ref=e329]: "Objectifs de développement durable : avancées et défis"
+                  - paragraph [ref=e330]: Les 193 Etats-membres des Nations Unies se sont engagés à mettre en...
+          - group [ref=e331]:
+            - article [ref=e332]:
+              - link [ref=e333] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/vers-une-societe-digitale-inclusive-progres-de-le-gouvernement.html
+                - generic [ref=e335]:
+                  - paragraph [ref=e336]: "Vers une société digitale inclusive: progrès de..."
+                  - paragraph [ref=e337]: La 12è enquête de l’ONU sur le développement de l’e-gouvernement dans...
+          - group [ref=e338]:
+            - article [ref=e339]:
+              - link [ref=e340] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/lidentification-numerique-au-service-de-linclusion.html
+                - generic [ref=e342]:
+                  - paragraph [ref=e343]: "L’identification numérique : au service de l’inclusion"
+                  - paragraph [ref=e344]: Fin 2022, 850 millions de personnes dans le monde ne possédaient...
+          - group [ref=e345]:
+            - article [ref=e346]:
+              - link [ref=e347] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitalisation-inclusion-enjeux-de-lidentification-numerique.html
+                - generic [ref=e349]:
+                  - paragraph [ref=e350]: "Digitalisation & inclusion : enjeux de l’identification..."
+                  - paragraph [ref=e351]: La e-administration se déploie depuis 25 ans. Partout dans le monde,...
+          - group [ref=e352]:
+            - article [ref=e353]:
+              - link [ref=e354] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/developpement-rural-numerique-villages-intelligents-au-niger.html
+                - generic [ref=e356]:
+                  - paragraph [ref=e357]: "Développement rural & numérique : villages intelligents au..."
+                  - paragraph [ref=e358]: Exploration du Programme des Villages Intelligents au Niger, visant à...
+          - group [ref=e359]:
+            - article [ref=e360]:
+              - link [ref=e361] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/levolution-des-strategies-digitales-de-linfrastructure-a-linclusion.html
+                - generic [ref=e363]:
+                  - paragraph [ref=e364]: "L'évolution des stratégies digitales : de l'infrastructure..."
+                  - paragraph [ref=e365]: Découvrez l'évolution des stratégies digitales, de l'infrastructure à...
+          - group [ref=e366]:
+            - article [ref=e367]:
+              - link [ref=e368] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-de-faisabilite-pour-la-connectivite-des-ecoles-primaires-et-secondaires-au-kosovo.html
+                - generic [ref=e370]:
+                  - paragraph [ref=e371]: "Connectivité des écoles au Kosovo : Étude de faisabilité"
+                  - paragraph [ref=e372]: Le Cadre d’investissement pour les Balkans occidentaux (CIBO) a été...
+          - group [ref=e373]:
+            - article [ref=e374]:
+              - link [ref=e375] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitalisation-des-petits-exploitants-agricoles-en-afrique.html
+                - img [ref=e377]
+                - generic [ref=e378]:
+                  - paragraph [ref=e379]: Digitalisation des petits exploitants agricoles en Afrique
+                  - paragraph [ref=e380]: L’e-agri constitue un territoire attractif pour les opérateurs...
+          - group [ref=e381]:
+            - article [ref=e382]:
+              - link [ref=e383] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-creation-agence-identification-numerique.html
+                - paragraph [ref=e386]: Etude pour la création d’une agence d’identification...
+          - group [ref=e387]:
+            - article [ref=e388]:
+              - link [ref=e389] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/portails-guichet-unique-enabler-pour-inclusion-numerique.html
+                - paragraph [ref=e392]: Les portails de guichet unique, un enabler pour l’inclusion...
+          - group [ref=e393]:
+            - article [ref=e394]:
+              - link [ref=e395] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/lafrique-epreuve-developpement-durable.html
+                - generic [ref=e397]:
+                  - paragraph [ref=e398]: L’Afrique, à l’épreuve du Développement Durable
+                  - paragraph [ref=e399]: Découvrez les défis du développement durable liés à la transformation...
+          - group [ref=e400]:
+            - article [ref=e401]:
+              - link [ref=e402] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/reussir-l-implementation-d-un-systeme-national-d-identite-digitale.html
+                - paragraph [ref=e405]: Réussir l’implémentation d’un Système National d’Identité...
+          - group [ref=e406]:
+            - article [ref=e407]:
+              - link [ref=e408] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-services-confiance-numerique.html
+                - paragraph [ref=e411]: Etude sur les services de confiance numérique
+          - group [ref=e412]:
+            - article [ref=e413]:
+              - link [ref=e414] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/comment-mobiliser-numerique-service-transition-sociale.html
+                - generic [ref=e416]:
+                  - paragraph [ref=e417]: Comment mobiliser le numérique au service d’une transition...
+                  - paragraph [ref=e418]: En s’adaptant à de nouveaux groupes cibles, à des besoins non...
+          - group [ref=e419]:
+            - article [ref=e420]:
+              - link [ref=e421] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/l-e-sante-vecteur-de-democratisation-pour-l-acces-aux-soins-en-afrique.html
+                - paragraph [ref=e424]: L e-santé vecteur de démocratisation pour l accès aux soins...
+          - group [ref=e425]:
+            - article [ref=e426]:
+              - link [ref=e427] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/quel-role-pour-les-operateurs-telecoms-dans-le-domaine-de-sante-numerique.html
+                - generic [ref=e429]:
+                  - paragraph [ref=e430]: Quel rôle pour les opérateurs télécoms dans le domaine de...
+                  - paragraph [ref=e431]: Identification du rôle des opérateurs télécoms au niveau de la santé...
+        - generic [ref=e432]:
+          - button "Previous slide" [disabled] [ref=e433]:
+            - img [ref=e434]
+            - generic [ref=e436]: Avant
+          - button "Next slide" [ref=e437] [cursor=pointer]:
+            - img [ref=e438]
+            - generic [ref=e440]: Suivant
+      - generic [ref=e442]:
+        - generic [ref=e443]:
+          - heading "INSTITUTIONS INTERNATIONALES" [level=2] [ref=e445]
+          - generic [ref=e448]:
+            - paragraph [ref=e449]:
+              - text: Les institutions internationales, en tant qu'
+              - strong [ref=e450]: architectes du développement économique et social
+              - text: ", exploitent le potentiel du numérique comme levier stratégique pour la réussite de leurs programmes. Toutefois,"
+              - strong [ref=e451]: la fracture numérique, la gouvernance électronique et l’intégration des Objectifs de Développement Durable (ODD)
+              - text: représentent des défis majeurs nécessitant l’expertise, des méthodes innovantes et un engagement collectif de l’ensemble des acteurs de l’écosystème.
+            - paragraph [ref=e452]:
+              - text: Conscients de la complexité de vos missions, nous proposons
+              - strong [ref=e453]: des solutions adaptées
+              - text: pour relever ces enjeux cruciaux, afin de
+              - strong [ref=e454]: favoriser un développement plus équitable, résilient et durable
+              - text: .
+            - paragraph [ref=e455]:
+              - link "Pour découvrir notre accompagnement" [ref=e456] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/nos-marches/institutions-internationales.html
+                - generic [ref=e457]: Pour découvrir notre accompagnement
+            - paragraph [ref=e458]
+        - 'img "Accélérez vos projets numériques avec des solutions fiables : inclusion, gouvernance, infrastructures, PPP, durabilité et souveraineté numérique." [ref=e461]'
+      - generic [ref=e463]:
+        - generic [ref=e464]:
+          - group "1 / 24" [ref=e465]:
+            - article [ref=e466]:
+              - link "En savoir plus" [ref=e467] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/structuration-du-plan-dengagement-societal-pour-un-impact-territorial-accru.html
+                - img "Cette image illustre la collaboration active entre professionnels, essentielle pour structurer et déployer efficacement un plan d’engagement sociétal visant à maximiser l’impact territorial." [ref=e469]
+                - generic [ref=e470]:
+                  - paragraph [ref=e471]: Structuration du plan d’engagement sociétal pour un impact...
+                  - paragraph [ref=e472]: Dans un contexte où l’engagement sociétal et l’insertion...
+          - group "2 / 24" [ref=e473]:
+            - article [ref=e474]:
+              - link "En savoir plus" [ref=e475] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/voicebot-multilingue-et-intelligence-artificielle.html
+                - 'img "Voicebot multilingue et IA : comment transformer les services publics pour réduire la fracture numérique, garantir l’inclusion et renforcer la citoyenneté numérique" [ref=e477]'
+                - generic [ref=e478]:
+                  - paragraph [ref=e479]: "Voicebot multilingue & IA : fracture numérique, nouveaux..."
+                  - paragraph [ref=e480]: À l’heure où la fracture numérique exclut encore des millions de...
+          - group "3 / 24" [ref=e481]:
+            - article [ref=e482]:
+              - link "En savoir plus" [ref=e483] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/souverainete-numerique-strategie-proteger-donnees-sensibles.html
+                - 'img "Adoptez une stratégie souveraine : sécurisez vos données critiques et renforcez votre résilience face aux enjeux géopolitiques et réglementaires." [ref=e485]'
+                - generic [ref=e486]:
+                  - paragraph [ref=e487]: "Souveraineté numérique : stratégie pour protéger les..."
+                  - paragraph [ref=e488]: Dans un environnement économique mondial marqué par des tensions...
+          - group [ref=e489]:
+            - article [ref=e490]:
+              - link [ref=e491] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/programme-formation-gestion-relation-client.html
+                - img [ref=e493]
+                - generic [ref=e494]:
+                  - paragraph [ref=e495]: Programme de formation en gestion de la relation client
+                  - paragraph [ref=e496]: Le marché des télécoms est soumis à une forte concurrence en...
+          - group [ref=e497]:
+            - article [ref=e498]:
+              - link [ref=e499] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/evolution-du-trafic-internet-tendances-et-prevision.html
+                - generic [ref=e501]:
+                  - paragraph [ref=e502]: Quelles perspectives d’évolution du trafic internet ?
+                  - paragraph [ref=e503]: Découvrez les perspectives du trafic Internet mondial, l'impact des...
+          - group [ref=e504]:
+            - article [ref=e505]:
+              - link [ref=e506] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/audit-du-processus-dun-backbone-international.html
+                - generic [ref=e508]:
+                  - paragraph [ref=e509]: Audit du processus d'un backbone international
+                  - paragraph [ref=e510]: Sofrecom optimise les processus d'Orange pour la fusion des backbones...
+          - group [ref=e511]:
+            - article [ref=e512]:
+              - link [ref=e513] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/l-encadrement-juridique-de-l-identite-numerique.html
+                - generic [ref=e515]:
+                  - paragraph [ref=e516]: L’encadrement juridique de l’identité numérique
+                  - paragraph [ref=e517]: Les stratégies de dématérialisation des démarches administratives et...
+          - group [ref=e518]:
+            - article [ref=e519]:
+              - link [ref=e520] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/construire-des-systemes-nationaux-d-identification-digitale-pour-un-avenir-durable.html
+                - generic [ref=e522]:
+                  - paragraph [ref=e523]: Construire des Systèmes Nationaux d’Identification Digitale...
+                  - paragraph [ref=e524]: Les organisations politiques internationales, continentales et...
+          - group [ref=e525]:
+            - article [ref=e526]:
+              - link [ref=e527] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/le-numerique-responsable-au-service-des-collectivites-locales.html
+                - generic [ref=e529]:
+                  - paragraph [ref=e530]: Le numérique responsable au service des collectivités...
+                  - paragraph [ref=e531]: La législation française engage les collectivités territoriales à...
+          - group [ref=e532]:
+            - article [ref=e533]:
+              - link [ref=e534] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/les-enjeux-de-la-souverainete-numerique.html
+                - generic [ref=e536]:
+                  - paragraph [ref=e537]: Les enjeux de la souveraineté numérique
+                  - paragraph [ref=e538]: Parce qu’elle a fait émerger, hors de l’UE, des géants privés devenus...
+          - group [ref=e539]:
+            - article [ref=e540]:
+              - link [ref=e541] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitaliser-les-paiements-pour-renforcer-la-qualite-des-services-publics.html
+                - generic [ref=e543]:
+                  - paragraph [ref=e544]: Digitaliser les paiements pour renforcer la qualité des...
+                  - paragraph [ref=e545]: Dans les pays émergents la digitalisation des flux financiers entre...
+          - group [ref=e546]:
+            - article [ref=e547]:
+              - link [ref=e548] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/strategies-e-sante-dans-le-monde.html
+                - generic [ref=e550]:
+                  - paragraph [ref=e551]: Stratégies e-santé dans le monde
+                  - paragraph [ref=e552]: La e-santé améliore les soins, optimise les systèmes de santé et...
+          - group [ref=e553]:
+            - article [ref=e554]:
+              - link [ref=e555] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-sur-le-mobile-money-en-zone-rurale-au-niger.html
+                - generic [ref=e557]:
+                  - paragraph [ref=e558]: Étude sur le mobile money en zone rurale au Niger
+                  - paragraph [ref=e559]: Le mobile money, bien que prometteur, a rencontré des obstacles...
+          - group [ref=e560]:
+            - article [ref=e561]:
+              - link [ref=e562] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitalisation-des-paiements-gouvernementaux-en-mauritanie.html
+                - generic [ref=e564]:
+                  - paragraph [ref=e565]: Digitalisation des paiements en Mauritanie
+                  - paragraph [ref=e566]: Le gouvernement mauritanien, avec le soutien financier de la Banque...
+          - group [ref=e567]:
+            - article [ref=e568]:
+              - link [ref=e569] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/mise-en-place-dun-systeme-dalerte-au-public-innovant-au-coeur-de-la-securite-civile.html
+                - generic [ref=e571]:
+                  - paragraph [ref=e572]: Système d'alerte public innovant pour la sécurité civile
+                  - paragraph [ref=e573]: Aujourd’hui, les situations d'urgence et les catastrophes naturelles...
+          - group [ref=e574]:
+            - article [ref=e575]:
+              - link [ref=e576] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/objectifs-de-developpement-durable-avancees-et-defis.html
+                - generic [ref=e578]:
+                  - paragraph [ref=e579]: "Objectifs de développement durable : avancées et défis"
+                  - paragraph [ref=e580]: Les 193 Etats-membres des Nations Unies se sont engagés à mettre en...
+          - group [ref=e581]:
+            - article [ref=e582]:
+              - link [ref=e583] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/vers-une-societe-digitale-inclusive-progres-de-le-gouvernement.html
+                - generic [ref=e585]:
+                  - paragraph [ref=e586]: "Vers une société digitale inclusive: progrès de..."
+                  - paragraph [ref=e587]: La 12è enquête de l’ONU sur le développement de l’e-gouvernement dans...
+          - group [ref=e588]:
+            - article [ref=e589]:
+              - link [ref=e590] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/lidentification-numerique-au-service-de-linclusion.html
+                - generic [ref=e592]:
+                  - paragraph [ref=e593]: "L’identification numérique : au service de l’inclusion"
+                  - paragraph [ref=e594]: Fin 2022, 850 millions de personnes dans le monde ne possédaient...
+          - group [ref=e595]:
+            - article [ref=e596]:
+              - link [ref=e597] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitalisation-inclusion-enjeux-de-lidentification-numerique.html
+                - generic [ref=e599]:
+                  - paragraph [ref=e600]: "Digitalisation & inclusion : enjeux de l’identification..."
+                  - paragraph [ref=e601]: La e-administration se déploie depuis 25 ans. Partout dans le monde,...
+          - group [ref=e602]:
+            - article [ref=e603]:
+              - link [ref=e604] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/developpement-rural-numerique-villages-intelligents-au-niger.html
+                - generic [ref=e606]:
+                  - paragraph [ref=e607]: "Développement rural & numérique : villages intelligents au..."
+                  - paragraph [ref=e608]: Exploration du Programme des Villages Intelligents au Niger, visant à...
+          - group [ref=e609]:
+            - article [ref=e610]:
+              - link [ref=e611] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/levolution-des-strategies-digitales-de-linfrastructure-a-linclusion.html
+                - generic [ref=e613]:
+                  - paragraph [ref=e614]: "L'évolution des stratégies digitales : de l'infrastructure..."
+                  - paragraph [ref=e615]: Découvrez l'évolution des stratégies digitales, de l'infrastructure à...
+          - group [ref=e616]:
+            - article [ref=e617]:
+              - link [ref=e618] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/etude-de-faisabilite-pour-la-connectivite-des-ecoles-primaires-et-secondaires-au-kosovo.html
+                - generic [ref=e620]:
+                  - paragraph [ref=e621]: "Connectivité des écoles au Kosovo : Étude de faisabilité"
+                  - paragraph [ref=e622]: Le Cadre d’investissement pour les Balkans occidentaux (CIBO) a été...
+          - group [ref=e623]:
+            - article [ref=e624]:
+              - link [ref=e625] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/digitalisation-des-petits-exploitants-agricoles-en-afrique.html
+                - img [ref=e627]
+                - generic [ref=e628]:
+                  - paragraph [ref=e629]: Digitalisation des petits exploitants agricoles en Afrique
+                  - paragraph [ref=e630]: L’e-agri constitue un territoire attractif pour les opérateurs...
+          - group [ref=e631]:
+            - article [ref=e632]:
+              - link [ref=e633] [cursor=pointer]:
+                - /url: https://www.sofrecom.com/news-insights/strategie-cloud-prototype-dune-plateforme-cloud.html
+                - paragraph [ref=e636]: Stratégie Cloud et Prototype d’une Plateforme Cloud
+        - generic [ref=e637]:
+          - button "Previous slide" [disabled] [ref=e638]:
+            - img [ref=e639]
+            - generic [ref=e641]: Avant
+          - button "Next slide" [ref=e642] [cursor=pointer]:
+            - img [ref=e643]
+            - generic [ref=e645]: Suivant
+    - contentinfo [ref=e646]:
+      - generic [ref=e648]:
+        - generic [ref=e649]:
+          - generic [ref=e650]: A propos de Sofrecom
+          - link "Nos Bureaux" [ref=e651] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/qui-sommes-nous/notre-presence-dans-le-monde.html
+          - link "Nos solutions" [ref=e652] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/nos-solutions.html
+          - link "Nos engagements RSE" [ref=e653] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/qui-sommes-nous/notre-engagement-rse.html
+          - link "Nous rejoindre" [ref=e654] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/jobboard/travailler-chez-sofrecom.html
+          - link "Sitemap" [ref=e655] [cursor=pointer]:
+            - /url: https://www.sofrecom.com
+        - generic [ref=e656]:
+          - generic [ref=e657]: Insight
+          - link "Nos livres blancs" [ref=e658] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/news-insights/livres-blancs.html
+        - generic [ref=e659]:
+          - link "Presse" [ref=e660] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/communiques-de-presse.html
+          - link "Communiqués de presse" [ref=e661] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/communiques-de-presse.html
+        - generic [ref=e662]:
+          - link "Nous contacter" [ref=e664] [cursor=pointer]:
+            - /url: https://www.sofrecom.com/contact.html
+          - generic [ref=e665]:
+            - link "Linkedin link" [ref=e666] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/sofrecom
+              - img [ref=e667]
+            - link "X link" [ref=e669] [cursor=pointer]:
+              - /url: https://twitter.com/Sofrecom
+              - img [ref=e670]
+            - link "Facebook link" [ref=e672] [cursor=pointer]:
+              - /url: https://www.facebook.com/sofrecom/
+              - img [ref=e673]
+            - link "Instagram link" [ref=e675] [cursor=pointer]:
+              - /url: https://www.instagram.com/sofrecom.group/
+              - img [ref=e676]
+            - link "Youtube link" [ref=e678] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/sofrecomgroup
+              - img [ref=e679]
+      - generic [ref=e683]:
+        - link "to-frontpage":
+          - /url: https://www.sofrecom.com/
+          - img "sofrecom-logo"
+        - link "Mentions légales" [ref=e684] [cursor=pointer]:
+          - /url: https://www.sofrecom.com/mentions-legales.html
+        - link "Données personnelles" [ref=e685] [cursor=pointer]:
+          - /url: https://www.sofrecom.com/donnees-personnelles.html
+        - link "Gestion des cookies" [ref=e686] [cursor=pointer]:
+          - /url: https://www.sofrecom.com/gestion-des-cookies.html
+        - link "Lancer une alerte" [ref=e687] [cursor=pointer]:
+          - /url: https://orange.integrityline.org/
+        - link "Accessibilité" [ref=e688] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e689]:
+          - generic [ref=e690]:
+            - generic [ref=e691]:
+              - text: 0.16g of CO
+              - subscript: "2"
+              - text: /view
+            - link "Website Carbon" [ref=e692] [cursor=pointer]:
+              - /url: https://websitecarbon.com
+          - generic [ref=e693]: Cleaner than 84% of pages tested
+  - iframe [ref=e694]:
+    
+  - button "Open cookie settings widget" [ref=e696] [cursor=pointer]:
+    - img [ref=e697]
+```

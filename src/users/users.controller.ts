@@ -1,52 +1,63 @@
 // src/users/users.controller.ts
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  Param,
   Patch,
   Post,
-  Delete,
-  Param,
   Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
+import type { Request } from 'express';
+
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RolesGuard } from '../auth/roles.guard';
 import { UsersService } from './users.service';
 
+type AuthenticatedRequest = Request & {
+  user: {
+    userId: string;
+    email: string;
+    role: string;
+  };
+};
+
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+  ) {}
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
   @Get()
-  async listUsers(
+  listUsers(
     @Query('page') page?: string,
     @Query('limit') limit?: string,
     @Query('search') search?: string,
     @Query('name') name?: string,
   ) {
-    const searchTerm = search || name;
-
     return this.usersService.findAll({
-      page: page ? parseInt(page) : 1,
-      limit: limit ? parseInt(limit) : 10,
-      search: searchTerm,
+      page: page ? Number.parseInt(page, 10) : 1,
+      limit: limit ? Number.parseInt(limit, 10) : 10,
+      search: search || name,
     });
   }
 
   @UseGuards(JwtAuthGuard)
   @Patch('password')
-  async changePassword(
-    @Req() req: any,
-    @Body() body: { oldPassword: string; newPassword: string },
+  changePassword(
+    @Req() req: AuthenticatedRequest,
+    @Body()
+    body: {
+      oldPassword: string;
+      newPassword: string;
+    },
   ) {
     return this.usersService.changePassword(
       req.user.email,
@@ -55,36 +66,47 @@ export class UsersController {
     );
   }
 
+  // Demande publique. La réponse reste volontairement générique.
   @Post('forgot-password')
-  async forgotPassword(@Body() body: { email: string }) {
-    return this.usersService.sendForgotPasswordOtp(body.email);
+  requestForgotPassword(
+    @Body()
+    body: {
+      email: string;
+      locale?: string;
+    },
+  ) {
+    return this.usersService.requestPasswordResetByEmail(
+      body.email,
+      body.locale,
+    );
   }
 
-  @Post('verify-otp')
-  async verifyOtp(@Body() body: { email: string; otpCode: string }) {
-    return this.usersService.verifyOtpAndResetPassword(
-      body.email,
-      body.otpCode,
+  // Cette route statique doit rester avant les routes dynamiques :id.
+  @Post('password-reset/confirm')
+  confirmPasswordReset(
+    @Body()
+    body: {
+      token: string;
+      newPassword: string;
+      confirmPassword: string;
+    },
+  ) {
+    return this.usersService.confirmPasswordReset(
+      body,
     );
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
-  @Get(':id')
-  async getUser(@Param('id') id: string) {
-    return this.usersService.findOne(id);
-  }
-
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('ADMIN')
   @Post()
-  async createUser(
+  createUser(
     @Body()
     body: {
       email: string;
       firstName: string;
       lastName: string;
       role: string;
+      locale?: string;
     },
   ) {
     return this.usersService.createUser(body);
@@ -93,24 +115,50 @@ export class UsersController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
   @Post(':id/reset-password')
-  async resetUserPassword(@Param('id') id: string) {
-    return this.usersService.resetUserPassword(id);
+  resetUserPassword(
+    @Param('id') id: string,
+    @Body() body?: { locale?: string },
+  ) {
+    return this.usersService.requestPasswordResetByUserId(
+      id,
+      body?.locale,
+    );
+  }
+
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('ADMIN')
+  @Get(':id')
+  getUser(
+    @Param('id') id: string,
+  ) {
+    return this.usersService.findOne(id);
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
   @Patch(':id')
-  async updateUser(
+  updateUser(
     @Param('id') id: string,
-    @Body() body: { firstName?: string; lastName?: string; role?: string },
+    @Body()
+    body: {
+      email?: string;
+      firstName?: string;
+      lastName?: string;
+      role?: string;
+    },
   ) {
-    return this.usersService.updateUser(id, body);
+    return this.usersService.updateUser(
+      id,
+      body,
+    );
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
   @Delete(':id')
-  async deleteUser(@Param('id') id: string) {
+  deleteUser(
+    @Param('id') id: string,
+  ) {
     return this.usersService.deleteUser(id);
   }
 }

@@ -1,0 +1,53 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_38bfd23a-815c-4055-b73a-66291cd562cc
+Status: FAILED
+Started at: 2026-07-17T00:30:55.918Z
+Finished at: 2026-07-17T00:31:02.312Z
+Duration: 6394 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://workspooooce.lifeintelligente.com/
+Call log:
+  - navigating to "https://workspooooce.lifeintelligente.com/", waiting until "load"
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) e4c23b9a-9c51-439c-9b65-ff419f15107b-run_38bfd23a-815c-4055-b73a-66291cd562cc.spec.ts:6:1 › Vérifier le chargement de la page "Life Intelligente - Espace de Coworking Moderne" 
+
+    Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://workspooooce.lifeintelligente.com/
+    Call log:
+      - navigating to "https://workspooooce.lifeintelligente.com/", waiting until "load"
+
+        at D:\MOHSEN\PFE\v30-record auto ok -page run multi auto\v15-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_38bfd23a-815c-4055-b73a-66291cd562cc\e4c23b9a-9c51-439c-9b65-ff419f15107b-run_38bfd23a-815c-4055-b73a-66291cd562cc.spec.ts:17:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\e4c23b9a-9c51-439c-9b65-ff-20bb6-space-de-Coworking-Moderne-\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\e4c23b9a-9c51-439c-9b65-ff-20bb6-space-de-Coworking-Moderne-\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\e4c23b9a-9c51-439c-9b65-ff-20bb6-space-de-Coworking-Moderne-\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\e4c23b9a-9c51-439c-9b65-ff-20bb6-space-de-Coworking-Moderne-\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    e4c23b9a-9c51-439c-9b65-ff419f15107b-run_38bfd23a-815c-4055-b73a-66291cd562cc.spec.ts:6:1 › Vérifier le chargement de la page "Life Intelligente - Espace de Coworking Moderne" 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

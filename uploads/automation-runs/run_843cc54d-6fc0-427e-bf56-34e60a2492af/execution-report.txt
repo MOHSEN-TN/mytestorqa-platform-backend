@@ -1,0 +1,61 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_843cc54d-6fc0-427e-bf56-34e60a2492af
+Status: FAILED
+Started at: 2026-07-22T09:32:16.248Z
+Finished at: 2026-07-22T09:32:30.351Z
+Duration: 14103 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]
+Call log:
+  - waiting for getByLabel(/Light/i).or(getByPlaceholder(/Light/i)).or(locator('input[name*="light" i], textarea[name*="light" i], input[id*="light" i], textarea[id*="light" i]')).first()
+    - locator resolved to <button lang="" jsname="jerT5" aria-pressed="true" jscontroller="xzbRj" data-sync-idom-state="true" data-idom-class="fzRBVc tmJved mN1ivc rrPCWc" aria-label="Switch between light and dark theme" class="VfPpkd-Bz112c-LgbsSe VfPpkd-Bz112c-LgbsSe-OWXEXe-IT5dJd VfPpkd-Bz112c-LgbsSe-OWXEXe-e5LLRc-SxQuSe fzRBVc tmJved mN1ivc rrPCWc" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHm…>…</button>
+    - fill("Valeur de test")
+  - attempting fill action
+    - waiting for element to be visible, enabled and editable
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts:6:1 › Vérifier le champ "Light" 
+
+    Error: locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]
+    Call log:
+      - waiting for getByLabel(/Light/i).or(getByPlaceholder(/Light/i)).or(locator('input[name*="light" i], textarea[name*="light" i], input[id*="light" i], textarea[id*="light" i]')).first()
+        - locator resolved to <button lang="" jsname="jerT5" aria-pressed="true" jscontroller="xzbRj" data-sync-idom-state="true" data-idom-class="fzRBVc tmJved mN1ivc rrPCWc" aria-label="Switch between light and dark theme" class="VfPpkd-Bz112c-LgbsSe VfPpkd-Bz112c-LgbsSe-OWXEXe-IT5dJd VfPpkd-Bz112c-LgbsSe-OWXEXe-e5LLRc-SxQuSe fzRBVc tmJved mN1ivc rrPCWc" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHm…>…</button>
+        - fill("Valeur de test")
+      - attempting fill action
+        - waiting for element to be visible, enabled and editable
+
+        at D:\MOHSEN\PFE\v32-Ollama-chtboat-ok\v22-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_843cc54d-6fc0-427e-bf56-34e60a2492af\104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts:18:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts:6:1 › Vérifier le champ "Light" 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

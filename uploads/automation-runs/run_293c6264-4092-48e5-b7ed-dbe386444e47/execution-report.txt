@@ -1,0 +1,53 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_293c6264-4092-48e5-b7ed-dbe386444e47
+Status: FAILED
+Started at: 2026-07-18T16:06:07.072Z
+Finished at: 2026-07-18T16:06:38.097Z
+Duration: 31025 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('searchbox', { name: 'Search FBI' })
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 8a78b03c-331d-4c50-a5f2-c46a288d3749-run_293c6264-4092-48e5-b7ed-dbe386444e47.spec.ts:6:1 › test 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('searchbox', { name: 'Search FBI' })
+
+        at D:\MOHSEN\PFE\v31-record auto ok -page run multi auto02\v18-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_293c6264-4092-48e5-b7ed-dbe386444e47\8a78b03c-331d-4c50-a5f2-c46a288d3749-run_293c6264-4092-48e5-b7ed-dbe386444e47.spec.ts:8:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\8a78b03c-331d-4c50-a5f2-c4-169e0-48e5-b7ed-dbe386444e47-test\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\8a78b03c-331d-4c50-a5f2-c4-169e0-48e5-b7ed-dbe386444e47-test\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\8a78b03c-331d-4c50-a5f2-c4-169e0-48e5-b7ed-dbe386444e47-test\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\8a78b03c-331d-4c50-a5f2-c4-169e0-48e5-b7ed-dbe386444e47-test\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    8a78b03c-331d-4c50-a5f2-c46a288d3749-run_293c6264-4092-48e5-b7ed-dbe386444e47.spec.ts:6:1 › test 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

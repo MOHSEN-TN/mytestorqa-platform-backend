@@ -1,0 +1,79 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0",
+        "testIgnore": [],
+        "testMatch": [
+          "b8c6e929-08a1-4d35-8319-b2bddb31805f-run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5e477844-8da0-4ca5-b6c8-a0250bcf62e0\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "SyntaxError: Missing initializer in const declaration",
+      "stack": "SyntaxError: Missing initializer in const declaration"
+    },
+    {
+      "message": "Error: No tests found",
+      "stack": "Error: No tests found"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-07-13T00:29:14.002Z",
+    "duration": 20.69799999999998,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

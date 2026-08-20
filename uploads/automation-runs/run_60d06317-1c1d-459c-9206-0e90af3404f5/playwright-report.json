@@ -1,0 +1,140 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_60d06317-1c1d-459c-9206-0e90af3404f5\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_60d06317-1c1d-459c-9206-0e90af3404f5\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_60d06317-1c1d-459c-9206-0e90af3404f5",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_60d06317-1c1d-459c-9206-0e90af3404f5/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_60d06317-1c1d-459c-9206-0e90af3404f5",
+        "testIgnore": [],
+        "testMatch": [
+          "104b643f-c40f-46b2-b7f1-16539d9d4216-run_60d06317-1c1d-459c-9206-0e90af3404f5.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_60d06317-1c1d-459c-9206-0e90af3404f5\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_60d06317-1c1d-459c-9206-0e90af3404f5.spec.ts",
+      "file": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_60d06317-1c1d-459c-9206-0e90af3404f5.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Google Traduction",
+          "file": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_60d06317-1c1d-459c-9206-0e90af3404f5.spec.ts",
+          "line": 27,
+          "column": 6,
+          "specs": [
+            {
+              "title": "le champ source accepte un texte valide",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5846,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Ouvrir Google Traduction",
+                          "duration": 3232
+                        },
+                        {
+                          "title": "Vérifier que le champ source est utilisable",
+                          "duration": 925
+                        },
+                        {
+                          "title": "Saisir et vérifier le texte",
+                          "duration": 657
+                        }
+                      ],
+                      "startTime": "2026-07-22T09:37:44.810Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "610566551fa81de5b55e-853dda1560dd8af24f80",
+              "file": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_60d06317-1c1d-459c-9206-0e90af3404f5.spec.ts",
+              "line": 28,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-22T09:37:43.363Z",
+    "duration": 7822.056,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

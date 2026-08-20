@@ -6,22 +6,22 @@ import {
   Param,
   Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ExecutionStatus } from '@prisma/client';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { IterationsService } from './iterations.service';
+
 import {
   CreateIterationDto,
   UpdateIterationDto,
 } from './dto/create-iteration.dto';
+import { IterationsService } from './iterations.service';
 
 @ApiTags('Iterations')
-@UseGuards(JwtAuthGuard)
 @Controller()
 export class IterationsController {
-  constructor(private iterations: IterationsService) {}
+  constructor(
+    private readonly iterations: IterationsService,
+  ) {}
 
   @Post('campaigns/:campaignId/iterations')
   create(
@@ -32,12 +32,16 @@ export class IterationsController {
   }
 
   @Get('campaigns/:campaignId/iterations')
-  findAll(@Param('campaignId') campaignId: string) {
+  findAll(
+    @Param('campaignId') campaignId: string,
+  ) {
     return this.iterations.findAll(campaignId);
   }
 
   @Get('iterations/:iterationId')
-  findOne(@Param('iterationId') iterationId: string) {
+  findOne(
+    @Param('iterationId') iterationId: string,
+  ) {
     return this.iterations.findOne(iterationId);
   }
 
@@ -46,11 +50,16 @@ export class IterationsController {
     @Param('iterationId') iterationId: string,
     @Body() body: UpdateIterationDto,
   ) {
-    return this.iterations.update(iterationId, body);
+    return this.iterations.update(
+      iterationId,
+      body,
+    );
   }
 
   @Delete('iterations/:iterationId')
-  remove(@Param('iterationId') iterationId: string) {
+  remove(
+    @Param('iterationId') iterationId: string,
+  ) {
     return this.iterations.remove(iterationId);
   }
 
@@ -59,7 +68,10 @@ export class IterationsController {
     @Param('iterationId') iterationId: string,
     @Body('suiteIds') suiteIds: string[],
   ) {
-    return this.iterations.addSuites(iterationId, suiteIds);
+    return this.iterations.addSuites(
+      iterationId,
+      suiteIds,
+    );
   }
 
   @Delete('iterations/:iterationId/suites/:suiteId')
@@ -67,33 +79,42 @@ export class IterationsController {
     @Param('iterationId') iterationId: string,
     @Param('suiteId') suiteId: string,
   ) {
-    return this.iterations.removeSuite(iterationId, suiteId);
+    return this.iterations.removeSuite(
+      iterationId,
+      suiteId,
+    );
   }
 
   /**
-   * Génère les IterationItem + IterationItemStep.
-   * Cette route est appelée quand on clique sur "Lancer l'exécution".
+   * Prépare les tests manuels et automatisés,
+   * puis démarre les tests Playwright en HEADLESS.
    */
   @Post('iterations/:iterationId/run')
-  run(@Param('iterationId') iterationId: string) {
-    return this.iterations.generateItems(iterationId);
+  run(
+    @Param('iterationId') iterationId: string,
+  ) {
+    return this.iterations.startRun(iterationId);
   }
 
   /**
-   * Récupère les cas de test de l'itération avec leurs steps
-   * et les statuts d'exécution de chaque step.
+   * Retourne la progression et les résultats
+   * des tests manuels et automatisés.
    */
   @Get('iterations/:iterationId/run')
-  getRunItems(@Param('iterationId') iterationId: string) {
-    return this.iterations.getRunItems(iterationId);
+  getRunItems(
+    @Param('iterationId') iterationId: string,
+  ) {
+    return this.iterations.getRunItems(
+      iterationId,
+    );
   }
 
   /**
-   * Met à jour le statut manuel d'un step pendant l'exécution.
-   * Après cette mise à jour, le backend recalcule automatiquement
-   * le statut global du cas de test exécuté.
+   * Met à jour uniquement un step manuel.
    */
-  @Patch('iterations/items/:itemId/steps/:stepId/status')
+  @Patch(
+    'iterations/items/:itemId/steps/:stepId/status',
+  )
   updateStepStatus(
     @Param('itemId') itemId: string,
     @Param('stepId') stepId: string,
@@ -103,6 +124,10 @@ export class IterationsController {
       comment?: string;
     },
   ) {
-    return this.iterations.updateStepStatus(itemId, stepId, body);
+    return this.iterations.updateStepStatus(
+      itemId,
+      stepId,
+      body,
+    );
   }
 }

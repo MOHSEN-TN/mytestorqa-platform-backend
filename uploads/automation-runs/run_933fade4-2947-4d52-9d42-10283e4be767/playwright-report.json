@@ -1,0 +1,117 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_933fade4-2947-4d52-9d42-10283e4be767\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_933fade4-2947-4d52-9d42-10283e4be767\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_933fade4-2947-4d52-9d42-10283e4be767",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_933fade4-2947-4d52-9d42-10283e4be767/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_933fade4-2947-4d52-9d42-10283e4be767",
+        "testIgnore": [],
+        "testMatch": [
+          "05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_933fade4-2947-4d52-9d42-10283e4be767.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_933fade4-2947-4d52-9d42-10283e4be767\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_933fade4-2947-4d52-9d42-10283e4be767.spec.ts",
+      "file": "05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_933fade4-2947-4d52-9d42-10283e4be767.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9401,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-14T00:53:05.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "89f30182ef4fdee02f99-47eb030d4f7b42492612",
+          "file": "05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_933fade4-2947-4d52-9d42-10283e4be767.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-14T00:53:03.929Z",
+    "duration": 13112.015,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

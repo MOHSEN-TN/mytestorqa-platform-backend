@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_56142851-99fe-4381-9100-fa9158cac0e7",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_56142851-99fe-4381-9100-fa9158cac0e7/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_56142851-99fe-4381-9100-fa9158cac0e7",
+        "testIgnore": [],
+        "testMatch": [
+          "c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts",
+      "file": "c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier le champ \"darkToggle_on_small\"",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 39121,
+                  "error": {
+                    "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.w3schools.com/\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.w3schools.com/\", waiting until \"load\"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts:7:16"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.w3schools.com/\", waiting until \"load\"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts:7:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-18T16:21:13.760Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\test-results\\c176b9c4-2298-4d69-b155-35-ee67f--champ-darkToggle-on-small-\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\test-results\\c176b9c4-2298-4d69-b155-35-ee67f--champ-darkToggle-on-small-\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_56142851-99fe-4381-9100-fa9158cac0e7\\test-results\\c176b9c4-2298-4d69-b155-35-ee67f--champ-darkToggle-on-small-\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ccb7e2561db9392d5f72-253105302ab216034752",
+          "file": "c176b9c4-2298-4d69-b155-35ee32652e3c-run_56142851-99fe-4381-9100-fa9158cac0e7.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-18T16:21:09.245Z",
+    "duration": 52649.01,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

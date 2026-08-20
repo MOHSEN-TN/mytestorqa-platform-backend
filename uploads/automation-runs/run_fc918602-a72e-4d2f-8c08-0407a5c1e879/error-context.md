@@ -1,0 +1,2525 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts >> test
+- Location: 958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts:6:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Mini Pc de bureau BMAX B1 PRO / N4000 / 8GB 128SSD / Windows 11 / Noir', exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e7]:
+      - link "Tunisianet" [ref=e9] [cursor=pointer]:
+        - /url: https://www.tunisianet.com.tn/
+        - img "Tunisianet" [ref=e10]
+      - generic [ref=e11]:
+        - text:  
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - combobox [ref=e15] [cursor=pointer]:
+              - option "Toutes les catégories" [selected]
+              - option "Accueil"
+              - option "--Informatique"
+              - option "----Ordinateur Portable"
+              - option "------Pc Portable"
+              - option "------Pc Portable Pro"
+              - option "----Ordinateur de Bureau"
+              - option "------Ecran"
+              - option "------Pc de bureau"
+              - option "------Pc Tout en un"
+              - option "------Full Setup Gamer"
+              - option "----Logiciels"
+              - option "------Sécurité"
+              - option "------Microsoft"
+              - option "----Accessoires et Périphériques"
+              - option "------Sacoche & Sac à dos"
+              - option "------Souris"
+              - option "------Ensemble Clavier et Souris"
+              - option "------Claviers"
+              - option "------Tapis de souris"
+              - option "------Refroidisseur"
+              - option "------Lecteur de cartes & Hub USB"
+              - option "------Accessoires Ecran"
+              - option "------Webcam"
+              - option "------Accessoires Divers"
+              - option "------Station d\\'accueil"
+              - option "------Haut-Parleur"
+              - option "----Serveur informatique"
+              - option "----Onduleur"
+              - option "----Composant Informatique"
+              - option "------Disque dur Interne"
+              - option "------Afficheur"
+              - option "------Ventilateur & Refroidisseur"
+              - option "------Processeur"
+              - option "------Barrette mémoire"
+              - option "------Carte mère"
+              - option "------Carte graphique"
+              - option "------Batterie pour Pc portable"
+              - option "------Chargeur pour Pc portable"
+              - option "------Boîte d\\'alimentation"
+              - option "------Boîtier"
+              - option "------Lecteur & Graveur"
+              - option "------Divers"
+              - option "----Meubles Pc"
+              - option "--Téléphonie & Tablette"
+              - option "----Téléphone Portable"
+              - option "----Smartphone"
+              - option "----Téléphone Fixe"
+              - option "----Tablette tactile"
+              - option "------Tablette"
+              - option "------Etui de protection pour tablette"
+              - option "------Chargeur et Câble pour tablette"
+              - option "------Film de protection pour tablette"
+              - option "------Divers pour tablette"
+              - option "----Accessoires Téléphones"
+              - option "------Etui de protection pour Téléphones"
+              - option "------Film de protection pour Smartphones"
+              - option "------Chargeurs et Câbles pour Téléphones"
+              - option "------Power Bank"
+              - option "------Divers pour Téléphones"
+              - option "----Tablette Graphique"
+              - option "----SmartWatch"
+              - option "--Stockage"
+              - option "----Disques Internes"
+              - option "------Disques Internes Standards"
+              - option "------Disque SSD"
+              - option "------Disques Internes pour Serveur de Stockage"
+              - option "------Disques Internes pour Vidéosurveillance"
+              - option "----Disque Dur externe"
+              - option "----Clé USB"
+              - option "----Carte mémoire"
+              - option "----Serveur de stockage"
+              - option "----CD et DVD Vierge"
+              - option "----Accessoires pour Stockage"
+              - option "--Impression"
+              - option "----Imprimantes"
+              - option "------Imprimante à réservoir intégré"
+              - option "------Imprimante et Multifonction Jet d\\'encre"
+              - option "------Imprimante et Multifonction Laser"
+              - option "------Imprimante professionnelle"
+              - option "------Accessoires Imprimantes"
+              - option "----Photocopieurs"
+              - option "------Accessoires photocopieurs"
+              - option "------Photocopieurs A4 | A3"
+              - option "----Consommables"
+              - option "------Ruban"
+              - option "------Bouteille d\\'encre"
+              - option "------Poudre pour Toner"
+              - option "------Rouleau thermique"
+              - option "------Cartouche"
+              - option "------Toner"
+              - option "------Originales"
+              - option "------Adaptables"
+              - option "----Fax"
+              - option "----Scanners"
+              - option "--TV-Son-Photos"
+              - option "----Vidéoprojecteurs"
+              - option "------Vidéoprojecteurs"
+              - option "------Accessoires pour Vidéoprojecteurs"
+              - option "----Téléviseurs"
+              - option "------Téléviseurs"
+              - option "------Accessoires pour téléviseurs"
+              - option "----SON"
+              - option "------Ensemble Home Cinéma"
+              - option "------Barre de son"
+              - option "------Casque & Écouteurs"
+              - option "------Radio - Réveil"
+              - option "------Chaîne Stéréo"
+              - option "------Microphone"
+              - option "----Appareils Photos"
+              - option "------Appareils Photos"
+              - option "------Accessoires pour Appareils Photos"
+              - option "----Consoles & Jeux"
+              - option "------Manettes de Jeux"
+              - option "------Accessoires pour Cônsoles"
+              - option "----Récepteur / Abonnement"
+              - option "------Récepteur"
+              - option "------Accessoires pour Récepteurs"
+              - option "------Abonnement Récepteur"
+              - option "----Piles et Chargeurs"
+              - option "------Piles"
+              - option "------Chargeurs"
+              - option "------Torches"
+              - option "----Montres"
+              - option "--Electroménager"
+              - option "----Climatisation"
+              - option "----Gros Electro Cuisine"
+              - option "------Hottes"
+              - option "------Plaque de cuisson"
+              - option "------Réfrigérateurs"
+              - option "------Fontaine Fraîche"
+              - option "------Congélateurs"
+              - option "------Mini Réfrigérateur | Mini Bar"
+              - option "------Cuisinière"
+              - option "------Four encastrable"
+              - option "------Micro-ondes encastrable"
+              - option "----Gros Electro Lavage"
+              - option "------Machine à laver"
+              - option "------Lave vaisselle"
+              - option "------Sèche linge"
+              - option "----Petit Electro Cuisine"
+              - option "------Grille-pain"
+              - option "------Appareil de cuisson / Convivial"
+              - option "------Mini four électrique"
+              - option "------Blenders"
+              - option "------Hachoirs"
+              - option "------Batteurs"
+              - option "------Centrifugeuses"
+              - option "------Presse Agrumes / Légumes"
+              - option "------Robots multifonction"
+              - option "------Cafetières et moulin à café"
+              - option "------Micro-onde"
+              - option "------Friteuse"
+              - option "------AirFryer"
+              - option "------Mixeurs"
+              - option "------Faitouts - Casseroles - Cocottes"
+              - option "----Entretien – Soin"
+              - option "------Aspirateur - Nettoyeur Vapeur"
+              - option "------Repassage & Accessoires"
+              - option "------Beauté Masculine"
+              - option "------Beauté Féminine"
+              - option "------Santé connectée - Bien être - Massage"
+              - option "----Machine à coudre"
+              - option "----Pack électroménager"
+              - option "------Pack mariage"
+              - option "------Pack encastrable"
+              - option "----Chauffages"
+              - option "------Chauffage"
+              - option "------Chaudière"
+              - option "------Chauffe Bain"
+              - option "----Climeur mobile"
+              - option "----Ventilateurs"
+              - option "--Réseau & Sécurité"
+              - option "----Réseau"
+              - option "------Abonnements Internet"
+              - option "------Switch / Routeurs / Point d\\'accès"
+              - option "------Carte Réseau"
+              - option "------Clé Wifi - Bluetooth"
+              - option "------CPL"
+              - option "------Multiprise"
+              - option "------Accessoires Réseau"
+              - option "----Câbles et Connectiques"
+              - option "------Câbles HDMI"
+              - option "------Câbles USB"
+              - option "------Câbles Réseau"
+              - option "------Câbles Firewire"
+              - option "------Câbles Ecrans TV / AUDIO / DVD"
+              - option "------Adaptateurs / Convertisseurs"
+              - option "------Câbles Alimentation"
+              - option "----Coffrets et Accessoires"
+              - option "------Coffrets et Armoires Réseau"
+              - option "------Accessoires"
+              - option "----Matériel de sécurité"
+              - option "------Caméra de surveillance"
+              - option "------Kit sécurité"
+              - option "------Enregistreur"
+              - option "------Accessoires sécurité"
+              - option "------Détecteurs et Capteurs"
+              - option "----Système d\\'alarme"
+              - option "------Alarme Filaire"
+              - option "------Alarme sans fil"
+              - option "------Accessoires"
+              - option "--Bureautique"
+              - option "----Matériel point de vente"
+              - option "------Tiroirs Caisses et Coffres-forts"
+              - option "------Douchettes"
+              - option "------Destructeurs de papiers"
+              - option "------Perforelieuses"
+              - option "------Imprimante point de vente"
+              - option "------Plastifieuses"
+              - option "------Compteuse de billets"
+              - option "------Caisses Enregistreuses"
+              - option "----Ecriture & Correction"
+              - option "------Stylos à bille"
+              - option "------Surligneurs"
+              - option "------Crayons & Porte-mines"
+              - option "------Marqueurs"
+              - option "------Correction"
+              - option "------Recharge Stylos et feutres"
+              - option "------Stylos feutre"
+              - option "------Stylos confort"
+              - option "------Stylos Pointe Fine"
+              - option "------Stylos premium"
+              - option "----Classement & Archivage"
+              - option "------Boîtes de classement"
+              - option "------Chemises & Sous-chemises"
+              - option "------Classeurs"
+              - option "------Portes documents"
+              - option "------Corbeilles à courrier"
+              - option "------Corbeilles"
+              - option "------Trieur"
+              - option "----Adhésifs, Agrafage & Découpe"
+              - option "------Découpe"
+              - option "------Agrafage"
+              - option "------Perforateur"
+              - option "------Colles"
+              - option "------Rouleau scotch"
+              - option "------Reliure & Spiral"
+              - option "------Trombones & Pinces"
+              - option "------Punaises & Épingles"
+              - option "------Elastiques"
+              - option "----Tableaux"
+              - option "------Tableaux en Liège"
+              - option "------Tableaux Blancs"
+              - option "------Tableaux Vitrine"
+              - option "------Tableaux à Craie"
+              - option "------Accessoires tableaux"
+              - option "----Papier"
+              - option "------Papier Photo"
+              - option "------Papier A4"
+              - option "------Papier A3"
+              - option "------Enveloppe"
+              - option "----Cahiers, blocs et feuilles"
+              - option "------Post-it - Pense bête"
+              - option "------Cahiers & Bloc-notes"
+              - option "------Etiquettes"
+              - option "----Accessoires de bureau"
+              - option "------Règles"
+              - option "------Porte-stylos"
+              - option "------Loupes"
+              - option "------Cachets & Tampons"
+              - option "------Cadenas"
+              - option "------Accessories"
+              - option "----Calculatrices"
+              - option "----Nettoyage"
+              - option "----Décoration"
+              - option "----Bagageries"
+              - option "--Gaming"
+              - option "----Pc Portable Gamer"
+              - option "----Pc de Bureau Gamer"
+              - option "----Consoles"
+              - option "----Accessoires & Périphériques Gamers"
+              - option "------Souris Gamer"
+              - option "------Ecrans Gamer"
+              - option "------Claviers Gamer"
+              - option "------Refroidisseurs Gamer"
+              - option "------Casques Gamer"
+              - option "------Pack Gamer"
+              - option "--Mobilités & Loisirs"
+              - option "----Scooter Electriques"
+              - option "----Trottinettes Electriques"
+              - option "----Protection mobilité & accessoires"
+              - option "----Navigation GPS"
+            - generic [ref=e16]:
+              - textbox "Rechercher" [ref=e17]
+              - button [ref=e19] [cursor=pointer]:
+                - img [ref=e20]
+          - text: 
+        - generic [ref=e22] [cursor=pointer]:
+          - img [ref=e26]
+          - text: 
+        - generic [ref=e32] [cursor=pointer]:
+          - img [ref=e34]
+          - generic [ref=e37]:
+            - generic [ref=e38]: "0"
+            - text: 0,000 DT
+    - generic [ref=e44] [cursor=pointer]:
+      - text: 
+      - list [ref=e45]:
+        - listitem [ref=e46]:
+          - link "Climatisation" [ref=e48]:
+            - /url: https://www.tunisianet.com.tn/457-climatiseur-tunisie-chaud-froid
+        - listitem [ref=e49]:
+          - generic [ref=e50]: Informatique
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Ordinateur Portable":
+                      - /url: https://www.tunisianet.com.tn/702-ordinateur-portable
+                  - listitem:
+                    - link "Pc Portable":
+                      - /url: https://www.tunisianet.com.tn/301-pc-portable-tunisie
+                  - listitem:
+                    - link "Pc Portable Gamer":
+                      - /url: https://www.tunisianet.com.tn/681-pc-portable-gamer
+                  - listitem:
+                    - link "Pc Portable Pro":
+                      - /url: https://www.tunisianet.com.tn/703-pc-portable-pro
+                  - listitem:
+                    - link "Accessoires et Périphériques":
+                      - /url: https://www.tunisianet.com.tn/700-accessoires-et-peripheriques
+                  - listitem:
+                    - link "Casque & Écouteurs":
+                      - /url: https://www.tunisianet.com.tn/338-casque-ecouteurs
+                  - listitem:
+                    - link "Sacoche & Sac à dos":
+                      - /url: https://www.tunisianet.com.tn/331-sac-a-dos-tunisie
+                  - listitem:
+                    - link "Souris":
+                      - /url: https://www.tunisianet.com.tn/334-souris-informatique
+                  - listitem:
+                    - link "Claviers":
+                      - /url: https://www.tunisianet.com.tn/704-claviers
+                  - listitem:
+                    - link "Ensemble Clavier et Souris":
+                      - /url: https://www.tunisianet.com.tn/332-ensemble-clavier-et-souris
+                  - listitem:
+                    - link "Tapis de souris":
+                      - /url: https://www.tunisianet.com.tn/488-tapis-souris-tunisie
+                  - listitem:
+                    - link "Refroidisseur":
+                      - /url: https://www.tunisianet.com.tn/500-refroidisseur
+                  - listitem:
+                    - link "Lecteur de cartes & Hub USB":
+                      - /url: https://www.tunisianet.com.tn/498-hub-usb-lecteur-carte-tunisie
+                  - listitem:
+                    - link "Accessoires Ecran":
+                      - /url: https://www.tunisianet.com.tn/658-accessoires-ecran
+                  - listitem:
+                    - link "Station d'accueil":
+                      - /url: https://www.tunisianet.com.tn/683-dock-station-tunisie
+                  - listitem:
+                    - link "Webcam":
+                      - /url: https://www.tunisianet.com.tn/336-webcam
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Ordinateur de Bureau":
+                      - /url: https://www.tunisianet.com.tn/701-ordinateur-de-bureau
+                  - listitem:
+                    - link "Ecran":
+                      - /url: https://www.tunisianet.com.tn/667-ecran-pc-tunisie
+                  - listitem:
+                    - link "Pc de bureau":
+                      - /url: https://www.tunisianet.com.tn/373-pc-de-bureau
+                  - listitem:
+                    - link "Pc de Bureau Gamer":
+                      - /url: https://www.tunisianet.com.tn/682-pc-de-bureau-gamer
+                  - listitem:
+                    - link "Pc Tout en un":
+                      - /url: https://www.tunisianet.com.tn/686-pc-tout-en-un
+                  - listitem:
+                    - link "Full Setup Gamer":
+                      - /url: https://www.tunisianet.com.tn/732-full-setup-gamer
+                  - listitem:
+                    - link "Logiciels":
+                      - /url: https://www.tunisianet.com.tn/385-logiciels-informatique-tunisie
+                  - listitem:
+                    - link "Sécurité":
+                      - /url: https://www.tunisianet.com.tn/386-logiciel-antivirus-tunisie
+                  - listitem:
+                    - link "Microsoft":
+                      - /url: https://www.tunisianet.com.tn/388-logiciel-microsoft-tunisie
+                  - listitem:
+                    - link "Serveur informatique":
+                      - /url: https://www.tunisianet.com.tn/375-serveur-informatique-tunisie
+                  - listitem:
+                    - link "Onduleur":
+                      - /url: https://www.tunisianet.com.tn/380-onduleur
+                  - listitem:
+                    - link "Meubles Pc":
+                      - /url: https://www.tunisianet.com.tn/733-meubles-pc
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Composant Informatique":
+                      - /url: https://www.tunisianet.com.tn/406-composant-informatique
+                  - listitem:
+                    - link "Disque dur Interne":
+                      - /url: https://www.tunisianet.com.tn/408-disque-dur-interne
+                  - listitem:
+                    - link "Afficheur":
+                      - /url: https://www.tunisianet.com.tn/413-afficheur-pc-portable-prix-tunisie
+                  - listitem:
+                    - link "Ventilateur & Refroidisseur":
+                      - /url: https://www.tunisianet.com.tn/427-refroidisseur-ventilateur-boitier
+                  - listitem:
+                    - link "Processeur":
+                      - /url: https://www.tunisianet.com.tn/421-processeur
+                  - listitem:
+                    - link "Barrette mémoire":
+                      - /url: https://www.tunisianet.com.tn/409-barrette-memoire
+                  - listitem:
+                    - link "Carte mère":
+                      - /url: https://www.tunisianet.com.tn/420-carte-mere
+                  - listitem:
+                    - link "Carte graphique":
+                      - /url: https://www.tunisianet.com.tn/410-carte-graphique-tunisie
+                  - listitem:
+                    - link "Clavier pour pc portable":
+                      - /url: https://www.tunisianet.com.tn/489-clavier-pour-pc-portable
+                  - listitem:
+                    - link "Batterie pour Pc portable":
+                      - /url: https://www.tunisianet.com.tn/412-batterie-pour-pc-portable
+                  - listitem:
+                    - link "Chargeur pour Pc portable":
+                      - /url: https://www.tunisianet.com.tn/411-chargeur-pour-pc-portable
+                  - listitem:
+                    - link "Boîte d'alimentation":
+                      - /url: https://www.tunisianet.com.tn/423-boite-alimentation-pc-tunisie
+                  - listitem:
+                    - link "Boîtier":
+                      - /url: https://www.tunisianet.com.tn/425-boitier
+                  - listitem:
+                    - link "Lecteur & Graveur":
+                      - /url: https://www.tunisianet.com.tn/422-lecteur-graveur
+                  - listitem:
+                    - link "Divers":
+                      - /url: https://www.tunisianet.com.tn/429-divers
+        - listitem [ref=e51]:
+          - generic [ref=e52]: Téléphonie & Tablette
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Téléphone Portable":
+                      - /url: https://www.tunisianet.com.tn/377-telephone-portable-tunisie
+                  - listitem:
+                    - link "Smartphone":
+                      - /url: https://www.tunisianet.com.tn/596-smartphone-tunisie
+                  - listitem:
+                    - link "Téléphone Fixe":
+                      - /url: https://www.tunisianet.com.tn/462-telephone-fixe
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Tablette tactile":
+                      - /url: https://www.tunisianet.com.tn/396-tablette-tactile-tunisie
+                  - listitem:
+                    - link "Tablette":
+                      - /url: https://www.tunisianet.com.tn/515-tablette
+                  - listitem:
+                    - link "Tablette Graphique":
+                      - /url: https://www.tunisianet.com.tn/728-tablette-graphique
+                  - listitem:
+                    - link "Etui de protection pour tablette":
+                      - /url: https://www.tunisianet.com.tn/511-etui-protection-tablette-tunisie
+                  - listitem:
+                    - link "Chargeur et Câble pour tablette":
+                      - /url: https://www.tunisianet.com.tn/510-chargeur-et-cable-pour-tablette
+                  - listitem:
+                    - link "Film de protection pour tablette":
+                      - /url: https://www.tunisianet.com.tn/512-film-de-protection-pour-tablette
+                  - listitem:
+                    - link "Divers pour tablette":
+                      - /url: https://www.tunisianet.com.tn/514-divers-pour-tablette
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Accessoires Téléphones":
+                      - /url: https://www.tunisianet.com.tn/378-accessoire-telephonie-mobile-tunisie
+                  - listitem:
+                    - link "Etui de protection pour Téléphones":
+                      - /url: https://www.tunisianet.com.tn/517-etui-de-protection-pour-telephones
+                  - listitem:
+                    - link "Film de protection pour Smartphones":
+                      - /url: https://www.tunisianet.com.tn/518-film-de-protection-pour-smartphones
+                  - listitem:
+                    - link "Chargeurs et Câbles pour Téléphones":
+                      - /url: https://www.tunisianet.com.tn/516-chargeurs-et-cables-pour-telephones
+                  - listitem:
+                    - link "Power Bank":
+                      - /url: https://www.tunisianet.com.tn/636-power-bank-tunisie
+                  - listitem:
+                    - link "Divers pour Téléphones":
+                      - /url: https://www.tunisianet.com.tn/519-divers-pour-telephones
+                  - listitem:
+                    - link "SmartWatch":
+                      - /url: https://www.tunisianet.com.tn/650-smartwatch
+        - listitem [ref=e53]:
+          - generic [ref=e54]: Impression
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Imprimantes":
+                      - /url: https://www.tunisianet.com.tn/316-imprimante-en-tunisie
+                  - listitem:
+                    - link "Imprimante à réservoir intégré":
+                      - /url: https://www.tunisianet.com.tn/455-imprimante-a-reservoir-integre
+                  - listitem:
+                    - link "Imprimante et Multifonction Jet d'encre":
+                      - /url: https://www.tunisianet.com.tn/321-imprimante-et-multifonction-jet-d-encre
+                  - listitem:
+                    - link "Imprimante et Multifonction Laser":
+                      - /url: https://www.tunisianet.com.tn/318-imprimante-et-multifonction-laser
+                  - listitem:
+                    - link "Imprimante professionnelle":
+                      - /url: https://www.tunisianet.com.tn/436-imprimante-professionnelle
+                  - listitem:
+                    - link "Imprimante point de vente":
+                      - /url: https://www.tunisianet.com.tn/581-imprimante-point-de-vente
+                  - listitem:
+                    - link "Accessoires Imprimantes":
+                      - /url: https://www.tunisianet.com.tn/698-accessoires-imprimantes
+                  - listitem:
+                    - link "Fax":
+                      - /url: https://www.tunisianet.com.tn/324-appareil-fax-telephone-tunisie
+                  - listitem:
+                    - link "Scanners":
+                      - /url: https://www.tunisianet.com.tn/326-scanner-informatique
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Photocopieurs":
+                      - /url: https://www.tunisianet.com.tn/444-photocopieur-tunisie
+                  - listitem:
+                    - link "Photocopieurs A4 | A3":
+                      - /url: https://www.tunisianet.com.tn/446-photocopieurs-a4-a3
+                  - listitem:
+                    - link "Accessoires photocopieurs":
+                      - /url: https://www.tunisianet.com.tn/447-accessoires-photocopieurs
+                  - listitem:
+                    - link "Papier":
+                      - /url: https://www.tunisianet.com.tn/463-ramette-de-papier
+                  - listitem:
+                    - link "Papier A4":
+                      - /url: https://www.tunisianet.com.tn/464-rames-papier-a4-tunisie
+                  - listitem:
+                    - link "Papier A3":
+                      - /url: https://www.tunisianet.com.tn/474-rames-papier-a3
+                  - listitem:
+                    - link "Enveloppe":
+                      - /url: https://www.tunisianet.com.tn/483-enveloppe-tunisie-fourniture
+                  - listitem:
+                    - link "Papier Photo":
+                      - /url: https://www.tunisianet.com.tn/486-papier-photo
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Consommables":
+                      - /url: https://www.tunisianet.com.tn/317-consommable-imprimante-tunisie
+                  - listitem:
+                    - link "Originales":
+                      - /url: https://www.tunisianet.com.tn/730-originales
+                  - listitem:
+                    - link "Adaptables":
+                      - /url: https://www.tunisianet.com.tn/731-adaptables
+        - listitem [ref=e55]:
+          - generic [ref=e56]: Stockage
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Disques Internes":
+                      - /url: https://www.tunisianet.com.tn/669-disques-internes
+                  - listitem:
+                    - link "Disques Internes Standards":
+                      - /url: https://www.tunisianet.com.tn/458-disques-internes-standards
+                  - listitem:
+                    - link "Disque SSD":
+                      - /url: https://www.tunisianet.com.tn/379-disques-ssd
+                  - listitem:
+                    - link "Disques Internes pour Serveur de Stockage":
+                      - /url: https://www.tunisianet.com.tn/670-disques-internes-pour-serveur-de-stockage
+                  - listitem:
+                    - link "Disques Internes pour Vidéosurveillance":
+                      - /url: https://www.tunisianet.com.tn/671-disques-internes-pour-videosurveillance
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Disque Dur externe":
+                      - /url: https://www.tunisianet.com.tn/313-disque-dur-externe-tunisie
+                  - listitem:
+                    - link "Serveur de stockage":
+                      - /url: https://www.tunisianet.com.tn/389-serveur-stockage-tunisie
+                  - listitem:
+                    - link "Accessoires pour Stockage":
+                      - /url: https://www.tunisianet.com.tn/469-accessoires-pour-stockage
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Clé USB":
+                      - /url: https://www.tunisianet.com.tn/314-cle-usb-tunisie
+                  - listitem:
+                    - link "Carte mémoire":
+                      - /url: https://www.tunisianet.com.tn/315-carte-memoire-tunisie
+                  - listitem:
+                    - link "CD et DVD Vierge":
+                      - /url: https://www.tunisianet.com.tn/452-cd-dvd-vierge
+        - listitem [ref=e57]:
+          - generic [ref=e58]: TV-Son-Photos
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Montres":
+                      - /url: https://www.tunisianet.com.tn/550-montre-homme-femme-tunisie
+                  - listitem:
+                    - link "Vidéoprojecteurs":
+                      - /url: https://www.tunisianet.com.tn/368-videoprojecteurs
+                  - listitem:
+                    - link "Vidéoprojecteurs":
+                      - /url: https://www.tunisianet.com.tn/666-videoprojecteurs
+                  - listitem:
+                    - link "Accessoires pour Vidéoprojecteurs":
+                      - /url: https://www.tunisianet.com.tn/496-accessoires-pour-videoprojecteurs
+                  - listitem:
+                    - link "Consoles & Jeux":
+                      - /url: https://www.tunisianet.com.tn/466-console-de-jeux
+                  - listitem:
+                    - link "Consoles":
+                      - /url: https://www.tunisianet.com.tn/467-consoles
+                  - listitem:
+                    - link "Manettes de Jeux":
+                      - /url: https://www.tunisianet.com.tn/341-manettes-de-jeux
+                  - listitem:
+                    - link "Accessoires pour Cônsoles":
+                      - /url: https://www.tunisianet.com.tn/468-accessoires-pour-consoles
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Téléviseurs":
+                      - /url: https://www.tunisianet.com.tn/369-vente-tv-samsung-led-tunisie
+                  - listitem:
+                    - link "Téléviseurs":
+                      - /url: https://www.tunisianet.com.tn/665-televiseurs
+                  - listitem:
+                    - link "Accessoires pour téléviseurs":
+                      - /url: https://www.tunisianet.com.tn/539-accessoires-pour-televiseurs
+                  - listitem:
+                    - link "Récepteur / Abonnement":
+                      - /url: https://www.tunisianet.com.tn/402-recepteur-abonnement
+                  - listitem:
+                    - link "Récepteur":
+                      - /url: https://www.tunisianet.com.tn/668-recepteur
+                  - listitem:
+                    - link "Accessoires pour Récepteurs":
+                      - /url: https://www.tunisianet.com.tn/629-accessoires-pour-recepteurs
+                  - listitem:
+                    - link "Abonnement Récepteur":
+                      - /url: https://www.tunisianet.com.tn/672-abonnement-recepteur
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Instrument de musique":
+                      - /url: https://www.tunisianet.com.tn/723-instrument-de-musique
+                  - listitem:
+                    - link "Appareils Photos":
+                      - /url: https://www.tunisianet.com.tn/370-appareil-photo-tunisie
+                  - listitem:
+                    - link "Appareils Photos":
+                      - /url: https://www.tunisianet.com.tn/371-appareils-photos-numerique
+                  - listitem:
+                    - link "Accessoires pour Appareils Photos":
+                      - /url: https://www.tunisianet.com.tn/372-accessoires-pour-appareils-photos
+                  - listitem:
+                    - link "Piles et Chargeurs":
+                      - /url: https://www.tunisianet.com.tn/484-piles-et-chargeurs-tunisie
+                  - listitem:
+                    - link "Piles":
+                      - /url: https://www.tunisianet.com.tn/570-piles
+                  - listitem:
+                    - link "Chargeurs":
+                      - /url: https://www.tunisianet.com.tn/571-chargeurs
+                  - listitem:
+                    - link "Torches":
+                      - /url: https://www.tunisianet.com.tn/569-torche-tunisie
+              - generic:
+                - list:
+                  - listitem:
+                    - link "SON":
+                      - /url: https://www.tunisianet.com.tn/684-son
+                  - listitem:
+                    - link "Ensemble Home Cinéma":
+                      - /url: https://www.tunisianet.com.tn/685-ensemble-home-cinema-tunise
+                  - listitem:
+                    - link "Barre de son":
+                      - /url: https://www.tunisianet.com.tn/690-barre-de-son
+                  - listitem:
+                    - link "Casque & Écouteurs":
+                      - /url: https://www.tunisianet.com.tn/338-casque-ecouteurs
+                  - listitem:
+                    - link "Haut-Parleur":
+                      - /url: https://www.tunisianet.com.tn/687-haut-parleur
+                  - listitem:
+                    - link "Radio - Réveil":
+                      - /url: https://www.tunisianet.com.tn/688-radio-reveil-tunisie
+                  - listitem:
+                    - link "Chaîne Stéréo":
+                      - /url: https://www.tunisianet.com.tn/689-chaine-stereo
+                  - listitem:
+                    - link "Microphone":
+                      - /url: https://www.tunisianet.com.tn/485-microphone
+        - listitem [ref=e59]:
+          - generic [ref=e60]: Electroménager
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Climatisation":
+                      - /url: https://www.tunisianet.com.tn/457-climatiseur-tunisie-chaud-froid
+                  - listitem:
+                    - link "Gros Electro Cuisine":
+                      - /url: https://www.tunisianet.com.tn/521-electromenager-tunisie
+                  - listitem:
+                    - link "Réfrigérateurs":
+                      - /url: https://www.tunisianet.com.tn/525-refrigerateur-tunisie
+                  - listitem:
+                    - link "Mini Réfrigérateur | Mini Bar":
+                      - /url: https://www.tunisianet.com.tn/735-mini-refrigerateur-mini-bar
+                  - listitem:
+                    - link "Congélateurs":
+                      - /url: https://www.tunisianet.com.tn/526-congelateur-tunisie
+                  - listitem:
+                    - link "Hottes":
+                      - /url: https://www.tunisianet.com.tn/527-hotte-aspirante-tunisie
+                  - listitem:
+                    - link "Cuisinière":
+                      - /url: https://www.tunisianet.com.tn/736-cuisiniere-tunisie
+                  - listitem:
+                    - link "Four encastrable":
+                      - /url: https://www.tunisianet.com.tn/737-four-encastrable
+                  - listitem:
+                    - link "Micro-ondes encastrable":
+                      - /url: https://www.tunisianet.com.tn/738-micro-ondes-encastrable
+                  - listitem:
+                    - link "Plaque de cuisson":
+                      - /url: https://www.tunisianet.com.tn/540-plaque-de-cuisson
+                  - listitem:
+                    - link "Fontaine Fraîche":
+                      - /url: https://www.tunisianet.com.tn/706-fontaine-eau-tunisie
+                  - listitem:
+                    - link "Pack électroménager":
+                      - /url: https://www.tunisianet.com.tn/739-pack-electromenager
+                  - listitem:
+                    - link "Pack mariage":
+                      - /url: https://www.tunisianet.com.tn/734-pack-mariage
+                  - listitem:
+                    - link "Pack encastrable":
+                      - /url: https://www.tunisianet.com.tn/740-pack-encastrable
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Gros Electro Lavage":
+                      - /url: https://www.tunisianet.com.tn/563-gros-electromenager-lavage
+                  - listitem:
+                    - link "Machine à laver":
+                      - /url: https://www.tunisianet.com.tn/528-machine-a-laver
+                  - listitem:
+                    - link "Lave vaisselle":
+                      - /url: https://www.tunisianet.com.tn/541-lave-vaisselle-tunisie
+                  - listitem:
+                    - link "Sèche linge":
+                      - /url: https://www.tunisianet.com.tn/741-seche-linge
+                  - listitem:
+                    - link "Chauffages":
+                      - /url: https://www.tunisianet.com.tn/750-chauffages
+                  - listitem:
+                    - link "Chauffage":
+                      - /url: https://www.tunisianet.com.tn/553-chauffage-tunisie
+                  - listitem:
+                    - link "Chaudière":
+                      - /url: https://www.tunisianet.com.tn/746-chaudiere
+                  - listitem:
+                    - link "Chauffe Bain":
+                      - /url: https://www.tunisianet.com.tn/747-chauffe-bain
+                  - listitem:
+                    - link "Climeur mobile":
+                      - /url: https://www.tunisianet.com.tn/749-climeur-mobile
+                  - listitem:
+                    - link "Ventilateurs":
+                      - /url: https://www.tunisianet.com.tn/713-ventilateur-tunisie
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Petit Electro Cuisine":
+                      - /url: https://www.tunisianet.com.tn/522-petit-electromenager-tunisie-cuisine
+                  - listitem:
+                    - link "Grille-pain":
+                      - /url: https://www.tunisianet.com.tn/536-grille-pain-toast-tunisie
+                  - listitem:
+                    - link "Appareil de cuisson / Convivial":
+                      - /url: https://www.tunisianet.com.tn/538-appareil-de-cuisson-convivial
+                  - listitem:
+                    - link "Mini four électrique":
+                      - /url: https://www.tunisianet.com.tn/564-mini-four-electrique
+                  - listitem:
+                    - link "Balance de cuisine":
+                      - /url: https://www.tunisianet.com.tn/568-balance-de-cuisine-tunisie
+                  - listitem:
+                    - link "Blenders":
+                      - /url: https://www.tunisianet.com.tn/529-blender-tunisie
+                  - listitem:
+                    - link "Mixeurs":
+                      - /url: https://www.tunisianet.com.tn/745-mixeurs
+                  - listitem:
+                    - link "Hachoirs":
+                      - /url: https://www.tunisianet.com.tn/530-hachoir-tunisie-a-viande
+                  - listitem:
+                    - link "Batteurs":
+                      - /url: https://www.tunisianet.com.tn/531-batteur-electrique-tunisie
+                  - listitem:
+                    - link "Centrifugeuses":
+                      - /url: https://www.tunisianet.com.tn/532-centrifugeuse-prix-tunisie
+                  - listitem:
+                    - link "Presse Agrumes / Légumes":
+                      - /url: https://www.tunisianet.com.tn/533-presse-agrumes-tunisie
+                  - listitem:
+                    - link "Robots multifonction":
+                      - /url: https://www.tunisianet.com.tn/534-robot-multifonction-tunisie
+                  - listitem:
+                    - link "Cafetières et moulin à café":
+                      - /url: https://www.tunisianet.com.tn/537-cafetiere-tunisie
+                  - listitem:
+                    - link "Micro-onde":
+                      - /url: https://www.tunisianet.com.tn/742-micro-onde
+                  - listitem:
+                    - link "Friteuse":
+                      - /url: https://www.tunisianet.com.tn/743-friteuse
+                  - listitem:
+                    - link "AirFryer":
+                      - /url: https://www.tunisianet.com.tn/744-airfryer-tunisie
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Entretien – Soin":
+                      - /url: https://www.tunisianet.com.tn/524-entretien-soin
+                  - listitem:
+                    - link "Aspirateur - Nettoyeur Vapeur":
+                      - /url: https://www.tunisianet.com.tn/558-aspirateur-tunisie-vapeur
+                  - listitem:
+                    - link "Repassage & Accessoires":
+                      - /url: https://www.tunisianet.com.tn/559-repassage-accessoires
+                  - listitem:
+                    - link "Beauté Masculine":
+                      - /url: https://www.tunisianet.com.tn/560-beaute-masculine
+                  - listitem:
+                    - link "Beauté Féminine":
+                      - /url: https://www.tunisianet.com.tn/561-seche-cheveux-tunisie
+                  - listitem:
+                    - link "Santé connectée - Bien être - Massage":
+                      - /url: https://www.tunisianet.com.tn/562-sante-connectee-bien-etre-massage
+                  - listitem:
+                    - link "Machine à coudre":
+                      - /url: https://www.tunisianet.com.tn/699-machine-a-coudre
+                  - listitem:
+                    - link "Ventilateurs":
+                      - /url: https://www.tunisianet.com.tn/713-ventilateur-tunisie
+                  - listitem:
+                    - link "Scooter Electriques":
+                      - /url: https://www.tunisianet.com.tn/705-scooter-electrique-tunisie
+        - listitem [ref=e61]:
+          - generic [ref=e62]: Bureautique
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Matériel point de vente":
+                      - /url: https://www.tunisianet.com.tn/490-materiel-point-de-vente
+                  - listitem:
+                    - link "Tiroirs Caisses et Coffres-forts":
+                      - /url: https://www.tunisianet.com.tn/576-tiroirs-caisses-et-coffres-forts
+                  - listitem:
+                    - link "Caisses Enregistreuses":
+                      - /url: https://www.tunisianet.com.tn/577-caisse-enregistreuse-tunisie
+                  - listitem:
+                    - link "Douchettes":
+                      - /url: https://www.tunisianet.com.tn/578-douchettes
+                  - listitem:
+                    - link "Destructeurs de papiers":
+                      - /url: https://www.tunisianet.com.tn/579-destructeurs-de-papiers
+                  - listitem:
+                    - link "Perforelieuses":
+                      - /url: https://www.tunisianet.com.tn/580-perforelieuses
+                  - listitem:
+                    - link "Imprimante point de vente":
+                      - /url: https://www.tunisianet.com.tn/581-imprimante-point-de-vente
+                  - listitem:
+                    - link "Plastifieuses":
+                      - /url: https://www.tunisianet.com.tn/641-plastifieuses
+                  - listitem:
+                    - link "Compteuse de billets":
+                      - /url: https://www.tunisianet.com.tn/661-compteuse-de-billets
+                  - listitem:
+                    - link "Papier":
+                      - /url: https://www.tunisianet.com.tn/463-ramette-de-papier
+                  - listitem:
+                    - link "Papier A4":
+                      - /url: https://www.tunisianet.com.tn/464-rames-papier-a4-tunisie
+                  - listitem:
+                    - link "Papier A3":
+                      - /url: https://www.tunisianet.com.tn/474-rames-papier-a3
+                  - listitem:
+                    - link "Papier Photo":
+                      - /url: https://www.tunisianet.com.tn/486-papier-photo
+                  - listitem:
+                    - link "Enveloppe":
+                      - /url: https://www.tunisianet.com.tn/483-enveloppe-tunisie-fourniture
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Ecriture & Correction":
+                      - /url: https://www.tunisianet.com.tn/475-fourniture-ecriture-scolaire-tunisie
+                  - listitem:
+                    - link "Stylos à bille":
+                      - /url: https://www.tunisianet.com.tn/476-fourniture-stylos-feutres-rollers-tunisie
+                  - listitem:
+                    - link "Stylos premium":
+                      - /url: https://www.tunisianet.com.tn/584-stylos-premium
+                  - listitem:
+                    - link "Stylos confort":
+                      - /url: https://www.tunisianet.com.tn/583-stylos-confort
+                  - listitem:
+                    - link "Stylos Pointe Fine":
+                      - /url: https://www.tunisianet.com.tn/586-stylos-pointe-fine
+                  - listitem:
+                    - link "Stylos feutre":
+                      - /url: https://www.tunisianet.com.tn/582-stylos-feutre
+                  - listitem:
+                    - link "Crayons & Porte-mines":
+                      - /url: https://www.tunisianet.com.tn/478-fourniture-crayons-porte-mines-tunisie
+                  - listitem:
+                    - link "Surligneurs":
+                      - /url: https://www.tunisianet.com.tn/477-fourniture-surligneurs-tunisie
+                  - listitem:
+                    - link "Marqueurs":
+                      - /url: https://www.tunisianet.com.tn/479-fourniture-marqueurs-tunisie
+                  - listitem:
+                    - link "Correction":
+                      - /url: https://www.tunisianet.com.tn/480-fourniture-correction-tunisie
+                  - listitem:
+                    - link "Recharge Stylos et feutres":
+                      - /url: https://www.tunisianet.com.tn/549-recharge-stylos-et-feutres
+                  - listitem:
+                    - link "Accessoires de bureau":
+                      - /url: https://www.tunisianet.com.tn/649-accessoires-de-bureau
+                  - listitem:
+                    - link "Règles":
+                      - /url: https://www.tunisianet.com.tn/640-regles
+                  - listitem:
+                    - link "Porte-stylos":
+                      - /url: https://www.tunisianet.com.tn/653-porte-stylos
+                  - listitem:
+                    - link "Loupes":
+                      - /url: https://www.tunisianet.com.tn/654-loupes
+                  - listitem:
+                    - link "Cachets & Tampons":
+                      - /url: https://www.tunisianet.com.tn/655-cachets-tampons
+                  - listitem:
+                    - link "Accessories":
+                      - /url: https://www.tunisianet.com.tn/656-accessoire-bureautique
+                  - listitem:
+                    - link "Cadenas":
+                      - /url: https://www.tunisianet.com.tn/628-cadenas
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Classement & Archivage":
+                      - /url: https://www.tunisianet.com.tn/501-fourniture-classement-archivage-tunisie
+                  - listitem:
+                    - link "Boîtes de classement":
+                      - /url: https://www.tunisianet.com.tn/502-boites-de-classement
+                  - listitem:
+                    - link "Chemises & Sous-chemises":
+                      - /url: https://www.tunisianet.com.tn/503-chemises-sous-chemises
+                  - listitem:
+                    - link "Classeurs":
+                      - /url: https://www.tunisianet.com.tn/504-classeurs
+                  - listitem:
+                    - link "Portes documents":
+                      - /url: https://www.tunisianet.com.tn/505-portes-documents
+                  - listitem:
+                    - link "Corbeilles à courrier":
+                      - /url: https://www.tunisianet.com.tn/506-corbeilles-a-courrier
+                  - listitem:
+                    - link "Corbeilles":
+                      - /url: https://www.tunisianet.com.tn/585-corbeilles
+                  - listitem:
+                    - link "Trieur":
+                      - /url: https://www.tunisianet.com.tn/652-trieur
+                  - listitem:
+                    - link "Cahiers, blocs et feuilles":
+                      - /url: https://www.tunisianet.com.tn/589-cahier-bloc-feuille-note
+                  - listitem:
+                    - link "Cahiers & Bloc-notes":
+                      - /url: https://www.tunisianet.com.tn/602-cahiers-bloc-notes
+                  - listitem:
+                    - link "Post-it - Pense bête":
+                      - /url: https://www.tunisianet.com.tn/590-post-it-pense-bete
+                  - listitem:
+                    - link "Etiquettes":
+                      - /url: https://www.tunisianet.com.tn/624-etiquettes
+                  - listitem:
+                    - link "Calculatrices":
+                      - /url: https://www.tunisianet.com.tn/449-calculatrice-tunisie
+                  - listitem:
+                    - link "Nettoyage":
+                      - /url: https://www.tunisianet.com.tn/499-nettoyage
+                  - listitem:
+                    - link "Décoration":
+                      - /url: https://www.tunisianet.com.tn/676-decoration
+                  - listitem:
+                    - link "Bagageries":
+                      - /url: https://www.tunisianet.com.tn/623-bagageries
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Adhésifs, Agrafage & Découpe":
+                      - /url: https://www.tunisianet.com.tn/481-fournitures-scolaires-en-ligne
+                  - listitem:
+                    - link "Découpe":
+                      - /url: https://www.tunisianet.com.tn/482-fourniture-decoupe-tunisie
+                  - listitem:
+                    - link "Agrafage":
+                      - /url: https://www.tunisianet.com.tn/551-agrafage
+                  - listitem:
+                    - link "Perforateur":
+                      - /url: https://www.tunisianet.com.tn/552-perforateur
+                  - listitem:
+                    - link "Colles":
+                      - /url: https://www.tunisianet.com.tn/555-colles
+                  - listitem:
+                    - link "Rouleau scotch":
+                      - /url: https://www.tunisianet.com.tn/588-rouleau-scotch
+                  - listitem:
+                    - link "Reliure & Spiral":
+                      - /url: https://www.tunisianet.com.tn/620-reliure-spiral
+                  - listitem:
+                    - link "Trombones & Pinces":
+                      - /url: https://www.tunisianet.com.tn/625-trombones-pinces
+                  - listitem:
+                    - link "Punaises & Épingles":
+                      - /url: https://www.tunisianet.com.tn/626-punaises-epingles
+                  - listitem:
+                    - link "Elastiques":
+                      - /url: https://www.tunisianet.com.tn/627-elastiques
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Tableaux":
+                      - /url: https://www.tunisianet.com.tn/572-tableau-bureautique-tunisie
+                  - listitem:
+                    - link "Tableaux en Liège":
+                      - /url: https://www.tunisianet.com.tn/573-tableaux-en-liege
+                  - listitem:
+                    - link "Tableaux Blancs":
+                      - /url: https://www.tunisianet.com.tn/574-tableaux-blancs
+                  - listitem:
+                    - link "Tableaux Vitrine":
+                      - /url: https://www.tunisianet.com.tn/575-tableaux-vitrine
+                  - listitem:
+                    - link "Tableaux à Craie":
+                      - /url: https://www.tunisianet.com.tn/691-tableaux-a-craie
+                  - listitem:
+                    - link "Accessoires tableaux":
+                      - /url: https://www.tunisianet.com.tn/657-accessoires-tableaux
+        - listitem [ref=e63]:
+          - generic [ref=e64]: Réseau & Sécurité
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Réseau":
+                      - /url: https://www.tunisianet.com.tn/438-reseau
+                  - listitem:
+                    - link "Switch / Routeurs / Point d'accès":
+                      - /url: https://www.tunisianet.com.tn/441-switch-routeurs-point-d-acces
+                  - listitem:
+                    - link "Carte Réseau":
+                      - /url: https://www.tunisianet.com.tn/442-carte-reseau
+                  - listitem:
+                    - link "Clé Wifi - Bluetooth":
+                      - /url: https://www.tunisianet.com.tn/443-cle-wifi-bluetooth
+                  - listitem:
+                    - link "CPL":
+                      - /url: https://www.tunisianet.com.tn/453-cpl
+                  - listitem:
+                    - link "Multiprise":
+                      - /url: https://www.tunisianet.com.tn/674-multiprise
+                  - listitem:
+                    - link "Accessoires Réseau":
+                      - /url: https://www.tunisianet.com.tn/726-accessoires-reseau
+                  - listitem:
+                    - link "Abonnements Internet":
+                      - /url: https://www.tunisianet.com.tn/587-abonnements-internet
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Câbles et Connectiques":
+                      - /url: https://www.tunisianet.com.tn/349-cable-connectique-informatique
+                  - listitem:
+                    - link "Câbles HDMI":
+                      - /url: https://www.tunisianet.com.tn/350-cable-hdmi-prix-tunisie
+                  - listitem:
+                    - link "Câbles USB":
+                      - /url: https://www.tunisianet.com.tn/351-cable-usb-prix-tunisie
+                  - listitem:
+                    - link "Câbles Réseau":
+                      - /url: https://www.tunisianet.com.tn/352-cable-rj45-prix-tunisie
+                  - listitem:
+                    - link "Câbles Firewire":
+                      - /url: https://www.tunisianet.com.tn/353-cables-firewire
+                  - listitem:
+                    - link "Câbles Ecrans TV / AUDIO / DVD":
+                      - /url: https://www.tunisianet.com.tn/354-cables-ecrans-tv-audio-dvd
+                  - listitem:
+                    - link "Adaptateurs / Convertisseurs":
+                      - /url: https://www.tunisianet.com.tn/356-adaptateurs-convertisseurs
+                  - listitem:
+                    - link "Câbles Alimentation":
+                      - /url: https://www.tunisianet.com.tn/355-cables-alimentation
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Coffrets et Accessoires":
+                      - /url: https://www.tunisianet.com.tn/724-coffrets-et-accessoires
+                  - listitem:
+                    - link "Coffrets et Armoires Réseau":
+                      - /url: https://www.tunisianet.com.tn/673-coffrets-et-armoires-reseau
+                  - listitem:
+                    - link "Accessoires":
+                      - /url: https://www.tunisianet.com.tn/725-accessoires
+                  - listitem:
+                    - link "Système d'alarme":
+                      - /url: https://www.tunisianet.com.tn/709-systeme-d-alarme
+                  - listitem:
+                    - link "Alarme Filaire":
+                      - /url: https://www.tunisianet.com.tn/710-alarme-filaire
+                  - listitem:
+                    - link "Alarme sans fil":
+                      - /url: https://www.tunisianet.com.tn/711-alarme-sans-fil
+                  - listitem:
+                    - link "Accessoires":
+                      - /url: https://www.tunisianet.com.tn/712-accessoires
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Matériel de sécurité":
+                      - /url: https://www.tunisianet.com.tn/509-videosurveillance-tunisie
+                  - listitem:
+                    - link "Caméra de surveillance":
+                      - /url: https://www.tunisianet.com.tn/630-camera-de-surveillance
+                  - listitem:
+                    - link "Kit sécurité":
+                      - /url: https://www.tunisianet.com.tn/633-kit-securite
+                  - listitem:
+                    - link "Enregistreur":
+                      - /url: https://www.tunisianet.com.tn/634-enregistreur-dvr-nvr
+                  - listitem:
+                    - link "Accessoires sécurité":
+                      - /url: https://www.tunisianet.com.tn/635-accessoires-securite
+                  - listitem:
+                    - link "Détecteurs et Capteurs":
+                      - /url: https://www.tunisianet.com.tn/631-detecteurs-et-capteurs
+        - listitem [ref=e65]:
+          - generic [ref=e66]: Mobilités & Loisirs
+          - generic:
+            - generic:
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Scooter Electriques":
+                      - /url: https://www.tunisianet.com.tn/705-scooter-electrique-tunisie
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Trottinettes Electriques":
+                      - /url: https://www.tunisianet.com.tn/760-trottinettes-electriques
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Protection mobilité & accessoires":
+                      - /url: https://www.tunisianet.com.tn/761-protection-mobilite-accessoires
+              - generic:
+                - list:
+                  - listitem:
+                    - link "Navigation GPS":
+                      - /url: https://www.tunisianet.com.tn/762-navigation-gps
+  - complementary
+  - generic [ref=e69]:
+    - navigation [ref=e70]:
+      - list [ref=e71]:
+        - listitem [ref=e72]:
+          - link "Accueil" [ref=e73] [cursor=pointer]:
+            - /url: https://www.tunisianet.com.tn/
+          - text: /
+        - listitem [ref=e74]:
+          - link "Informatique" [ref=e75] [cursor=pointer]:
+            - /url: https://www.tunisianet.com.tn/300-informatique
+          - text: /
+        - listitem [ref=e76]:
+          - link "Ordinateur de Bureau" [ref=e77] [cursor=pointer]:
+            - /url: https://www.tunisianet.com.tn/701-ordinateur-de-bureau
+          - text: /
+        - listitem [ref=e78]:
+          - link "Pc de bureau" [ref=e79] [cursor=pointer]:
+            - /url: https://www.tunisianet.com.tn/373-pc-de-bureau
+    - generic [ref=e82]:
+      - generic [ref=e83]: Filtrer les produits
+      - generic [ref=e84]:
+        - text: 
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87] [cursor=pointer]: Prix
+            - generic [ref=e89]:
+              - generic:
+                - generic [ref=e95] [cursor=pointer]: 489 DT
+                - generic [ref=e96] [cursor=pointer]: 13999 DT
+          - generic [ref=e97]:
+            - generic [ref=e98] [cursor=pointer]: Marques
+            - list [ref=e100]:
+              - listitem [ref=e101]:
+                - generic [ref=e102] [cursor=pointer]:
+                  - checkbox "Apple (5)" [ref=e103]
+                  - generic [ref=e104]: Apple
+                  - generic [ref=e105]: (5)
+              - listitem [ref=e106]:
+                - generic [ref=e107] [cursor=pointer]:
+                  - checkbox "ASRock (3)" [ref=e108]
+                  - generic [ref=e109]: ASRock
+                  - generic [ref=e110]: (3)
+              - listitem [ref=e111]:
+                - generic [ref=e112] [cursor=pointer]:
+                  - checkbox "Asus (29)" [ref=e113]
+                  - generic [ref=e114]: Asus
+                  - generic [ref=e115]: (29)
+              - listitem [ref=e116]:
+                - generic [ref=e117] [cursor=pointer]:
+                  - checkbox "Blackview (3)" [ref=e118]
+                  - generic [ref=e119]: Blackview
+                  - generic [ref=e120]: (3)
+              - listitem [ref=e121]:
+                - generic [ref=e122] [cursor=pointer]:
+                  - checkbox "Bmax (7)" [ref=e123]
+                  - generic [ref=e124]: Bmax
+                  - generic [ref=e125]: (7)
+              - listitem [ref=e126]:
+                - generic [ref=e127] [cursor=pointer]:
+                  - checkbox "Chuwi (5)" [ref=e128]
+                  - generic [ref=e129]: Chuwi
+                  - generic [ref=e130]: (5)
+              - listitem [ref=e131]:
+                - generic [ref=e132] [cursor=pointer]:
+                  - checkbox "Dell (49)" [ref=e133]
+                  - generic [ref=e134]: Dell
+                  - generic [ref=e135]: (49)
+              - listitem [ref=e136]:
+                - generic [ref=e137] [cursor=pointer]:
+                  - checkbox "HP (27)" [ref=e138]
+                  - generic [ref=e139]: HP
+                  - generic [ref=e140]: (27)
+              - listitem [ref=e141]:
+                - generic [ref=e142] [cursor=pointer]:
+                  - checkbox "Lenovo (33)" [ref=e143]
+                  - generic [ref=e144]: Lenovo
+                  - generic [ref=e145]: (33)
+              - listitem [ref=e146]:
+                - generic [ref=e147] [cursor=pointer]:
+                  - checkbox "MSI (23)" [ref=e148]
+                  - generic [ref=e149]: MSI
+                  - generic [ref=e150]: (23)
+              - listitem [ref=e151]:
+                - generic [ref=e152] [cursor=pointer]:
+                  - checkbox "tunisianet (21)" [ref=e153]
+                  - generic [ref=e154]: tunisianet
+                  - generic [ref=e155]: (21)
+          - generic [ref=e156]:
+            - generic [ref=e157] [cursor=pointer]: Processeur
+            - list [ref=e159]:
+              - listitem [ref=e160]:
+                - generic [ref=e161] [cursor=pointer]:
+                  - checkbox "AMD Ryzen 3 (9)" [ref=e162]
+                  - generic [ref=e163]: AMD Ryzen 3
+                  - generic [ref=e164]: (9)
+              - listitem [ref=e165]:
+                - generic [ref=e166] [cursor=pointer]:
+                  - checkbox "AMD Ryzen 5 (10)" [ref=e167]
+                  - generic [ref=e168]: AMD Ryzen 5
+                  - generic [ref=e169]: (10)
+              - listitem [ref=e170]:
+                - generic [ref=e171] [cursor=pointer]:
+                  - checkbox "AMD Ryzen 7 (11)" [ref=e172]
+                  - generic [ref=e173]: AMD Ryzen 7
+                  - generic [ref=e174]: (11)
+              - listitem [ref=e175]:
+                - generic [ref=e176] [cursor=pointer]:
+                  - checkbox "AMD Ryzen 9 (1)" [ref=e177]
+                  - generic [ref=e178]: AMD Ryzen 9
+                  - generic [ref=e179]: (1)
+              - listitem [ref=e180]:
+                - generic [ref=e181] [cursor=pointer]:
+                  - checkbox "Apple M4 (4)" [ref=e182]
+                  - generic [ref=e183]: Apple M4
+                  - generic [ref=e184]: (4)
+              - listitem [ref=e185]:
+                - generic [ref=e186] [cursor=pointer]:
+                  - checkbox "Apple M4 Pro (1)" [ref=e187]
+                  - generic [ref=e188]: Apple M4 Pro
+                  - generic [ref=e189]: (1)
+              - listitem [ref=e190]:
+                - generic [ref=e191] [cursor=pointer]:
+                  - checkbox "Intel Celeron (6)" [ref=e192]
+                  - generic [ref=e193]: Intel Celeron
+                  - generic [ref=e194]: (6)
+              - listitem [ref=e195]:
+                - generic [ref=e196] [cursor=pointer]:
+                  - checkbox "Intel Core i3 | Intel Core 3 (41)" [ref=e197]
+                  - generic [ref=e198]: Intel Core i3 | Intel Core 3
+                  - generic [ref=e199]: (41)
+              - listitem [ref=e200]:
+                - generic [ref=e201] [cursor=pointer]:
+                  - checkbox "Intel Core i5 | Intel Core 5 (56)" [ref=e202]
+                  - generic [ref=e203]: Intel Core i5 | Intel Core 5
+                  - generic [ref=e204]: (56)
+              - listitem [ref=e205]:
+                - generic [ref=e206] [cursor=pointer]:
+                  - checkbox "Intel Core i7 | Intel Core 7 (28)" [ref=e207]
+                  - generic [ref=e208]: Intel Core i7 | Intel Core 7
+                  - generic [ref=e209]: (28)
+              - listitem [ref=e210]:
+                - generic [ref=e211] [cursor=pointer]:
+                  - checkbox "Intel Core i9 / Intel Core 9 (2)" [ref=e212]
+                  - generic [ref=e213]: Intel Core i9 / Intel Core 9
+                  - generic [ref=e214]: (2)
+              - listitem [ref=e215]:
+                - generic [ref=e216] [cursor=pointer]:
+                  - checkbox "Intel Core Ultra 5 (13)" [ref=e217]
+                  - generic [ref=e218]: Intel Core Ultra 5
+                  - generic [ref=e219]: (13)
+              - listitem [ref=e220]:
+                - generic [ref=e221] [cursor=pointer]:
+                  - checkbox "Intel Core Ultra 7 (11)" [ref=e222]
+                  - generic [ref=e223]: Intel Core Ultra 7
+                  - generic [ref=e224]: (11)
+              - listitem [ref=e225]:
+                - generic [ref=e226] [cursor=pointer]:
+                  - checkbox "Intel Core Ultra 9 (3)" [ref=e227]
+                  - generic [ref=e228]: Intel Core Ultra 9
+                  - generic [ref=e229]: (3)
+          - generic [ref=e230]:
+            - generic [ref=e231] [cursor=pointer]: Disque Dur
+            - list [ref=e233]:
+              - listitem [ref=e234]:
+                - generic [ref=e235] [cursor=pointer]:
+                  - checkbox "1 To SSD (7)" [ref=e236]
+                  - generic [ref=e237]: 1 To SSD
+                  - generic [ref=e238]: (7)
+              - listitem [ref=e239]:
+                - generic [ref=e240] [cursor=pointer]:
+                  - checkbox "128 Go SSD (2)" [ref=e241]
+                  - generic [ref=e242]: 128 Go SSD
+                  - generic [ref=e243]: (2)
+              - listitem [ref=e244]:
+                - generic [ref=e245] [cursor=pointer]:
+                  - checkbox "240 Go SSD (10)" [ref=e246]
+                  - generic [ref=e247]: 240 Go SSD
+                  - generic [ref=e248]: (10)
+              - listitem [ref=e249]:
+                - generic [ref=e250] [cursor=pointer]:
+                  - checkbox "256 Go SSD (28)" [ref=e251]
+                  - generic [ref=e252]: 256 Go SSD
+                  - generic [ref=e253]: (28)
+              - listitem [ref=e254]:
+                - generic [ref=e255] [cursor=pointer]:
+                  - checkbox "512 Go SSD (149)" [ref=e256]
+                  - generic [ref=e257]: 512 Go SSD
+                  - generic [ref=e258]: (149)
+          - generic [ref=e259]:
+            - generic [ref=e260] [cursor=pointer]: Système d'exploitation
+            - list [ref=e262]:
+              - listitem [ref=e263]:
+                - generic [ref=e264] [cursor=pointer]:
+                  - checkbox "Apple macOS Monterey (5)" [ref=e265]
+                  - generic [ref=e266]: Apple macOS Monterey
+                  - generic [ref=e267]: (5)
+              - listitem [ref=e268]:
+                - generic [ref=e269] [cursor=pointer]:
+                  - checkbox "FreeDos (151)" [ref=e270]
+                  - generic [ref=e271]: FreeDos
+                  - generic [ref=e272]: (151)
+              - listitem [ref=e273]:
+                - generic [ref=e274] [cursor=pointer]:
+                  - checkbox "Linux (2)" [ref=e275]
+                  - generic [ref=e276]: Linux
+                  - generic [ref=e277]: (2)
+              - listitem [ref=e278]:
+                - generic [ref=e279] [cursor=pointer]:
+                  - checkbox "Windows 11 (35)" [ref=e280]
+                  - generic [ref=e281]: Windows 11
+                  - generic [ref=e282]: (35)
+          - generic [ref=e283]:
+            - generic [ref=e284] [cursor=pointer]: Mémoire
+            - list [ref=e286]:
+              - listitem [ref=e287]:
+                - generic [ref=e288] [cursor=pointer]:
+                  - checkbox "128 Go (1)" [ref=e289]
+                  - generic [ref=e290]: 128 Go
+                  - generic [ref=e291]: (1)
+              - listitem [ref=e292]:
+                - generic [ref=e293] [cursor=pointer]:
+                  - checkbox "16 Go (68)" [ref=e294]
+                  - generic [ref=e295]: 16 Go
+                  - generic [ref=e296]: (68)
+              - listitem [ref=e297]:
+                - generic [ref=e298] [cursor=pointer]:
+                  - checkbox "24 Go (44)" [ref=e299]
+                  - generic [ref=e300]: 24 Go
+                  - generic [ref=e301]: (44)
+              - listitem [ref=e302]:
+                - generic [ref=e303] [cursor=pointer]:
+                  - checkbox "32 Go (21)" [ref=e304]
+                  - generic [ref=e305]: 32 Go
+                  - generic [ref=e306]: (21)
+              - listitem [ref=e307]:
+                - generic [ref=e308] [cursor=pointer]:
+                  - checkbox "36 Go (1)" [ref=e309]
+                  - generic [ref=e310]: 36 Go
+                  - generic [ref=e311]: (1)
+              - listitem [ref=e312]:
+                - generic [ref=e313] [cursor=pointer]:
+                  - checkbox "8 Go (61)" [ref=e314]
+                  - generic [ref=e315]: 8 Go
+                  - generic [ref=e316]: (61)
+          - generic [ref=e317]:
+            - generic [ref=e318] [cursor=pointer]: Carte Graphique
+            - list [ref=e320]:
+              - listitem [ref=e321]:
+                - generic [ref=e322] [cursor=pointer]:
+                  - checkbox "AMD Radeon (25)" [ref=e323]
+                  - generic [ref=e324]: AMD Radeon
+                  - generic [ref=e325]: (25)
+              - listitem [ref=e326]:
+                - generic [ref=e327] [cursor=pointer]:
+                  - checkbox "Graphique Intégrée (153)" [ref=e328]
+                  - generic [ref=e329]: Graphique Intégrée
+                  - generic [ref=e330]: (153)
+              - listitem [ref=e331]:
+                - generic [ref=e332] [cursor=pointer]:
+                  - checkbox "Nvidia GeForce (11)" [ref=e333]
+                  - generic [ref=e334]: Nvidia GeForce
+                  - generic [ref=e335]: (11)
+          - generic [ref=e336]:
+            - generic [ref=e337] [cursor=pointer]: Taille Ecran
+            - list [ref=e339]:
+              - listitem [ref=e340]:
+                - generic [ref=e341] [cursor=pointer]:
+                  - checkbox "20\" - 22\" (17)" [ref=e342]
+                  - generic [ref=e343]: 20" - 22"
+                  - generic [ref=e344]: (17)
+              - listitem [ref=e345]:
+                - generic [ref=e346] [cursor=pointer]:
+                  - checkbox "23.6\" - 24\" (55)" [ref=e347]
+                  - generic [ref=e348]: 23.6" - 24"
+                  - generic [ref=e349]: (55)
+              - listitem [ref=e350]:
+                - generic [ref=e351] [cursor=pointer]:
+                  - checkbox "24.5\" - 25\" (3)" [ref=e352]
+                  - generic [ref=e353]: 24.5" - 25"
+                  - generic [ref=e354]: (3)
+              - listitem [ref=e355]:
+                - generic [ref=e356] [cursor=pointer]:
+                  - checkbox "27\" - 28\" (6)" [ref=e357]
+                  - generic [ref=e358]: 27" - 28"
+                  - generic [ref=e359]: (6)
+              - listitem [ref=e360]:
+                - generic [ref=e361] [cursor=pointer]:
+                  - checkbox "Sans (111)" [ref=e362]
+                  - generic [ref=e363]: Sans
+                  - generic [ref=e364]: (111)
+          - generic [ref=e365]:
+            - generic [ref=e366] [cursor=pointer]: Type Ecran
+            - list [ref=e368]:
+              - listitem [ref=e369]:
+                - generic [ref=e370] [cursor=pointer]:
+                  - checkbox "Full HD (78)" [ref=e371]
+                  - generic [ref=e372]: Full HD
+                  - generic [ref=e373]: (78)
+              - listitem [ref=e374]:
+                - generic [ref=e375] [cursor=pointer]:
+                  - checkbox "HD (1)" [ref=e376]
+                  - generic [ref=e377]: HD
+                  - generic [ref=e378]: (1)
+              - listitem [ref=e379]:
+                - generic [ref=e380] [cursor=pointer]:
+                  - checkbox "Sans (96)" [ref=e381]
+                  - generic [ref=e382]: Sans
+                  - generic [ref=e383]: (96)
+          - generic [ref=e384]:
+            - generic [ref=e385] [cursor=pointer]: Ecran Tactile
+            - list [ref=e387]:
+              - listitem [ref=e388]:
+                - generic [ref=e389] [cursor=pointer]:
+                  - checkbox "Non (182)" [ref=e390]
+                  - generic [ref=e391]: Non
+                  - generic [ref=e392]: (182)
+              - listitem [ref=e393]:
+                - generic [ref=e394] [cursor=pointer]:
+                  - checkbox "Oui (7)" [ref=e395]
+                  - generic [ref=e396]: Oui
+                  - generic [ref=e397]: (7)
+          - text: () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () ()
+          - button " Plus de filtres" [ref=e399] [cursor=pointer]:
+            - generic [ref=e400]:
+              - generic [ref=e401]: 
+              - text: Plus de filtres
+            - text: 
+        - text: ()
+      - text: 
+    - generic [ref=e404]:
+      - generic [ref=e406]:
+        - generic [ref=e408]:
+          - img [ref=e410] [cursor=pointer]
+          - img [ref=e413] [cursor=pointer]
+        - paragraph [ref=e416]: Il y a 205 produits.
+        - generic [ref=e418]:
+          - generic [ref=e419]: "Trier par :"
+          - button "Prix croissant " [ref=e421] [cursor=pointer]:
+            - text: Prix croissant
+            - generic [ref=e422]: 
+      - generic [ref=e425]:
+        - navigation [ref=e426]:
+          - generic [ref=e427]: Affichage 1-24 de 205 article(s)
+          - list [ref=e429]:
+            - listitem [ref=e430]:
+              - link "1" [ref=e431]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau
+            - listitem [ref=e432]:
+              - link "2" [ref=e433] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=2
+            - listitem [ref=e434]:
+              - link "3" [ref=e435] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=3
+            - listitem [ref=e436]: …
+            - listitem [ref=e437]:
+              - link "9" [ref=e438] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=9
+            - listitem [ref=e439]:
+              - link "" [ref=e440] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=2
+                - generic [ref=e441]: 
+        - generic [ref=e442]:
+          - article [ref=e444]:
+            - generic [ref=e445]:
+              - link "Pc de bureau Pro / i3 2éme génération / 8 Go Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e447] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/94384-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                - img "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e448]
+                - img "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e449]
+              - generic [ref=e450]:
+                - heading "Pc de bureau Pro / i3 2éme génération / 8 Go" [level=2] [ref=e451]:
+                  - link "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e452] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/94384-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                - text: "[I3-1-S]"
+                - link "Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur Intel Core i3 2éme génération - Mémoire 8 Go DDR3 - Disque SSD 2.5\" SATA 128 Go - Carte graphique Intel UHD Graphics - Carte mère ARKTEK H61 AK-H81M DDR3 LGA1150 - Ventilateur de Processeur LGA300 - Boîte d'alimentation 500 Watts - Garantie 1 an Avec Ensemble Clavier et Souris JEDEL GK18 / USB / Noir" [ref=e454] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/94384-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                  - text: Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur
+                  - strong [ref=e456]: Intel Core i3 2éme génération
+                  - text: "- Mémoire"
+                  - strong [ref=e458]: 8 Go DDR3
+                  - text: "- Disque SSD 2.5\" SATA"
+                  - strong [ref=e460]: 128 Go
+                  - text: "- Carte graphique Intel UHD Graphics - Carte mère ARKTEK H61 AK-H81M DDR3 LGA1150 - Ventilateur de Processeur LGA300 - Boîte d'alimentation 500 Watts -"
+                  - strong [ref=e462]: Garantie 1 an Avec Ensemble Clavier et Souris JEDEL GK18 / USB / Noir
+              - generic [ref=e472]:
+                - link "tunisianet" [ref=e474] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e475]
+                - generic [ref=e476]:
+                  - text: 489,000 DT
+                  - generic [ref=e477]: Prix
+                - generic [ref=e478]: En stock
+                - button "Ajouter au panier" [ref=e484] [cursor=pointer]
+                - link:
+                  - /url: ""
+          - article [ref=e486]:
+            - generic [ref=e487]:
+              - link "Pc de bureau Pro / i3 2éme génération / 8 Go Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e489] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/93635-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                - img "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e490]
+                - img "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e491]
+              - generic [ref=e492]:
+                - heading "Pc de bureau Pro / i3 2éme génération / 8 Go" [level=2] [ref=e493]:
+                  - link "Pc de bureau Pro / i3 2éme génération / 8 Go" [ref=e494] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/93635-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                - text: "[I3-1]"
+                - link "Boîtier Gamer Enter Razor Mid-Tower RGB / Noir - Processeur Intel Core i3 2éme génération - Mémoire 8 Go DDR3 - Disque SSD 2.5\" SATA 256 Go - Carte graphique Intel UHD Graphics - Carte mère ARKTEK H61 AK-H81M DDR3 LGA1150 - Ventilateur de Processeur LGA300 - Boîte d'alimentation 500 Watts - Garantie 1 an Avec Ensemble Clavier et Souris JEDEL GK18 / USB / Noir" [ref=e496] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/93635-pc-de-bureau-pro-i3-2eme-generation-8-go.html
+                  - text: Boîtier Gamer Enter Razor Mid-Tower RGB / Noir - Processeur
+                  - strong [ref=e498]: Intel Core i3 2éme génération
+                  - text: "- Mémoire"
+                  - strong [ref=e500]: 8 Go DDR3
+                  - text: "- Disque SSD 2.5\" SATA"
+                  - strong [ref=e502]: 256 Go
+                  - text: "- Carte graphique Intel UHD Graphics - Carte mère ARKTEK H61 AK-H81M DDR3 LGA1150 - Ventilateur de Processeur LGA300 - Boîte d'alimentation 500 Watts -"
+                  - strong [ref=e504]: Garantie 1 an Avec Ensemble Clavier et Souris JEDEL GK18 / USB / Noir
+              - generic [ref=e514]:
+                - link "tunisianet" [ref=e516] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e517]
+                - generic [ref=e518]:
+                  - text: 549,000 DT
+                  - generic [ref=e519]: Prix
+                - generic [ref=e520]: En stock
+                - button "Ajouter au panier" [ref=e526] [cursor=pointer]
+                - link:
+                  - /url: ""
+          - article [ref=e528]:
+            - generic [ref=e529]:
+              - link "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e531] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/70852-mini-pc-de-bureau-asrock-barebone-deskmini-x300-noir.html
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e532]
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e533]
+              - generic [ref=e534]:
+                - heading "Mini Pc de bureau ASRock Barebone DeskMini X300 / Noir" [level=2] [ref=e535]:
+                  - link "Mini Pc de bureau ASRock Barebone DeskMini X300 / Noir" [ref=e536] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/70852-mini-pc-de-bureau-asrock-barebone-deskmini-x300-noir.html
+                - text: "[90BXG3T01-A10GA0W]"
+                - link "Processeur AMD AM4 Socket - CPU Prend en charge l'option d'overclocking avec X300 - Boîtier Prend en charge le refroidisseur de processeur AMD AM4 (hauteur maximale ≦ 46 mm) - Mémoire Double canal SO-DIMM DDR4-3200 MHz - Double Ultra M.2 (NVMe) - 2 disques durs SATA 6 Go 2.5\" - Prise en charge de la fonction RAID 0/1 - HDMI - DisplayPort - D-Sub VGA - USB 3.2 Gen1 Type-C - 1x Emplacement M.2 (clé E 2230) pour module Wi-Fi + Bluetooth - Couleur Noir - Garantie 1 an" [ref=e538] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/70852-mini-pc-de-bureau-asrock-barebone-deskmini-x300-noir.html
+                  - text: Processeur AMD AM4 Socket - CPU Prend en charge l'option d'overclocking avec X300 - Boîtier Prend en charge le refroidisseur de processeur AMD AM4 (hauteur maximale ≦ 46 mm) - Mémoire Double canal SO-DIMM DDR4-3200 MHz - Double Ultra M.2 (NVMe) - 2 disques durs SATA 6 Go 2.5" - Prise en charge de la fonction RAID 0/1 - HDMI - DisplayPort - D-Sub VGA - USB 3.2 Gen1 Type-C - 1x Emplacement M.2 (clé E 2230) pour module Wi-Fi + Bluetooth - Couleur Noir -
+                  - strong [ref=e540]: Garantie 1 an
+              - generic [ref=e549]:
+                - generic [ref=e550]: Disponibilité
+                - generic [ref=e551]:
+                  - generic "Non disponible magasin Tunis" [ref=e552]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e553]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e554]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e555]: Tunis Drive-IN
+              - generic [ref=e556]:
+                - link "ASRock" [ref=e558] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/177_asrock
+                  - img "ASRock" [ref=e559]
+                - generic [ref=e560]:
+                  - text: 599,000 DT
+                  - generic [ref=e561]: Prix
+                - generic [ref=e562]: En stock
+                - button "Ajouter au panier" [ref=e568] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e570]:
+            - generic [ref=e571]:
+              - link "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e573] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/70854-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-x300-noir.html
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e574]
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e575]
+              - generic [ref=e576]:
+                - heading "Mini Pc de bureau ASRock Barebone Série DeskMeet X300 / Noir" [level=2] [ref=e577]:
+                  - link "Mini Pc de bureau ASRock Barebone Série DeskMeet X300 / Noir" [ref=e578] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/70854-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-x300-noir.html
+                - text: "[90BXG4501-A10GA0W]"
+                - 'link "CPU - Prend en charge les processeurs de bureau AMD AM4 Socket Ryzen 2000, 3000, 4000 G-Series, 5000 et 5000 G-Series, jusqu''à 65 W - Jeu de puces AMD X300 - Boîtier Prend en charge le refroidisseur de processeur AMD AM4 (hauteur maximale ≦ 54 mm) - Mémoire: 4x emplacements DIMM DDR4 (max. 128 Go) - Disques durs: 2x ports SATA3 6.0 Gb/s (RAID 0/1) - 1x emplacement Ultra M.2 - 1x PCIe 3.0 x 16 - 1x Slot M.2 (clé E 2230) pour Wi-Fi + Module Blutooth - 1x Prise casque/casque - 1x USB-C 3.2 - 4x USB 3.2 - 4x USB 2.0 - 1x DisplayPort 1.4 - 1x HDMI - 1x D-Sub - 1x Port LAN RJ-45 - Alimentation 500 W (80+ Bronze, crête 550 W) - Système d''exploitation: Microsoft, Windows - Format compact de 8 litres - Couleur Noir - Garantie 1 an" [ref=e580] [cursor=pointer]':
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/70854-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-x300-noir.html
+                  - text: "CPU - Prend en charge les processeurs de bureau AMD AM4 Socket Ryzen 2000, 3000, 4000 G-Series, 5000 et 5000 G-Series, jusqu'à 65 W - Jeu de puces AMD X300 - Boîtier Prend en charge le refroidisseur de processeur AMD AM4 (hauteur maximale ≦ 54 mm) - Mémoire: 4x emplacements DIMM DDR4 (max. 128 Go) - Disques durs: 2x ports SATA3 6.0 Gb/s (RAID 0/1) - 1x emplacement Ultra M.2 - 1x PCIe 3.0 x 16 - 1x Slot M.2 (clé E 2230) pour Wi-Fi + Module Blutooth - 1x Prise casque/casque - 1x USB-C 3.2 - 4x USB 3.2 - 4x USB 2.0 - 1x DisplayPort 1.4 - 1x HDMI - 1x D-Sub - 1x Port LAN RJ-45 - Alimentation 500 W (80+ Bronze, crête 550 W) - Système d'exploitation: Microsoft, Windows - Format compact de 8 litres - Couleur Noir -"
+                  - strong [ref=e582]: Garantie 1 an
+              - generic [ref=e591]:
+                - generic [ref=e592]: Disponibilité
+                - generic [ref=e593]:
+                  - generic "Disponible magasin Tunis" [ref=e594]: Boutique Tunis
+                  - generic "Disponible magasin Sousse" [ref=e595]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e596]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e597]: Tunis Drive-IN
+              - generic [ref=e598]:
+                - link "ASRock" [ref=e600] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/177_asrock
+                  - img "ASRock" [ref=e601]
+                - generic [ref=e602]:
+                  - text: 739,000 DT
+                  - generic [ref=e603]: Prix
+                - generic [ref=e604]: En stock
+                - button "Ajouter au panier" [ref=e610] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e612]:
+            - generic [ref=e613]:
+              - link "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e615] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/70853-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-b660-noir.html
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e616]
+                - img "MSI PRO DP21 11M 003EU i3 10è Gén | Tunisianet" [ref=e617]
+              - generic [ref=e618]:
+                - heading "Mini Pc de bureau ASRock Barebone Série DeskMeet B660 / Noir" [level=2] [ref=e619]:
+                  - link "Mini Pc de bureau ASRock Barebone Série DeskMeet B660 / Noir" [ref=e620] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/70853-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-b660-noir.html
+                - text: "[90BXG4C01-A10GA0W]"
+                - 'link "CPU Prend en charge les processeurs Intel Core de 13e et 12e génération (LGA1700) - Jeu de puces Intel B660 - Boîtier Prend en charge le refroidisseur de processeur Intel (hauteur maximale ≦ 54 mm) - Mémoire: 4x emplacements DIMM DDR4 (max. 128 Go) - Disques durs: 3x ports SATA3 6 Gb/s - 2 x Socket Hyper M.2 - 1x PCIe 4.0 x 16 - 1x Socket M.2 (clé E), prend en charge le module Wi-Fi/BT de type 2230 et Intel CNVi (Wi-Fi/BT intégré) - 1x Prise casque/casque - 1x USB-C 3.2 - 4x USB 3.2 - 4x USB 2.0 - 1x DisplayPort 1.4 - 1x HDMI - 1x D-Sub - 1x Port LAN RJ-45 - Alimentation 500 W (80+ Bronze, crête 550 W) - Système d''exploitation: Microsoft, Windows - Format compact de 8 litres - Couleur Noir - Garantie 1 an" [ref=e622] [cursor=pointer]':
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/70853-mini-pc-de-bureau-asrock-barebone-serie-deskmeet-b660-noir.html
+                  - text: "CPU Prend en charge les processeurs Intel Core de 13e et 12e génération (LGA1700) - Jeu de puces Intel B660 - Boîtier Prend en charge le refroidisseur de processeur Intel (hauteur maximale ≦ 54 mm) - Mémoire: 4x emplacements DIMM DDR4 (max. 128 Go) - Disques durs: 3x ports SATA3 6 Gb/s - 2 x Socket Hyper M.2 - 1x PCIe 4.0 x 16 - 1x Socket M.2 (clé E), prend en charge le module Wi-Fi/BT de type 2230 et Intel CNVi (Wi-Fi/BT intégré) - 1x Prise casque/casque - 1x USB-C 3.2 - 4x USB 3.2 - 4x USB 2.0 - 1x DisplayPort 1.4 - 1x HDMI - 1x D-Sub - 1x Port LAN RJ-45 - Alimentation 500 W (80+ Bronze, crête 550 W) - Système d'exploitation: Microsoft, Windows - Format compact de 8 litres - Couleur Noir -"
+                  - strong [ref=e624]: Garantie 1 an
+              - generic [ref=e633]:
+                - generic [ref=e634]: Disponibilité
+                - generic [ref=e635]:
+                  - generic "Disponible magasin Tunis" [ref=e636]: Boutique Tunis
+                  - generic "Disponible magasin Sousse" [ref=e637]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e638]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e639]: Tunis Drive-IN
+              - generic [ref=e640]:
+                - link "ASRock" [ref=e642] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/177_asrock
+                  - img "ASRock" [ref=e643]
+                - generic [ref=e644]:
+                  - text: 919,000 DT
+                  - generic [ref=e645]: Prix
+                - generic [ref=e646]: En stock
+                - button "Ajouter au panier" [ref=e652] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e654]:
+            - generic [ref=e655]:
+              - link "Mini Pc de bureau Blackview MP20 Mini Pc de bureau Blackview MP20" [ref=e657] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/97764-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir.html
+                - img "Mini Pc de bureau Blackview MP20" [ref=e658]
+                - img "Mini Pc de bureau Blackview MP20" [ref=e659]
+              - generic [ref=e660]:
+                - heading "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir" [level=2] [ref=e661]:
+                  - link "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir" [ref=e662] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/97764-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir.html
+                - text: "[BLACKVIEW-MP20]"
+                - link "Processeur AMD Ryzen 3 3300U, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 16 Go DDR4 - Disque SSD NVMe M.2 512 Go - Carte graphique AMD Radeon Graphics - Wi-Fi 6 - Bluetooth 5.2 - 1x ports HDMI - Ethernet LAN - DP - 2x USB 2.0 - 2x USB 3.2 - Jack 3.5 mm - Windows 11 Pro - Couleur Blanc - Garantie 1 an" [ref=e664] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/97764-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir.html
+                  - paragraph [ref=e665]:
+                    - text: Processeur
+                    - strong [ref=e667]: AMD Ryzen 3 3300U
+                    - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                    - strong [ref=e669]: 16 Go DDR4
+                    - text: "- Disque SSD NVMe M.2"
+                    - strong [ref=e671]: 512 Go
+                    - text: "- Carte graphique AMD Radeon Graphics - Wi-Fi 6 - Bluetooth 5.2 - 1x ports HDMI - Ethernet LAN - DP - 2x USB 2.0 - 2x USB 3.2 - Jack 3.5 mm -"
+                    - strong [ref=e673]: Windows 11 Pro
+                    - text: "- Couleur Blanc -"
+                    - strong [ref=e675]: Garantie 1 an
+              - generic [ref=e684]:
+                - generic [ref=e685]: Disponibilité
+                - generic [ref=e686]:
+                  - generic "Disponible magasin Tunis" [ref=e687]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e688]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e689]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e690]: Tunis Drive-IN
+              - generic [ref=e691]:
+                - link "Blackview" [ref=e693] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1304_blackview
+                  - img "Blackview" [ref=e694]
+                - generic [ref=e695]:
+                  - text: 999,000 DT
+                  - generic [ref=e696]: Prix
+                - generic [ref=e697]: En stock
+                - button "Ajouter au panier" [ref=e703] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e705]:
+            - generic [ref=e706]:
+              - link "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e708] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95432-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                - img "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e709]
+                - img "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e710]
+              - generic [ref=e711]:
+                - heading "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [level=2] [ref=e712]:
+                  - link "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e713] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95432-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                - text: "[PRO-21]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 3 5300G, (jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 128 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e715] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95432-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                  - paragraph [ref=e716]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 3 5300G, (jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 128 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e718]: Garantie 1 an
+              - generic [ref=e728]:
+                - link "tunisianet" [ref=e730] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e731]
+                - generic [ref=e732]:
+                  - text: 1 039,000 DT
+                  - generic [ref=e733]: Prix
+                - generic [ref=e734]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e740]
+                - link:
+                  - /url: ""
+          - article [ref=e742]:
+            - generic [ref=e743]:
+              - link "Pc de bureau PRO MSI / G6900 / 8 Go Pc de bureau PRO MSI / G6900 / 8 Go" [ref=e745] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95459-pc-de-bureau-pro-msi-g6900-8-go.html
+                - img "Pc de bureau PRO MSI / G6900 / 8 Go" [ref=e746]
+                - img "Pc de bureau PRO MSI / G6900 / 8 Go" [ref=e747]
+              - generic [ref=e748]:
+                - heading "Pc de bureau PRO MSI / G6900 / 8 Go" [level=2] [ref=e749]:
+                  - link "Pc de bureau PRO MSI / G6900 / 8 Go" [ref=e750] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95459-pc-de-bureau-pro-msi-g6900-8-go.html
+                - text: "[PRO-26]"
+                - link "Boîtier Gamer MSI MAG SHIELD M301 - Processeur Intel Celeron G6900, (jusqu'à 3.4 GHz, 4 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique Intel UHD Graphics - Carte mére MSI PRO H610M-E / Micro ATX / LGA1700 / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Windows 11 Pro - Garantie 1 an" [ref=e752] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95459-pc-de-bureau-pro-msi-g6900-8-go.html
+                  - paragraph [ref=e753]:
+                    - text: Boîtier Gamer MSI MAG SHIELD M301 - Processeur Intel Celeron G6900, (jusqu'à 3.4 GHz, 4 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique Intel UHD Graphics - Carte mére MSI PRO H610M-E / Micro ATX / LGA1700 / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e755]: Windows 11 Pro
+                    - text: "-"
+                    - strong [ref=e757]: Garantie 1 an
+              - generic [ref=e766]:
+                - generic [ref=e767]: Disponibilité
+                - generic [ref=e768]:
+                  - generic "Non disponible magasin Tunis" [ref=e769]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e770]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e771]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e772]: Tunis Drive-IN
+              - generic [ref=e773]:
+                - link "MSI" [ref=e775] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/339_msi
+                  - img "MSI" [ref=e776]
+                - generic [ref=e777]:
+                  - text: 1 049,000 DT
+                  - generic [ref=e778]: Prix
+                - generic [ref=e779]: En stock
+                - button "Ajouter au panier" [ref=e785] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e787]:
+            - generic [ref=e788]:
+              - link "BMAX B6 PRO BMAX B6 PRO" [ref=e790] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/93994-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert.html
+                - img "BMAX B6 PRO" [ref=e791]
+                - img "BMAX B6 PRO" [ref=e792]
+              - generic [ref=e793]:
+                - heading "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert" [level=2] [ref=e794]:
+                  - link "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert" [ref=e795] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/93994-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert.html
+                - text: "[BMAX-B6TURBO]"
+                - link "Processeur Intel Core i5-8257U, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 16 Go - Disque SSD NVMe M.2 512 Go - Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm - Windows 11 - Couleur Vert - Garantie 1 an" [ref=e797] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/93994-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert.html
+                  - text: Processeur
+                  - strong [ref=e799]: Intel Core i5-8257U
+                  - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                  - strong [ref=e801]: 16 Go
+                  - text: "- Disque SSD NVMe M.2"
+                  - strong [ref=e803]: 512 Go
+                  - text: "- Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm -"
+                  - strong [ref=e805]: Windows 11
+                  - text: "- Couleur Vert -"
+                  - strong [ref=e807]: Garantie 1 an
+              - generic [ref=e816]:
+                - generic [ref=e817]: Disponibilité
+                - generic [ref=e818]:
+                  - generic "Disponible magasin Tunis" [ref=e819]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e820]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e821]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e822]: Tunis Drive-IN
+              - generic [ref=e823]:
+                - link "Bmax" [ref=e825] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1152_bmax
+                  - img "Bmax" [ref=e826]
+                - generic [ref=e827]:
+                  - text: 1 059,000 DT
+                  - generic [ref=e828]: Prix
+                - generic [ref=e829]: En stock
+                - button "Ajouter au panier" [ref=e835] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e837]:
+            - generic [ref=e838]:
+              - link "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e840] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95433-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                - img "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e841]
+                - img "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e842]
+              - generic [ref=e843]:
+                - heading "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [level=2] [ref=e844]:
+                  - link "Pc de bureau TUNISIANET / Ryzen 3 5300G / Vega 6 / 8 Go" [ref=e845] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95433-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                - text: "[PRO-21-256G]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 3 5300G, (jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e847] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95433-pc-de-bureau-tunisianet-ryzen-3-5300g-vega-6-8-go.html
+                  - paragraph [ref=e848]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 3 5300G, (jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e850]: Garantie 1 an
+              - generic [ref=e860]:
+                - link "tunisianet" [ref=e862] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e863]
+                - generic [ref=e864]:
+                  - text: 1 109,000 DT
+                  - generic [ref=e865]: Prix
+                - generic [ref=e866]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e872]
+                - link:
+                  - /url: ""
+          - article [ref=e874]:
+            - generic [ref=e875]:
+              - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e877] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/96854-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e878]
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e879]
+              - generic [ref=e880]:
+                - heading "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [level=2] [ref=e881]:
+                  - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e882] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/96854-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                - text: "[PRO-29]"
+                - link "Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 256 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris - Garantie 1 an" [ref=e884] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/96854-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                  - paragraph [ref=e885]:
+                    - text: Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 256 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris -
+                    - strong [ref=e887]: Garantie 1 an
+              - generic [ref=e897]:
+                - link "tunisianet" [ref=e899] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e900]
+                - generic [ref=e901]:
+                  - text: 1 109,000 DT
+                  - generic [ref=e902]: Prix
+                - generic [ref=e903]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e909]
+                - link:
+                  - /url: ""
+          - article [ref=e911]:
+            - generic [ref=e912]:
+              - link "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e914] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95413-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                - img "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e915]
+                - img "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e916]
+              - generic [ref=e917]:
+                - heading "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [level=2] [ref=e918]:
+                  - link "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e919] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95413-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                - text: "[PRO-20]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 Pro 5650G, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 256 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e921] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95413-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                  - paragraph [ref=e922]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 Pro 5650G, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 256 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e924]: Garantie 1 an
+              - generic [ref=e934]:
+                - link "tunisianet" [ref=e936] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e937]
+                - generic [ref=e938]:
+                  - text: 1 149,000 DT
+                  - generic [ref=e939]: Prix
+                - generic [ref=e940]: En stock
+                - button "Ajouter au panier" [ref=e946] [cursor=pointer]
+                - link:
+                  - /url: ""
+          - article [ref=e948]:
+            - generic [ref=e949]:
+              - link "Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc" [ref=e951] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/94212-mini-pc-de-bureau-bchuwi-larkbox-x-i3-1220p-8-go-256-go-ssd-windows-11-blanc.html
+                - img "Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc" [ref=e952]
+                - img "Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc" [ref=e953]
+              - generic [ref=e954]:
+                - heading "Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc" [level=2] [ref=e955]:
+                  - link "Mini Pc de bureau BCHUWI LarkBox X / i3-1220P / 8 Go / 256 Go SSD / Windows 11 / Blanc" [ref=e956] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/94212-mini-pc-de-bureau-bchuwi-larkbox-x-i3-1220p-8-go-256-go-ssd-windows-11-blanc.html
+                - text: "[LARKBOX-XCW156-I3]"
+                - link "Processeur Intel Core i3-1220P, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 8 Go - Disque SSD NVMe M.2 256 Go - Carte graphique Intel UHD Graphics - Wi-Fi 6 - Bluetooth 5.2 - 2x ports HDMI - USB Type-C - USB 3.2 - Windows 11 - Couleur Blanc - Garantie 1 an" [ref=e958] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/94212-mini-pc-de-bureau-bchuwi-larkbox-x-i3-1220p-8-go-256-go-ssd-windows-11-blanc.html
+                  - paragraph [ref=e959]:
+                    - text: Processeur
+                    - strong [ref=e961]: Intel Core i3-1220P
+                    - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                    - strong [ref=e963]: 8 Go
+                    - text: "- Disque SSD NVMe M.2"
+                    - strong [ref=e965]: 256 Go
+                    - text: "- Carte graphique Intel UHD Graphics - Wi-Fi 6 - Bluetooth 5.2 - 2x ports HDMI - USB Type-C - USB 3.2 -"
+                    - strong [ref=e967]: Windows 11
+                    - text: "- Couleur Blanc -"
+                    - strong [ref=e969]: Garantie 1 an
+              - generic [ref=e978]:
+                - generic [ref=e979]: Disponibilité
+                - generic [ref=e980]:
+                  - generic "Disponible magasin Tunis" [ref=e981]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e982]: Sousse
+                  - generic "Disponible magasin Sfax" [ref=e983]: Sfax
+                  - generic "Disponible Drive-in Charguia" [ref=e984]: Tunis Drive-IN
+              - generic [ref=e985]:
+                - link "Chuwi" [ref=e987] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1264_chuwi
+                  - img "Chuwi" [ref=e988]
+                - generic [ref=e989]:
+                  - text: 1 179,000 DT
+                  - generic [ref=e990]: Prix
+                - generic [ref=e991]: En stock
+                - button "Ajouter au panier" [ref=e997] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e999]:
+            - generic [ref=e1000]:
+              - link "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz" [ref=e1002] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/97860-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir-avec-ecran-dahua-22-fhd-va-100-hz.html
+                - img "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz" [ref=e1003]
+                - img "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz" [ref=e1004]
+              - generic [ref=e1005]:
+                - heading "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz" [level=2] [ref=e1006]:
+                  - link "Mini Pc de bureau Blackview MP20 / Ryzen 3 3300U / 16 Go / 512 Go SSD / Windows 11 Pro / Noir Avec Ecran DAHUA 22\" FHD VA 100 Hz" [ref=e1007] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/97860-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir-avec-ecran-dahua-22-fhd-va-100-hz.html
+                - text: "[BLACKVIEW-MP20-ECR-CS]"
+                - link "Ecran DAHUA 22\" FHD VA 100Hz 5ms HDMI/VGA / Noir - Processeur AMD Ryzen 3 3300U, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 16 Go DDR4 - Disque SSD NVMe M.2 512 Go - Carte graphique AMD Radeon Graphics - Wi-Fi 6 - Bluetooth 5.2 - 1x ports HDMI - Ethernet LAN - DP - 2x USB 2.0 - 2x USB 3.2 - Jack 3.5 mm - Windows 11 Pro - Couleur Blanc - Garantie 1 an Avec Ensemble Clavier et Souris Yatel Sans fil WS730+ / Noir" [ref=e1009] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/97860-mini-pc-de-bureau-blackview-mp20-ryzen-3-3300u-16-go-512-go-ssd-windows-11-pro-noir-avec-ecran-dahua-22-fhd-va-100-hz.html
+                  - paragraph [ref=e1010]:
+                    - strong [ref=e1012]: Ecran DAHUA 22" FHD VA 100Hz 5ms HDMI/VGA / Noir
+                    - text: "- Processeur"
+                    - strong [ref=e1014]: AMD Ryzen 3 3300U
+                    - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                    - strong [ref=e1016]: 16 Go DDR4
+                    - text: "- Disque SSD NVMe M.2"
+                    - strong [ref=e1018]: 512 Go
+                    - text: "- Carte graphique AMD Radeon Graphics - Wi-Fi 6 - Bluetooth 5.2 - 1x ports HDMI - Ethernet LAN - DP - 2x USB 2.0 - 2x USB 3.2 - Jack 3.5 mm -"
+                    - strong [ref=e1020]: Windows 11 Pro
+                    - text: "- Couleur Blanc -"
+                    - strong [ref=e1022]: Garantie 1 an Avec Ensemble Clavier et Souris Yatel Sans fil WS730+ / Noir
+              - generic [ref=e1031]:
+                - generic [ref=e1032]: Disponibilité
+                - generic [ref=e1033]:
+                  - generic "Non disponible magasin Tunis" [ref=e1034]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e1035]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e1036]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e1037]: Tunis Drive-IN
+              - generic [ref=e1038]:
+                - link "Blackview" [ref=e1040] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1304_blackview
+                  - img "Blackview" [ref=e1041]
+                - generic [ref=e1042]:
+                  - text: 1 205,000 DT
+                  - generic [ref=e1043]: Prix
+                - generic [ref=e1044]: En stock
+                - button "Ajouter au panier" [ref=e1050] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e1052]:
+            - generic [ref=e1053]:
+              - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e1055] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/96855-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e1056]
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e1057]
+              - generic [ref=e1058]:
+                - heading "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [level=2] [ref=e1059]:
+                  - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go" [ref=e1060] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/96855-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                - text: "[PRO-29-512G]"
+                - link "Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 512 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris - Garantie 1 an" [ref=e1062] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/96855-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go.html
+                  - paragraph [ref=e1063]:
+                    - text: Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 512 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris -
+                    - strong [ref=e1065]: Garantie 1 an
+              - generic [ref=e1075]:
+                - link "tunisianet" [ref=e1077] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e1078]
+                - generic [ref=e1079]:
+                  - text: 1 209,000 DT
+                  - generic [ref=e1080]: Prix
+                - generic [ref=e1081]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1087]
+                - link:
+                  - /url: ""
+          - article [ref=e1089]:
+            - generic [ref=e1090]:
+              - link "Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro" [ref=e1092] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/96861-pc-de-bureau-msi-ryzen-7-pro-4750g-vega-8-8-go-windows-11-pro.html
+                - img "Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro" [ref=e1093]
+                - img "Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro" [ref=e1094]
+              - generic [ref=e1095]:
+                - heading "Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro" [level=2] [ref=e1096]:
+                  - link "Pc de bureau MSI / Ryzen 7 PRO 4750G / Vega 8 / 8 Go / Windows 11 Pro" [ref=e1097] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/96861-pc-de-bureau-msi-ryzen-7-pro-4750g-vega-8-8-go-windows-11-pro.html
+                - text: "[MSI-39]"
+                - link "Boîtier Gamer MSI MAG SHIELD M301 / Noir - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris - Windows 11 Pro - Garantie 2 ans" [ref=e1099] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/96861-pc-de-bureau-msi-ryzen-7-pro-4750g-vega-8-8-go-windows-11-pro.html
+                  - paragraph [ref=e1100]:
+                    - text: Boîtier Gamer MSI MAG SHIELD M301 / Noir - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris -
+                    - strong [ref=e1102]: Windows 11 Pro
+                    - text: "-"
+                    - strong [ref=e1104]: Garantie 2 ans
+              - generic [ref=e1113]:
+                - generic [ref=e1114]: Disponibilité
+                - generic [ref=e1115]:
+                  - generic "Disponible magasin Tunis" [ref=e1116]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e1117]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e1118]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e1119]: Tunis Drive-IN
+              - generic [ref=e1120]:
+                - link "MSI" [ref=e1122] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/339_msi
+                  - img "MSI" [ref=e1123]
+                - generic [ref=e1124]:
+                  - text: 1 219,000 DT
+                  - generic [ref=e1125]: Prix
+                - generic [ref=e1126]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1132]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e1134]:
+            - generic [ref=e1135]:
+              - link "PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1137] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95421-pc-de-bureau-pro-msi-ryzen-3-5300g-vega-6-8-go-240-go-ssd-windows-11-pro.html
+                - img "PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1138]
+                - img "PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1139]
+              - generic [ref=e1140]:
+                - heading "PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro" [level=2] [ref=e1141]:
+                  - link "PC de Bureau PRO MSI / Ryzen 3 5300G / Vega 6 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1142] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95421-pc-de-bureau-pro-msi-ryzen-3-5300g-vega-6-8-go-240-go-ssd-windows-11-pro.html
+                - text: "[MSI-126-8G]"
+                - link "Boîtier Gamer MSI MAG SHIELD M301 - Processeur AMD Ryzen 3 5300G, (Jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - RAM 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Windows 11 Pro - Avec Ensemble Clavier et Souris Gaming - Garantie 1 an" [ref=e1144] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95421-pc-de-bureau-pro-msi-ryzen-3-5300g-vega-6-8-go-240-go-ssd-windows-11-pro.html
+                  - paragraph [ref=e1145]:
+                    - text: Boîtier Gamer MSI MAG SHIELD M301 - Processeur AMD Ryzen 3 5300G, (Jusqu'à 4.2 GHz, 10 Mo de mémoire cache) - RAM 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Refroidisseur d'air pour processeur DeepCool AG200 / LGA 1700 / AM5 / Noir - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e1147]: Windows 11 Pro
+                    - text: "- Avec Ensemble Clavier et Souris Gaming -"
+                    - strong [ref=e1149]: Garantie 1 an
+              - generic [ref=e1158]:
+                - generic [ref=e1159]: Disponibilité
+                - generic [ref=e1160]:
+                  - generic "Non disponible magasin Tunis" [ref=e1161]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e1162]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e1163]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e1164]: Tunis Drive-IN
+              - generic [ref=e1165]:
+                - link "MSI" [ref=e1167] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/339_msi
+                  - img "MSI" [ref=e1168]
+                - generic [ref=e1169]:
+                  - text: 1 229,000 DT
+                  - generic [ref=e1170]: Prix
+                - generic [ref=e1171]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1177]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e1179]:
+            - generic [ref=e1180]:
+              - link "Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go" [ref=e1182] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95437-pc-de-bureau-tunisianet-ryzen-5-pro-5655g-vega-7-8-go.html
+                - img "Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go" [ref=e1183]
+                - img "Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go" [ref=e1184]
+              - generic [ref=e1185]:
+                - heading "Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go" [level=2] [ref=e1186]:
+                  - link "Pc de bureau TUNISIANET / Ryzen 5 PRO 5655G / Vega 7 / 8 Go" [ref=e1187] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95437-pc-de-bureau-tunisianet-ryzen-5-pro-5655g-vega-7-8-go.html
+                - text: "[PRO-22]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 PRO 5655G Avec Refroidisseur, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 256 Go - Carte graphique AMD Radeon Vega 7 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e1189] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95437-pc-de-bureau-tunisianet-ryzen-5-pro-5655g-vega-7-8-go.html
+                  - paragraph [ref=e1190]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 PRO 5655G Avec Refroidisseur, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 256 Go - Carte graphique AMD Radeon Vega 7 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e1192]: Garantie 1 an
+              - generic [ref=e1202]:
+                - link "tunisianet" [ref=e1204] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e1205]
+                - generic [ref=e1206]:
+                  - text: 1 239,000 DT
+                  - generic [ref=e1207]: Prix
+                - generic [ref=e1208]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1214]
+                - link:
+                  - /url: ""
+          - article [ref=e1216]:
+            - generic [ref=e1217]:
+              - link "Pc de bureau TUNISIANET / i5-10400 / 8 Go Pc de bureau TUNISIANET / i5-10400 / 8 Go" [ref=e1219] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95451-pc-de-bureau-tunisianet-i5-10400-8-go.html
+                - img "Pc de bureau TUNISIANET / i5-10400 / 8 Go" [ref=e1220]
+                - img "Pc de bureau TUNISIANET / i5-10400 / 8 Go" [ref=e1221]
+              - generic [ref=e1222]:
+                - heading "Pc de bureau TUNISIANET / i5-10400 / 8 Go" [level=2] [ref=e1223]:
+                  - link "Pc de bureau TUNISIANET / i5-10400 / 8 Go" [ref=e1224] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95451-pc-de-bureau-tunisianet-i5-10400-8-go.html
+                - text: "[PRO-25]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur Intel Core i5-10400, (jusqu'à 4.3 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique Intel UHD Graphics - Carte mère ASUS PRIME H510M-R R2.0 / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e1226] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95451-pc-de-bureau-tunisianet-i5-10400-8-go.html
+                  - paragraph [ref=e1227]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur Intel Core i5-10400, (jusqu'à 4.3 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique Intel UHD Graphics - Carte mère ASUS PRIME H510M-R R2.0 / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e1229]: Garantie 1 an
+              - generic [ref=e1239]:
+                - link "tunisianet" [ref=e1241] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e1242]
+                - generic [ref=e1243]:
+                  - text: 1 249,000 DT
+                  - generic [ref=e1244]: Prix
+                - generic [ref=e1245]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1251]
+                - link:
+                  - /url: ""
+          - article [ref=e1253]:
+            - generic [ref=e1254]:
+              - link "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz" [ref=e1256] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/96809-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert-avec-ecran-enter-22-hd-vga-hdmi-60-hz.html
+                - img "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz" [ref=e1257]
+                - img "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz" [ref=e1258]
+              - generic [ref=e1259]:
+                - heading "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz" [level=2] [ref=e1260]:
+                  - link "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 16 Go / 512 Go SSD / Windows 11 / Vert Avec Écran Enter 22\" HD / VGA / HDMI / 60 Hz" [ref=e1261] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/96809-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert-avec-ecran-enter-22-hd-vga-hdmi-60-hz.html
+                - text: "[BMAX-B6TURBO-A03-CS]"
+                - link "Écran Enter ECR-MO-A03 22\" HD / VGA / HDMI / 60 Hz - Processeur Intel Core i5-8257U, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 16 Go - Disque SSD NVMe M.2 512 Go - Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm - Windows 11 - Couleur Vert - Garantie 1 an Avec Ensemble Clavier et Souris Yatel Sans fil WS730+ / Noir" [ref=e1263] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/96809-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-16-go-512-go-ssd-windows-11-vert-avec-ecran-enter-22-hd-vga-hdmi-60-hz.html
+                  - strong [ref=e1265]: Écran Enter ECR-MO-A03 22" HD / VGA / HDMI / 60 Hz
+                  - text: "- Processeur"
+                  - strong [ref=e1267]: Intel Core i5-8257U
+                  - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                  - strong [ref=e1269]: 16 Go
+                  - text: "- Disque SSD NVMe M.2"
+                  - strong [ref=e1271]: 512 Go
+                  - text: "- Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm -"
+                  - strong [ref=e1273]: Windows 11
+                  - text: "- Couleur Vert -"
+                  - strong [ref=e1275]: Garantie 1 an Avec Ensemble Clavier et Souris Yatel Sans fil WS730+ / Noir
+              - generic [ref=e1284]:
+                - generic [ref=e1285]: Disponibilité
+                - generic [ref=e1286]:
+                  - generic "Non disponible magasin Tunis" [ref=e1287]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e1288]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e1289]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e1290]: Tunis Drive-IN
+              - generic [ref=e1291]:
+                - link "Bmax" [ref=e1293] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1152_bmax
+                  - img "Bmax" [ref=e1294]
+                - generic [ref=e1295]:
+                  - text: 1 259,000 DT
+                  - generic [ref=e1296]: Prix
+                - generic [ref=e1297]: En stock
+                - button "Ajouter au panier" [ref=e1303] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e1305]:
+            - generic [ref=e1306]:
+              - link "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e1308] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95414-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                - img "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e1309]
+                - img "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e1310]
+              - generic [ref=e1311]:
+                - heading "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [level=2] [ref=e1312]:
+                  - link "Pc de bureau TUNISIANET / Ryzen 5 Pro 5650G / Vega 7 / 8 Go" [ref=e1313] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95414-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                - text: "[PRO-20-512G]"
+                - link "BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 Pro 5650G, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 512 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Garantie 1 an" [ref=e1315] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95414-pc-de-bureau-tunisianet-ryzen-5-pro-5650g-vega-7-8-go.html
+                  - paragraph [ref=e1316]:
+                    - text: BOITIER ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 5 Pro 5650G, (jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5" SATA 512 Go - Carte graphique AMD Radeon Vega 6 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e1318]: Garantie 1 an
+              - generic [ref=e1328]:
+                - link "tunisianet" [ref=e1330] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e1331]
+                - generic [ref=e1332]:
+                  - text: 1 269,000 DT
+                  - generic [ref=e1333]: Prix
+                - generic [ref=e1334]: En stock
+                - button "Ajouter au panier" [ref=e1340] [cursor=pointer]
+                - link:
+                  - /url: ""
+          - article [ref=e1342]:
+            - generic [ref=e1343]:
+              - link "PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1345] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/95416-pc-de-bureau-pro-msi-ryzen-5-pro-5650g-vega-7-8-go-240-go-ssd-windows-11-pro.html
+                - img "PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1346]
+                - img "PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1347]
+              - generic [ref=e1348]:
+                - heading "PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro" [level=2] [ref=e1349]:
+                  - link "PC de Bureau PRO MSI / Ryzen 5 Pro 5650G / Vega 7 / 8 Go / 240 Go SSD / Windows 11 Pro" [ref=e1350] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/95416-pc-de-bureau-pro-msi-ryzen-5-pro-5650g-vega-7-8-go-240-go-ssd-windows-11-pro.html
+                - text: "[MSI-125-8G]"
+                - link "Boîtier Gamer MSI MAG SHIELD M301 - Processeur AMD Ryzen 5 Pro 5650G, (Jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - RAM 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5\" SATA 240 Go - Carte graphique AMD Radeon Vega 7 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Windows 11 Pro - Avec Ensemble Clavier et Souris Gaming - Garantie 1 an" [ref=e1352] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/95416-pc-de-bureau-pro-msi-ryzen-5-pro-5650g-vega-7-8-go-240-go-ssd-windows-11-pro.html
+                  - paragraph [ref=e1353]:
+                    - text: Boîtier Gamer MSI MAG SHIELD M301 - Processeur AMD Ryzen 5 Pro 5650G, (Jusqu'à 4.4 GHz, 19 Mo de mémoire cache) - RAM 8 Go (1x 8 Go) DDR4 - Disque SSD MSI 2.5" SATA 240 Go - Carte graphique AMD Radeon Vega 7 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir -
+                    - strong [ref=e1355]: Windows 11 Pro
+                    - text: "- Avec Ensemble Clavier et Souris Gaming -"
+                    - strong [ref=e1357]: Garantie 1 an
+              - generic [ref=e1366]:
+                - generic [ref=e1367]: Disponibilité
+                - generic [ref=e1368]:
+                  - generic "Disponible magasin Tunis" [ref=e1369]: Boutique Tunis
+                  - generic "Non disponible magasin Sousse" [ref=e1370]: Sousse
+                  - generic "Non disponible magasin Sfax" [ref=e1371]: Sfax
+                  - generic "Non disponible Drive-in Charguia" [ref=e1372]: Tunis Drive-IN
+              - generic [ref=e1373]:
+                - link "MSI" [ref=e1375] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/339_msi
+                  - img "MSI" [ref=e1376]
+                - generic [ref=e1377]:
+                  - text: 1 269,000 DT
+                  - generic [ref=e1378]: Prix
+                - generic [ref=e1379]: En stock
+                - button "Ajouter au panier" [ref=e1385] [cursor=pointer]
+                - link:
+                  - /url: ""
+              - text:    
+          - article [ref=e1387]:
+            - generic [ref=e1388]:
+              - link "BMAX B6 PRO BMAX B6 PRO" [ref=e1390] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/97065-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-24-go-512-go-ssd-windows-11-vert.html
+                - img "BMAX B6 PRO" [ref=e1391]
+                - img "BMAX B6 PRO" [ref=e1392]
+              - generic [ref=e1393]:
+                - heading "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 24 Go / 512 Go SSD / Windows 11 / Vert" [level=2] [ref=e1394]:
+                  - link "Mini Pc de bureau BMAX B6 TURBO / i5-8257U / 24 Go / 512 Go SSD / Windows 11 / Vert" [ref=e1395] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/97065-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-24-go-512-go-ssd-windows-11-vert.html
+                - text: "[BMAX-B6TURBO-24]"
+                - link "Processeur Intel Core i5-8257U, (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire 24 Go - Disque SSD NVMe M.2 512 Go - Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm - Windows 11 - Couleur Vert - Garantie 1 an" [ref=e1397] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/97065-mini-pc-de-bureau-bmax-b6-turbo-i5-8257u-24-go-512-go-ssd-windows-11-vert.html
+                  - text: Processeur
+                  - strong [ref=e1399]: Intel Core i5-8257U
+                  - text: ", (jusqu'à 3.5 GHz, 6 Mo de Mémoire Cache) - Mémoire"
+                  - strong [ref=e1401]: 24 Go
+                  - text: "- Disque SSD NVMe M.2"
+                  - strong [ref=e1403]: 512 Go
+                  - text: "- Carte graphique Intel Iris Plus Graphics - Wi-Fi - Bluetooth - 3x USB 3.0 - 1x USB-C - 2x HDMI 2.0 - 1x RJ45 - 1x prise casque 3.5 mm -"
+                  - strong [ref=e1405]: Windows 11
+                  - text: "- Couleur Vert -"
+                  - strong [ref=e1407]: Garantie 1 an
+              - generic [ref=e1417]:
+                - link "Bmax" [ref=e1419] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/1152_bmax
+                  - img "Bmax" [ref=e1420]
+                - generic [ref=e1421]:
+                  - text: 1 289,000 DT
+                  - generic [ref=e1422]: Prix
+                - generic [ref=e1423]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1429]
+                - link:
+                  - /url: ""
+          - article [ref=e1431]:
+            - generic [ref=e1432]:
+              - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz" [ref=e1434] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/pc-de-bureau/96858-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go-avec-ecran-dahua-24-full-hd-va-100-hz.html
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz" [ref=e1435]
+                - img "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz" [ref=e1436]
+              - generic [ref=e1437]:
+                - heading "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz" [level=2] [ref=e1438]:
+                  - link "Pc de bureau / Ryzen 7 PRO 4750G / Vega 8 / 8 Go Avec Écran DAHUA 24\" Full HD VA / 100 Hz" [ref=e1439] [cursor=pointer]:
+                    - /url: https://www.tunisianet.com.tn/pc-de-bureau/96858-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go-avec-ecran-dahua-24-full-hd-va-100-hz.html
+                - text: "[PRO-29-EC]"
+                - link "Écran DAHUA 24\" Full HD VA / 100 Hz / 5 ms / HDMI / VGA / Noir - Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 256 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris - Garantie 1 an" [ref=e1441] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/pc-de-bureau/96858-pc-de-bureau-ryzen-7-pro-4750g-vega-8-8-go-avec-ecran-dahua-24-full-hd-va-100-hz.html
+                  - paragraph [ref=e1442]:
+                    - strong [ref=e1444]: Écran DAHUA 24" Full HD VA / 100 Hz / 5 ms / HDMI / VGA / Noir
+                    - text: "- Boîtier ATX / 2 PORTS USB 2.0 AVANT / EMPLACEMENT LECTEUR GRAVEUR - Processeur AMD Ryzen 7 PRO 4750G, (jusqu'à 4.4 GHz, 12 Mo de mémoire cache) - Mémoire 8 Go (1x 8 Go) DDR4 - Disque SSD 2.5\" SATA 256 Go - Carte graphique AMD Radeon RX Vega 8 Graphics - Carte mère MSI A520M-A PRO / mATX / DDR4 - Boîte d'alimentation MSI MAG A300N-H / 300 Watts / ATX / Noir - Avec Ensemble Clavier et Souris -"
+                    - strong [ref=e1446]: Garantie 1 an
+              - generic [ref=e1456]:
+                - link "tunisianet" [ref=e1458] [cursor=pointer]:
+                  - /url: https://www.tunisianet.com.tn/120_tunisianet
+                  - img "tunisianet" [ref=e1459]
+                - generic [ref=e1460]:
+                  - text: 1 309,000 DT
+                  - generic [ref=e1461]: Prix
+                - generic [ref=e1462]: En stock
+                - button "Ajouter au panier" [disabled] [ref=e1468]
+                - link:
+                  - /url: ""
+        - navigation [ref=e1469]:
+          - generic [ref=e1470]: Affichage 1-24 de 205 article(s)
+          - list [ref=e1472]:
+            - listitem [ref=e1473]:
+              - link "1" [ref=e1474]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau
+            - listitem [ref=e1475]:
+              - link "2" [ref=e1476] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=2
+            - listitem [ref=e1477]:
+              - link "3" [ref=e1478] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=3
+            - listitem [ref=e1479]: …
+            - listitem [ref=e1480]:
+              - link "9" [ref=e1481] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=9
+            - listitem [ref=e1482]:
+              - link "" [ref=e1483] [cursor=pointer]:
+                - /url: https://www.tunisianet.com.tn/373-pc-de-bureau?page=2
+                - generic [ref=e1484]: 
+    - heading "Pc de bureau" [level=1] [ref=e1486]
+  - generic [ref=e1487]:
+    - generic [ref=e1490]:
+      - generic [ref=e1491]:
+        - link "Tunisianet" [ref=e1493] [cursor=pointer]:
+          - /url: https://www.tunisianet.com.tn/
+          - img "Tunisianet" [ref=e1494]
+        - generic [ref=e1495]:
+          - paragraph [ref=e1496] [cursor=pointer]: Tunisianet est Le spécialiste de la vente en ligne en Tunisie. Nous disposons du plus grand choix et des meilleurs prix en Tunisie. Tunisianet travaille avec les plus grandes marques qui lui font entièrement confiance.
+          - heading "Paiement" [level=4] [ref=e1497]
+          - list [ref=e1498]:
+            - listitem [ref=e1499]:
+              - link "" [ref=e1500] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1501]: 
+            - listitem [ref=e1502]:
+              - link "" [ref=e1503] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1504]: 
+            - listitem [ref=e1505]:
+              - link "" [ref=e1506] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e1507]: 
+      - generic [ref=e1509]:
+        - generic [ref=e1510]:
+          - heading "Produits" [level=3] [ref=e1511]
+          - list [ref=e1512]:
+            - listitem [ref=e1513] [cursor=pointer]:
+              - link "Nos marques" [ref=e1514]:
+                - /url: https://www.tunisianet.com.tn/marques
+        - generic [ref=e1515]:
+          - heading "Notre société" [level=3] [ref=e1516]
+          - list [ref=e1517]:
+            - listitem [ref=e1518] [cursor=pointer]:
+              - link "Livraison" [ref=e1519]:
+                - /url: https://www.tunisianet.com.tn/content/1-livraison
+            - listitem [ref=e1520] [cursor=pointer]:
+              - link "Conditions d'utilisation" [ref=e1521]:
+                - /url: https://www.tunisianet.com.tn/content/3-conditions-generales-de-ventes
+            - listitem [ref=e1522] [cursor=pointer]:
+              - link "Paiement sécurisé" [ref=e1523]:
+                - /url: https://www.tunisianet.com.tn/content/5-paiement-securise
+            - listitem [ref=e1524] [cursor=pointer]:
+              - link "Paiement en plusieurs fois" [ref=e1525]:
+                - /url: https://www.tunisianet.com.tn/content/6-paiement-en-plusieurs-fois
+            - listitem [ref=e1526] [cursor=pointer]:
+              - link "A propos" [ref=e1527]:
+                - /url: https://www.tunisianet.com.tn/content/4-informatique-tunisie-vente-materiel-informatique-tunisie
+      - generic [ref=e1528]:
+        - heading "Votre compte" [level=3] [ref=e1529]:
+          - link "Votre compte" [ref=e1530] [cursor=pointer]:
+            - /url: https://www.tunisianet.com.tn/mon-compte
+        - list [ref=e1531]:
+          - listitem [ref=e1532] [cursor=pointer]:
+            - link "Informations personnelles" [ref=e1533]:
+              - /url: https://www.tunisianet.com.tn/identite
+          - listitem [ref=e1534] [cursor=pointer]:
+            - link "Commandes" [ref=e1535]:
+              - /url: https://www.tunisianet.com.tn/historique-commandes
+          - listitem [ref=e1536] [cursor=pointer]:
+            - link "Avoirs" [ref=e1537]:
+              - /url: https://www.tunisianet.com.tn/avoirs
+          - listitem [ref=e1538] [cursor=pointer]:
+            - link "Adresses" [ref=e1539]:
+              - /url: https://www.tunisianet.com.tn/adresses
+      - generic [ref=e1540]:
+        - heading "information" [level=3] [ref=e1541]
+        - list [ref=e1542] [cursor=pointer]:
+          - listitem [ref=e1543]:
+            - img [ref=e1545]
+            - generic [ref=e1548]:
+              - text: Tunisianet
+              - text: 10 Rue Saint Augustin
+              - text: 1002 Tunis
+              - text: Tunisie
+          - listitem [ref=e1549]:
+            - img [ref=e1551]
+            - link "+216 31 31 00 00" [ref=e1556]:
+              - /url: tel:+216 31 31 00 00
+          - listitem [ref=e1557]:
+            - img [ref=e1559]
+            - generic [ref=e1564]: +216 32 40 66 06
+          - listitem [ref=e1565]:
+            - img [ref=e1567]
+            - link "contact@tunisianet.com.tn" [ref=e1570]:
+              - /url: mailto:contact@tunisianet.com.tn
+    - paragraph [ref=e1572]:
+      - link "© 2026 - Tunisianet™" [ref=e1573] [cursor=pointer]:
+        - /url: /
+    - link "Scroll to Top" [ref=e1574] [cursor=pointer]:
+      - /url: ""
+      - img [ref=e1575]
+```

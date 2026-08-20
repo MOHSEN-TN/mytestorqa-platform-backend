@@ -5,7 +5,13 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { BugPriority, BugSeverity, BugStatus, RoleType } from '@prisma/client';
+import {
+  BugPriority,
+  BugSeverity,
+  BugStatus,
+  Prisma,
+  RoleType,
+} from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
 type CreateBugDto = {
@@ -24,6 +30,11 @@ type UpdateBugDto = Partial<CreateBugDto> & {
   status?: BugStatus;
 };
 
+type CurrentUser = {
+  userId: string;
+  role: RoleType;
+};
+
 @Injectable()
 export class BugsService {
   constructor(private readonly prisma: PrismaService) {}
@@ -39,7 +50,7 @@ export class BugsService {
     const { page, limit, search, status, mine, userId } = params;
     const skip = (page - 1) * limit;
 
-    const where: any = {};
+    const where: Prisma.BugWhereInput = {};
 
     if (search) {
       where.OR = [
@@ -60,8 +71,14 @@ export class BugsService {
     }
 
     if (mine) {
+      const existingOr = Array.isArray(where.OR)
+        ? where.OR
+        : where.OR
+          ? [where.OR]
+          : [];
+
       where.OR = [
-        ...(where.OR || []),
+        ...existingOr,
         { reporterId: userId },
         { assigneeId: userId },
       ];
@@ -331,7 +348,11 @@ export class BugsService {
     };
   }
 
-  async update(id: string, data: UpdateBugDto, currentUser: any) {
+  async update(
+    id: string,
+    data: UpdateBugDto,
+    currentUser: CurrentUser,
+  ) {
     const existingBug = await this.prisma.bug.findUnique({
       where: { id },
     });
@@ -408,7 +429,10 @@ export class BugsService {
     };
   }
 
-  async delete(id: string, currentUser: any) {
+  async delete(
+    id: string,
+    currentUser: CurrentUser,
+  ) {
     const bug = await this.prisma.bug.findUnique({
       where: { id },
     });

@@ -1,0 +1,764 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82.spec.ts >> test
+- Location: 05331ea4-2ef5-41de-ba41-fa2aa8691d2d-run_c4d06f4b-3644-4b0f-90d2-7c922ca46f82.spec.ts:6:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Allow all' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Aller au contenu principal" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - navigation [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Accès experts" [ref=e8] [cursor=pointer]:
+              - /url: https://expert.ginger-sofreco.com//FR/formLogin.awp?P1=FR
+              - generic [ref=e9]: Accès experts
+      - navigation [ref=e10]:
+        - list:
+          - listitem
+          - listitem [ref=e11]:
+            - link "en" [ref=e12] [cursor=pointer]:
+              - /url: /en
+        - generic [ref=e13]:
+          - generic [ref=e14]: fr
+          - img [ref=e15]
+    - banner [ref=e17]:
+      - generic [ref=e18]:
+        - link "Accueil" [ref=e20] [cursor=pointer]:
+          - /url: /
+          - img "Accueil" [ref=e21]
+        - navigation [ref=e22]:
+          - list [ref=e23]:
+            - listitem [ref=e24]:
+              - link "Qui sommes-nous ?" [ref=e25] [cursor=pointer]:
+                - /url: https://www.groupeginger.com/
+                - generic [ref=e26]: Qui sommes-nous ?
+                - img [ref=e27]
+              - generic [ref=e29]:
+                - generic:
+                  - generic:
+                    - generic [ref=e30]: Qui sommes-nous ?
+                    - generic [ref=e31]: Entreprise du Groupe Ginger, leader français de l’ingénierie indépendante et engagée, Ginger SOFRECO est engagée dans la coopération internationale au développement et la réalisation de projets industriels. Nos experts interviennent dans le monde entier depuis plus de 50 ans.
+                    - link "Qui sommes-nous ?" [ref=e32] [cursor=pointer]:
+                      - /url: https://www.groupeginger.com/
+                      - text: Qui sommes-nous ?
+                      - img [ref=e33]
+                  - list [ref=e35]:
+                    - listitem [ref=e36]:
+                      - link "Une entreprise dédiée à la coopération internationale et aux projets industriels" [ref=e37] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/une-entreprise-dediee-a-la-cooperation-internationale-et-aux-projets-industriels
+                        - generic [ref=e38]: Une entreprise dédiée à la coopération internationale et aux projets industriels
+                    - listitem [ref=e39]:
+                      - link "Histoire et ADN" [ref=e40] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/histoire-et-adn
+                        - generic [ref=e41]: Histoire et ADN
+                    - listitem [ref=e42]:
+                      - link "Nos services" [ref=e43] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/nos-services
+                        - generic [ref=e44]: Nos services
+                    - listitem [ref=e45]:
+                      - link "Ginger SOFRECO dans le monde" [ref=e46] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/ginger-sofreco-dans-le-monde
+                        - generic [ref=e47]: Ginger SOFRECO dans le monde
+                    - listitem [ref=e48]:
+                      - link "Une communauté d’experts" [ref=e49] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/une-communaute-dexperts
+                        - generic [ref=e50]: Une communauté d’experts
+                    - listitem [ref=e51]:
+                      - link "Une équipe engagée" [ref=e52] [cursor=pointer]:
+                        - /url: /qui-sommes-nous/une-equipe-engagee
+                        - generic [ref=e53]: Une équipe engagée
+            - listitem [ref=e54]:
+              - link "Secteurs d'activités" [ref=e55] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e56]: Secteurs d'activités
+                - img [ref=e57]
+              - generic [ref=e59]:
+                - generic:
+                  - generic:
+                    - generic [ref=e60]: Secteurs d'activités
+                    - generic [ref=e61]: Des secteurs d’intervention pour répondre aux défis d’aujourd’hui et de demain de la coopération internationale et du développement industriel.
+                  - list [ref=e62]:
+                    - listitem [ref=e63]:
+                      - link "Agriculture et environnement" [ref=e64] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/agriculture-et-environnement
+                        - generic [ref=e65]: Agriculture et environnement
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e66]:
+                              - link "Agriculture et développement rural" [ref=e67] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/agriculture-et-environnement/agriculture-et-developpement-rural
+                            - listitem [ref=e68]:
+                              - link "Environnement et gestion des ressources naturelles" [ref=e69] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/agriculture-et-environnement/environnement-et-gestion-des-ressources-naturelles
+                          - link "Agriculture et environnement La mise en œuvre conjointe des ODD liés à l’agriculture et à l’environnement est au cœur de notre approche En savoir plus Agriculture et environnement" [ref=e70] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/agriculture-et-environnement
+                            - generic [ref=e71]:
+                              - generic [ref=e72]:
+                                - generic [ref=e73]: Agriculture et environnement
+                                - generic [ref=e74]: La mise en œuvre conjointe des ODD liés à l’agriculture et à l’environnement est au cœur de notre approche
+                                - generic [ref=e75]:
+                                  - generic [ref=e76]: En savoir plus
+                                  - img [ref=e77]
+                              - img "Agriculture et environnement" [ref=e80]
+                    - listitem [ref=e81]:
+                      - link "Éducation et formation" [ref=e82] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/education-et-formation
+                        - generic [ref=e83]: Éducation et formation
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e84]:
+                              - link "Éducation" [ref=e85] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/education-et-formation/education
+                            - listitem [ref=e86]:
+                              - link "Formation professionnelle et emploi" [ref=e87] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/education-et-formation/formation-professionnelle-et-emploi
+                            - listitem [ref=e88]:
+                              - link "Institut de formation Perspective" [ref=e89] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/education-et-formation/institut-de-formation-perspective
+                          - link "Education et formation Accompagner dans le renforcement des systèmes éducatifs et de formation professionnelle En savoir plus Éducation & formation" [ref=e90] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/education-et-formation
+                            - generic [ref=e91]:
+                              - generic [ref=e92]:
+                                - generic [ref=e93]: Education et formation
+                                - generic [ref=e94]: Accompagner dans le renforcement des systèmes éducatifs et de formation professionnelle
+                                - generic [ref=e95]:
+                                  - generic [ref=e96]: En savoir plus
+                                  - img [ref=e97]
+                              - img "Éducation & formation" [ref=e100]
+                    - listitem [ref=e101]:
+                      - link "Gouvernance et développement économique" [ref=e102] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/gouvernance-et-developpement-economique
+                        - generic [ref=e103]: Gouvernance et développement économique
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e104]:
+                              - link "Gouvernance démocratique" [ref=e105] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/gouvernance-et-developpement-economique/gouvernance-democratique
+                            - listitem [ref=e106]:
+                              - link "Dialogue de politiques, diplomatie économique, efficacité de l'aide" [ref=e107] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/gouvernance-et-developpement-economique/dialogue-de-politiques-diplomatie
+                            - listitem [ref=e108]:
+                              - link "Développement économique et commerce" [ref=e109] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/gouvernance-et-developpement-economique/developpement-economique-et-commerce
+                            - listitem [ref=e110]:
+                              - link "Développement urbain et territorial durables" [ref=e111] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/gouvernance-et-developpement-economique/developpement-urbain-et-territorial
+                          - link "Gouvernance et développement économique Une approche stratégique qui regroupe de nombreux secteurs liés à la gouvernance publique, à l'économie et au secteur privé En savoir plus Economie" [ref=e112] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/gouvernance-et-developpement-economique
+                            - generic [ref=e113]:
+                              - generic [ref=e114]:
+                                - generic [ref=e115]: Gouvernance et développement économique
+                                - generic [ref=e116]: Une approche stratégique qui regroupe de nombreux secteurs liés à la gouvernance publique, à l'économie et au secteur privé
+                                - generic [ref=e117]:
+                                  - generic [ref=e118]: En savoir plus
+                                  - img [ref=e119]
+                              - img "Economie" [ref=e122]
+                    - listitem [ref=e123]:
+                      - link "Infrastructures, énergie et transport" [ref=e124] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/infrastructures-energie-et-transport
+                        - generic [ref=e125]: Infrastructures, énergie et transport
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e126]:
+                              - link "Gouvernance énergétique" [ref=e127] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/infrastructures-energie-et-transport/gouvernance-energetique
+                            - listitem [ref=e128]:
+                              - link "Infrastructures énergétiques" [ref=e129] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/infrastructures-energie-et-transport/infrastructures-energetiques
+                            - listitem [ref=e130]:
+                              - link "Transport et infrastructures" [ref=e131] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/infrastructures-energie-et-transport/transport-et-infrastructures
+                          - link "Infrastructures, énergie et transport Proposer des solutions sur mesure pour relever les défis complexes liés à la transition énergétique, à l’efficacité des infrastructures et à la mobilité durable En savoir plus Infrastrcuture" [ref=e132] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/infrastructures-energie-et-transport
+                            - generic [ref=e133]:
+                              - generic [ref=e134]:
+                                - generic [ref=e135]: Infrastructures, énergie et transport
+                                - generic [ref=e136]: Proposer des solutions sur mesure pour relever les défis complexes liés à la transition énergétique, à l’efficacité des infrastructures et à la mobilité durable
+                                - generic [ref=e137]:
+                                  - generic [ref=e138]: En savoir plus
+                                  - img [ref=e139]
+                              - img "Infrastrcuture" [ref=e142]
+                    - listitem [ref=e143]:
+                      - link "Mines et industries" [ref=e144] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/mines-et-industries
+                        - generic [ref=e145]: Mines et industries
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e146]:
+                              - link "Industries et agro-industries" [ref=e147] [cursor=pointer]:
+                                - /url: https://mines-industries.sofreco.com/
+                            - listitem [ref=e148]:
+                              - link "Mines et géologie" [ref=e149] [cursor=pointer]:
+                                - /url: https://mines-industries.sofreco.com/
+                            - listitem [ref=e150]:
+                              - link "Gouvernance minière" [ref=e151] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/mines-et-industries/gouvernance-miniere
+                          - link "Mines et industries Offrir des services de conseil en ingénierie de haute qualité à l’industrie mondiale des ressources naturelles En savoir plus Mines et geologie" [ref=e152] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/mines-et-industries
+                            - generic [ref=e153]:
+                              - generic [ref=e154]:
+                                - generic [ref=e155]: Mines et industries
+                                - generic [ref=e156]: Offrir des services de conseil en ingénierie de haute qualité à l’industrie mondiale des ressources naturelles
+                                - generic [ref=e157]:
+                                  - generic [ref=e158]: En savoir plus
+                                  - img [ref=e159]
+                              - img "Mines et geologie" [ref=e162]
+                    - listitem [ref=e163]:
+                      - link "Santé et protection sociale" [ref=e164] [cursor=pointer]:
+                        - /url: /secteurs-dactivites/sante-et-protection-sociale
+                        - generic [ref=e165]: Santé et protection sociale
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e166]:
+                              - link "Renforcement des systèmes de santé" [ref=e167] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/renforcement-des-systemes-de-sante
+                            - listitem [ref=e168]:
+                              - link "Personnel de santé" [ref=e169] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/personnel-de-sante
+                            - listitem [ref=e170]:
+                              - link "Santé digitale" [ref=e171] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/sante-digitale
+                            - listitem [ref=e172]:
+                              - link "Gestion de la santé et des maladies" [ref=e173] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/gestion-de-la-sante-et-des-maladies
+                            - listitem [ref=e174]:
+                              - link "Vaccins, produits et technologies" [ref=e175] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/vaccins-produits-et-technologies
+                            - listitem [ref=e176]:
+                              - link "Infrastructures hospitalières et sociales" [ref=e177] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/infrastructures-hospitalieres-et-sociales
+                            - listitem [ref=e178]:
+                              - link "Protection sociale et égalité des sexes" [ref=e179] [cursor=pointer]:
+                                - /url: /secteurs-dactivites/sante-et-protection-sociale/protection-sociale-et-egalite-des-sexes
+                          - link "Santé et protection sociale Une expertise de haut niveau pour répondre aux défis de la santé et du social à l’échelle internationale En savoir plus sante4.jpg" [ref=e180] [cursor=pointer]:
+                            - /url: /secteurs-dactivites/sante-et-protection-sociale
+                            - generic [ref=e181]:
+                              - generic [ref=e182]:
+                                - generic [ref=e183]: Santé et protection sociale
+                                - generic [ref=e184]: Une expertise de haut niveau pour répondre aux défis de la santé et du social à l’échelle internationale
+                                - generic [ref=e185]:
+                                  - generic [ref=e186]: En savoir plus
+                                  - img [ref=e187]
+                              - img "sante4.jpg" [ref=e190]
+            - listitem [ref=e191]:
+              - link "Projets et références" [ref=e192] [cursor=pointer]:
+                - /url: /projets-et-references
+                - generic [ref=e193]: Projets et références
+                - img [ref=e194]
+              - generic [ref=e196]:
+                - generic:
+                  - generic:
+                    - generic [ref=e197]: Projets et références
+                    - generic [ref=e198]: Retrouvez nos projets à travers le monde
+                    - link "Projets et références" [ref=e199] [cursor=pointer]:
+                      - /url: /projets-et-references
+                      - text: Projets et références
+                      - img [ref=e200]
+                  - list [ref=e202]:
+                    - listitem [ref=e203]:
+                      - generic [ref=e205]: Références par secteur
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e206]:
+                              - link "Agriculture et environnement" [ref=e207] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=4&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e208]:
+                              - link "Education et formation" [ref=e209] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=8&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e210]:
+                              - link "Gouvernance et développement économique" [ref=e211] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=7&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e212]:
+                              - link "Infrastructures, énergie et transport" [ref=e213] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=5&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e214]:
+                              - link "Mines et industries" [ref=e215] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=14&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e216]:
+                              - link "Santé et protection sociale" [ref=e217] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_liste_pays_target_id=All&field_pole_target_id=9&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                    - listitem [ref=e218]:
+                      - generic [ref=e220]: Références par zone géographique
+                      - generic:
+                        - generic:
+                          - list:
+                            - listitem [ref=e221]:
+                              - link "Afrique centrale" [ref=e222] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=65&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e223]:
+                              - link "Afrique de l'Est et du Sud" [ref=e224] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=66&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e225]:
+                              - link "Afrique de l'Ouest" [ref=e226] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=68&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e227]:
+                              - link "Amérique latine et Caraïbes" [ref=e228] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=67&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e229]:
+                              - link "Asie centrale" [ref=e230] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=69&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e231]:
+                              - link "Asie" [ref=e232] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=64&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e233]:
+                              - link "Europe centrale et orientale" [ref=e234] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=70&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e235]:
+                              - link "Europe de l'ouest" [ref=e236] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=71&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e237]:
+                              - link "Pacifique et Océanie" [ref=e238] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=74&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+                            - listitem [ref=e239]:
+                              - link "Proche orient et Afrique du nord" [ref=e240] [cursor=pointer]:
+                                - /url: https://www.ginger-sofreco.com/projets-et-references?field_zonegeo_target_id=73&field_liste_pays_target_id=All&field_pole_target_id=All&field_liste_domaine_target_id=All&field_bailleur_target_id=All
+            - listitem [ref=e241]:
+              - link "Nos engagements" [ref=e242] [cursor=pointer]:
+                - /url: /nos-engagements
+                - generic [ref=e243]: Nos engagements
+              - generic [ref=e244]:
+                - generic:
+                  - generic:
+                    - generic [ref=e245]: Nos engagements
+                    - link "Nos engagements" [ref=e246] [cursor=pointer]:
+                      - /url: /nos-engagements
+                      - text: Nos engagements
+                      - img [ref=e247]
+            - listitem [ref=e249]:
+              - link "Travailler avec nous" [ref=e250] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=e251]: Travailler avec nous
+                - img [ref=e252]
+              - generic [ref=e254]:
+                - generic:
+                  - generic:
+                    - generic [ref=e255]: Travailler avec nous
+                    - generic [ref=e256]: Rejoignez nos équipes et contribuez à des projets porteurs de sens aux côtés de professionnels engagés.
+                  - list [ref=e257]:
+                    - listitem [ref=e258]:
+                      - link "Nos offres de mission (experts)" [ref=e259] [cursor=pointer]:
+                        - /url: /travailler-avec-nous/nos-missions
+                        - generic [ref=e260]: Nos offres de mission (experts)
+                      - link "Rejoignez nos équipes de projets sur le terrain En savoir plus gi" [ref=e261] [cursor=pointer]:
+                        - /url: /travailler-avec-nous/nos-missions
+                        - generic [ref=e262]:
+                          - generic [ref=e263]:
+                            - generic [ref=e264]: Rejoignez nos équipes de projets sur le terrain
+                            - generic [ref=e265]:
+                              - generic [ref=e266]: En savoir plus
+                              - img [ref=e267]
+                          - img "gi" [ref=e270]
+                    - listitem [ref=e271]:
+                      - link "Rejoindre le groupe Ginger" [ref=e272] [cursor=pointer]:
+                        - /url: /travailler-avec-nous/rejoindre-le-groupe-ginger
+                        - generic [ref=e273]: Rejoindre le groupe Ginger
+                      - link "Rejoignez nos équipes au siège En savoir plus RH" [ref=e274] [cursor=pointer]:
+                        - /url: /travailler-avec-nous/rejoindre-le-groupe-ginger
+                        - generic [ref=e275]:
+                          - generic [ref=e276]:
+                            - generic [ref=e277]: Rejoignez nos équipes au siège
+                            - generic [ref=e278]:
+                              - generic [ref=e279]: En savoir plus
+                              - img [ref=e280]
+                          - img "RH" [ref=e283]
+        - generic [ref=e286]:
+          - searchbox "Rechercher" [ref=e289]
+          - button "OK" [ref=e290] [cursor=pointer]
+        - navigation [ref=e291]:
+          - list [ref=e292]:
+            - listitem [ref=e293]:
+              - link "Nous contacter" [ref=e294] [cursor=pointer]:
+                - /url: /contacter
+              - img [ref=e295]
+    - heading "Ginger SOFRECO" [level=1] [ref=e297]
+    - main [ref=e298]:
+      - article [ref=e302]:
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - generic [ref=e306]: INGÉNIERIE | CONSEIL | FORMATION
+            - heading "Acteur engagé du développement" [level=1] [ref=e307]
+            - generic [ref=e308]:
+              - paragraph [ref=e309]: Ginger SOFRECO est une entreprise d'ingénierie et de conseil, engagée dans la coopération internationale au développement et la réalisation de projets industriels.
+              - paragraph [ref=e310]: Entreprise multi-spécialisée, nous accompagnons depuis près de cinquante ans nos clients dans de nombreux secteurs partout dans le monde. Partenaire technique privilégié des décideurs et des bailleurs de fonds, Ginger SOFRECO figure parmi les leaders européens des opérateurs de la coopération internationale en réalisant des projets aux impacts concrets sur le terrain.
+              - paragraph [ref=e311]: Nous mettons notre expertise et notre savoir-faire au service des grandes transitions, en mobilisant notre réseau international pluridisciplinaire d’experts pour réunir les compétences nécessaires à la réussite de vos projets.
+              - paragraph [ref=e312]: Ensemble, nous contribuons à bâtir un monde plus juste, durable et résilient, face aux défis globaux d’aujourd’hui et de demain.
+            - link "Nos engagements" [ref=e314] [cursor=pointer]:
+              - /url: /nos-engagements
+              - generic [ref=e315]: Nos engagements
+          - img "Gingko SOFRECO" [ref=e317]
+        - generic [ref=e319]:
+          - generic [ref=e321]:
+            - heading "NOS SERVICES Des solutions intégrées au service de vos projets" [level=2] [ref=e323]:
+              - generic [ref=e324]: NOS SERVICES
+              - generic [ref=e325]: Des solutions intégrées au service de vos projets
+            - generic [ref=e326]:
+              - generic [ref=e328]:
+                - heading "Ingénierie" [level=3] [ref=e329]:
+                  - strong [ref=e330]: Ingénierie
+                - paragraph [ref=e331]: De la conception à la réalisation, nous intervenons en tant qu’Ingénieur-Conseil sur l’ensemble du cycle des projets d’infrastructures et industriels.
+                - heading "Conseil" [level=3] [ref=e332]:
+                  - strong [ref=e333]: Conseil
+                - paragraph [ref=e334]: Nous mettons notre expertise au service des institutions et des entreprises pour les appuyer dans la réalisation de leurs projets, la gestion des programmes et la mise en œuvre de réformes.
+                - heading "Formation" [level=3] [ref=e335]:
+                  - strong [ref=e336]: Formation
+                - paragraph [ref=e337]:
+                  - text: Que ce soit dans le cadre de nos missions d'assistance technique ou via notre
+                  - link "Institut de Formation Perspective" [ref=e338] [cursor=pointer]:
+                    - /url: http://www.perspectiveinstitute.com/
+                    - strong [ref=e339]: Institut de Formation Perspective
+                  - text: ", nous offrons à nos clients une gamme complète de solutions de renforcement des compétences."
+                - paragraph [ref=e340]:
+                  - link "En savoir +" [ref=e341] [cursor=pointer]:
+                    - /url: /qui-sommes-nous/nos-services
+              - figure [ref=e344]:
+                - img "home" [ref=e345]
+          - generic [ref=e347]:
+            - heading "NOS SECTEURS D'activité Une expertise multisectorielle pour répondre aux enjeux du développement" [level=2] [ref=e349]:
+              - generic [ref=e350]: NOS SECTEURS D'activité
+              - generic [ref=e351]: Une expertise multisectorielle pour répondre aux enjeux du développement
+            - generic [ref=e352]:
+              - link "agriculture-et-environnement Agriculture & environnement Agriculture et développement rural Environnement et gestion des ressources naturelles En savoir plus" [ref=e353] [cursor=pointer]:
+                - /url: /secteurs-dactivites/agriculture-et-environnement
+                - img "agriculture-et-environnement" [ref=e355]
+                - heading "Agriculture & environnement" [level=3] [ref=e356]
+                - list [ref=e358]:
+                  - listitem [ref=e359]: Agriculture et développement rural
+                  - listitem [ref=e360]: Environnement et gestion des ressources naturelles
+                - generic [ref=e361]:
+                  - img [ref=e362]
+                  - generic [ref=e364]: En savoir plus
+              - link "Éducation & formation Éducation & formation Éducation Formation professionnelle et emploi Institut de formation Perspective En savoir plus" [ref=e365] [cursor=pointer]:
+                - /url: /secteurs-dactivites/education-et-formation
+                - img "Éducation & formation" [ref=e367]
+                - heading "Éducation & formation" [level=3] [ref=e368]
+                - list [ref=e370]:
+                  - listitem [ref=e371]: Éducation
+                  - listitem [ref=e372]: Formation professionnelle et emploi
+                  - listitem [ref=e373]: Institut de formation Perspective
+                - generic [ref=e374]:
+                  - img [ref=e375]
+                  - generic [ref=e377]: En savoir plus
+              - link "Economie Gouvernance & développement économique Gouvernance démocratique et réformes de la gouvernance publique Développement économique et commerce Dialogue de politiques, diplomatie économique et efficacité de l'aide En savoir plus" [ref=e378] [cursor=pointer]:
+                - /url: /secteurs-dactivites/gouvernance-et-developpement-economique
+                - img "Economie" [ref=e380]
+                - heading "Gouvernance & développement économique" [level=3] [ref=e381]
+                - list [ref=e383]:
+                  - listitem [ref=e384]: Gouvernance démocratique et réformes de la gouvernance publique
+                  - listitem [ref=e385]: Développement économique et commerce
+                  - listitem [ref=e386]: Dialogue de politiques, diplomatie économique et efficacité de l'aide
+                - generic [ref=e387]:
+                  - img [ref=e388]
+                  - generic [ref=e390]: En savoir plus
+              - link "Energie.jpeg Infrastructures, énergie & transport Gouvernance énergétique Infrastructures énergétiques Transport et infrastructures En savoir plus" [ref=e391] [cursor=pointer]:
+                - /url: /secteurs-dactivites/infrastructures-energie-et-transport
+                - img "Energie.jpeg" [ref=e393]
+                - heading "Infrastructures, énergie & transport" [level=3] [ref=e394]
+                - list [ref=e396]:
+                  - listitem [ref=e397]: Gouvernance énergétique
+                  - listitem [ref=e398]: Infrastructures énergétiques
+                  - listitem [ref=e399]: Transport et infrastructures
+                - generic [ref=e400]:
+                  - img [ref=e401]
+                  - generic [ref=e403]: En savoir plus
+              - link "Mines Mines & industries Industries et agro-industries Mines et géologie Gouvernance minière En savoir plus" [ref=e404] [cursor=pointer]:
+                - /url: /secteurs-dactivites/mines-et-industries
+                - img "Mines" [ref=e406]
+                - heading "Mines & industries" [level=3] [ref=e407]
+                - list [ref=e409]:
+                  - listitem [ref=e410]: Industries et agro-industries
+                  - listitem [ref=e411]: Mines et géologie
+                  - listitem [ref=e412]: Gouvernance minière
+                - generic [ref=e413]:
+                  - img [ref=e414]
+                  - generic [ref=e416]: En savoir plus
+              - link "Sante Santé & protection sociale Gestion des systèmes sanitaires et des maladies Infrastructures, intrants, technologies et innovations Protection sociale et égalité des sexes En savoir plus" [ref=e417] [cursor=pointer]:
+                - /url: /secteurs-dactivites/sante-et-protection-sociale
+                - img "Sante" [ref=e419]
+                - heading "Santé & protection sociale" [level=3] [ref=e420]
+                - list [ref=e422]:
+                  - listitem [ref=e423]: Gestion des systèmes sanitaires et des maladies
+                  - listitem [ref=e424]: Infrastructures, intrants, technologies et innovations
+                  - listitem [ref=e425]: Protection sociale et égalité des sexes
+                - generic [ref=e426]:
+                  - img [ref=e427]
+                  - generic [ref=e429]: En savoir plus
+          - generic [ref=e431]:
+            - generic [ref=e432]:
+              - group "1 / 4" [ref=e433]:
+                - generic [ref=e434]:
+                  - generic [ref=e435]:
+                    - generic [ref=e436]:
+                      - generic [ref=e437]:
+                        - text: Pays
+                        - paragraph [ref=e439]: RD Congo
+                      - generic [ref=e440]:
+                        - text: Montant
+                        - paragraph [ref=e442]: 17 m€
+                      - generic [ref=e443]:
+                        - text: Financement
+                        - paragraph [ref=e445]: AFD
+                      - generic [ref=e446]:
+                        - text: Fin
+                        - paragraph [ref=e448]: "2022"
+                    - generic [ref=e449]:
+                      - heading "Appui à la gestion du service de pédiatrie de la Clinique Ngaliema" [level=2] [ref=e450]
+                      - link "Découvrir nos références" [ref=e451] [cursor=pointer]:
+                        - /url: /projets-et-references
+                  - img "Promekin" [ref=e452]
+              - group "2 / 4" [ref=e453]:
+                - generic [ref=e454]:
+                  - generic [ref=e455]:
+                    - generic [ref=e456]:
+                      - generic [ref=e457]:
+                        - text: Pays
+                        - paragraph [ref=e459]: Laos
+                      - generic [ref=e460]:
+                        - text: Montant
+                        - paragraph [ref=e462]: 4.2M€
+                      - generic [ref=e463]:
+                        - text: Financement
+                        - paragraph [ref=e465]: ADB
+                      - generic [ref=e466]:
+                        - text: Fin
+                        - paragraph [ref=e468]: 09/2026
+                    - generic [ref=e469]:
+                      - heading "Mise en oeuvre du Projet de filières agroalimentaires respectueuses du climat" [level=2] [ref=e470]
+                      - link "Découvrir nos références" [ref=e471] [cursor=pointer]:
+                        - /url: /projets-et-references
+                  - img "Home référence" [ref=e472]
+              - group "3 / 4" [ref=e473]:
+                - generic [ref=e474]:
+                  - generic [ref=e475]:
+                    - generic [ref=e476]:
+                      - generic [ref=e477]:
+                        - text: Pays
+                        - paragraph [ref=e479]: Egypte
+                      - generic [ref=e480]:
+                        - text: Montant
+                        - paragraph [ref=e482]: 1 138 110 USD
+                      - generic [ref=e483]:
+                        - text: Financement
+                        - paragraph [ref=e485]: Privé
+                      - generic [ref=e486]:
+                        - text: Fin
+                        - paragraph [ref=e488]: "2022"
+                    - generic [ref=e489]:
+                      - heading "Evaluation de l’opération minière et la planification minière pour la concession d'El Zayat" [level=2] [ref=e490]
+                      - link "Découvrir nos références" [ref=e491] [cursor=pointer]:
+                        - /url: /projets-et-references
+                  - img "img_0692" [ref=e492]
+              - group "4 / 4" [ref=e493]:
+                - generic [ref=e494]:
+                  - generic [ref=e495]:
+                    - generic [ref=e496]:
+                      - generic [ref=e497]:
+                        - text: Pays
+                        - paragraph [ref=e499]: Kenya
+                      - generic [ref=e500]:
+                        - text: Montant
+                        - paragraph [ref=e502]: 500 589 €
+                      - generic [ref=e503]:
+                        - text: Financement
+                        - paragraph [ref=e505]: Agence Française de Développement
+                      - generic [ref=e506]:
+                        - text: Fin
+                        - paragraph [ref=e508]: "2023"
+                    - generic [ref=e509]:
+                      - heading "Étude de faisabilité pour le développement d’une ferme éolienne de 1 000 MW à Marsabit" [level=2] [ref=e510]
+                      - link "Découvrir nos références" [ref=e511] [cursor=pointer]:
+                        - /url: /projets-et-references
+                  - img "energie-2.jpg" [ref=e512]
+            - generic [ref=e513]:
+              - generic [ref=e514]:
+                - button "Previous slide" [disabled]
+                - button "Next slide" [ref=e515] [cursor=pointer]
+              - generic [ref=e516]:
+                - button "Go to slide 1" [ref=e517] [cursor=pointer]
+                - button "Go to slide 2" [ref=e518] [cursor=pointer]
+                - button "Go to slide 3" [ref=e519] [cursor=pointer]
+                - button "Go to slide 4" [ref=e520] [cursor=pointer]
+          - generic [ref=e523]:
+            - generic [ref=e524]:
+              - heading "Chiffres clés Acteur de développement depuis 50 ans" [level=2] [ref=e526]:
+                - generic [ref=e527]: Chiffres clés
+                - generic [ref=e528]: Acteur de développement depuis 50 ans
+              - generic [ref=e529]:
+                - paragraph [ref=e530]: Depuis sa création en 1976, Ginger SOFRECO a réalisé avec succès plus de 3 000 projets dans 150 pays, couvrant l’ensemble des secteurs de la coopération au développement et de l’industrie des ressources naturelles.
+                - paragraph [ref=e531]: Cette longévité témoigne de notre capacité à innover, à mobiliser des expertises de haut niveau et à concevoir des solutions durables, parfaitement adaptées aux réalités locales.
+            - generic [ref=e533]:
+              - generic [ref=e534]:
+                - generic [ref=e535]:
+                  - generic [ref=e536]: +
+                  - generic [ref=e537]: "3000"
+                - paragraph [ref=e540]: projets
+              - generic [ref=e541]:
+                - generic [ref=e543]: "150"
+                - paragraph [ref=e546]: pays
+          - generic [ref=e548]:
+            - heading "Pourquoi Ginger SOFRECO ?" [level=2] [ref=e550]:
+              - generic [ref=e551]: Pourquoi Ginger SOFRECO ?
+            - generic [ref=e553]:
+              - group "1 / 3" [ref=e554]:
+                - link "Un partenaire technique de référence Ginger SOFRECO est un partenaire de confiance des principaux bailleurs de fonds, reconnu pour son expertise dans l'accompagnement technique des projets de développement. Main En savoir plus" [ref=e555] [cursor=pointer]:
+                  - /url: /qui-sommes-nous/une-entreprise-dediee-a-la-cooperation-internationale-et-aux-projets-industriels
+                  - heading "Un partenaire technique de référence" [level=3] [ref=e556]
+                  - paragraph [ref=e558]: Ginger SOFRECO est un partenaire de confiance des principaux bailleurs de fonds, reconnu pour son expertise dans l'accompagnement technique des projets de développement.
+                  - img "Main" [ref=e560]
+                  - generic [ref=e561]:
+                    - img [ref=e562]
+                    - generic [ref=e564]: En savoir plus
+              - group "2 / 3" [ref=e565]:
+                - link "Un réseau unique d’experts et de partenaires Grâce à un réseau de plus de 50 000 experts et à des partenaires présents dans le monde entier, nous constituons des équipes sur mesure pour la réussite des missions qui nous sont confiées. Un expert En savoir plus" [ref=e566] [cursor=pointer]:
+                  - /url: /qui-sommes-nous/une-communaute-dexperts
+                  - heading "Un réseau unique d’experts et de partenaires" [level=3] [ref=e567]
+                  - paragraph [ref=e569]: Grâce à un réseau de plus de 50 000 experts et à des partenaires présents dans le monde entier, nous constituons des équipes sur mesure pour la réussite des missions qui nous sont confiées.
+                  - img "Un expert" [ref=e571]
+                  - generic [ref=e572]:
+                    - img [ref=e573]
+                    - generic [ref=e575]: En savoir plus
+              - group "3 / 3" [ref=e576]:
+                - link "Une entreprise du groupe Ginger Ginger SOFRECO appartient au groupe Ginger, acteur majeur de l’ingénierie indépendante et engagée, implanté en France et à l'international. ginger En savoir plus" [ref=e577] [cursor=pointer]:
+                  - /url: https://www.groupeginger.com/
+                  - heading "Une entreprise du groupe Ginger" [level=3] [ref=e578]
+                  - paragraph [ref=e580]: Ginger SOFRECO appartient au groupe Ginger, acteur majeur de l’ingénierie indépendante et engagée, implanté en France et à l'international.
+                  - img "ginger" [ref=e582]
+                  - generic [ref=e583]:
+                    - img [ref=e584]
+                    - generic [ref=e586]: En savoir plus
+          - group "1 / 1" [ref=e593]:
+            - article [ref=e594]:
+              - generic [ref=e595]:
+                - generic [ref=e597]:
+                  - heading "Une entreprise engagée" [level=2] [ref=e599]
+                  - generic [ref=e600]:
+                    - blockquote [ref=e602]:
+                      - generic [ref=e603]:
+                        - paragraph [ref=e604]:
+                          - emphasis [ref=e605]: "\"Rejoindre Ginger SOFRECO, c’est bien plus qu’intégrer une entreprise : c’est agir en faveur de la coopération et du développement international. Dans un monde complexe en constante évolution, nos équipes œuvrent tous les jours sur le terrain pour relever les grands défis globaux de notre époque, en contribuant à la réalisation de projets concrets, porteurs de sens et d’impact positif local pour les populations."
+                        - paragraph [ref=e606]:
+                          - emphasis [ref=e607]: Faites partie d’un collectif ouvert sur le monde, où la richesse de nos différences devient notre plus grande force pour bâtir un avenir durable en commun."
+                    - generic [ref=e608]:
+                      - img "Stéphanie" [ref=e611]
+                      - generic [ref=e612]:
+                        - generic [ref=e614]: Stéphanie BAILLY
+                        - generic [ref=e616]: Directrice des ressources humaines du groupe Ginger
+                    - link "En savoir plus" [ref=e617] [cursor=pointer]:
+                      - /url: /qui-sommes-nous/une-equipe-engagee
+                - img "Une entreprise engagée" [ref=e621]
+    - contentinfo [ref=e622]:
+      - generic [ref=e624]:
+        - generic [ref=e625]:
+          - img "Ginger Sofreco logo" [ref=e626]
+          - paragraph [ref=e628]: Ginger SOFRECO est une entreprise d'ingénierie et de conseil spécialisée dans la coopération internationale pour le développement et la réalisation de projets industriels. Acteur du développement, nous intervenons depuis 1976, dans de nombreux secteurs, partout dans le monde.
+        - navigation [ref=e629]:
+          - list [ref=e630]:
+            - listitem [ref=e631]:
+              - link "A propos" [ref=e632] [cursor=pointer]:
+                - /url: ""
+              - list [ref=e633]:
+                - listitem [ref=e634]:
+                  - link "Qui sommes-nous ?" [ref=e635] [cursor=pointer]:
+                    - /url: /qui-sommes-nous/une-entreprise-dediee-a-la-cooperation-internationale-et-aux-projets-industriels
+                - listitem [ref=e636]:
+                  - link "Nos engagements" [ref=e637] [cursor=pointer]:
+                    - /url: /nos-engagements
+                - listitem [ref=e638]:
+                  - link "Nous rejoindre" [ref=e639] [cursor=pointer]:
+                    - /url: /travailler-avec-nous/rejoindre-le-groupe-ginger
+                - listitem [ref=e640]:
+                  - link "Données personnelles" [ref=e641] [cursor=pointer]:
+                    - /url: /a-propos/protection-des-donnees-personnelles
+                - listitem [ref=e642]:
+                  - link "Mentions légales" [ref=e643] [cursor=pointer]:
+                    - /url: /mentions-legales
+                - listitem [ref=e644]:
+                  - link "Nous contacter" [ref=e645] [cursor=pointer]:
+                    - /url: /contacter
+            - listitem [ref=e646]:
+              - link "Secteurs d'activité" [ref=e647] [cursor=pointer]:
+                - /url: ""
+              - list [ref=e648]:
+                - listitem [ref=e649]:
+                  - link "Agriculture et environnement" [ref=e650] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/agriculture-et-environnement
+                - listitem [ref=e651]:
+                  - link "Éducation et formation" [ref=e652] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/education-et-formation
+                - listitem [ref=e653]:
+                  - link "Gouvernance et développement économique" [ref=e654] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/gouvernance-et-developpement-economique
+                - listitem [ref=e655]:
+                  - link "Infrastructures, énergie et transport" [ref=e656] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/infrastructures-energie-et-transport
+                - listitem [ref=e657]:
+                  - link "Mines et industries" [ref=e658] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/mines-et-industries
+                - listitem [ref=e659]:
+                  - link "Santé et protection sociale" [ref=e660] [cursor=pointer]:
+                    - /url: /secteurs-dactivites/sante-et-protection-sociale
+        - generic [ref=e661]:
+          - text: Contact
+          - paragraph [ref=e662]:
+            - text: Ginger SOFRECO
+            - text: 92-98 Bd Victor Hugo,
+            - text: 92110 Clichy, France
+          - paragraph [ref=e663]: "Tél. : +33 (0)1 41 27 95 95"
+      - generic [ref=e664]:
+        - link "GROUPE GINGER" [ref=e665] [cursor=pointer]:
+          - /url: https://www.groupeginger.com/
+        - navigation [ref=e666]:
+          - list [ref=e667]:
+            - listitem [ref=e668]:
+              - link "LinkedIn" [ref=e669] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/sofreco/
+                - img [ref=e670]: 
+                - generic [ref=e672]: LinkedIn
+            - listitem [ref=e673]:
+              - link "Youtube" [ref=e674] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UC6_QOXf5WqT4OCyAidS3TSQ
+                - img [ref=e675]: 
+                - generic [ref=e677]: Youtube
+      - navigation [ref=e679]:
+        - list [ref=e680]:
+          - listitem [ref=e681]:
+            - link "Mentions légales" [ref=e682] [cursor=pointer]:
+              - /url: /mentions-legales
+          - listitem [ref=e683]:
+            - link "Cookies" [ref=e684] [cursor=pointer]:
+              - /url: ""
+  - region "Panneau de gestion des cookies":
+    - heading "Panneau de gestion des cookies" [level=1] [ref=e686]
+    - dialog "Panneau de gestion des cookies" [active] [ref=e687]:
+      - text: ☝ 🍪
+      - paragraph [ref=e688]: Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer
+      - button "Tout accepter" [ref=e689] [cursor=pointer]
+      - button "Tout refuser" [ref=e690] [cursor=pointer]
+      - button "Personnaliser (fenêtre modale)" [ref=e691] [cursor=pointer]: Personnaliser
+```

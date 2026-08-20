@@ -1,0 +1,60 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_294a4615-51d4-4ae4-9726-58ffbd79c824
+Status: FAILED
+Started at: 2026-07-17T00:31:16.847Z
+Finished at: 2026-07-17T00:31:23.396Z
+Duration: 6550 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 0
+Received length: 1
+Received array:  ["ErrorUtils caught an error:·
+Error connecting to Credential Management service.·
+Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248281, extra: Object, guardList: Array(0), hash: fuwid1}"]
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 7a900640-4e1c-4749-ba23-6c8cea06a79a-run_294a4615-51d4-4ae4-9726-58ffbd79c824.spec.ts:6:1 › Vérifier le chargement de la page "Facebook" 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received array:  ["ErrorUtils caught an error:·
+    Error connecting to Credential Management service.·
+    Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248281, extra: Object, guardList: Array(0), hash: fuwid1}"]
+        at D:\MOHSEN\PFE\v30-record auto ok -page run multi auto\v15-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_294a4615-51d4-4ae4-9726-58ffbd79c824\7a900640-4e1c-4749-ba23-6c8cea06a79a-run_294a4615-51d4-4ae4-9726-58ffbd79c824.spec.ts:28:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\7a900640-4e1c-4749-ba23-6c-1cc68-gement-de-la-page-Facebook-\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\7a900640-4e1c-4749-ba23-6c-1cc68-gement-de-la-page-Facebook-\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\7a900640-4e1c-4749-ba23-6c-1cc68-gement-de-la-page-Facebook-\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\7a900640-4e1c-4749-ba23-6c-1cc68-gement-de-la-page-Facebook-\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    7a900640-4e1c-4749-ba23-6c8cea06a79a-run_294a4615-51d4-4ae4-9726-58ffbd79c824.spec.ts:6:1 › Vérifier le chargement de la page "Facebook" 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386",
+        "testIgnore": [],
+        "testMatch": [
+          "5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts",
+      "file": "5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier le chargement de la page \"YouTube\"",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19548,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body')\nExpected: visible\nReceived: hidden\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    23 × locator resolved to <body dir=\"ltr\" rounded-container=\"\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body')\nExpected: visible\nReceived: hidden\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    23 × locator resolved to <body dir=\"ltr\" rounded-container=\"\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts:20:40"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body')\nExpected: visible\nReceived: hidden\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('body')\u001b[22m\n\u001b[2m    23 × locator resolved to <body dir=\"ltr\" rounded-container=\"\">…</body>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts:20:40"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-17T00:10:30.138Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\test-results\\5c70783b-ab69-4241-8c88-e2-f0341-rgement-de-la-page-YouTube-\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\test-results\\5c70783b-ab69-4241-8c88-e2-f0341-rgement-de-la-page-YouTube-\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386\\test-results\\5c70783b-ab69-4241-8c88-e2-f0341-rgement-de-la-page-YouTube-\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f09ef344d68d65ddf20f-d863d634089278a52849",
+          "file": "5c70783b-ab69-4241-8c88-e2d9496dc9dc-run_2049e0d3-2b5c-4fd2-a1e4-267fd9890386.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-17T00:10:28.920Z",
+    "duration": 23365.326,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

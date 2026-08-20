@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_843cc54d-6fc0-427e-bf56-34e60a2492af",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_843cc54d-6fc0-427e-bf56-34e60a2492af/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v32-Ollama-chtboat-ok/v22-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_843cc54d-6fc0-427e-bf56-34e60a2492af",
+        "testIgnore": [],
+        "testMatch": [
+          "104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts",
+      "file": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier le champ \"Light\"",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6722,
+                  "error": {
+                    "message": "Error: locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]\nCall log:\n\u001b[2m  - waiting for getByLabel(/Light/i).or(getByPlaceholder(/Light/i)).or(locator('input[name*=\"light\" i], textarea[name*=\"light\" i], input[id*=\"light\" i], textarea[id*=\"light\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <button lang=\"\" jsname=\"jerT5\" aria-pressed=\"true\" jscontroller=\"xzbRj\" data-sync-idom-state=\"true\" data-idom-class=\"fzRBVc tmJved mN1ivc rrPCWc\" aria-label=\"Switch between light and dark theme\" class=\"VfPpkd-Bz112c-LgbsSe VfPpkd-Bz112c-LgbsSe-OWXEXe-IT5dJd VfPpkd-Bz112c-LgbsSe-OWXEXe-e5LLRc-SxQuSe fzRBVc tmJved mN1ivc rrPCWc\" jsaction=\"click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHm…>…</button>\u001b[22m\n\u001b[2m    - fill(\"Valeur de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n",
+                    "stack": "Error: locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]\nCall log:\n\u001b[2m  - waiting for getByLabel(/Light/i).or(getByPlaceholder(/Light/i)).or(locator('input[name*=\"light\" i], textarea[name*=\"light\" i], input[id*=\"light\" i], textarea[id*=\"light\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <button lang=\"\" jsname=\"jerT5\" aria-pressed=\"true\" jscontroller=\"xzbRj\" data-sync-idom-state=\"true\" data-idom-class=\"fzRBVc tmJved mN1ivc rrPCWc\" aria-label=\"Switch between light and dark theme\" class=\"VfPpkd-Bz112c-LgbsSe VfPpkd-Bz112c-LgbsSe-OWXEXe-IT5dJd VfPpkd-Bz112c-LgbsSe-OWXEXe-e5LLRc-SxQuSe fzRBVc tmJved mN1ivc rrPCWc\" jsaction=\"click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHm…>…</button>\u001b[22m\n\u001b[2m    - fill(\"Valeur de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts:18:23"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]\nCall log:\n\u001b[2m  - waiting for getByLabel(/Light/i).or(getByPlaceholder(/Light/i)).or(locator('input[name*=\"light\" i], textarea[name*=\"light\" i], input[id*=\"light\" i], textarea[id*=\"light\" i]')).first()\u001b[22m\n\u001b[2m    - locator resolved to <button lang=\"\" jsname=\"jerT5\" aria-pressed=\"true\" jscontroller=\"xzbRj\" data-sync-idom-state=\"true\" data-idom-class=\"fzRBVc tmJved mN1ivc rrPCWc\" aria-label=\"Switch between light and dark theme\" class=\"VfPpkd-Bz112c-LgbsSe VfPpkd-Bz112c-LgbsSe-OWXEXe-IT5dJd VfPpkd-Bz112c-LgbsSe-OWXEXe-e5LLRc-SxQuSe fzRBVc tmJved mN1ivc rrPCWc\" jsaction=\"click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHm…>…</button>\u001b[22m\n\u001b[2m    - fill(\"Valeur de test\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts:18:23"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-22T09:32:22.617Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\test-results\\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\test-results\\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v32-Ollama-chtboat-ok\\v22-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_843cc54d-6fc0-427e-bf56-34e60a2492af\\test-results\\104b643f-c40f-46b2-b7f1-16-5ab78-af-Vérifier-le-champ-Light-\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f69d236491793dade244-03e1d023100597810e0a",
+          "file": "104b643f-c40f-46b2-b7f1-16539d9d4216-run_843cc54d-6fc0-427e-bf56-34e60a2492af.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-22T09:32:21.082Z",
+    "duration": 9223.879,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

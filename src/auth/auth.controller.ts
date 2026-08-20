@@ -10,6 +10,7 @@ import {
 import { Request, Response } from 'express';
 import { IsEmail, IsString, MinLength } from 'class-validator';
 
+import { UsersService } from '../users/users.service';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 
@@ -32,7 +33,10 @@ type AuthenticatedRequest = Request & {
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly auth: AuthService) {}
+  constructor(
+    private readonly auth: AuthService,
+    private readonly users: UsersService,
+  ) {}
 
   @Post('login')
   async login(
@@ -47,7 +51,6 @@ export class AuthController {
       sameSite: 'lax',
       path: '/',
       maxAge: 24 * 60 * 60 * 1000,
-      //maxAge: 15 * 1000,
     });
 
     return {
@@ -70,7 +73,17 @@ export class AuthController {
 
   @UseGuards(JwtAuthGuard)
   @Get('me')
-  getProfile(@Req() req: AuthenticatedRequest) {
-    return req.user;
+  async getProfile(@Req() req: AuthenticatedRequest) {
+    const result = await this.users.findOne(req.user.userId);
+    const user = result.data;
+
+    return {
+      id: user.id,
+      userId: user.id,
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      role: user.role,
+    };
   }
 }

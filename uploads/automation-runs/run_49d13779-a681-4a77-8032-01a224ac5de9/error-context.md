@@ -1,0 +1,556 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bf5ca731-9292-4fda-af25-b799a0c2b12b-run_49d13779-a681-4a77-8032-01a224ac5de9.spec.ts >> Vérifier le champ "Prénom *"
+- Location: bf5ca731-9292-4fda-af25-b799a0c2b12b-run_49d13779-a681-4a77-8032-01a224ac5de9.spec.ts:6:1
+
+# Error details
+
+```
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 0
+Received length: 1
+Received array:  ["Failed to load resource: the server responded with a status of 404 ()"]
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Logo" [ref=e4] [cursor=pointer]:
+        - /url: index.php
+        - img "Logo" [ref=e5]
+      - generic [ref=e6]:
+        - button "" [ref=e7] [cursor=pointer]:
+          - generic [ref=e8]: 
+        - text: 
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Accueil" [ref=e12] [cursor=pointer]:
+            - /url: index.php#home
+        - listitem [ref=e13]:
+          - link "Services" [ref=e14] [cursor=pointer]:
+            - /url: index.php#services
+        - listitem [ref=e15]:
+          - link "Packs" [ref=e16] [cursor=pointer]:
+            - /url: index.php#packs
+        - listitem [ref=e17]:
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: index.php#contact
+  - generic [ref=e19]:
+    - generic [ref=e22]:
+      - generic [ref=e24]:
+        - heading "Votre Espace de Travail Intelligent" [level=1] [ref=e25]
+        - paragraph [ref=e26]: Découvrez Life Intelligente, l'espace de coworking moderne qui allie technologie, confort et collaboration pour booster votre productivité.
+      - img "Espace de coworking moderne" [ref=e29]
+    - generic [ref=e31] [cursor=pointer]: 
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - heading "Nos Services" [level=2] [ref=e35]
+      - paragraph [ref=e36]: Des espaces adaptés à tous vos besoins professionnels
+    - generic [ref=e37]:
+      - generic [ref=e39]:
+        - generic [ref=e41]: 
+        - heading "Bureau Partagé" [level=3] [ref=e42]
+        - paragraph [ref=e43]: Travaillez dans un environnement collaboratif stimulant avec accès à tous nos équipements
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: 
+            - text: WiFi Haut Débit
+          - generic [ref=e47]:
+            - generic [ref=e48]: 
+            - text: Accès 12/7
+          - generic [ref=e49]:
+            - generic [ref=e50]: 
+            - text: Impression
+        - button " Réserver" [ref=e51] [cursor=pointer]:
+          - generic [ref=e52]: 
+          - text: Réserver
+      - generic [ref=e54]:
+        - generic [ref=e55]: Populaire
+        - generic [ref=e57]: 
+        - heading "Bureau Privé" [level=3] [ref=e58]
+        - paragraph [ref=e59]: Un espace dédié rien que pour vous, offrant confidentialité, confort et accès à tous nos services.
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: 
+            - text: Sécurisé
+          - generic [ref=e63]:
+            - generic [ref=e64]: 
+            - text: Accès 24/7
+          - generic [ref=e65]:
+            - generic [ref=e66]: 
+            - text: Équipé
+        - button " Réserver" [ref=e67] [cursor=pointer]:
+          - generic [ref=e68]: 
+          - text: Réserver
+      - generic [ref=e70]:
+        - generic [ref=e72]: 
+        - heading "Salle de Réunion" [level=3] [ref=e73]
+        - paragraph [ref=e74]: Organisez vos réunions dans un espace moderne, équipé de projecteur, tableau et connexion haut débit.
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e77]: 
+            - text: Écran HD
+          - generic [ref=e78]:
+            - generic [ref=e79]: 
+            - text: Visio
+          - generic [ref=e80]:
+            - generic [ref=e81]: 
+            - text: Tableau
+        - button " Réserver" [ref=e82] [cursor=pointer]:
+          - generic [ref=e83]: 
+          - text: Réserver
+      - generic [ref=e85]:
+        - generic [ref=e87]: 
+        - heading "Bureaux virtuels" [level=3] [ref=e88]
+        - paragraph [ref=e89]: Profitez d’une adresse professionnelle prestigieuse et de services administratifs sans occuper d’espace physique..
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: 
+            - text: une adresse sans espace physique
+          - generic [ref=e93]:
+            - generic [ref=e94]: 
+            - text: Tu peux recevoir ton courrier et tes notifications officielles à cette adresse.
+          - generic [ref=e95]:
+            - generic [ref=e96]: 
+            - text: un numéro de téléphone fixe.
+        - button " Réserver" [ref=e97] [cursor=pointer]:
+          - generic [ref=e98]: 
+          - text: Réserver
+      - generic [ref=e100]:
+        - generic [ref=e102]: 
+        - heading "Domiciliation d'entreprise" [level=3] [ref=e103]
+        - paragraph [ref=e104]: Obtenez une adresse professionnelle légale pour votre société avec gestion du courrier et services administratifs adaptés.
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - generic [ref=e107]: 
+            - text: Écran HD
+          - generic [ref=e108]:
+            - generic [ref=e109]: 
+            - text: Visio
+          - generic [ref=e110]:
+            - generic [ref=e111]: 
+            - text: Tableau
+        - button " Réserver" [ref=e112] [cursor=pointer]:
+          - generic [ref=e113]: 
+          - text: Réserver
+      - generic [ref=e115]:
+        - generic [ref=e117]: 
+        - heading "Espace d'événement" [level=3] [ref=e118]
+        - paragraph [ref=e119]: Organisez vos événements professionnels ou privés dans un lieu moderne, modulable et entièrement équipé.
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: 
+            - text: Écran HD
+          - generic [ref=e123]:
+            - generic [ref=e124]: 
+            - text: Visio
+          - generic [ref=e125]:
+            - generic [ref=e126]: 
+            - text: Tableau
+        - button " Réserver" [ref=e127] [cursor=pointer]:
+          - generic [ref=e128]: 
+          - text: Réserver
+  - generic [ref=e131]:
+    - generic [ref=e133]:
+      - heading "Nos Horaires" [level=2] [ref=e134]
+      - paragraph [ref=e135]: Nous sommes ouverts 7 jours sur 7 pour répondre à tous vos besoins professionnels.
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - generic [ref=e138]: Lundi
+          - generic [ref=e139]: 09:00 - 21:00
+        - generic [ref=e140]:
+          - generic [ref=e141]: Mardi
+          - generic [ref=e142]: 09:00 - 21:00
+        - generic [ref=e143]:
+          - generic [ref=e144]: Mercredi
+          - generic [ref=e145]: 09:00 - 21:00
+        - generic [ref=e146]:
+          - generic [ref=e147]: Jeudi
+          - generic [ref=e148]: 09:00 - 21:00
+        - generic [ref=e149]:
+          - generic [ref=e150]: Vendredi
+          - generic [ref=e151]: 09:00 - 21:00
+        - generic [ref=e152]:
+          - generic [ref=e153]: Samedi
+          - generic [ref=e154]: 09:00 - 21:00
+        - generic [ref=e155]:
+          - generic [ref=e156]: Dimanche
+          - generic [ref=e157]: 09:00 - 21:00
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: 
+          - generic [ref=e161]: +216 94 784 625
+        - generic [ref=e162]:
+          - generic [ref=e163]: 
+          - generic [ref=e164]: workspace@lifeintelligente.com
+    - generic [ref=e175]: Fermé
+  - generic [ref=e177]:
+    - generic [ref=e178]:
+      - heading "Nos Packs & Tarifs" [level=2] [ref=e179]
+      - paragraph [ref=e180]: Salle partagée pour élève
+    - generic [ref=e181]:
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - heading "Salle partagée 2h" [level=3] [ref=e185]
+          - generic [ref=e186]:
+            - generic [ref=e187]: "3"
+            - generic [ref=e188]: DT
+        - generic [ref=e189]:
+          - list [ref=e190]:
+            - listitem [ref=e191]:
+              - generic [ref=e192]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e193]:
+              - generic [ref=e194]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e195]:
+              - generic [ref=e196]: 
+              - text: WiFi haut débit
+            - listitem [ref=e197]:
+              - generic [ref=e198]: 
+              - text: salle climatisée
+            - listitem [ref=e199]:
+              - generic [ref=e200]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e201] [cursor=pointer]
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - heading "Salle partagée 4h" [level=3] [ref=e205]
+          - generic [ref=e206]:
+            - generic [ref=e207]: "5"
+            - generic [ref=e208]: DT
+        - generic [ref=e209]:
+          - list [ref=e210]:
+            - listitem [ref=e211]:
+              - generic [ref=e212]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e213]:
+              - generic [ref=e214]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e215]:
+              - generic [ref=e216]: 
+              - text: WiFi haut débit
+            - listitem [ref=e217]:
+              - generic [ref=e218]: 
+              - text: salle climatisée
+            - listitem [ref=e219]:
+              - generic [ref=e220]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e221] [cursor=pointer]
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - heading "Salle partagée 6h" [level=3] [ref=e225]
+          - generic [ref=e226]:
+            - generic [ref=e227]: "7"
+            - generic [ref=e228]: DT
+        - generic [ref=e229]:
+          - list [ref=e230]:
+            - listitem [ref=e231]:
+              - generic [ref=e232]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e233]:
+              - generic [ref=e234]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e235]:
+              - generic [ref=e236]: 
+              - text: WiFi haut débit
+            - listitem [ref=e237]:
+              - generic [ref=e238]: 
+              - text: salle climatisée
+            - listitem [ref=e239]:
+              - generic [ref=e240]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e241] [cursor=pointer]
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - heading "Salle partagée 8h" [level=3] [ref=e245]
+          - generic [ref=e246]:
+            - generic [ref=e247]: "8"
+            - generic [ref=e248]: DT
+        - generic [ref=e249]:
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - generic [ref=e252]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e253]:
+              - generic [ref=e254]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e255]:
+              - generic [ref=e256]: 
+              - text: WiFi haut débit
+            - listitem [ref=e257]:
+              - generic [ref=e258]: 
+              - text: salle climatisée
+            - listitem [ref=e259]:
+              - generic [ref=e260]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e261] [cursor=pointer]
+      - generic [ref=e263]:
+        - generic [ref=e264]:
+          - heading "Salle partagée 12h" [level=3] [ref=e265]
+          - generic [ref=e266]:
+            - generic [ref=e267]: "12"
+            - generic [ref=e268]: DT
+        - generic [ref=e269]:
+          - list [ref=e270]:
+            - listitem [ref=e271]:
+              - generic [ref=e272]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e273]:
+              - generic [ref=e274]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e275]:
+              - generic [ref=e276]: 
+              - text: WiFi haut débit
+            - listitem [ref=e277]:
+              - generic [ref=e278]: 
+              - text: salle climatisée
+            - listitem [ref=e279]:
+              - generic [ref=e280]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e281] [cursor=pointer]
+      - generic [ref=e283]:
+        - generic [ref=e284]:
+          - heading "Salle partagée +1 h" [level=3] [ref=e285]
+          - generic [ref=e286]:
+            - generic [ref=e287]: "1"
+            - generic [ref=e288]: DT
+        - generic [ref=e289]:
+          - list [ref=e290]:
+            - listitem [ref=e291]:
+              - generic [ref=e292]: 
+              - text: Accès bureau partagé
+            - listitem [ref=e293]:
+              - generic [ref=e294]: 
+              - text: Accès 12 h/Jours
+            - listitem [ref=e295]:
+              - generic [ref=e296]: 
+              - text: WiFi haut débit
+            - listitem [ref=e297]:
+              - generic [ref=e298]: 
+              - text: salle climatisée
+            - listitem [ref=e299]:
+              - generic [ref=e300]: 
+              - text: remise de 15 %
+          - button "Réserver" [ref=e301] [cursor=pointer]
+      - generic [ref=e302]:
+        - heading "Nos Packs & Tarifs" [level=2] [ref=e303]
+        - paragraph [ref=e304]: Salle salle de réunion
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - heading "Salle de réunion pour Formateur et professionnel" [level=3] [ref=e308]
+          - generic [ref=e309]:
+            - generic [ref=e310]: DT
+            - generic [ref=e311]: "50"
+            - generic [ref=e312]: /4h
+        - generic [ref=e313]:
+          - list [ref=e314]:
+            - listitem [ref=e315]:
+              - generic [ref=e316]: 
+              - text: Salle de réunion (10 places maximum)
+            - listitem [ref=e317]:
+              - generic [ref=e318]: 
+              - text: Chaises confortables
+            - listitem [ref=e319]:
+              - generic [ref=e320]: 
+              - text: Tableau et projecteur
+            - listitem [ref=e321]:
+              - generic [ref=e322]: 
+              - text: Salle climatisée
+          - button " Choisir Enterprise" [ref=e323] [cursor=pointer]:
+            - generic [ref=e324]: 
+            - text: Choisir Enterprise
+      - generic [ref=e326]:
+        - generic [ref=e327]:
+          - heading "Salle de réunion pour Formateur et professionnel" [level=3] [ref=e328]
+          - generic [ref=e329]:
+            - generic [ref=e330]: DT
+            - generic [ref=e331]: "100"
+            - generic [ref=e332]: /8h
+        - generic [ref=e333]:
+          - list [ref=e334]:
+            - listitem [ref=e335]:
+              - generic [ref=e336]: 
+              - text: Salle de réunion (10 places maximum)
+            - listitem [ref=e337]:
+              - generic [ref=e338]: 
+              - text: Chaises confortables
+            - listitem [ref=e339]:
+              - generic [ref=e340]: 
+              - text: Tableau et projecteur
+            - listitem [ref=e341]:
+              - generic [ref=e342]: 
+              - text: Salle climatisée
+          - button " Choisir Enterprise" [ref=e343] [cursor=pointer]:
+            - generic [ref=e344]: 
+            - text: Choisir Enterprise
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - heading "Salle de réunion pour Formateur et professionnel" [level=3] [ref=e348]
+          - generic [ref=e349]:
+            - generic [ref=e350]: DT
+            - generic [ref=e351]: "130"
+            - generic [ref=e352]: /12h
+        - generic [ref=e353]:
+          - list [ref=e354]:
+            - listitem [ref=e355]:
+              - generic [ref=e356]: 
+              - text: Salle de réunion (10 places maximum)
+            - listitem [ref=e357]:
+              - generic [ref=e358]: 
+              - text: Chaises confortables
+            - listitem [ref=e359]:
+              - generic [ref=e360]: 
+              - text: Tableau et projecteur
+            - listitem [ref=e361]:
+              - generic [ref=e362]: 
+              - text: Salle climatisée
+          - button " Choisir Enterprise" [ref=e363] [cursor=pointer]:
+            - generic [ref=e364]: 
+            - text: Choisir Enterprise
+  - generic [ref=e366]:
+    - generic [ref=e367]:
+      - heading "Contactez-nous" [level=2] [ref=e368]
+      - paragraph [ref=e369]: Nous sommes là pour répondre à toutes vos questions
+    - generic [ref=e370]:
+      - generic [ref=e374]:
+        - generic [ref=e376]:
+          - generic [ref=e377]: Prénom *
+          - textbox "Prénom *" [ref=e378]
+        - generic [ref=e380]:
+          - generic [ref=e381]: Nom *
+          - textbox "Nom *" [ref=e382]
+        - generic [ref=e384]:
+          - generic [ref=e385]: Email *
+          - textbox "Email *" [ref=e386]
+        - generic [ref=e388]:
+          - generic [ref=e389]: Sujet
+          - combobox "Sujet" [ref=e390]:
+            - option "Sélectionnez un sujet" [selected]
+            - option "Réservation"
+            - option "Demande d'information"
+            - option "Partenariat"
+            - option "Autre"
+        - generic [ref=e392]:
+          - generic [ref=e393]: Message *
+          - textbox "Message *" [ref=e394]
+        - button " Envoyer le Message" [ref=e396] [cursor=pointer]:
+          - generic [ref=e397]: 
+          - text: Envoyer le Message
+      - generic [ref=e399]:
+        - generic [ref=e400]:
+          - generic [ref=e402]: 
+          - generic [ref=e403]:
+            - heading "Adresse" [level=4] [ref=e404]
+            - paragraph [ref=e405]:
+              - text: 123 Adress 3, Route principale
+              - text: Cité Enazeha-1145-Mhamdia
+              - text: Ben Arous
+        - generic [ref=e406]:
+          - generic [ref=e408]: 
+          - generic [ref=e409]:
+            - heading "Téléphone" [level=4] [ref=e410]
+            - paragraph [ref=e411]: +216 94 784 625
+        - generic [ref=e412]:
+          - generic [ref=e414]: 
+          - generic [ref=e415]:
+            - heading "Email" [level=4] [ref=e416]
+            - paragraph [ref=e417]: workspace@lifeintelligente.com
+        - generic [ref=e418]:
+          - heading "Suivez-nous" [level=4] [ref=e419]
+          - generic [ref=e420]:
+            - link "" [ref=e421] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61580618257090
+              - generic [ref=e422]: 
+            - link "" [ref=e423] [cursor=pointer]:
+              - /url: https://www.instagram.com/workspace.lifeintelligente/
+              - generic [ref=e424]: 
+    - iframe [ref=e428]
+  - contentinfo [ref=e429]:
+    - generic [ref=e430]:
+      - generic [ref=e431]:
+        - generic [ref=e433]:
+          - link " Life Intelligente" [ref=e434] [cursor=pointer]:
+            - /url: index.html
+            - generic [ref=e435]: 
+            - text: Life Intelligente
+          - paragraph [ref=e436]: Votre espace de coworking moderne et innovant. Nous offrons un environnement de travail professionnel et collaboratif.
+          - generic [ref=e437]:
+            - link "" [ref=e438] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e439]: 
+            - link "" [ref=e440] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e441]: 
+            - link "" [ref=e442] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e443]: 
+            - link "" [ref=e444] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e445]: 
+        - generic [ref=e447]:
+          - heading "Navigation" [level=5] [ref=e448]
+          - list [ref=e449]:
+            - listitem [ref=e450]:
+              - link "Accueil" [ref=e451] [cursor=pointer]:
+                - /url: "#home"
+            - listitem [ref=e452]:
+              - link "Services" [ref=e453] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e454]:
+              - link "Packs" [ref=e455] [cursor=pointer]:
+                - /url: "#packs"
+            - listitem [ref=e456]:
+              - link "Contact" [ref=e457] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e459]:
+          - heading "Services" [level=5] [ref=e460]
+          - list [ref=e461]:
+            - listitem [ref=e462]:
+              - link "Bureau Partagé" [ref=e463] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e464]:
+              - link "Bureau Privé" [ref=e465] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e466]:
+              - link "Salle de Réunion" [ref=e467] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e468]:
+              - link "Domiciliation" [ref=e469] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e471]:
+          - heading "Contact" [level=5] [ref=e472]
+          - generic [ref=e473]:
+            - generic [ref=e474]: 
+            - generic [ref=e475]:
+              - text: 123 Adress 3, Route principale
+              - text: Cité Enazeha-1145-Mhamdia
+              - text: Ben Arous
+          - generic [ref=e476]:
+            - generic [ref=e477]: 
+            - generic [ref=e478]: +216 94 784 625
+          - generic [ref=e479]:
+            - generic [ref=e480]: 
+            - generic [ref=e481]: workspace@lifeintelligente.com
+      - separator [ref=e482]
+      - paragraph [ref=e486]: © 2024 Life Intelligente. Tous droits réservés.
+  - generic:
+    - generic:
+      - generic:
+        - generic: 
+      - generic:
+        - generic: Succès
+        - generic: Message envoyé avec succès!
+      - button "":
+        - generic: 
+```

@@ -1,0 +1,376 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_f8d5fb19-d705-493f-a31f-1db3428b4ae2.spec.ts >> test
+- Location: 79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_f8d5fb19-d705-493f-a31f-1db3428b4ae2.spec.ts:6:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Study & work (alternance)' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - link "University - Education Theme" [ref=e6] [cursor=pointer]:
+            - /url: https://tek-up.de
+            - img "University - Education Theme" [ref=e7]
+          - text: 
+        - navigation [ref=e9]:
+          - navigation [ref=e10]:
+            - list [ref=e11]:
+              - listitem [ref=e12]:
+                - link " Home" [ref=e13] [cursor=pointer]:
+                  - /url: https://www.tek-up.de
+              - listitem [ref=e14]:
+                - link "About" [ref=e15] [cursor=pointer]:
+                  - /url: "#"
+                  - text: About
+                  - generic [ref=e16]: 
+              - listitem [ref=e17]:
+                - link "Academia" [ref=e18] [cursor=pointer]:
+                  - /url: "#"
+                  - text: Academia
+                  - generic [ref=e19]: 
+              - listitem [ref=e20]:
+                - link " Admission" [ref=e21] [cursor=pointer]:
+                  - /url: "#"
+                  - text:  Admission
+                  - generic [ref=e22]: 
+              - listitem [ref=e23]:
+                - link "scholarship" [ref=e24] [cursor=pointer]:
+                  - /url: "#"
+                  - text: scholarship
+                  - generic [ref=e25]: 
+              - listitem [ref=e26]:
+                - link "Student’s Life" [ref=e27] [cursor=pointer]:
+                  - /url: "#"
+                  - text: Student’s Life
+                  - generic [ref=e28]: 
+              - listitem [ref=e29]:
+                - link "INTERNATIONAL" [ref=e30] [cursor=pointer]:
+                  - /url: "#"
+                  - text: INTERNATIONAL
+                  - generic [ref=e31]: 
+              - listitem [ref=e32]:
+                - link "CAREER" [ref=e33] [cursor=pointer]:
+                  - /url: https://tek-up.de/career/
+      - region "Slider" [ref=e37]:
+        - generic [ref=e41]:
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - note [ref=e56]: Slide 1
+              - generic [ref=e59]:
+                - generic [ref=e61]: Start Your Journey with TEK-UP
+                - paragraph [ref=e65]:
+                  - text: Explore endless opportunities with innovative
+                  - text: programs and cutting-edge education
+                - link "Apply Now" [ref=e68] [cursor=pointer]:
+                  - /url: https://tek-up.de/admission-steps/
+                  - generic [ref=e70]: Apply Now
+            - generic [ref=e71]:
+              - note [ref=e72]: Slide 2
+              - generic [ref=e75]:
+                - generic [ref=e77]: Innovative Learning Experience
+                - paragraph [ref=e81]: Hands-on practical learning with industry experts and modern facilities
+          - button "previous arrow" [ref=e82] [cursor=pointer]:
+            - img "previous arrow" [ref=e83]
+          - button "next arrow" [ref=e84] [cursor=pointer]:
+            - img "next arrow" [ref=e85]
+          - group "Choose slide to display." [ref=e86]:
+            - button "Slide 1" [ref=e88]
+            - button "Slide 2" [ref=e90] [cursor=pointer]
+    - generic [ref=e97]:
+      - heading "NEWS" [level=3] [ref=e98]
+      - generic [ref=e101]:
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - heading "Digital Kongress 2026" [level=4] [ref=e105]:
+              - link "Digital Kongress 2026" [ref=e106] [cursor=pointer]:
+                - /url: https://tek-up.de/digital-kongress-2026/
+            - generic [ref=e108]:
+              - generic [ref=e109]: 
+              - text: 6 May 2026
+          - link [ref=e110] [cursor=pointer]:
+            - /url: https://tek-up.de/digital-kongress-2026/
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - heading "TEK-UP Study Trip 2026" [level=4] [ref=e114]:
+              - link "TEK-UP Study Trip 2026" [ref=e115] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-study-trip-2026/
+            - generic [ref=e117]:
+              - generic [ref=e118]: 
+              - text: 6 February 2026
+          - link [ref=e119] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-study-trip-2026/
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - heading "Digital Future 7.0" [level=4] [ref=e123]:
+              - link "Digital Future 7.0" [ref=e124] [cursor=pointer]:
+                - /url: https://tek-up.de/digital-future-7-0/
+            - generic [ref=e126]:
+              - generic [ref=e127]: 
+              - text: 10 December 2025
+          - link [ref=e128] [cursor=pointer]:
+            - /url: https://tek-up.de/digital-future-7-0/
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - heading "Forum Company JET 2025" [level=4] [ref=e132]:
+              - link "Forum Company JET 2025" [ref=e133] [cursor=pointer]:
+                - /url: https://tek-up.de/forum-company-jet-2025/
+            - generic [ref=e135]:
+              - generic [ref=e136]: 
+              - text: 31 October 2025
+          - link [ref=e137] [cursor=pointer]:
+            - /url: https://tek-up.de/forum-company-jet-2025/
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - heading "TEK-UP University Study Trip in Germany" [level=4] [ref=e141]:
+              - link "TEK-UP University Study Trip in Germany" [ref=e142] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-students-explore-data-literacy-in-germany-a-journey-through-innovation-and-exchange/
+            - generic [ref=e144]:
+              - generic [ref=e145]: 
+              - text: 11 August 2025
+          - link [ref=e146] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-students-explore-data-literacy-in-germany-a-journey-through-innovation-and-exchange/
+        - generic [ref=e148]:
+          - generic [ref=e149]:
+            - heading "TEK-UP Clubs Event 2025" [level=4] [ref=e150]:
+              - link "TEK-UP Clubs Event 2025" [ref=e151] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-clubs-event-2025/
+            - generic [ref=e153]:
+              - generic [ref=e154]: 
+              - text: 22 May 2025
+          - link [ref=e155] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-clubs-event-2025/
+        - generic [ref=e157]:
+          - generic [ref=e158]:
+            - heading "TEK-UP Digital Congress 2025" [level=4] [ref=e159]:
+              - link "TEK-UP Digital Congress 2025" [ref=e160] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-digital-congress-2025/
+            - generic [ref=e162]:
+              - generic [ref=e163]: 
+              - text: 5 May 2025
+          - link [ref=e164] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-digital-congress-2025/
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - heading "TEK-UP Students in Hannover Messe 2025" [level=4] [ref=e168]:
+              - link "TEK-UP Students in Hannover Messe 2025" [ref=e169] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-students-in-hannover-messe-2025/
+            - generic [ref=e171]:
+              - generic [ref=e172]: 
+              - text: 7 April 2025
+          - link [ref=e173] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-students-in-hannover-messe-2025/
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - heading "TEK-UP Study Trip – Istanbul 2025" [level=4] [ref=e177]:
+              - link "TEK-UP Study Trip – Istanbul 2025" [ref=e178] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-study-trip-istanbul-2025/
+            - generic [ref=e180]:
+              - generic [ref=e181]: 
+              - text: 17 February 2025
+          - link [ref=e182] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-study-trip-istanbul-2025/
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - 'heading "Digital Future 6.0 : Tunian-German" [level=4] [ref=e186]':
+              - 'link "Digital Future 6.0 : Tunian-German" [ref=e187] [cursor=pointer]':
+                - /url: https://tek-up.de/digital-future-6-0-tunian-german-winter-school-2024/
+            - generic [ref=e189]:
+              - generic [ref=e190]: 
+              - text: 3 December 2024
+          - link [ref=e191] [cursor=pointer]:
+            - /url: https://tek-up.de/digital-future-6-0-tunian-german-winter-school-2024/
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - heading "TEK-UP University Job Fair JET 2024" [level=4] [ref=e195]:
+              - link "TEK-UP University Job Fair JET 2024" [active] [ref=e196] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-university-job-fair-jet-2024/
+            - generic [ref=e198]:
+              - generic [ref=e199]: 
+              - text: 4 November 2024
+            - link "Read more" [ref=e203] [cursor=pointer]:
+              - /url: https://tek-up.de/tek-up-university-job-fair-jet-2024/
+          - link [ref=e204] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-university-job-fair-jet-2024/
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - heading "4 TEK-UP students-Huawei ICT" [level=4] [ref=e208]:
+              - link "4 TEK-UP students-Huawei ICT" [ref=e209] [cursor=pointer]:
+                - /url: https://tek-up.de/4-tek-up-students-participate-in-the-2024-global-final-of-the-huawei-ict-competition/
+            - generic [ref=e211]:
+              - generic [ref=e212]: 
+              - text: 22 May 2024
+          - link [ref=e213] [cursor=pointer]:
+            - /url: https://tek-up.de/4-tek-up-students-participate-in-the-2024-global-final-of-the-huawei-ict-competition/
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - heading "TEK-UP Digital Congress 2024" [level=4] [ref=e217]:
+              - link "TEK-UP Digital Congress 2024" [ref=e218] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-digital-congress-2024/
+            - generic [ref=e220]:
+              - generic [ref=e221]: 
+              - text: 27 April 2024
+          - link [ref=e222] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-digital-congress-2024/
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - heading "TEK-UP Clubs Event 2024" [level=4] [ref=e226]:
+              - link "TEK-UP Clubs Event 2024" [ref=e227] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-clubs-event-2024/
+            - generic [ref=e229]:
+              - generic [ref=e230]: 
+              - text: 28 February 2024
+          - link [ref=e231] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-clubs-event-2024/
+        - generic [ref=e233]:
+          - generic [ref=e234]:
+            - heading "TEK-UP Study Trip 2024" [level=4] [ref=e235]:
+              - link "TEK-UP Study Trip 2024" [ref=e236] [cursor=pointer]:
+                - /url: https://tek-up.de/tek-up-study-trip-2024/
+            - generic [ref=e238]:
+              - generic [ref=e239]: 
+              - text: 23 February 2024
+          - link [ref=e240] [cursor=pointer]:
+            - /url: https://tek-up.de/tek-up-study-trip-2024/
+        - generic [ref=e242]:
+          - generic [ref=e243]:
+            - heading "9 TEK-UP students from 12 are" [level=4] [ref=e244]:
+              - link "9 TEK-UP students from 12 are" [ref=e245] [cursor=pointer]:
+                - /url: https://tek-up.de/9-tek-up-students-from-12-are-qualified-to-the-regional-stage-of-the-huawei-ict-competition/
+            - generic [ref=e247]:
+              - generic [ref=e248]: 
+              - text: 5 February 2024
+          - link [ref=e249] [cursor=pointer]:
+            - /url: https://tek-up.de/9-tek-up-students-from-12-are-qualified-to-the-regional-stage-of-the-huawei-ict-competition/
+    - generic [ref=e251]:
+      - link "TEK-UP Certified Students" [ref=e254] [cursor=pointer]:
+        - /url: https://www.facebook.com/Tek-up-Certified-Students-386746871913770/
+        - img "TEK-UP Certified Students" [ref=e255]
+      - generic [ref=e258]:
+        - heading "University's official newsletter" [level=4] [ref=e259]
+        - generic [ref=e261]:
+          - generic [ref=e263]:
+            - generic [ref=e264]: Mise en page
+            - generic [ref=e265]:
+              - generic [ref=e267]:
+                - generic [ref=e268]: Name *
+                - textbox "Name" [ref=e269]
+              - generic [ref=e271]:
+                - generic [ref=e272]: E-mail *
+                - textbox "E-mail" [ref=e273]
+          - button "Submit" [ref=e275] [cursor=pointer]
+    - generic [ref=e281]:
+      - button "Previous" [ref=e282] [cursor=pointer]
+      - generic [ref=e284]:
+        - link [ref=e286] [cursor=pointer]:
+          - /url: http://www.certitrain.com/index.asp
+          - img [ref=e287]
+        - link [ref=e289] [cursor=pointer]:
+          - /url: https://www.netacad.com/fr
+          - img [ref=e290]
+        - link [ref=e292] [cursor=pointer]:
+          - /url: https://www.britishcouncil.tn/en
+          - img [ref=e293]
+        - link [ref=e295] [cursor=pointer]:
+          - /url: https://www.businessdecision.tn/
+          - img [ref=e296]
+        - link [ref=e298] [cursor=pointer]:
+          - /url: http://www.biat.com.tn/
+          - img [ref=e299]
+        - link "ATC" [ref=e301] [cursor=pointer]:
+          - /url: https://androidatc.com/
+          - img "ATC" [ref=e302]
+        - link "FORTINET" [ref=e304] [cursor=pointer]:
+          - /url: http://www.config-tn.com/portfolios/fortinet
+          - img "FORTINET" [ref=e305]
+        - link "EY" [ref=e307] [cursor=pointer]:
+          - /url: https://www.ey.com/tn/fr/home
+          - img "EY" [ref=e308]
+        - link "Efigitalis" [ref=e310] [cursor=pointer]:
+          - /url: http://www.edigitalis.fr/
+          - img "Efigitalis" [ref=e311]
+      - button "Next" [ref=e334] [cursor=pointer]
+  - contentinfo [ref=e336]:
+    - generic [ref=e337]:
+      - generic [ref=e338]:
+        - paragraph [ref=e339]:
+          - text: ©
+          - link "MEDIA-TEK" [ref=e340] [cursor=pointer]:
+            - /url: http://www.media-tek.de
+        - paragraph
+      - generic [ref=e342]:
+        - link "color1" [ref=e343] [cursor=pointer]:
+          - /url: "#style1.css"
+        - link "color2" [ref=e344] [cursor=pointer]:
+          - /url: "#style2.css"
+        - link "color3" [ref=e345] [cursor=pointer]:
+          - /url: "#style3.css"
+  - generic [ref=e346] [cursor=pointer]: 
+  - navigation:
+    - navigation [ref=e349]:
+      - list [ref=e350]:
+        - listitem [ref=e351]:
+          - link " Home" [ref=e352] [cursor=pointer]:
+            - /url: https://www.tek-up.de
+        - listitem [ref=e353]:
+          - link "About" [ref=e354] [cursor=pointer]:
+            - /url: "#"
+            - text: About
+            - generic [ref=e355]: 
+        - listitem [ref=e356]:
+          - link "Academia" [ref=e357] [cursor=pointer]:
+            - /url: "#"
+            - text: Academia
+            - generic [ref=e358]: 
+        - listitem [ref=e359]:
+          - link " Admission" [ref=e360] [cursor=pointer]:
+            - /url: "#"
+            - text:  Admission
+            - generic [ref=e361]: 
+        - listitem [ref=e362]:
+          - link "scholarship" [ref=e363] [cursor=pointer]:
+            - /url: "#"
+            - text: scholarship
+            - generic [ref=e364]: 
+        - listitem [ref=e365]:
+          - link "Student’s Life" [ref=e366] [cursor=pointer]:
+            - /url: "#"
+            - text: Student’s Life
+            - generic [ref=e367]: 
+        - listitem [ref=e368]:
+          - link "INTERNATIONAL" [ref=e369] [cursor=pointer]:
+            - /url: "#"
+            - text: INTERNATIONAL
+            - generic [ref=e370]: 
+        - listitem [ref=e371]:
+          - link "CAREER" [ref=e372] [cursor=pointer]:
+            - /url: https://tek-up.de/career/
+  - iframe [ref=e375]:
+    - generic [ref=f6e6]:
+      - text: protected by
+      - strong [ref=f6e7]: reCAPTCHA
+  - status "Chatbot notifications" [ref=e376] [cursor=pointer]:
+    - button "Close notifications": ✕
+    - list [ref=e377]:
+      - listitem [ref=e378]:
+        - alert [ref=e379]: "Hi, I am Ramira. The GPT Chatbot of TEK-UP University. You can ask me anything about TEK-UP : Studies, Professional Certifications, Accreditation, Challenges, Clubs, Internationalisation, Tuition fees, academia etc. You can use English, German or French."
+  - button "Open TEK-UP University" [ref=e380] [cursor=pointer]:
+    - img "TEK-UP University" [ref=e382]
+```

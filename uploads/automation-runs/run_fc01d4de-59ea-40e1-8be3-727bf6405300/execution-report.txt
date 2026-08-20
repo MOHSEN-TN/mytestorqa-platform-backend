@@ -1,0 +1,60 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_fc01d4de-59ea-40e1-8be3-727bf6405300
+Status: FAILED
+Started at: 2026-07-17T00:31:09.651Z
+Finished at: 2026-07-17T00:31:16.457Z
+Duration: 6807 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 0
+Received length: 1
+Received array:  ["ErrorUtils caught an error:·
+Error connecting to Credential Management service.·
+Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248274, extra: Object, guardList: Array(0), hash: fuwid1}"]
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) e2335f82-62b2-4c01-8842-deaa264d57e0-run_fc01d4de-59ea-40e1-8be3-727bf6405300.spec.ts:6:1 › Vérifier le champ "E-mail ou numéro de mobile" 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received array:  ["ErrorUtils caught an error:·
+    Error connecting to Credential Management service.·
+    Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248274, extra: Object, guardList: Array(0), hash: fuwid1}"]
+        at D:\MOHSEN\PFE\v30-record auto ok -page run multi auto\v15-07-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_fc01d4de-59ea-40e1-8be3-727bf6405300\e2335f82-62b2-4c01-8842-deaa264d57e0-run_fc01d4de-59ea-40e1-8be3-727bf6405300.spec.ts:35:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\e2335f82-62b2-4c01-8842-de-52385-E-mail-ou-numéro-de-mobile-\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\e2335f82-62b2-4c01-8842-de-52385-E-mail-ou-numéro-de-mobile-\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\e2335f82-62b2-4c01-8842-de-52385-E-mail-ou-numéro-de-mobile-\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\e2335f82-62b2-4c01-8842-de-52385-E-mail-ou-numéro-de-mobile-\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    e2335f82-62b2-4c01-8842-deaa264d57e0-run_fc01d4de-59ea-40e1-8be3-727bf6405300.spec.ts:6:1 › Vérifier le champ "E-mail ou numéro de mobile" 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

@@ -13,6 +13,7 @@ import { BugsModule } from './bugs/bugs.module';
 import { ReportsModule } from './reports/reports.module';
 import { AIExplorationModule } from './AiExploration/ai-exploration.module';
 import { AutomationModule } from './automation/automation.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 @Module({
   imports: [
     PrismaModule,
@@ -27,6 +28,7 @@ import { AutomationModule } from './automation/automation.module';
     ReportsModule,
     AIExplorationModule,
     AutomationModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

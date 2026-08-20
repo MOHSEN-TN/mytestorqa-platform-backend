@@ -44,10 +44,25 @@ enum TestPriority {
 
 enum ExecutionStatus {
   TODO
+  RUNNING
   SUCCESS
   FAILED
   BLOCKED
   SKIPPED
+}
+
+enum ExecutionType {
+  MANUAL
+  AUTOMATED
+}
+
+enum IterationExecutionStatus {
+  DRAFT
+  RUNNING
+  AWAITING_MANUAL
+  COMPLETED
+  FAILED
+  CANCELLED
 }
 
 enum BugStatus {
@@ -103,6 +118,7 @@ enum AIExplorationStatus {
   GENERATED
   VALIDATED
   ARCHIVED
+  FAILED
 }
 
 enum AISuggestionPriority {
@@ -117,6 +133,33 @@ enum AISuggestionStatus {
   APPROVED
   REJECTED
   CONVERTED
+}
+
+enum AIChatRole {
+  SYSTEM
+  USER
+  ASSISTANT
+}
+
+/**
+ * ======================= IA / AUTOMATION METADATA ENUMS ==================
+ */
+
+enum TestCaseSourceType {
+  MANUAL
+  AI_GENERATED
+}
+
+enum AIGenerationMode {
+  RULE_BASED
+  OLLAMA_LOCAL
+  CLOUD_AI
+}
+
+enum AutomationFramework {
+  PLAYWRIGHT
+  SELENIUM
+  CYPRESS
 }
 
 /**
@@ -151,7 +194,9 @@ model User {
 
   reports Report[]
 
-  aiExplorations AIExploration[]
+  aiExplorations      AIExploration[]
+  aiChatSessions      AIChatSession[]
+  passwordResetTokens PasswordResetToken[]
 }
 
 /**
@@ -168,6 +213,7 @@ model Project {
   id          String  @id @default(uuid())
   name        String  @unique
   description String?
+  baseUrl     String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
@@ -178,7 +224,9 @@ model Project {
   bugs       Bug[]
   reports    Report[]
 
-  aiExplorations AIExploration[]
+  aiExplorations   AIExploration[]
+  aiChatSessions   AIChatSession[]
+  lighthouseAudit LighthouseAudit?
 
   @@index([name])
 }
@@ -234,6 +282,7 @@ model TestSuite {
   testCases       TestCase[]
   iterationSuites IterationSuite[]
 
+  @@unique([projectId, name])
   @@index([projectId])
 }
 
@@ -257,6 +306,14 @@ model TestCase {
   status   TestCaseStatus @default(DRAFT)
   priority TestPriority   @default(MEDIUM)
 
+  /**
+   * Source / IA / Automation metadata
+   */
+  sourceType          TestCaseSourceType   @default(MANUAL)
+  generationMode      AIGenerationMode?
+  automationFramework AutomationFramework?
+  automationCode      String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
@@ -269,8 +326,12 @@ model TestCase {
   aiSuggestionId String?
   aiSuggestion   AITestSuggestion? @relation(fields: [aiSuggestionId], references: [id], onDelete: SetNull)
 
+  @@unique([suiteId, title])
   @@index([suiteId])
   @@index([aiSuggestionId])
+  @@index([sourceType])
+  @@index([generationMode])
+  @@index([automationFramework])
 }
 
 /**
@@ -344,6 +405,10 @@ model TestIteration {
   name        String
   description String?
 
+  status     IterationExecutionStatus @default(DRAFT)
+  startedAt  DateTime?
+  finishedAt DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 
@@ -353,6 +418,7 @@ model TestIteration {
   items  IterationItem[]
 
   @@index([campaignId])
+  @@index([status])
 }
 
 /**
@@ -396,11 +462,37 @@ model IterationItem {
   iterationId String
   testCaseId  String
 
-  status ExecutionStatus @default(TODO)
+  executionType ExecutionType   @default(MANUAL)
+  status        ExecutionStatus @default(TODO)
 
-  comment    String?
-  duration   Int?
+  comment  String?
+  duration Int?
+
+  startedAt  DateTime?
+  finishedAt DateTime?
   executedAt DateTime?
+
+  /**
+   * Playwright execution metadata
+   */
+  automationRunId String?
+  browser         String?
+  executionMode   String?
+
+  error          String?
+  failureDetails Json?
+  automationLogs Json?
+
+  screenshotUrl      String?
+  traceUrl           String?
+  artifactsZipUrl    String?
+  executionReportUrl String?
+
+  /**
+   * Snapshot of the exact automated test version used during this run.
+   */
+  automationFrameworkSnapshot AutomationFramework?
+  automationCodeSnapshot      String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
@@ -416,6 +508,8 @@ model IterationItem {
   @@index([iterationId])
   @@index([testCaseId])
   @@index([status])
+  @@index([executionType])
+  @@index([automationRunId])
 }
 
 /**
@@ -564,7 +658,27 @@ model AIExploration {
   prompt  String
   context String?
 
-  // Fields for AI Agent exploration
+  /**
+   * Generation strategy
+   */
+  generationMode AIGenerationMode @default(RULE_BASED)
+
+  /**
+   * Ollama / SMART-QA generation metadata
+   */
+  aiModel               String?
+  explorationSnapshot   Json?
+  lastError             String?
+  generationDurationMs  Int?
+  promptTokens          Int?
+  completionTokens      Int?
+  ollamaTotalDurationMs Int?
+  lastGeneratedAt       DateTime?
+  fallbackUsed          Boolean   @default(false)
+
+  /**
+   * Fields for AI Agent exploration
+   */
   targetUrl String?
   depth     Int     @default(2)
 
@@ -587,11 +701,13 @@ model AIExploration {
 
   createdBy User @relation(fields: [createdById], references: [id], onDelete: Cascade)
 
-  suggestions AITestSuggestion[]
+  suggestions  AITestSuggestion[]
+  chatSessions AIChatSession[]
 
   @@index([projectId])
   @@index([createdById])
   @@index([status])
+  @@index([generationMode])
   @@index([targetUrl])
   @@index([createdAt])
 }
@@ -614,6 +730,14 @@ model AITestSuggestion {
   description    String?
   expectedResult String?
 
+  /**
+   * Structured output generated by SMART-QA / Ollama
+   */
+  steps         Json?
+  gherkin       String?
+  sourcePageUrl String?
+  aiConfidence  Float?
+
   priority AISuggestionPriority @default(MEDIUM)
 
   status AISuggestionStatus @default(PENDING)
@@ -628,4 +752,122 @@ model AITestSuggestion {
   @@index([explorationId])
   @@index([priority])
   @@index([status])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * SMART-QA CHAT SESSIONS
+ */
+/**
+ * =========================================================================
+ */
+
+model AIChatSession {
+  id            String  @id @default(uuid())
+  userId        String
+  projectId     String?
+  explorationId String?
+
+  title String @default("Nouvelle conversation SMART-QA")
+  model String @default("qwen3.5:9b")
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  lastMessageAt DateTime @default(now())
+
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project     Project?       @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  exploration AIExploration? @relation(fields: [explorationId], references: [id], onDelete: SetNull)
+
+  messages AIChatMessage[]
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([explorationId])
+  @@index([lastMessageAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * SMART-QA CHAT MESSAGES
+ */
+/**
+ * =========================================================================
+ */
+
+model AIChatMessage {
+  id        String     @id @default(uuid())
+  sessionId String
+  role      AIChatRole
+  content   String
+  metadata  Json?
+
+  createdAt DateTime @default(now())
+
+  session AIChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([role])
+  @@index([createdAt])
+}
+
+
+/**
+ * =========================================================================
+ */
+/**
+ * LIGHTHOUSE QUALITY AUDITS
+ */
+/**
+ * =========================================================================
+ */
+
+model LighthouseAudit {
+  id        String @id @default(uuid())
+  projectId String @unique
+
+  requestedUrl String
+  finalUrl     String?
+
+  qualityScore Int?
+
+  performance   Int?
+  accessibility Int?
+  bestPractices Int?
+  seo           Int?
+
+  lighthouseVersion String?
+  durationMs        Int?
+  auditedAt         DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([auditedAt])
+}
+
+/**
+ * =========================================================================
+ */
+/**
+ * =========================================================================
+ * PASSWORD RESET TOKENS
+ * =========================================================================
+ */
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
 }

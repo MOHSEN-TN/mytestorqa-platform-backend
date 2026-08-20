@@ -1,0 +1,27 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_852fdf48-1712-4319-8f36-3506f4187d79
+Status: PASSED
+Started at: 2026-08-08T21:52:56.714Z
+Finished at: 2026-08-08T21:53:13.042Z
+Duration: 16328 ms
+Exit code: 0
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Aucune erreur.
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+·
+  1 passed (14.7s)
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

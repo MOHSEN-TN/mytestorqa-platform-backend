@@ -1,0 +1,29 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_65ad1139-b137-4cb8-98f6-bc46b5f96b07
+Status: ERROR
+Started at: 2026-07-13T00:25:25.913Z
+Finished at: 2026-07-13T00:25:27.324Z
+Duration: 1411 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+SyntaxError: Missing initializer in const declaration
+
+STDOUT PLAYWRIGHT
+-----------------
+
+SyntaxError: Missing initializer in const declaration
+
+Error: No tests found
+
+
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

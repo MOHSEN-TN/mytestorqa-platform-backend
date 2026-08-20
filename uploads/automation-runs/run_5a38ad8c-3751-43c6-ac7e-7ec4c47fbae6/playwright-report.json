@@ -1,0 +1,117 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6",
+        "testIgnore": [],
+        "testMatch": [
+          "f808e4d3-a6fe-4e9b-abc6-de6fc6750973-run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "f808e4d3-a6fe-4e9b-abc6-de6fc6750973-run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6.spec.ts",
+      "file": "f808e4d3-a6fe-4e9b-abc6-de6fc6750973-run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26179,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-17T00:41:19.847Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f925a656a6d350da8a29-4b347eb42d13aebb5abb",
+          "file": "f808e4d3-a6fe-4e9b-abc6-de6fc6750973-run_5a38ad8c-3751-43c6-ac7e-7ec4c47fbae6.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-17T00:41:18.754Z",
+    "duration": 27792.732,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

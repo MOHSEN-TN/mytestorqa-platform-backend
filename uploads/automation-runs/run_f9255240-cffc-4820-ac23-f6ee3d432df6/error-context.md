@@ -1,0 +1,285 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 3d14a506-896b-4fb3-8063-41f3e592ca06-run_f9255240-cffc-4820-ac23-f6ee3d432df6.spec.ts >> test
+- Location: 3d14a506-896b-4fb3-8063-41f3e592ca06-run_f9255240-cffc-4820-ac23-f6ee3d432df6.spec.ts:6:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Speedtest', exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - banner [ref=e6]:
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - link "Speedtest home" [ref=e10] [cursor=pointer]:
+              - /url: /
+              - img [ref=e11]
+            - button "Menu menu" [ref=e15] [cursor=pointer]:
+              - heading "Menu" [level=6] [ref=e16]:
+                - generic [ref=e17]: Menu
+                - img [ref=e20]
+            - button "Languages menu" [ref=e22] [cursor=pointer]:
+              - heading "English" [level=6] [ref=e23]:
+                - generic [ref=e24]: English
+                - img [ref=e27]
+            - switch "Switch to dark mode" [checked] [ref=e29] [cursor=pointer]:
+              - img [ref=e32]
+              - img [ref=e37]
+          - generic [ref=e40]:
+            - button "Download menu" [ref=e42] [cursor=pointer]:
+              - heading "Download" [level=6] [ref=e45]:
+                - generic [ref=e46]: Download
+                - img [ref=e49]
+            - link "Sign In" [ref=e51] [cursor=pointer]:
+              - /url: /login
+              - generic [ref=e52]: Sign In
+      - heading "Speedtest by Ookla" [level=1] [ref=e54]
+      - generic [ref=e55]:
+        - iframe [ref=e60]:
+          - generic [ref=f21e1]:
+            - link [ref=f21e2] [cursor=pointer]:
+              - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsu2V5kxBe9r8HCqLOsqIRwm34qBlAXWKZrBLIqg4oLBdUlozlR1zJP7KfNKCYI9BdZGZWJIHusn29Z_yuM46GBPHDs4ijEuN5m77S1cCD5jIEhnUwoAXVBdADpVT-ud5LRjwKRajxSl2U49EJOWwgcnSmOCqcoPJsFd_UoENjv71lnQHfmOHmT-ha3Dj7yx7iwjwmKZyQ5pcnhzgtK3tngvAD558GW3mcYLurQYSc7RgFFxYlUusABlQW3CVTxsZr4ZgIg1YuHhydA3EriEag4nWiWx9v3Vxbl2U4AqX3DUaelzm2l1oYaCIH2fAE7UB32jG7h6xujzk2iH-RRPqgEaWkPlqGx2RZ_6VC29HW3ofnTpMnZcTqe4q_sTdz_5U67c_XZa7lCkJf54Xt4ZIumxU36slZUHb-xaR3VeZx4kHh_1oqoNPczIrQ&sai=AMfl-YRb4C11bNf1xbci47Zh_dXj2IGFgCAMb6uRvuBt1c2kvoznKeQHCOyzMmut28xKG7B4Exz86K9mJDL8aKBH8g5xPaqctgfovBvVj-LLH9orMUfQpGWIsGSPQcdofZ3DiHNjj5kRFpiMx5byc-AVRMcnSbKJsKqwsQXIXxbWa-CKj3UL5YDMXBT_Ctf1-Jzzp85aOzfxgVAsqiSeDg7Tk8JPysa8WMCIzBiGA0CFWlxgBzD26-y3Ywd9oyFGqvpgGy0LUeaVKDjcv5LU4uq6dQRZw-rYV07bQ-iaeuP4xmKBf4H35PQR71PL65YhLRH0wdZtWnvMZ9yqFnY5cbA4QBYMklxvM97bhjIKRSvzQ3YF53rWcGtmERuP4RgFpmHAhgZ38JYtE2dfGoTF&sig=Cg0ArKJSzHCxnP0RQlu7&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.microsoft.com/en-us/store/p/speedtest-by-ookla/9nblggh4z1jc%3Fcid%3Djanuary_2017_desktop_apps
+            - img [ref=f21e6] [cursor=pointer]
+            - button [ref=f21e8] [cursor=pointer]:
+              - img [ref=f21e9]
+        - generic [ref=e61]:
+          - iframe [ref=e65]:
+            - generic [ref=f22e1]:
+              - link [ref=f22e2] [cursor=pointer]:
+                - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsttwsAdaw78e12umTmmGPRt5sYr2j_sycMeCJOttlfd8YXILOSWLr2YpYl-Aeza-Hisjp_BoUW6cU1nxRXg0wPxnoeWsvdO32m1ad32Ftnc7sVN3vWoePY-p7JdlJSf-Ni5BWPP73Kd1nY80zhFB-MkjXGaPzz6zVvSgKLKg8gPNv4SIBQ-7SvcUduSgyc5SfTP211Z4tpDRA7kpUVWwaleN5v5G0PpgeZMBU_1rhbxs65625DcY3Rqiv5ehBwb7tIGn80LlaCPc4JC3c51uNpOFeNgmEqXHUF43gNWmqQlLm6mAGwo9i_Ud_gwg_g1HAERRjrTGH4o2e1BwWhsbK4W_uKPpq7MAGIJKccR2XeO1WeHmntaHy6hij1F-4Fdx6H1F67IJBl2ZxGW6fV0vHFA1Y9W910Ygq2D1hJEsyMreObwuI1WgY3tzQ4&sai=AMfl-YSD7HvWiniwHsZQUEOznnkIxISXgaGbE9Ch8_s_rXC5VGamg-HPZx73c6c3s2Ly7veiEzLJhQh4zK_3RA9ZgJB7PLobMlm8p3h75-Mk48_Z-6krqVNjKpxh-Eptg-ilxZGjAYzZODTC44K7p6U4zVwkXlUiaxrJcxJr6Git7JdXmxQxa2ZctC0wUKWUGg4d-yj9dN7aaZQD2oPyFKmF5rc60GH00tBfuHhwKS7_FVpKArM2QenFp63pZxELroYGz3uw02ZdDSC16waSCdHia37p8fZAfz4GQ_cBnSNIgd_VRPKm4IEWltir3lYm0FlpSCHaEmCHa2Yejxd_3Nt6Gv_JtGZQNxLcN6yNiIm1RzmyewvvsLmIAhQwTXzcIPy6WC2hIRDhuWhwSQV3&sig=Cg0ArKJSzGeg2fwkK9jR&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.speedtest.net/apps/mobile%3Futm_source%3Dhouse_ad%26utm_medium%3Dbanner%26utm_campaign%3Dmobile_app
+              - img [ref=f22e6] [cursor=pointer]
+              - button [ref=f22e8] [cursor=pointer]:
+                - img [ref=f22e9]
+          - generic [ref=e68]:
+            - generic [ref=e70]:
+              - link "Results" [ref=e71] [cursor=pointer]:
+                - /url: /results
+                - img [ref=e73]
+                - generic [ref=e76]: Results
+              - link "Settings" [ref=e77] [cursor=pointer]:
+                - /url: /settings
+                - img [ref=e79]
+                - generic [ref=e82]: Settings
+            - button "start speed test - connection type multi" [ref=e86]:
+              - heading "GO" [level=1] [ref=e87]
+            - generic [ref=e89]:
+              - generic [ref=e92]:
+                - generic [ref=e93]:
+                  - heading "IDDQD" [level=3] [ref=e94]
+                  - paragraph [ref=e95]: 197.3.228.144
+                - img [ref=e97]
+              - generic [ref=e101]:
+                - img [ref=e104]
+                - generic [ref=e106]:
+                  - link "GlobalNet" [ref=e108] [cursor=pointer]:
+                    - /url: /api/js/perform-redirect?server_id=38171
+                    - heading "GlobalNet" [level=3] [ref=e109]
+                  - paragraph [ref=e110]: Tunis
+                  - button "Change Server" [ref=e111] [cursor=pointer]
+          - iframe [ref=e115]:
+            - generic [ref=f23e1]:
+              - link [ref=f23e2] [cursor=pointer]:
+                - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsu-TAJwCOtwVGqKcbtd1UhUYdwPMt_6KoJK87GPTneHd84iRrYfil9lJIiyG3d-QG8g8H3ycAWDLmYnvIyGeBaTuxv1RnwHdgTaJfCRfe6-zx1-mArLM8r7SONCMz1n24dTd_JgFaE2Gact7xgumXf1oGbdKufEWcZRpGcqGONGSPBkYUbL33WgETgcEoJ8tZZOgGUdgAGJdhIePZqWbnbzQcElm3kBFooRvntbN0jK3JqjszUXBJUw2_5MkjoZFUWNNbdJZkGumXLTJyCkkAgFErjdgC559Bkp3bCJzpiP2wq0uY6COvz_fVaKn3oDL4aINUM5wGFJBp0fAHuC7NEZWegOmeeulg24cVjtST_xUdmw8OLGrYcHoNg446EIFBY_pnIGHzRPKIv8VQD8pQ8GkpyWv5Qgv1BeRz1m2sHiZ8xbnI0m_5PARA&sai=AMfl-YRnxDOGlX-ni2fADDn8hDxkF17yQiXsVrXMcVPXlspz1Y431NEp55BC8bDTwla6HgiOTvoj4G3GFobE8LZLyPNvyw_JIf-bUYYznfp_UtB_GZg8nZPax7QF7TLl5HNqXHzNY0vbl6w6VNi5PqkQ9A6bbYypa5JXdiJWumTLoaeUWJ5oN1SnCmFLTYJ2DIPvH6GNY7GAe6h5QsaJVWAos4z2R51mCmSEkI7vzAtkRAvUz7KYD8-htfpiR_jBhEHJI_zoYSbE08Sqaa0QJs9ZAZfqmVfMDHbTZatFfWMAqBHMDuug76GHZ_Bvbrao2GHlwPSvSadoJDN3_v8m1FdeepSnycMl2U1fouWwdnVIKVV0AbWLRXS_eMxTa3zZePA_98uAq_f6jFyRsBCp&sig=Cg0ArKJSzEGaMcWZm_ne&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.microsoft.com/en-us/store/p/speedtest-by-ookla/9nblggh4z1jc%3Fcid%3Djanuary_2017_desktop_apps
+              - img [ref=f23e6] [cursor=pointer]
+              - button [ref=f23e8] [cursor=pointer]:
+                - img [ref=f23e9]
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - link "Desktop Apps" [ref=e119] [cursor=pointer]:
+                - /url: /apps/desktop
+                - img [ref=e120]:
+                  - img [ref=e121]
+                - paragraph [ref=e140]: Desktop Apps
+              - link "Troubleshoot Your Wifi" [ref=e141] [cursor=pointer]:
+                - /url: /about/knowledge/simple-wifi-audit
+                - img [ref=e142]:
+                  - img [ref=e143]
+                - paragraph [ref=e171]: Troubleshoot Your Wifi
+              - link "Check for Outages" [ref=e172] [cursor=pointer]:
+                - /url: https://downdetector.com
+                - img [ref=e173]:
+                  - img [ref=e174]
+                - paragraph [ref=e193]: Check for Outages
+              - link "Prepare to Talk to Your ISP" [ref=e194] [cursor=pointer]:
+                - /url: /about/knowledge/trouble-with-your-isp
+                - img [ref=e195]:
+                  - img [ref=e196]
+                - paragraph [ref=e215]: Prepare to Talk to Your ISP
+              - link "How Much Speed Do You Need?" [ref=e216] [cursor=pointer]:
+                - /url: /about/knowledge/how-much-speed-you-need
+                - img [ref=e217]:
+                  - img [ref=e218]
+                - paragraph [ref=e238]: How Much Speed Do You Need?
+              - link "QR Code for downloading mobile app Download Mobile Apps" [ref=e239] [cursor=pointer]:
+                - /url: /apps/mobile
+                - img "QR Code for downloading mobile app" [ref=e240]:
+                  - img [ref=e241]
+                - paragraph [ref=e255]: Download Mobile Apps
+            - generic [ref=e256]:
+              - link "Speedtest Global IndexTM" [ref=e257] [cursor=pointer]:
+                - /url: /global-index
+                - img [ref=e259]
+                - paragraph [ref=e261]:
+                  - text: Speedtest Global Index
+                  - superscript [ref=e262]: TM
+              - link "Speedtest Performance DirectoryTM" [ref=e263] [cursor=pointer]:
+                - /url: /performance
+                - img [ref=e265]
+                - paragraph [ref=e269]:
+                  - text: Speedtest Performance Directory
+                  - superscript [ref=e270]: TM
+              - link "Ookla Research" [ref=e271] [cursor=pointer]:
+                - /url: https://www.ookla.com/research
+                - img [ref=e273]
+                - paragraph [ref=e277]: Ookla Research
+          - region
+        - generic [ref=e279]:
+          - iframe [ref=e282]:
+            - generic [ref=f24e1]:
+              - link [ref=f24e2] [cursor=pointer]:
+                - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsvCSs1K-JVu-oY-oOWv3XTXrFss9nsiR7Av3iXM9axyYYItpqaXxm8fQjjPjHSZMLQWki5y4KY6hY1HH_Sw0wFZZ6dg_jbGL-L-3ARfEWU_Xlyu5sOCin0pGgRSWRonYJf1FOYzGQJZjIsPxPapylaGfo_P3tYWkzKr9ha13VJGKz3cAn6yH17sdM1PoQAhwt_rxUna9WOO_PAWdQE7dBYeIflaH7JA2ZgEYKV-zpOBSoaMMSRVjz4y3DW8gWqS2MQg9wKleFZxtGtyix4-l07rtS9P9U0FVdcadfaz8taq5x8RpW3E-0OWcHUlr8S_5fMZys4oP6jRT4aw1NDeIc3iNM0W-hTiTyRiysdBbfv_1OgWiV9dz1fL38tBVwxIQajuhqhZXVs4dLkBSaeyj_mEPpOICNlVJtKt1XTEC6Iqu0cV_B3f9gYvTklP2g&sai=AMfl-YSqbIC_sDHNOrxUgWaDvVJvod_ijN93T22BeF5BlLfFfrmBcRIkAHlcAxFl158S1e0Zalm6Pok68oWgeNjNKXtVAWmZu2mRRLXJe5yh1jRg-7h8HDT8BYpWj3VQXcYu8dOoOZ88Jl0zipNRxPFQKN_zycYBe8n-jXkxxttlWakPtH7i4awdUa9LaCkzEHx7JGl388vZ0z9najTakOZYR26ZfN1m4Fw6S9LAXhSI27XGKuc2gCYbeL0IYwrStkszWku-JiBvTEkCprA54yX7mg_4bEZ4dpas15wk9DM46VklniK6S8BQ24KZSOGVliOSdf8_TpxpfHTKvxtk0KrlELWJjr0216tmzA6oS1YR-d4mNY8BFJiKoaW4l1FehDdVlXqC9ydrVgcKCDeW&sig=Cg0ArKJSzNyEhNFJFWLW&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.speedtest.net/apps/mobile%3Futm_source%3Dhouse_ad%26utm_medium%3Dbanner%26utm_campaign%3Dmobile_app
+              - img [ref=f24e6] [cursor=pointer]
+              - button [ref=f24e8] [cursor=pointer]:
+                - img [ref=f24e9]
+          - iframe [ref=e285]:
+            - generic [ref=f25e1]:
+              - link [ref=f25e2] [cursor=pointer]:
+                - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsvwc_iT3bptvWwJZKPsKkRW2GIwjdGd3KZgzP2rI7e5uvrZ9Pijg4pcWaKzAjVfkXdL3JFj54DzSu7Ldy6xJHsGC8RxExKuFscYRatkarVh87lDU7iQcZtxNfRNmk0wZKp06jFDKg4gS3KfZn04DlG0VcIb1HkuXpvjb2eW8BECgmfap-AcE70yeJIpsrsrUdgRbuzWKxp4KUvm6xDWaEGxqqYBU7FCsWcHJCU_LhFlfgb3kGzhgT510rSgA8TCx56Du-zdvYmQhculXgfYtHzyQzMlauYJunU_PYmYd0gu4h9Meu2c5-TgaQXXvqZSzsidRWRg1rNYntewvRccrwXn3Mg78ksNmOSKNSowtlmh0Urzu0wEvgMWgcJ-zdvoN6tB2naXt8Prv6I1eGFHYfYlhIcS7pUcIGT9VxeebJxJs1A20EQ1V1HeCayi2jWtaQ&sai=AMfl-YQSsAjRDzvrxpPtXibRX2o5dDRULJzlruZM6cneA1DcU7pUT0f_yl_GKI7YmPpUY4Az4ENt_s7zOED5Is-ckR3gPPY1eTsixcOJDibW51i7vtjJvKNSmzcDxYQdfTnU6lnhd3C-bBhbc77NpblPIYok32dyZtK1k75ilMwqpsh1mcw5E_y1sDa5RzVN3kdYxSPfSbI9eGt5-WOJV7XGNabE6YXQoJCcgHO9mBi7ljQpyGMpb0kD21uJxFVwKO0hu62yn9H3QdaVP6wiEdO_hI-k_kzYCJDycP_9TvS8WLnoBU3UeXEIWIQOL4ntqB_iyFRllm1_0IXROmPbFPdmv8WoXVFCqcv8Qyn6OrfcjqiQVhtwMtEbDTq6s-RRwVv5y-69e-zl-MnV0_8q&sig=Cg0ArKJSzEOZhmzAEF8g&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.microsoft.com/en-us/store/p/speedtest-by-ookla/9nblggh4z1jc%3Fcid%3Djanuary_2017_desktop_apps
+              - img [ref=f25e6] [cursor=pointer]
+              - button [ref=f25e8] [cursor=pointer]:
+                - img [ref=f25e9]
+      - iframe [ref=e288]:
+        - generic [ref=f26e1]:
+          - link [ref=f26e2] [cursor=pointer]:
+            - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjssxzsOKaif2RZ4DDY3nUIb7FniHPonTJY_-snyOygDl0J2QzECULmcOY_63ArZSWJrbSc15_DGbiCwAkVVUehQU82KOhpxL2md_2kepSqjQfQKvn-ucjWWld3MpUcfyGcYOxpWXInYTyROK3eohanP7qwVXmRs1TQZJVyaU-sFHktGTCp_v6qd7CI_mqsD6816a8_SoPv1wi50CFVwW28Ka9DSbpEk9NBAlVTeM7SbfD6AtSqjRVsycoGCaukbrU-vcLbxtBBHo-Ru5EfyclEdF84c-1_iZc22JLvmJze2fpwIRqa0FyQUCFSwPtfyPi8F-WBHRKko4xkO2eWc6jWnR4Hb_xko4q-rPXqwPAiF1vylJCh5-ioJqWDJ8MRN3_QrdCpuouG28IqXFwEKrdxdX-KiHPVU1z4MxbDPmNRltgITUbr9zYWM5dw&sai=AMfl-YRBSlAikoC2D8mz6qro4CXjkD6GsmPiM2KSg51roIzNq8JS4PJtyb_I33UNL4A_C-JSRgxy8gFreWntSZ5fvpPHZGKFexAtXanazEf86ZzxAtfMtyInaIWzRWsU3QAxoutcTeFZw7-udfTNE9yTwjEc14hJtqqGC1VyiWyK0YNaH5uX8WDYxCsCrRURXRIqkEBFJA0uu7093IiT9hJwHBWQlnEcO0Bhy8aPRvzu0S3ib0oDOb58u7-jQhEgKs9INl4n750GJXSB8g2KHLKv-P6exuL99fABpZ5GJsLXXuQ5LBsPlppqTDAqEEy7FAXB-fgjQwaHGbrbv3jkLllnGIOgG1kvLrJVJ3dJM1RiLPHI_MJuGMD4lZPn4nwwhLYOIDcOhj2-AiOnh3C6&sig=Cg0ArKJSzK_ge1ZvlvWC&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.speedtest.net/apps/mobile%3Futm_source%3Dhouse_ad%26utm_medium%3Dbanner%26utm_campaign%3Dmobile_app
+          - img [ref=f26e6] [cursor=pointer]
+          - button [ref=f26e8] [cursor=pointer]:
+            - img [ref=f26e9]
+    - contentinfo [ref=e290]:
+      - navigation "Footer Navigation" [ref=e291]:
+        - generic [ref=e292]:
+          - generic [ref=e293]:
+            - heading "Speedtest Home" [level=6] [ref=e294]:
+              - link "Speedtest Home" [ref=e295] [cursor=pointer]:
+                - /url: /
+                - text: Speedtest
+                - superscript [ref=e296]: ®
+            - list [ref=e297]:
+              - listitem [ref=e298]:
+                - link "Account" [ref=e299] [cursor=pointer]:
+                  - /url: /login
+              - listitem [ref=e300]:
+                - link "Advertise" [ref=e301] [cursor=pointer]:
+                  - /url: /about/advertising
+              - listitem [ref=e302]:
+                - link "Speedtest Awards™" [ref=e303] [cursor=pointer]:
+                  - /url: /awards
+                  - generic [ref=e304]:
+                    - text: Speedtest Awards
+                    - superscript [ref=e305]: ™
+              - listitem [ref=e306]:
+                - link "Speedtest Servers™" [ref=e307] [cursor=pointer]:
+                  - /url: https://www.ookla.com/network
+                  - text: Speedtest Servers
+                  - superscript [ref=e308]: ™
+              - listitem [ref=e309]:
+                - link "Speedtest Performance Directory™" [ref=e310] [cursor=pointer]:
+                  - /url: /performance
+                  - text: Speedtest Performance Directory
+                  - superscript [ref=e311]: ™
+          - generic [ref=e312]:
+            - heading "Ookla® Brands" [level=6] [ref=e313]:
+              - text: Ookla
+              - superscript [ref=e314]: ®
+              - text: Brands
+            - list [ref=e315]:
+              - listitem [ref=e316]:
+                - link "Downdetector®" [ref=e317] [cursor=pointer]:
+                  - /url: https://downdetector.com/
+                  - text: Downdetector
+                  - superscript [ref=e318]: ®
+              - listitem [ref=e319]:
+                - link "Ekahau®" [ref=e320] [cursor=pointer]:
+                  - /url: https://www.ekahau.com/
+                  - text: Ekahau
+                  - superscript [ref=e321]: ®
+              - listitem [ref=e322]:
+                - link "RootMetrics®" [ref=e323] [cursor=pointer]:
+                  - /url: https://rootmetrics.com/
+                  - text: RootMetrics
+                  - superscript [ref=e324]: ®
+          - generic [ref=e325]:
+            - heading "Apps" [level=6] [ref=e326]:
+              - link "Apps" [ref=e327] [cursor=pointer]:
+                - /url: /apps
+            - list [ref=e328]:
+              - listitem [ref=e329]:
+                - link "Android" [ref=e330] [cursor=pointer]:
+                  - /url: /apps/android
+              - listitem [ref=e331]:
+                - link "Apple TV" [ref=e332] [cursor=pointer]:
+                  - /url: /apps/appletv
+              - listitem [ref=e333]:
+                - link "iOS" [ref=e334] [cursor=pointer]:
+                  - /url: /apps/ios
+              - listitem [ref=e335]:
+                - link "macOS" [ref=e336] [cursor=pointer]:
+                  - /url: /apps/mac
+              - listitem [ref=e337]:
+                - link "Windows" [ref=e338] [cursor=pointer]:
+                  - /url: /apps/windows
+        - generic [ref=e339]:
+          - link "Visit Speedtest's X page" [ref=e340] [cursor=pointer]:
+            - /url: https://x.com/speedtest
+            - img [ref=e342]
+          - link "Visit Speedtest's Facebook page" [ref=e344] [cursor=pointer]:
+            - /url: https://www.facebook.com/speedtest
+            - img [ref=e346]
+        - generic [ref=e348]:
+          - generic [ref=e349]:
+            - text: © 2006-2026 Ookla, LLC., an Accenture company. All Rights Reserved. Ookla
+            - superscript [ref=e350]: ®
+            - text: ", Speedtest"
+            - superscript [ref=e351]: ®
+            - text: ", and Speedtest Intelligence"
+            - superscript [ref=e352]: ®
+            - text: are among the federally registered trademarks of Ookla, LLC and may only be used with explicit written permission.
+          - list [ref=e353]:
+            - listitem [ref=e354]:
+              - link "Accessibility" [ref=e355] [cursor=pointer]:
+                - /url: /about/accessibility
+            - listitem [ref=e356]:
+              - link "Network Status" [ref=e357] [cursor=pointer]:
+                - /url: https://status.ookla.com/
+            - listitem [ref=e358]:
+              - link "Privacy Policy" [ref=e359] [cursor=pointer]:
+                - /url: /about/privacy
+            - listitem [ref=e360]:
+              - link "Terms of Use" [ref=e361] [cursor=pointer]:
+                - /url: /about/terms
+            - listitem [ref=e362]:
+              - link "Do Not Sell My Personal Information" [ref=e363] [cursor=pointer]:
+                - /url: /about/ccpa
+            - listitem [ref=e364]:
+              - link "Modern Slavery Policy" [ref=e365] [cursor=pointer]:
+                - /url: https://www.ookla.com/s/media/2026/01/Ookla-Modern-Slavery-and-Human-Trafficking-Statement-2026.pdf
+  - img [ref=e367] [cursor=pointer]
+  - img "Transparent audience pixel" [ref=e369]
+  - img "Transparent audience pixel" [ref=e370]
+```

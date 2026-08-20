@@ -1,0 +1,67 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_c281ef2f-86da-4cd0-9c3c-405e0b177fe6
+Status: FAILED
+Started at: 2026-08-13T13:44:40.844Z
+Finished at: 2026-08-13T13:44:55.666Z
+Duration: 14822 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 04d2e45f-be6c-4a17-9281-618c89eb9be6-run_c281ef2f-86da-4cd0-9c3c-405e0b177fe6.spec.ts:6:1 › Contrôle des liens d'information Cloudflare sur la page de défi de sécurité 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('link', { name: /Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i }).or(getByText(/Contrôle des  s d'information Cloudflare sur la page de défi de sécurité/i)).first()
+
+        at D:\MOHSEN\PFE\v37-report-ok\v12-08-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_c281ef2f-86da-4cd0-9c3c-405e0b177fe6\04d2e45f-be6c-4a17-9281-618c89eb9be6-run_c281ef2f-86da-4cd0-9c3c-405e0b177fe6.spec.ts:15:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\04d2e45f-be6c-4a17-9281-61-96635-la-page-de-défi-de-sécurité\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\04d2e45f-be6c-4a17-9281-61-96635-la-page-de-défi-de-sécurité\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\04d2e45f-be6c-4a17-9281-61-96635-la-page-de-défi-de-sécurité\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\04d2e45f-be6c-4a17-9281-61-96635-la-page-de-défi-de-sécurité\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    04d2e45f-be6c-4a17-9281-618c89eb9be6-run_c281ef2f-86da-4cd0-9c3c-405e0b177fe6.spec.ts:6:1 › Contrôle des liens d'information Cloudflare sur la page de défi de sécurité 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.

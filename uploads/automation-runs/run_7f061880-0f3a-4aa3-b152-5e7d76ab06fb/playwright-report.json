@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v30-record auto ok -page run multi auto/v15-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb",
+        "testIgnore": [],
+        "testMatch": [
+          "824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts",
+      "file": "824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier le champ \"Mot de passe\"",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3343,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[\"ErrorUtils caught an error:·\u001b[39m\n\u001b[31mError connecting to Credential Management service.·\u001b[39m\n\u001b[31mSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248267, extra: Object, guardList: Array(0), hash: fuwid1}\"]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[\"ErrorUtils caught an error:·\u001b[39m\n\u001b[31mError connecting to Credential Management service.·\u001b[39m\n\u001b[31mSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248267, extra: Object, guardList: Array(0), hash: fuwid1}\"]\u001b[39m\n    at D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts:35:27"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveLength\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected length: \u001b[32m0\u001b[39m\nReceived length: \u001b[31m1\u001b[39m\nReceived array:  \u001b[31m[\"ErrorUtils caught an error:·\u001b[39m\n\u001b[31mError connecting to Credential Management service.·\u001b[39m\n\u001b[31mSubsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {column: 180, clientTime: 1784248267, extra: Object, guardList: Array(0), hash: fuwid1}\"]\u001b[39m\n    at D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts:35:27"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-17T00:31:04.931Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\test-results\\824adcfc-4800-4f33-b183-50-eda17-fier-le-champ-Mot-de-passe-\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\test-results\\824adcfc-4800-4f33-b183-50-eda17-fier-le-champ-Mot-de-passe-\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v30-record auto ok -page run multi auto\\v15-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb\\test-results\\824adcfc-4800-4f33-b183-50-eda17-fier-le-champ-Mot-de-passe-\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "41d7cbc08a57b893c28b-1088603f9ec87a09fe01",
+          "file": "824adcfc-4800-4f33-b183-50eefd6e227f-run_7f061880-0f3a-4aa3-b152-5e7d76ab06fb.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-17T00:31:03.980Z",
+    "duration": 5141.2789999999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

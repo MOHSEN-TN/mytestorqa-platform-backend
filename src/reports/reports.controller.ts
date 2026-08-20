@@ -8,15 +8,11 @@ import {
   Post,
   Query,
   Req,
+  Res,
   UseGuards,
 } from '@nestjs/common';
-import { Request } from 'express';
-import {
-  ReportFormat,
-  ReportStatus,
-  ReportType,
-  RoleType,
-} from '@prisma/client';
+import { ReportFormat, ReportStatus, ReportType, RoleType } from '@prisma/client';
+import { Request, Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ReportsService } from './reports.service';
 
@@ -44,8 +40,8 @@ export class ReportsController {
     @Query('projectId') projectId?: string,
   ) {
     return this.reportsService.findAll({
-      page: page ? parseInt(page) : 1,
-      limit: limit ? parseInt(limit) : 10,
+      page: page ? parseInt(page, 10) : 1,
+      limit: limit ? parseInt(limit, 10) : 10,
       search,
       type: type || 'ALL',
       format: format || 'ALL',
@@ -64,14 +60,24 @@ export class ReportsController {
     return this.reportsService.options();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.reportsService.findOne(id);
-  }
-
   @Get(':id/preview')
   preview(@Param('id') id: string) {
     return this.reportsService.preview(id);
+  }
+
+  @Get(':id/download')
+  async download(@Param('id') id: string, @Res() res: Response) {
+    const { buffer, fileName } = await this.reportsService.download(id);
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+    res.setHeader('Content-Length', buffer.length.toString());
+    res.send(buffer);
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.reportsService.findOne(id);
   }
 
   @Post()
@@ -81,7 +87,7 @@ export class ReportsController {
     body: {
       name: string;
       type: ReportType;
-      format: ReportFormat;
+      format?: ReportFormat;
       period?: string;
       projectId?: string;
       includeCharts?: boolean;

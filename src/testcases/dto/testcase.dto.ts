@@ -24,8 +24,14 @@ export enum TestPriorityDto {
   CRITICAL = 'CRITICAL',
 }
 
+export enum AutomationFrameworkDto {
+  PLAYWRIGHT = 'PLAYWRIGHT',
+  SELENIUM = 'SELENIUM',
+  CYPRESS = 'CYPRESS',
+}
+
 export enum Status {
-  ALL= 'ALL',
+  ALL = 'ALL',
   DRAFT = 'DRAFT',
   READY = 'READY',
   DEPRECATED = 'DEPRECATED',
@@ -57,12 +63,18 @@ export class CreateTestCaseDto {
   @IsString()
   expected?: string;
 
-  @ApiPropertyOptional({ enum: TestCaseStatusDto, example: TestCaseStatusDto.DRAFT })
+  @ApiPropertyOptional({
+    enum: TestCaseStatusDto,
+    example: TestCaseStatusDto.DRAFT,
+  })
   @IsOptional()
   @IsEnum(TestCaseStatusDto)
   status?: TestCaseStatusDto;
 
-  @ApiPropertyOptional({ enum: TestPriorityDto, example: TestPriorityDto.MEDIUM })
+  @ApiPropertyOptional({
+    enum: TestPriorityDto,
+    example: TestPriorityDto.MEDIUM,
+  })
   @IsOptional()
   @IsEnum(TestPriorityDto)
   priority?: TestPriorityDto;
@@ -85,10 +97,33 @@ export class CreateTestCaseDto {
   @ValidateNested({ each: true })
   @Type(() => TestStepDto)
   steps?: TestStepDto[];
+
+  @ApiPropertyOptional({
+    enum: AutomationFrameworkDto,
+    example: AutomationFrameworkDto.PLAYWRIGHT,
+    description: 'Automation framework used for this test case.',
+  })
+  @IsOptional()
+  @IsEnum(AutomationFrameworkDto)
+  automationFramework?: AutomationFrameworkDto;
+
+  @ApiPropertyOptional({
+    example:
+      "test('Login test', async ({ page }) => { await page.goto('https://example.com'); });",
+    description: 'Playwright automation code associated with this test case.',
+  })
+  @IsOptional()
+  @IsString()
+  automationCode?: string;
 }
 
 export class UpdateTestCaseDto extends PartialType(CreateTestCaseDto) {}
 
+export class MoveTestCaseDto {
+  @ApiProperty({ example: 'target-suite-id' })
+  @IsString()
+  targetSuiteId: string;
+}
 
 export class GetAllTestCasesBySuitesDTO {
   @ApiPropertyOptional({ example: 'ALL' })
@@ -100,12 +135,11 @@ export class GetAllTestCasesBySuitesDTO {
   @IsOptional()
   @IsString()
   priority?: string;
-  
+
   @ApiPropertyOptional({ example: 'Test Case Name' })
   @IsOptional()
   @IsString()
   search?: string;
-
 
   @ApiPropertyOptional({ example: 1 })
   @IsOptional()

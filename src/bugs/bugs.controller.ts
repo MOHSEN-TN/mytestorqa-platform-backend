@@ -1,5 +1,4 @@
 // src/bugs/bugs.controller.ts
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import {
   Body,
@@ -13,9 +12,49 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { BugPriority, BugSeverity, BugStatus } from '@prisma/client';
+import {
+  BugPriority,
+  BugSeverity,
+  BugStatus,
+  RoleType,
+} from '@prisma/client';
+import type { Request } from 'express';
+
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { BugsService } from './bugs.service';
+
+type AuthenticatedRequest = Request & {
+  user: {
+    userId: string;
+    email: string;
+    role: RoleType;
+  };
+};
+
+type CreateBugBody = {
+  title: string;
+  description?: string;
+  steps?: string;
+  severity?: BugSeverity;
+  priority?: BugPriority;
+  projectId?: string;
+  testCaseId?: string;
+  executionId?: string;
+  assigneeId?: string;
+};
+
+type UpdateBugBody = {
+  title?: string;
+  description?: string;
+  steps?: string;
+  status?: BugStatus;
+  severity?: BugSeverity;
+  priority?: BugPriority;
+  projectId?: string;
+  testCaseId?: string;
+  executionId?: string;
+  assigneeId?: string;
+};
 
 @Controller('bugs')
 @UseGuards(JwtAuthGuard)
@@ -24,7 +63,7 @@ export class BugsController {
 
   @Get()
   async listBugs(
-    @Req() req: any,
+    @Req() req: AuthenticatedRequest,
     @Query('page') page?: string,
     @Query('limit') limit?: string,
     @Query('search') search?: string,
@@ -32,8 +71,8 @@ export class BugsController {
     @Query('mine') mine?: string,
   ) {
     return this.bugsService.findAll({
-      page: page ? parseInt(page) : 1,
-      limit: limit ? parseInt(limit) : 10,
+      page: page ? parseInt(page, 10) : 1,
+      limit: limit ? parseInt(limit, 10) : 10,
       search,
       status: status || 'ALL',
       mine: mine === 'true',
@@ -42,8 +81,12 @@ export class BugsController {
   }
 
   @Get('stats')
-  async getStats(@Req() req: any) {
-    return this.bugsService.getStats(req.user.userId);
+  async getStats(
+    @Req() req: AuthenticatedRequest,
+  ) {
+    return this.bugsService.getStats(
+      req.user.userId,
+    );
   }
 
   @Get('options')
@@ -52,52 +95,44 @@ export class BugsController {
   }
 
   @Get(':id')
-  async getBug(@Param('id') id: string) {
+  async getBug(
+    @Param('id') id: string,
+  ) {
     return this.bugsService.findOne(id);
   }
 
   @Post()
   async createBug(
-    @Req() req: any,
-    @Body()
-    body: {
-      title: string;
-      description?: string;
-      steps?: string;
-      severity?: BugSeverity;
-      priority?: BugPriority;
-      projectId?: string;
-      testCaseId?: string;
-      executionId?: string;
-      assigneeId?: string;
-    },
+    @Req() req: AuthenticatedRequest,
+    @Body() body: CreateBugBody,
   ) {
-    return this.bugsService.create(body, req.user.userId);
+    return this.bugsService.create(
+      body,
+      req.user.userId,
+    );
   }
 
   @Patch(':id')
   async updateBug(
-    @Req() req: any,
+    @Req() req: AuthenticatedRequest,
     @Param('id') id: string,
-    @Body()
-    body: {
-      title?: string;
-      description?: string;
-      steps?: string;
-      status?: BugStatus;
-      severity?: BugSeverity;
-      priority?: BugPriority;
-      projectId?: string;
-      testCaseId?: string;
-      executionId?: string;
-      assigneeId?: string;
-    },
+    @Body() body: UpdateBugBody,
   ) {
-    return this.bugsService.update(id, body, req.user);
+    return this.bugsService.update(
+      id,
+      body,
+      req.user,
+    );
   }
 
   @Delete(':id')
-  async deleteBug(@Req() req: any, @Param('id') id: string) {
-    return this.bugsService.delete(id, req.user);
+  async deleteBug(
+    @Req() req: AuthenticatedRequest,
+    @Param('id') id: string,
+  ) {
+    return this.bugsService.delete(
+      id,
+      req.user,
+    );
   }
 }

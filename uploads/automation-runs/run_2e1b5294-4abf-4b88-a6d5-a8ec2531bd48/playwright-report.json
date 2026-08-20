@@ -1,0 +1,117 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v31-record auto ok -page run multi auto02/v18-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48",
+        "testIgnore": [],
+        "testMatch": [
+          "79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v31-record auto ok -page run multi auto02\\v18-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48.spec.ts",
+      "file": "79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Vérifier l’action du bouton \"Open TEK-UP University\"",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10099,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-18T14:29:18.587Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1e22029d67bbd7903cf9-27d8b4244ee497148669",
+          "file": "79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_2e1b5294-4abf-4b88-a6d5-a8ec2531bd48.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-18T14:29:17.059Z",
+    "duration": 12674.056,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

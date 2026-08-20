@@ -1,12 +1,27 @@
 import { Module } from '@nestjs/common';
-import { IterationsService } from './iterations.service';
-import { IterationsController } from './iterations.controller';
+
 import { PrismaModule } from '../prisma/prisma.module';
+import { TestcasesModule } from '../testcases/testcases.module';
+
+import { IterationsController } from './iterations.controller';
+import { IterationsService } from './iterations.service';
 
 @Module({
-  imports: [PrismaModule],
-  controllers: [IterationsController],
-  providers: [IterationsService],
-  exports: [IterationsService],
+  imports: [
+    PrismaModule,
+    TestcasesModule,
+  ],
+
+  controllers: [
+    IterationsController,
+  ],
+
+  providers: [
+    IterationsService,
+  ],
+
+  exports: [
+    IterationsService,
+  ],
 })
 export class IterationsModule {}

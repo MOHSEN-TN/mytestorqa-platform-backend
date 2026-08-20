@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_ec86c0ac-afec-4974-9b47-1e00c0bdded1",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_ec86c0ac-afec-4974-9b47-1e00c0bdded1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v29-record auto ok -resultat playwright court - rafinee/v13-07-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_ec86c0ac-afec-4974-9b47-1e00c0bdded1",
+        "testIgnore": [],
+        "testMatch": [
+          "958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts",
+      "file": "958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28467,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#description')\nTimeout: 10000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 9\u001b[39m\n\n\u001b[32m- La mini clé PC B1Pro dispose d'une connexion Wi-Fi bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                     \u001b[49m\u001b[39m\n\u001b[31m+ Connexion sans fil stable\u001b[39m\n\u001b[31m+ La mini clé PC B1Pro dispose d'une connexion Wi-Fi \u001b[7mdouble \u001b[27mbande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Silencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                 \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('#description')\u001b[22m\n\u001b[2m    23 × locator resolved to <div role=\"tabpanel\" id=\"description\" class=\"tab-pane fade in active\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                     \u001b[22m\n\u001b[2mConnexion sans fil stable\u001b[22m\n\u001b[2mLa mini clé PC B1Pro dispose d'une connexion Wi-Fi double bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mSilencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                 \"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#description')\nTimeout: 10000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 9\u001b[39m\n\n\u001b[32m- La mini clé PC B1Pro dispose d'une connexion Wi-Fi bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                     \u001b[49m\u001b[39m\n\u001b[31m+ Connexion sans fil stable\u001b[39m\n\u001b[31m+ La mini clé PC B1Pro dispose d'une connexion Wi-Fi \u001b[7mdouble \u001b[27mbande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Silencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                 \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('#description')\u001b[22m\n\u001b[2m    23 × locator resolved to <div role=\"tabpanel\" id=\"description\" class=\"tab-pane fade in active\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                     \u001b[22m\n\u001b[2mConnexion sans fil stable\u001b[22m\n\u001b[2mLa mini clé PC B1Pro dispose d'une connexion Wi-Fi double bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mSilencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                 \"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts:16:46"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#description')\nTimeout: 10000ms\n\u001b[32m- Expected substring  - 1\u001b[39m\n\u001b[31m+ Received string     + 9\u001b[39m\n\n\u001b[32m- La mini clé PC B1Pro dispose d'une connexion Wi-Fi bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                     \u001b[49m\u001b[39m\n\u001b[31m+ Connexion sans fil stable\u001b[39m\n\u001b[31m+ La mini clé PC B1Pro dispose d'une connexion Wi-Fi \u001b[7mdouble \u001b[27mbande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Silencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[39m\n\u001b[31m+ \u001b[43m                   \u001b[49m\u001b[39m\n\u001b[31m+ \u001b[43m                 \u001b[49m\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('#description')\u001b[22m\n\u001b[2m    23 × locator resolved to <div role=\"tabpanel\" id=\"description\" class=\"tab-pane fade in active\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                     \u001b[22m\n\u001b[2mConnexion sans fil stable\u001b[22m\n\u001b[2mLa mini clé PC B1Pro dispose d'une connexion Wi-Fi double bande 2,4 G/5,0 G avec antenne externe, Bluetooth 4.2, le signal sans fil est plus fort et plus stable, et le travail en ligne est plus fluide. Bluetooth 4.2 prend en charge la connexion des appareils (clavier, souris, etc.) et répond plus rapidement aux commandes en cours d'exécution.\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2mSilencieux et compactConception sans ventilateur, radiateur unique utilise un refroidissement passif au lieu de ventilateurs de refroidissement, économie d'énergie, 0 dB silencieux. Il est suffisamment petit pour se glisser facilement dans une poche ou un sac à main, ce qui le rend facile à transporter lors de voyages et de voyages d'affaires.\u001b[22m\n\u001b[2m                   \u001b[22m\n\u001b[2m                 \"\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts:16:46"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-13T00:04:21.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\test-results\\958c74be-9e33-4641-8dd5-93-9c518-4974-9b47-1e00c0bdded1-test\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\test-results\\958c74be-9e33-4641-8dd5-93-9c518-4974-9b47-1e00c0bdded1-test\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v29-record auto ok -resultat playwright court - rafinee\\v13-07-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_ec86c0ac-afec-4974-9b47-1e00c0bdded1\\test-results\\958c74be-9e33-4641-8dd5-93-9c518-4974-9b47-1e00c0bdded1-test\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "10f4f98bb45cd34ae03f-e9e8019f5df49dc77e71",
+          "file": "958c74be-9e33-4641-8dd5-93b11c974745-run_ec86c0ac-afec-4974-9b47-1e00c0bdded1.spec.ts",
+          "line": 7,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-13T00:04:20.364Z",
+    "duration": 35790.087,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

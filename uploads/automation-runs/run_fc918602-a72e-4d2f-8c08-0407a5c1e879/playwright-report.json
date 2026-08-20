@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_fc918602-a72e-4d2f-8c08-0407a5c1e879",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_fc918602-a72e-4d2f-8c08-0407a5c1e879/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_fc918602-a72e-4d2f-8c08-0407a5c1e879",
+        "testIgnore": [],
+        "testMatch": [
+          "958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts",
+      "file": "958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30011,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Mini Pc de bureau BMAX B1 PRO / N4000 / 8GB 128SSD / Windows 11 / Noir', exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Mini Pc de bureau BMAX B1 PRO / N4000 / 8GB 128SSD / Windows 11 / Noir', exact: true })\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts:12:131"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Mini Pc de bureau BMAX B1 PRO / N4000 / 8GB 128SSD / Windows 11 / Noir', exact: true })\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts:12:131"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-14T01:01:11.786Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\test-results\\958c74be-9e33-4641-8dd5-93-952a5-4d2f-8c08-0407a5c1e879-test\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\test-results\\958c74be-9e33-4641-8dd5-93-952a5-4d2f-8c08-0407a5c1e879-test\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_fc918602-a72e-4d2f-8c08-0407a5c1e879\\test-results\\958c74be-9e33-4641-8dd5-93-952a5-4d2f-8c08-0407a5c1e879-test\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2f4e6787e3aa4f974d8b-8a687b7727d18d61eb72",
+          "file": "958c74be-9e33-4641-8dd5-93b11c974745-run_fc918602-a72e-4d2f-8c08-0407a5c1e879.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-14T01:01:09.921Z",
+    "duration": 34956.871999999996,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

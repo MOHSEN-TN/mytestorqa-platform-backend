@@ -1,0 +1,141 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\playwright.config.cjs"
+    ],
+    "configFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\playwright.config.cjs",
+    "rootDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/MOHSEN/PFE/v38-app pret/v12-08-26/mytestorqa-platform-backend/node_modules/.cache/mytester-playwright-runs/run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37",
+        "testIgnore": [],
+        "testMatch": [
+          "4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts",
+      "file": "4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "test",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 23497,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Contactez-nous' })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Contactez-nous' })\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts:10:62"
+                  },
+                  "errors": [
+                    {
+                      "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Contactez-nous' })\u001b[22m\n\n    at D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts:10:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-19T21:10:27.182Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\test-results\\4f1f23f2-39ad-4c57-9e6e-24-ce646-4311-aa3b-36aa948ffc37-test\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\test-results\\4f1f23f2-39ad-4c57-9e6e-24-ce646-4311-aa3b-36aa948ffc37-test\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\MOHSEN\\PFE\\v38-app pret\\v12-08-26\\mytestorqa-platform-backend\\node_modules\\.cache\\mytester-playwright-runs\\run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37\\test-results\\4f1f23f2-39ad-4c57-9e6e-24-ce646-4311-aa3b-36aa948ffc37-test\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "250fe20e80827bc5a80d-8bf9b6a53655449eca04",
+          "file": "4f1f23f2-39ad-4c57-9e6e-2441db5c1382-run_1d7cf97a-2a9e-4311-aa3b-36aa948ffc37.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-08-19T21:10:24.545Z",
+    "duration": 27686.095,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

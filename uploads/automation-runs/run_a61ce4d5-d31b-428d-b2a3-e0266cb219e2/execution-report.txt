@@ -1,0 +1,57 @@
+MYTESTER - RAPPORT TECHNIQUE PLAYWRIGHT
+=======================================
+
+Run ID: run_a61ce4d5-d31b-428d-b2a3-e0266cb219e2
+Status: FAILED
+Started at: 2026-08-02T08:18:45.791Z
+Finished at: 2026-08-02T08:19:21.444Z
+Duration: 35653 ms
+Exit code: 1
+Signal: null
+Timed out: false
+
+ERREUR PRINCIPALE
+------------------
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Study & work (alternance)' })
+
+STDOUT PLAYWRIGHT
+-----------------
+
+Running 1 test using 1 worker
+F
+
+  1) 79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_a61ce4d5-d31b-428d-b2a3-e0266cb219e2.spec.ts:6:1 › test 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'Study & work (alternance)' })
+
+        at D:\MOHSEN\PFE\v34-jemini\v01-08-26\mytestorqa-platform-backend\node_modules\.cache\mytester-playwright-runs\run_a61ce4d5-d31b-428d-b2a3-e0266cb219e2\79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_a61ce4d5-d31b-428d-b2a3-e0266cb219e2.spec.ts:14:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\79430ea5-6841-4fbe-9062-53-8877c-428d-b2a3-e0266cb219e2-test\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\79430ea5-6841-4fbe-9062-53-8877c-428d-b2a3-e0266cb219e2-test\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\79430ea5-6841-4fbe-9062-53-8877c-428d-b2a3-e0266cb219e2-test\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\79430ea5-6841-4fbe-9062-53-8877c-428d-b2a3-e0266cb219e2-test\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\79430ea5-6841-4fbe-9062-53-8877c-428d-b2a3-e0266cb219e2-test\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    79430ea5-6841-4fbe-9062-53e1e1c8dd3f-run_a61ce4d5-d31b-428d-b2a3-e0266cb219e2.spec.ts:6:1 › test 
+
+
+STDERR PLAYWRIGHT
+-----------------
+Aucune sortie stderr.
