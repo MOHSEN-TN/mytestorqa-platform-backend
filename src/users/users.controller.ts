@@ -42,11 +42,15 @@ export class UsersController {
     @Query('search') search?: string,
     @Query('name') name?: string,
   ) {
-    return this.usersService.findAll({
-      page: page ? Number.parseInt(page, 10) : 1,
-      limit: limit ? Number.parseInt(limit, 10) : 10,
-      search: search || name,
-    });
+
+    const searchTerm = search || name;
+
+return this.usersService.findAll({
+  page: page ? Number.parseInt(page, 10) : 1,
+  limit: limit ? Number.parseInt(limit, 10) : 10,
+  search: searchTerm,
+});
+
   }
 
   @UseGuards(JwtAuthGuard)

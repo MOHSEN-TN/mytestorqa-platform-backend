@@ -12,7 +12,7 @@ export class AuthService {
     private readonly jwt: JwtService,
   ) {}
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string) {    
     if (!email || !password) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -21,18 +21,17 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
-
-    const ok = await bcrypt.compare(password, user.password);
+    
+    const ok = await bcrypt.compare(password, user.password);    
     if (!ok) {
       throw new UnauthorizedException('Invalid credentials');
-    }
-
+    }    
     const payload = {
       sub: user.id,
       email: user.email,
       role: user.role,
     };
-
+    
     return {
       accessToken: await this.jwt.signAsync(payload),
       user: {
@@ -62,6 +61,5 @@ export class AuthService {
       role: RoleType.ADMIN,
     });
 
-    console.log(`✅ Admin created: ${email}`);
   }
 }

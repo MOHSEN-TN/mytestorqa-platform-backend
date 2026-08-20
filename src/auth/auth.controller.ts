@@ -43,6 +43,7 @@ export class AuthController {
     @Body() dto: LoginDto,
     @Res({ passthrough: true }) res: Response,
   ) {
+    
     const result = await this.auth.login(dto.email, dto.password);
 
     res.cookie('accessToken', result.accessToken, {
