@@ -39,6 +39,7 @@ type CreateBugBody = {
   priority?: BugPriority;
   projectId?: string;
   testCaseId?: string;
+  iterationId?: string;
   executionId?: string;
   assigneeId?: string;
 };
@@ -68,6 +69,7 @@ export class BugsController {
     @Query('limit') limit?: string,
     @Query('search') search?: string,
     @Query('status') status?: BugStatus | 'ALL' | 'OPEN',
+    @Query('projectId') projectId?: string,
     @Query('mine') mine?: string,
   ) {
     return this.bugsService.findAll({
@@ -75,6 +77,7 @@ export class BugsController {
       limit: limit ? parseInt(limit, 10) : 10,
       search,
       status: status || 'ALL',
+      projectId: projectId || undefined,
       mine: mine === 'true',
       userId: req.user.userId,
     });
@@ -90,8 +93,21 @@ export class BugsController {
   }
 
   @Get('options')
-  async getOptions() {
-    return this.bugsService.getOptions();
+  async getOptions(
+    @Req() req: AuthenticatedRequest,
+    @Query('projectId') projectId?: string,
+    @Query('suiteId') suiteId?: string,
+    @Query('campaignId') campaignId?: string,
+    @Query('iterationId') iterationId?: string,
+    @Query('testCaseId') testCaseId?: string,
+  ) {
+    return this.bugsService.getOptions(req.user, {
+      projectId: projectId || undefined,
+      suiteId: suiteId || undefined,
+      campaignId: campaignId || undefined,
+      iterationId: iterationId || undefined,
+      testCaseId: testCaseId || undefined,
+    });
   }
 
   @Get(':id')

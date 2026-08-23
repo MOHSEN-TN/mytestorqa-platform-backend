@@ -78,11 +78,14 @@ export class ReportsService {
       projectId,
     } = params;
 
+    const showAll = limit === -1;
     const safePage = Number.isFinite(page) && page > 0 ? page : 1;
-    const safeLimit = Number.isFinite(limit)
-      ? Math.min(Math.max(limit, 1), 100)
-      : 10;
-    const skip = (safePage - 1) * safeLimit;
+    const safeLimit = showAll
+      ? -1
+      : Number.isFinite(limit)
+        ? Math.min(Math.max(limit, 1), 100)
+        : 10;
+    const skip = showAll ? 0 : (safePage - 1) * safeLimit;
 
     const andFilters: Prisma.ReportWhereInput[] = [
       { type: { in: ENABLED_REPORT_TYPES } },
@@ -116,8 +119,7 @@ export class ReportsService {
     const [reports, total] = await Promise.all([
       this.prisma.report.findMany({
         where,
-        skip,
-        take: safeLimit,
+        ...(showAll ? {} : { skip, take: safeLimit }),
         orderBy: { createdAt: 'desc' },
         include: {
           project: { select: { id: true, name: true } },
@@ -138,10 +140,10 @@ export class ReportsService {
     return {
       data: reports,
       pagination: {
-        page: safePage,
+        page: showAll ? 1 : safePage,
         limit: safeLimit,
         total,
-        totalPages: Math.ceil(total / safeLimit),
+        totalPages: showAll ? 1 : Math.ceil(total / safeLimit),
       },
     };
   }
