@@ -4,6 +4,7 @@ import { PrismaModule } from '../prisma/prisma.module';
 import { AIExplorationController } from './ai-exploration.controller';
 import { AIExplorationService } from './ai-exploration.service';
 import { SmartQaChatController } from './chat/smart-qa-chat.controller';
+import { SmartQaContextService } from './chat/smart-qa-context.service';
 import { SmartQaChatService } from './chat/smart-qa-chat.service';
 import { AISuggestionConverterService } from './converter/ai-suggestion-converter.service';
 import { GeminiService } from './gemini/gemini.service';
@@ -27,6 +28,7 @@ import { AITestPrioritizerService } from './prioritization/ai-test-prioritizer.s
     SmartLocatorService,
     OllamaService,
     GeminiService,
+    SmartQaContextService,
     SmartQaChatService,
   ],
   exports: [

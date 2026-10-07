@@ -7,7 +7,7 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { RoleType } from '@prisma/client';
+import { ProjectRole, RoleType } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { createHash, randomBytes } from 'crypto';
 import { MailService } from '../mail/mail.service';
@@ -17,6 +17,28 @@ import { PrismaService } from '../prisma/prisma.service';
 export class UsersService {
   private readonly logger = new Logger(UsersService.name);
   private readonly resetTokenDurationMs = 15 * 60 * 1000;
+
+  private readonly userSelect = {
+    id: true,
+    email: true,
+    firstName: true,
+    lastName: true,
+    role: true,
+    createdAt: true,
+    memberships: {
+      select: {
+        projectId: true,
+        role: true,
+        project: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'asc' as const },
+    },
+  } as const;
 
   constructor(
     private readonly prisma: PrismaService,
@@ -62,14 +84,7 @@ export class UsersService {
         where,
         skip,
         take: limit,
-        select: {
-          id: true,
-          email: true,
-          firstName: true,
-          lastName: true,
-          role: true,
-          createdAt: true,
-        },
+        select: this.userSelect,
         orderBy: { createdAt: 'desc' },
       }),
       this.prisma.user.count({ where }),
@@ -89,14 +104,7 @@ export class UsersService {
   async findOne(id: string) {
     const user = await this.prisma.user.findUnique({
       where: { id },
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        role: true,
-        createdAt: true,
-      },
+      select: this.userSelect,
     });
 
     if (!user) {
@@ -111,9 +119,22 @@ export class UsersService {
     firstName: string;
     lastName: string;
     role: string;
+    projectId?: string;
     locale?: string;
   }) {
     const email = data.email.trim().toLowerCase();
+    const role = this.parseRole(data.role);
+    const viewerProjectId = data.projectId?.trim() || undefined;
+
+    if (role === RoleType.VIEWER) {
+      if (!viewerProjectId) {
+        throw new BadRequestException(
+          'Un projet doit être sélectionné pour un utilisateur Viewer.',
+        );
+      }
+
+      await this.assertProjectExists(viewerProjectId);
+    }
 
     const existingUser = await this.prisma.user.findUnique({
       where: { email },
@@ -134,16 +155,19 @@ export class UsersService {
         password: hashedPassword,
         firstName: data.firstName.trim(),
         lastName: data.lastName.trim(),
-        role: data.role as RoleType,
+        role,
+        ...(role === RoleType.VIEWER && viewerProjectId
+          ? {
+              memberships: {
+                create: {
+                  projectId: viewerProjectId,
+                  role: ProjectRole.VIEWER,
+                },
+              },
+            }
+          : {}),
       },
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        role: true,
-        createdAt: true,
-      },
+      select: this.userSelect,
     });
 
     let activationEmailSent = true;
@@ -173,9 +197,19 @@ export class UsersService {
       firstName?: string;
       lastName?: string;
       role?: string;
+      projectId?: string;
     },
   ) {
-    const existingUser = await this.prisma.user.findUnique({ where: { id } });
+    const existingUser = await this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        memberships: {
+          where: { role: ProjectRole.VIEWER },
+          orderBy: { createdAt: 'asc' },
+          take: 1,
+        },
+      },
+    });
 
     if (!existingUser) {
       throw new NotFoundException('Utilisateur non trouvé');
@@ -202,32 +236,93 @@ export class UsersService {
       }
     }
 
-    const updatedUser = await this.prisma.user.update({
-      where: { id },
-      data: {
-        ...(normalizedEmail !== undefined && { email: normalizedEmail }),
-        ...(data.firstName !== undefined && {
-          firstName: data.firstName.trim(),
-        }),
-        ...(data.lastName !== undefined && {
-          lastName: data.lastName.trim(),
-        }),
-        ...(data.role !== undefined && { role: data.role as RoleType }),
-      },
-      select: {
-        id: true,
-        email: true,
-        firstName: true,
-        lastName: true,
-        role: true,
-        createdAt: true,
-      },
+    const targetRole =
+      data.role !== undefined ? this.parseRole(data.role) : existingUser.role;
+
+    const requestedProjectId = data.projectId?.trim() || undefined;
+    const currentViewerProjectId = existingUser.memberships[0]?.projectId;
+    const viewerProjectId = requestedProjectId ?? currentViewerProjectId;
+
+    if (targetRole === RoleType.VIEWER) {
+      if (!viewerProjectId) {
+        throw new BadRequestException(
+          'Un projet doit être sélectionné pour un utilisateur Viewer.',
+        );
+      }
+
+      await this.assertProjectExists(viewerProjectId);
+    }
+
+    const updatedUser = await this.prisma.$transaction(async (tx) => {
+      const updated = await tx.user.update({
+        where: { id },
+        data: {
+          ...(normalizedEmail !== undefined && { email: normalizedEmail }),
+          ...(data.firstName !== undefined && {
+            firstName: data.firstName.trim(),
+          }),
+          ...(data.lastName !== undefined && {
+            lastName: data.lastName.trim(),
+          }),
+          role: targetRole,
+        },
+      });
+
+      if (targetRole === RoleType.VIEWER && viewerProjectId) {
+        // Un Viewer représente un client en lecture seule : on conserve
+        // uniquement le projet explicitement sélectionné pour éviter toute
+        // fuite entre projets.
+        await tx.projectMember.deleteMany({
+          where: { userId: id },
+        });
+
+        await tx.projectMember.create({
+          data: {
+            userId: id,
+            projectId: viewerProjectId,
+            role: ProjectRole.VIEWER,
+          },
+        });
+      } else if (existingUser.role === RoleType.VIEWER) {
+        // Si le compte quitte le rôle Viewer, on conserve son projet actuel
+        // mais on remet une responsabilité de projet cohérente avec son nouveau rôle.
+        await tx.projectMember.updateMany({
+          where: {
+            userId: id,
+            role: ProjectRole.VIEWER,
+          },
+          data: {
+            role: this.projectRoleForUserRole(targetRole),
+          },
+        });
+      }
+
+      return updated;
+    });
+
+    const result = await this.prisma.user.findUnique({
+      where: { id: updatedUser.id },
+      select: this.userSelect,
     });
 
     return {
-      data: updatedUser,
+      data: result,
       message: 'Utilisateur mis à jour avec succès',
     };
+  }
+
+  async projectOptions() {
+    const projects = await this.prisma.project.findMany({
+      select: {
+        id: true,
+        name: true,
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
+
+    return { data: projects };
   }
 
   async deleteUser(id: string) {
@@ -402,6 +497,40 @@ export class UsersService {
     });
 
     return { message: 'Mot de passe mis à jour avec succès' };
+  }
+
+  private parseRole(role: string): RoleType {
+    if (!Object.values(RoleType).includes(role as RoleType)) {
+      throw new BadRequestException('Rôle utilisateur invalide.');
+    }
+
+    return role as RoleType;
+  }
+
+  private projectRoleForUserRole(role: RoleType): ProjectRole {
+    switch (role) {
+      case RoleType.ADMIN:
+        return ProjectRole.OWNER;
+      case RoleType.QA_LEAD:
+        return ProjectRole.QA_LEAD;
+      case RoleType.TESTER:
+        return ProjectRole.TESTER;
+      case RoleType.VIEWER:
+        return ProjectRole.VIEWER;
+    }
+
+    return ProjectRole.TESTER;
+  }
+
+  private async assertProjectExists(projectId: string) {
+    const project = await this.prisma.project.findUnique({
+      where: { id: projectId },
+      select: { id: true },
+    });
+
+    if (!project) {
+      throw new BadRequestException('Projet Viewer introuvable.');
+    }
   }
 
   private async sendPasswordResetLink(

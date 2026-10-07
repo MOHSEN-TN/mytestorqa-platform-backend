@@ -31,6 +31,7 @@ export class ReportsController {
 
   @Get()
   findAll(
+    @Req() req: AuthenticatedRequest,
     @Query('page') page?: string,
     @Query('limit') limit?: string,
     @Query('search') search?: string,
@@ -47,27 +48,34 @@ export class ReportsController {
       format: format || 'ALL',
       status: status || 'ALL',
       projectId,
-    });
+    }, req.user);
   }
 
   @Get('stats')
-  stats() {
-    return this.reportsService.stats();
+  stats(@Req() req: AuthenticatedRequest) {
+    return this.reportsService.stats(req.user);
   }
 
   @Get('options')
-  options() {
-    return this.reportsService.options();
+  options(@Req() req: AuthenticatedRequest) {
+    return this.reportsService.options(req.user);
   }
 
   @Get(':id/preview')
-  preview(@Param('id') id: string) {
-    return this.reportsService.preview(id);
+  preview(@Req() req: AuthenticatedRequest, @Param('id') id: string) {
+    return this.reportsService.preview(id, req.user);
   }
 
   @Get(':id/download')
-  async download(@Param('id') id: string, @Res() res: Response) {
-    const { buffer, fileName } = await this.reportsService.download(id);
+  async download(
+    @Req() req: AuthenticatedRequest,
+    @Param('id') id: string,
+    @Res() res: Response,
+  ) {
+    const { buffer, fileName } = await this.reportsService.download(
+      id,
+      req.user,
+    );
 
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
@@ -76,8 +84,8 @@ export class ReportsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.reportsService.findOne(id);
+  findOne(@Req() req: AuthenticatedRequest, @Param('id') id: string) {
+    return this.reportsService.findOne(id, req.user);
   }
 
   @Post()

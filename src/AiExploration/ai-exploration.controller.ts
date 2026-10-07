@@ -42,12 +42,21 @@ export class AIExplorationController {
   findAll(
     @Req() req: AuthenticatedRequest,
     @Query('projectId') projectId?: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
+    @Query('search') search?: string,
   ) {
-    if (projectId) {
-      return this.aiExplorationService.findByProject(projectId);
-    }
+    return this.aiExplorationService.findPaginatedByUser(req.user.userId, {
+      projectId,
+      page: page ? Number.parseInt(page, 10) : 1,
+      limit: limit ? Number.parseInt(limit, 10) : 5,
+      search,
+    });
+  }
 
-    return this.aiExplorationService.findAllByUser(req.user.userId);
+  @Get('options')
+  findOptions(@Req() req: AuthenticatedRequest) {
+    return this.aiExplorationService.findOptionsByUser(req.user.userId);
   }
 
   @Get(':id')

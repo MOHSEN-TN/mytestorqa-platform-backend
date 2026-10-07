@@ -108,6 +108,109 @@ export class AIExplorationService {
     );
   }
 
+  async findPaginatedByUser(
+    createdById: string,
+    options: {
+      projectId?: string;
+      page?: number;
+      limit?: number;
+      search?: string;
+    } = {},
+  ) {
+    const requestedPage = Number.isFinite(options.page)
+      ? Math.trunc(options.page as number)
+      : 1;
+    const page = Math.max(1, requestedPage);
+
+    const requestedLimit = Number.isFinite(options.limit)
+      ? Math.trunc(options.limit as number)
+      : 5;
+    const limit = requestedLimit === -1
+      ? -1
+      : Math.min(100, Math.max(1, requestedLimit));
+
+    const search = options.search?.trim();
+    const where: Prisma.AIExplorationWhereInput = {
+      createdById,
+      ...(options.projectId ? { projectId: options.projectId } : {}),
+      ...(search
+        ? {
+            OR: [
+              {
+                title: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                targetUrl: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                project: {
+                  is: {
+                    name: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
+                },
+              },
+            ],
+          }
+        : {}),
+    };
+
+    const [explorations, total] = await this.prisma.$transaction([
+      this.prisma.aIExploration.findMany({
+        where,
+        orderBy: {
+          createdAt: 'desc',
+        },
+        ...(limit === -1
+          ? {}
+          : {
+              skip: (page - 1) * limit,
+              take: limit,
+            }),
+        include: EXPLORATION_INCLUDE,
+      }),
+      this.prisma.aIExploration.count({ where }),
+    ]);
+
+    return {
+      data: explorations.map((exploration) =>
+        this.sanitizeExploration(exploration),
+      ),
+      pagination: {
+        page: limit === -1 ? 1 : page,
+        limit,
+        total,
+        totalPages:
+          limit === -1 ? (total > 0 ? 1 : 0) : Math.ceil(total / limit),
+      },
+    };
+  }
+
+  async findOptionsByUser(createdById: string) {
+    return this.prisma.aIExploration.findMany({
+      where: {
+        createdById,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        id: true,
+        projectId: true,
+        title: true,
+        status: true,
+      },
+    });
+  }
+
   async findByProject(projectId: string) {
     const explorations = await this.prisma.aIExploration.findMany({
       where: {

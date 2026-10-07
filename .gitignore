@@ -81,3 +81,5 @@ docker-data/
 /uploads
 playwright-report/
 test-results/
+*.dump
+.env.docker

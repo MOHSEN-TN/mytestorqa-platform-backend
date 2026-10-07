@@ -110,10 +110,18 @@ return this.usersService.findAll({
       firstName: string;
       lastName: string;
       role: string;
+      projectId?: string;
       locale?: string;
     },
   ) {
     return this.usersService.createUser(body);
+  }
+
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('ADMIN')
+  @Get('project-options')
+  projectOptions() {
+    return this.usersService.projectOptions();
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
@@ -149,6 +157,7 @@ return this.usersService.findAll({
       firstName?: string;
       lastName?: string;
       role?: string;
+      projectId?: string;
     },
   ) {
     return this.usersService.updateUser(

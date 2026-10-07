@@ -21,12 +21,14 @@ enum RoleType {
   ADMIN
   QA_LEAD
   TESTER
+  VIEWER
 }
 
 enum ProjectRole {
   OWNER
   QA_LEAD
   TESTER
+  VIEWER
 }
 
 enum TestCaseStatus {
@@ -224,8 +226,8 @@ model Project {
   bugs       Bug[]
   reports    Report[]
 
-  aiExplorations   AIExploration[]
-  aiChatSessions   AIChatSession[]
+  aiExplorations  AIExploration[]
+  aiChatSessions  AIChatSession[]
   lighthouseAudit LighthouseAudit?
 
   @@index([name])
@@ -386,6 +388,7 @@ model TestCampaign {
 
   iterations TestIteration[]
 
+  @@unique([projectId, name])
   @@index([projectId])
 }
 
@@ -417,6 +420,7 @@ model TestIteration {
   suites IterationSuite[]
   items  IterationItem[]
 
+  @@unique([campaignId, name])
   @@index([campaignId])
   @@index([status])
 }
@@ -814,7 +818,6 @@ model AIChatMessage {
   @@index([role])
   @@index([createdAt])
 }
-
 
 /**
  * =========================================================================

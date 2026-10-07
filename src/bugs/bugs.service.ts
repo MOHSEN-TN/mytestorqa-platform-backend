@@ -22,11 +22,12 @@ type CreateBugDto = {
   priority?: BugPriority;
   projectId?: string;
   testCaseId?: string;
+  iterationId?: string;
   executionId?: string;
   assigneeId?: string;
 };
 
-type UpdateBugDto = Partial<CreateBugDto> & {
+type UpdateBugDto = Partial<Omit<CreateBugDto, 'iterationId'>> & {
   status?: BugStatus;
 };
 
@@ -44,10 +45,11 @@ export class BugsService {
     limit: number;
     search?: string;
     status?: BugStatus | 'ALL' | 'OPEN';
+    projectId?: string;
     mine?: boolean;
     userId: string;
   }) {
-    const { page, limit, search, status, mine, userId } = params;
+    const { page, limit, search, status, projectId, mine, userId } = params;
     const skip = (page - 1) * limit;
 
     const where: Prisma.BugWhereInput = {};
@@ -68,6 +70,10 @@ export class BugsService {
       } else {
         where.status = status;
       }
+    }
+
+    if (projectId) {
+      where.projectId = projectId;
     }
 
     if (mine) {
@@ -277,20 +283,102 @@ export class BugsService {
     if (data.testCaseId) {
       const testCase = await this.prisma.testCase.findUnique({
         where: { id: data.testCaseId },
+        select: {
+          id: true,
+          suite: {
+            select: {
+              projectId: true,
+            },
+          },
+        },
       });
 
       if (!testCase) {
         throw new BadRequestException('Cas de test introuvable');
       }
+
+      if (data.projectId && testCase.suite.projectId !== data.projectId) {
+        throw new BadRequestException(
+          'Le cas de test sélectionné n’appartient pas au projet du bug',
+        );
+      }
     }
 
-    if (data.executionId) {
+    // The UI no longer asks the user to choose an execution explicitly.
+    // When both an iteration and a test case are selected, resolve the matching
+    // IterationItem automatically and keep Bug.executionId as the technical link.
+    let resolvedExecutionId = data.executionId || null;
+
+    if (!resolvedExecutionId && data.iterationId && data.testCaseId) {
+      const iteration = await this.prisma.testIteration.findUnique({
+        where: { id: data.iterationId },
+        select: {
+          id: true,
+          campaign: {
+            select: {
+              projectId: true,
+            },
+          },
+        },
+      });
+
+      if (!iteration) {
+        throw new BadRequestException('Itération introuvable');
+      }
+
+      if (data.projectId && iteration.campaign.projectId !== data.projectId) {
+        throw new BadRequestException(
+          'L’itération sélectionnée n’appartient pas au projet du bug',
+        );
+      }
+
+      const matchingExecution = await this.prisma.iterationItem.findFirst({
+        where: {
+          iterationId: data.iterationId,
+          testCaseId: data.testCaseId,
+        },
+        orderBy: { createdAt: 'desc' },
+        select: { id: true },
+      });
+
+      resolvedExecutionId = matchingExecution?.id || null;
+    }
+
+    if (resolvedExecutionId) {
       const execution = await this.prisma.iterationItem.findUnique({
-        where: { id: data.executionId },
+        where: { id: resolvedExecutionId },
+        select: {
+          id: true,
+          testCaseId: true,
+          iteration: {
+            select: {
+              campaign: {
+                select: {
+                  projectId: true,
+                },
+              },
+            },
+          },
+        },
       });
 
       if (!execution) {
         throw new BadRequestException('Exécution introuvable');
+      }
+
+      if (
+        data.projectId &&
+        execution.iteration.campaign.projectId !== data.projectId
+      ) {
+        throw new BadRequestException(
+          'L’exécution sélectionnée n’appartient pas au projet du bug',
+        );
+      }
+
+      if (data.testCaseId && execution.testCaseId !== data.testCaseId) {
+        throw new BadRequestException(
+          'L’exécution sélectionnée ne correspond pas au cas de test choisi',
+        );
       }
     }
 
@@ -313,7 +401,7 @@ export class BugsService {
         priority: data.priority || BugPriority.MEDIUM,
         projectId: data.projectId || null,
         testCaseId: data.testCaseId || null,
-        executionId: data.executionId || null,
+        executionId: resolvedExecutionId,
         assigneeId: data.assigneeId || null,
         reporterId,
       },
@@ -456,9 +544,102 @@ export class BugsService {
     };
   }
 
-  async getOptions() {
-    const [projects, users, testCases, executions] = await Promise.all([
+  async getOptions(
+    currentUser: CurrentUser,
+    filters: {
+      projectId?: string;
+      suiteId?: string;
+      campaignId?: string;
+      iterationId?: string;
+      testCaseId?: string;
+    } = {},
+  ) {
+    const {
+      projectId,
+      suiteId,
+      campaignId,
+      iterationId,
+      testCaseId,
+    } = filters;
+    const isAdmin = currentUser.role === RoleType.ADMIN;
+
+    if (projectId) {
+      const project = await this.prisma.project.findUnique({
+        where: { id: projectId },
+        select: {
+          id: true,
+          members: {
+            where: { userId: currentUser.userId },
+            select: { id: true },
+            take: 1,
+          },
+        },
+      });
+
+      if (!project) {
+        throw new NotFoundException('Projet introuvable');
+      }
+
+      if (!isAdmin && project.members.length === 0) {
+        throw new ForbiddenException(
+          "Vous n'avez pas accès à ce projet",
+        );
+      }
+    }
+
+    const projectWhere: Prisma.ProjectWhereInput = isAdmin
+      ? {}
+      : {
+          members: {
+            some: { userId: currentUser.userId },
+          },
+        };
+
+    const suiteWhere: Prisma.TestSuiteWhereInput = projectId
+      ? { projectId }
+      : { id: { in: [] } };
+
+    const testCaseWhere: Prisma.TestCaseWhereInput = projectId && suiteId
+      ? {
+          suiteId,
+          suite: { projectId },
+        }
+      : { id: { in: [] } };
+
+    const campaignWhere: Prisma.TestCampaignWhereInput = projectId
+      ? { projectId }
+      : { id: { in: [] } };
+
+    const iterationWhere: Prisma.TestIterationWhereInput =
+      projectId && campaignId
+        ? {
+            campaignId,
+            campaign: { projectId },
+          }
+        : { id: { in: [] } };
+
+    const executionWhere: Prisma.IterationItemWhereInput =
+      projectId && iterationId
+        ? {
+            iterationId,
+            iteration: {
+              campaign: { projectId },
+            },
+            ...(testCaseId ? { testCaseId } : {}),
+          }
+        : { id: { in: [] } };
+
+    const [
+      projects,
+      users,
+      suites,
+      testCases,
+      campaigns,
+      iterations,
+      executions,
+    ] = await Promise.all([
       this.prisma.project.findMany({
+        where: projectWhere,
         orderBy: { name: 'asc' },
         select: {
           id: true,
@@ -475,7 +656,18 @@ export class BugsService {
           role: true,
         },
       }),
+      this.prisma.testSuite.findMany({
+        where: suiteWhere,
+        orderBy: { updatedAt: 'desc' },
+        take: 100,
+        select: {
+          id: true,
+          name: true,
+          projectId: true,
+        },
+      }),
       this.prisma.testCase.findMany({
+        where: testCaseWhere,
         orderBy: { createdAt: 'desc' },
         take: 100,
         select: {
@@ -495,7 +687,29 @@ export class BugsService {
           },
         },
       }),
+      this.prisma.testCampaign.findMany({
+        where: campaignWhere,
+        orderBy: { updatedAt: 'desc' },
+        take: 100,
+        select: {
+          id: true,
+          name: true,
+          projectId: true,
+        },
+      }),
+      this.prisma.testIteration.findMany({
+        where: iterationWhere,
+        orderBy: { updatedAt: 'desc' },
+        take: 100,
+        select: {
+          id: true,
+          name: true,
+          status: true,
+          campaignId: true,
+        },
+      }),
       this.prisma.iterationItem.findMany({
+        where: executionWhere,
         orderBy: { createdAt: 'desc' },
         take: 100,
         select: {
@@ -532,7 +746,10 @@ export class BugsService {
     return {
       projects,
       users,
+      suites,
       testCases,
+      campaigns,
+      iterations,
       executions,
     };
   }

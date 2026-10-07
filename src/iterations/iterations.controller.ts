@@ -6,9 +6,11 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ExecutionStatus } from '@prisma/client';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 import {
   CreateIterationDto,
@@ -18,6 +20,7 @@ import { IterationsService } from './iterations.service';
 
 @ApiTags('Iterations')
 @Controller()
+@UseGuards(JwtAuthGuard)
 export class IterationsController {
   constructor(
     private readonly iterations: IterationsService,
