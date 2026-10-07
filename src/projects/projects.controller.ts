@@ -139,20 +139,37 @@ export class ProjectsController {
    */
 
   @Get()
-  listProjects(
+  async listProjects(
     @Req() req: AuthenticatedRequest,
     @Query('name') name?: string,
     @Query('page') page?: string,
     @Query('limit') limit?: string,
   ) {
-    return this.projectsService.listProjects(
+    const result = await this.projectsService.listProjects(
       req.user.userId,
       name,
       {
         page: page ? parseInt(page, 10) : 1,
         limit: limit ? parseInt(limit, 10) : 10,
       },
+      req.user.role,
     );
+
+    if (req.user.role === 'VIEWER') {
+      return {
+        ...result,
+        data: result.data.map((project) => ({
+          id: project.id,
+          name: project.name,
+          description: project.description,
+          baseUrl: project.baseUrl,
+          createdAt: project.createdAt,
+          updatedAt: project.updatedAt,
+        })),
+      };
+    }
+
+    return result;
   }
 
   @Post()
@@ -181,9 +198,10 @@ export class ProjectsController {
 
   @Delete(':id')
   deleteProject(
+    @Req() req: AuthenticatedRequest,
     @Param('id') id: string,
   ) {
-    return this.projectsService.deleteProject(id);
+    return this.projectsService.deleteProject(id, req.user);
   }
 
   @Post(':projectId/duplicate')

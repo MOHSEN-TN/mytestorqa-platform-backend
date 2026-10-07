@@ -68,7 +68,7 @@ export class ReportsService {
     private readonly reportsPdfService: ReportsPdfService,
   ) {}
 
-  async findAll(params: FindReportsParams) {
+  async findAll(params: FindReportsParams, currentUser: AuthUser) {
     const {
       page,
       limit,
@@ -114,6 +114,10 @@ export class ReportsService {
       andFilters.push({ projectId });
     }
 
+    if (currentUser.role === RoleType.VIEWER) {
+      andFilters.push(this.viewerReportScope(currentUser.userId));
+    }
+
     const where: Prisma.ReportWhereInput = { AND: andFilters };
 
     const [reports, total] = await Promise.all([
@@ -148,9 +152,9 @@ export class ReportsService {
     };
   }
 
-  async findOne(id: string) {
-    const report = await this.prisma.report.findUnique({
-      where: { id },
+  async findOne(id: string, currentUser: AuthUser) {
+    const report = await this.prisma.report.findFirst({
+      where: this.reportAccessWhere(id, currentUser),
       include: {
         project: { select: { id: true, name: true } },
         createdBy: {
@@ -313,20 +317,30 @@ export class ReportsService {
     return { message: 'Rapport supprimé avec succès' };
   }
 
-  async stats() {
+  async stats(currentUser: AuthUser) {
+    const andFilters: Prisma.ReportWhereInput[] = [
+      { status: ReportStatus.GENERATED },
+      { format: ReportFormat.PDF },
+      { type: { in: ENABLED_REPORT_TYPES } },
+    ];
+
+    if (currentUser.role === RoleType.VIEWER) {
+      andFilters.push(this.viewerReportScope(currentUser.userId));
+    }
+
     const generated = await this.prisma.report.count({
-      where: {
-        status: ReportStatus.GENERATED,
-        format: ReportFormat.PDF,
-        type: { in: ENABLED_REPORT_TYPES },
-      },
+      where: { AND: andFilters },
     });
 
     return { generated };
   }
 
-  async options() {
+  async options(currentUser: AuthUser) {
     const projects = await this.prisma.project.findMany({
+      where:
+        currentUser.role === RoleType.VIEWER
+          ? { members: { some: { userId: currentUser.userId } } }
+          : undefined,
       select: { id: true, name: true },
       orderBy: { createdAt: 'desc' },
     });
@@ -346,9 +360,9 @@ export class ReportsService {
     };
   }
 
-  async preview(id: string) {
-    const report = await this.prisma.report.findUnique({
-      where: { id },
+  async preview(id: string, currentUser: AuthUser) {
+    const report = await this.prisma.report.findFirst({
+      where: this.reportAccessWhere(id, currentUser),
       include: {
         project: true,
         createdBy: {
@@ -380,9 +394,9 @@ export class ReportsService {
     };
   }
 
-  async download(id: string) {
-    const report = await this.prisma.report.findUnique({
-      where: { id },
+  async download(id: string, currentUser: AuthUser) {
+    const report = await this.prisma.report.findFirst({
+      where: this.reportAccessWhere(id, currentUser),
       include: {
         project: { select: { id: true, name: true } },
         createdBy: {
@@ -1023,6 +1037,31 @@ export class ReportsService {
         'Seul le format PDF est disponible pour le moment.',
       );
     }
+  }
+
+  private viewerReportScope(userId: string): Prisma.ReportWhereInput {
+    return {
+      project: {
+        is: {
+          members: {
+            some: { userId },
+          },
+        },
+      },
+    };
+  }
+
+  private reportAccessWhere(
+    id: string,
+    currentUser: AuthUser,
+  ): Prisma.ReportWhereInput {
+    if (currentUser.role !== RoleType.VIEWER) {
+      return { id };
+    }
+
+    return {
+      AND: [{ id }, this.viewerReportScope(currentUser.userId)],
+    };
   }
 
   private async assertProjectExists(projectId: string) {
